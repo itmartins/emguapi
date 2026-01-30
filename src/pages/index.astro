@@ -1,11 +1,114 @@
 ---
-import Welcome from '../components/Welcome.astro';
+// src/pages/index.astro
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import DestaquePrincipal from '../components/DestaquePrincipal.astro';
+import StatusTrem from '../components/StatusTrem.astro';
+import NoticiaCard from '../components/NoticiaCard.astro';
+import VozComunidade from '../components/VozComunidade.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// 1. Busca as notícias da pasta src/content/noticias/
+const todasNoticias = await getCollection('noticias');
+
+// 2. Separa a primeira para o banner e as demais para o grid inferior
+const noticiaDestaque = todasNoticias[0];
+const noticiasRestantes = todasNoticias.slice(1);
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="emguapi.com | Notícias de Guapimirim">
+    <Navbar />
+
+    <main class="max-w-5xl mx-auto p-6 bg-white min-h-screen shadow-2xl my-8 rounded-[2.5rem] overflow-hidden border border-borderLight">
+        
+        <section class="mb-12">
+            {noticiaDestaque ? (
+                <DestaquePrincipal 
+                    titulo={noticiaDestaque.data.titulo}
+                    resumo={noticiaDestaque.data.resumo}
+                    categoria={noticiaDestaque.data.categoria}
+                    /* Tenta usar a imagem do Markdown, se não existir, usa o fallback que funcionou */
+                    imagem={noticiaDestaque.data.imagem || "/fotos/estacao-guapi.jpg"} 
+                    link={`/noticias/${noticiaDestaque.slug}`}
+                />
+            ) : (
+                <div class="bg-navy-dark h-[400px] rounded-3xl flex items-center justify-center text-white italic">
+                    Carregando notícias de Guapimirim...
+                </div>
+            )}
+
+            <div class="mt-8">
+                <StatusTrem status="Normal" />
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark mb-10 flex items-center gap-3 italic">
+                <span class="w-10 h-1.5 bg-red-base inline-block"></span>
+                Acontece na Cidade
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-10">
+                {noticiasRestantes.length > 0 ? (
+                    noticiasRestantes.map(noticia => (
+                        <NoticiaCard 
+                            categoria={noticia.data.categoria}
+                            titulo={noticia.data.titulo}
+                            resumo={noticia.data.resumo}
+                            data={noticia.data.data}
+                            link={`/noticias/${noticia.slug}`}
+                            /* Fallback para imagem caso as outras ainda não estejam carregando */
+                            imagem={noticia.data.imagem || "/fotos/estacao-guapi.jpg"}
+                        />
+                    ))
+                ) : (
+                    <NoticiaCard 
+                        categoria="Utilidade"
+                        titulo="Manutenção programada no Ramal Guapimirim"
+                        resumo="Fique atento às mudanças nos horários do trem diesel para o próximo final de semana."
+                        data="29 de Jan"
+                        link="/horarios"
+                        imagem="/fotos/vlt-guapi.jpg"
+                    />
+                )}
+            </div>
+        </section>
+
+        <section class="mt-12 pt-12 border-t border-ice">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark flex items-center gap-3 italic">
+                        <span class="w-10 h-1.5 bg-navy-base inline-block"></span>
+                        Voz da Comunidade
+                    </h2>
+                    <p class="text-[10px] text-navy-soft font-bold uppercase mt-2 tracking-widest">O canal direto do morador local</p>
+                </div>
+                <a href="/denuncia" class="bg-red-base text-white text-[10px] font-black px-6 py-2.5 rounded-full uppercase hover:bg-red-light transition-all shadow-lg active:scale-95">
+                    Enviar Relato
+                </a>
+            </div>
+
+            <VozComunidade 
+                bairro="Citrolândia"
+                relato="Moradores pedem melhorias na iluminação da rua principal próximo à estação."
+                autor="Dona Maria Silva"
+            />
+        </section>
+    </main>
+
+    <footer class="text-center py-20 bg-navy-dark text-white">
+        <div class="mb-6">
+            <span class="text-2xl font-black tracking-tighter uppercase italic">
+                emguapi<span class="text-red-base">.com</span>
+            </span>
+        </div>
+        <div class="flex justify-center gap-6 mb-8 text-[10px] font-bold uppercase tracking-widest text-navy-soft">
+            <a href="/horarios" class="hover:text-white transition-colors">Horários</a>
+            <a href="/turismo" class="hover:text-white transition-colors">Turismo</a>
+            <a href="/denuncia" class="hover:text-white transition-colors">Denúncias</a>
+        </div>
+        <p class="text-navy-soft text-[10px] font-bold uppercase tracking-[0.4em] opacity-40">
+            &copy; 2026 - Orgulhosamente de Guapimirim
+        </p>
+    </footer>
 </Layout>

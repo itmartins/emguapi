@@ -1,0 +1,181 @@
+---
+// src/pages/horarios.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+
+// Dados consolidados do Ramal Guapimirim
+const estacoesData = [
+    { nome: "Guapimirim", acessivel: "Acesso por Rampa", integracao: "Ônibus Municipais" },
+    { nome: "Parada Bananal", acessivel: "Não Acessível", integracao: "Local" },
+    { nome: "Parada Modelo", acessivel: "Não Acessível", integracao: "Local" },
+    { nome: "Jardim Guapimirim", acessivel: "Não Acessível", integracao: "Local" },
+    { nome: "Parada Ideal", acessivel: "Não Acessível", integracao: "Local" },
+    { nome: "Citrolândia", acessivel: "Não Acessível", integracao: "Local" },
+    { nome: "Jororó", acessivel: "Não Acessível", integracao: "Local" },
+    { nome: "Jardim Nova Marília", acessivel: "Não Acessível", integracao: "Local" },
+    { nome: "Magé", acessivel: "Acesso por Rampa", integracao: "Ônibus Intermunicipais" },
+    { nome: "Iriri", acessivel: "Não Acessível", integracao: "Local" },
+    { nome: "Santa Guilhermina", acessivel: "Não Acessível", integracao: "Local" },
+    { nome: "Suruí", acessivel: "Não Acessível", integracao: "Local" },
+    { nome: "Santa Dalila", acessivel: "Não Acessível", integracao: "Local" },
+    { nome: "Parque Estrela", acessivel: "Não Acessível", integracao: "Local" },
+    { nome: "Saracuruna", acessivel: "Totalmente Acessível", integracao: "Trens Elétricos" }
+];
+---
+
+<Layout title="Planejar Viagem | emguapi.com">
+    <Navbar />
+
+    <main class="max-w-5xl mx-auto p-6 my-8">
+        <section class="bg-navy-dark text-white p-10 rounded-[2.5rem] shadow-2xl mb-12 border-b-8 border-red-base">
+            <header class="mb-10 text-center md:text-left">
+                <h2 class="text-3xl font-black uppercase italic tracking-tighter">Planeje sua Viagem</h2>
+                <p class="text-red-light text-xs font-black uppercase tracking-widest mt-1 italic">Consulte horários para qualquer dia da semana</p>
+            </header>
+            
+            <form id="planning-form" class="space-y-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-3">
+                        <label class="block text-[10px] font-black uppercase opacity-50 tracking-widest">Partida de:</label>
+                        <select id="origin" class="w-full bg-navy-base text-white p-5 rounded-2xl font-bold border-2 border-transparent focus:border-red-base outline-none transition-all">
+                            {estacoesData.map(e => <option value={e.nome}>{e.nome}</option>)}
+                        </select>
+                    </div>
+                    <div class="space-y-3">
+                        <label class="block text-[10px] font-black uppercase opacity-50 tracking-widest">Destino:</label>
+                        <select id="destination" class="w-full bg-navy-base text-white p-5 rounded-2xl font-bold border-2 border-transparent focus:border-red-base outline-none">
+                            {[...estacoesData].reverse().map(e => <option value={e.nome}>{e.nome}</option>)}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="space-y-3">
+                        <label class="block text-[10px] font-black uppercase opacity-50 tracking-widest">Tipo de Dia:</label>
+                        <select id="day-type" class="w-full bg-navy-base text-white p-5 rounded-2xl font-bold border-2 border-transparent focus:border-red-base outline-none">
+                            <option value="util">Segunda a Sexta</option>
+                            <option value="sabado">Sábados</option>
+                            <option value="domingo">Domingos e Feriados</option>
+                        </select>
+                    </div>
+                    <div class="space-y-3">
+                        <label class="block text-[10px] font-black uppercase opacity-50 tracking-widest">A partir das:</label>
+                        <input type="time" id="travel-time" class="w-full bg-navy-base text-white p-5 rounded-2xl font-bold border-2 border-transparent focus:border-red-base outline-none" />
+                    </div>
+                    <div class="flex items-end">
+                        <button type="submit" class="w-full bg-red-base hover:bg-red-light p-5 rounded-2xl font-black uppercase transition-all shadow-xl active:scale-95 text-white tracking-widest">
+                            Pesquisar Viagem
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div id="result-box" class="hidden mt-12 p-10 bg-navy-base/50 rounded-[2rem] border border-white/5 backdrop-blur-md">
+                <div id="has-train">
+                    <div class="flex flex-col md:flex-row justify-around items-center gap-10">
+                        <div class="text-center">
+                            <span class="text-[10px] uppercase font-black opacity-40 block mb-3 tracking-widest">Embarque às</span>
+                            <p id="dep-time" class="text-6xl font-black italic">--:--</p>
+                        </div>
+                        <div class="hidden md:block h-20 w-px bg-white/10"></div>
+                        <div class="text-center">
+                            <span class="text-[10px] uppercase font-black text-red-light block mb-3 tracking-widest">Chegada Prevista</span>
+                            <p id="arr-time" class="text-6xl font-black italic text-red-light">--:--</p>
+                        </div>
+                    </div>
+                    <p class="text-center text-[10px] mt-10 opacity-30 uppercase tracking-[0.4em] font-black">
+                        Estimativa para viagem no Ramal Diesel
+                    </p>
+                </div>
+                <div id="no-train" class="hidden text-center py-6">
+                    <p class="text-xl font-bold text-red-light uppercase italic">Nenhuma viagem disponível para o horário selecionado.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid md:grid-cols-2 gap-8 mb-20">
+            <div class="bg-ice p-8 rounded-3xl border-l-8 border-navy-dark">
+                <h4 class="font-black text-navy-dark uppercase text-xs mb-3 tracking-widest italic">Atenção:</h4>
+                <p class="text-sm text-navy-soft leading-relaxed font-medium">O simulador utiliza a base de dados consolidada da SuperVia. O tempo de viagem é estimado em 90 minutos para o trajeto completo.</p>
+            </div>
+            <div class="bg-ice p-8 rounded-3xl border-l-8 border-red-base">
+                <h4 class="font-black text-red-base uppercase text-xs mb-3 tracking-widest italic">Acessibilidade:</h4>
+                <p class="text-sm text-navy-soft leading-relaxed font-medium">Lembre-se: o embarque em Guapimirim é feito por rampa, mas o ressalto e vão entre o trem e a plataforma exige cuidado.</p>
+            </div>
+        </section>
+    </main>
+
+    <script define:vars={{ estacoesData }}>
+        // Grades Horárias Oficiais
+        const schedules = {
+            util: {
+                toSaracuruna: ["03:55", "05:45", "10:30", "12:00", "15:20", "16:40", "20:10"],
+                toGuapi: ["05:35", "07:30", "09:20", "12:15", "14:00", "18:00", "19:35"]
+            },
+            sabado: {
+                toSaracuruna: ["05:45", "12:00", "16:40"],
+                toGuapi: ["07:30", "14:00", "18:00"]
+            },
+            domingo: {
+                toSaracuruna: ["07:45", "15:20"],
+                toGuapi: ["09:30", "17:00"]
+            }
+        };
+
+        // Coloca a hora atual como valor padrão no input
+        const now = new Date();
+        const currentTimeString = now.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
+        const timeInput = document.getElementById('travel-time');
+        if (timeInput) timeInput.value = currentTimeString;
+
+        const form = document.getElementById('planning-form');
+        
+        form?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const dayType = document.getElementById('day-type').value;
+            const selectedTime = document.getElementById('travel-time').value;
+            const [selH, selM] = selectedTime.split(':').map(Number);
+            const selectedTotalMinutes = selH * 60 + selM;
+
+            const origin = document.getElementById('origin').value;
+            const destination = document.getElementById('destination').value;
+            const idxOrigin = estacoesData.findIndex(e => e.nome === origin);
+            const idxDest = estacoesData.findIndex(e => e.nome === destination);
+
+            if (idxOrigin === idxDest) {
+                alert("Por favor, selecione uma estação de destino diferente da partida.");
+                return;
+            }
+
+            // Define o sentido da grade (ID menor para maior = Sentido Saracuruna)
+            const currentGrade = schedules[dayType];
+            const times = (idxOrigin < idxDest) ? currentGrade.toSaracuruna : currentGrade.toGuapi;
+
+            // Encontra o primeiro comboio após a hora selecionada
+            const nextTrip = times.find(t => {
+                const [h, m] = t.split(':').map(Number);
+                return (h * 60 + m) >= selectedTotalMinutes;
+            });
+
+            const resultBox = document.getElementById('result-box');
+            resultBox?.classList.remove('hidden');
+
+            if (nextTrip) {
+                document.getElementById('has-train').classList.remove('hidden');
+                document.getElementById('no-train').classList.add('hidden');
+                document.getElementById('dep-time').innerText = nextTrip;
+                
+                // Cálculo de Chegada (+90 min médios)
+                const [h, m] = nextTrip.split(':').map(Number);
+                let arrMinutes = m + 90;
+                let arrHours = h + Math.floor(arrMinutes / 60);
+                arrMinutes %= 60;
+                document.getElementById('arr-time').innerText = `${String(arrHours % 24).padStart(2,'0')}:${String(arrMinutes).padStart(2,'0')}`;
+            } else {
+                document.getElementById('has-train').classList.add('hidden');
+                document.getElementById('no-train').classList.remove('hidden');
+            }
+        });
+    </script>
+</Layout>

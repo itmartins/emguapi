@@ -1,23 +1,63 @@
+---
+// src/layouts/Layout.astro
+import '../styles/global.css';
+
+interface Props {
+    title: string;
+    description?: string;
+    image?: string;
+}
+
+const { 
+    title, 
+    description = "Portal de notícias independente de Guapimirim. Informação sobre o ramal ferroviário, eventos, turismo e utilidade pública.", 
+    image = "/og-image-guapi.jpg" 
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, "https://emguapi.com");
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="canonical" href={canonicalURL} />
+
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content="Guapimirim, Notícias Guapimirim, Trem Guapimirim, Ramal Guapimirim, Magé, Rio de Janeiro, Baixada Fluminense" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(image, Astro.url)} />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={Astro.url} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    </head>
+    <body class="bg-ice text-navy-dark font-['Inter',sans-serif]">
+    	<slot />
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+    /* Estilo suave para scroll e seleções */
+    html {
+        scroll-behavior: smooth;
+    }
+    ::selection {
+        background-color: #ed2923;
+        color: white;
+    }
 </style>

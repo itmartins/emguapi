@@ -1,0 +1,31 @@
+---
+const { titulo, resumo, categoria, imagem, link } = Astro.props;
+---
+
+<a href={link} class="block group relative w-full h-[500px] overflow-hidden rounded-3xl shadow-2xl transition-all mb-8">
+    <img 
+        src={imagem || "/fotos/estacao-guapi.jpg"} 
+        alt={titulo} 
+        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+    />
+    
+    <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-base/40 to-transparent opacity-90"></div>
+
+    <div class="absolute bottom-0 left-0 p-8 md:p-12 w-full">
+        <span class="inline-block bg-red-base text-white text-[10px] font-black px-3 py-1 rounded-md uppercase tracking-widest mb-4">
+            {categoria}
+        </span>
+        
+        <h2 class="text-3xl md:text-5xl font-black text-white leading-tight tracking-tighter mb-4 max-w-3xl">
+            {titulo}
+        </h2>
+        
+        <p class="text-ice text-sm md:text-base max-w-2xl opacity-80 mb-6">
+            {resumo}
+        </p>
+        
+        <span class="text-white font-black uppercase text-[10px] tracking-widest border-b-2 border-red-base pb-1">
+            Ler reportagem completa →
+        </span>
+    </div>
+</a>

@@ -1,0 +1,26 @@
+---
+// src/components/VozComunidade.astro
+const { bairro, relato, autor } = Astro.props;
+---
+
+<div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-xl shadow-sm hover:shadow-md transition-all">
+    <div class="flex items-center gap-2 mb-3">
+        <span class="bg-blue-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-tighter">
+            Voz da Comunidade
+        </span>
+        <span class="text-gray-500 text-xs font-bold uppercase tracking-widest italic">
+            {bairro}
+        </span>
+    </div>
+    
+    <blockquote class="text-gray-800 font-medium leading-relaxed mb-4">
+        "{relato}"
+    </blockquote>
+    
+    <div class="flex items-center gap-2">
+        <div class="w-6 h-6 bg-blue-200 rounded-full flex items-center justify-center text-[10px] font-bold text-blue-700">
+            {autor[0]}
+        </div>
+        <span class="text-xs text-gray-500 font-bold">{autor}</span>
+    </div>
+</div>

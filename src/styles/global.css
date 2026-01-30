@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Navy - Identidade Principal */
+  --color-navy-dark: #031623;
+  --color-navy-base: #052033;
+  --color-navy-soft: #315976;
+
+  /* Red - Ação e Destaque */
+  --color-red-light: #D92B37;
+  --color-red-base: #B91520;
+  --color-red-deep: #810E16;
+
+  /* Neutros - Suporte */
+  --color-bg-ice: #F8FAFC;
+  --color-border-light: #E2E8F0;
+}
+
+body {
+  background-color: var(--color-bg-ice);
+  color: var(--color-navy-dark);
+  font-family: 'Inter', sans-serif;
+}

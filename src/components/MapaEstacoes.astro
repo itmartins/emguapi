@@ -1,0 +1,38 @@
+---
+// Dados resumidos do ramal para o mapa
+const dadosEstacoes = [
+    { nome: "Saracuruna", integração: "Trens Elétricos / Vila Inhomirim", acesso: true },
+    { nome: "Magé", integração: "Ônibus Municipais", acesso: false },
+    { nome: "Citrolândia", integração: "Nenhuma", acesso: false },
+    { nome: "Guapimirim", integração: "Terminal", acesso: false },
+];
+---
+
+<div class="mt-16">
+    <h2 class="text-xl font-black uppercase text-gray-800 mb-8 border-l-4 border-[#ed2923] pl-4">Mapa e Acessibilidade</h2>
+    
+    <div class="bg-gray-50 p-8 rounded-3xl">
+        <div class="flex flex-col gap-4">
+            {dadosEstacoes.map((item) => (
+                <div class="flex items-center gap-6 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                    <div class={`w-4 h-4 rounded-full ${item.nome === 'Saracuruna' ? 'bg-[#2b1d7b]' : 'bg-[#ed2923]'} ring-4 ring-gray-100`}></div>
+                    
+                    <div class="flex-grow">
+                        <h3 class="font-black text-gray-900 uppercase text-sm">{item.nome}</h3>
+                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                            Integração: <span class="text-gray-600">{item.integração}</span>
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        {item.acesso ? (
+                            <span class="bg-green-100 text-green-700 text-[9px] font-black px-2 py-1 rounded">ACESSÍVEL</span>
+                        ) : (
+                            <span class="bg-red-50 text-red-400 text-[9px] font-black px-2 py-1 rounded italic line-through">SEM ACESSO</span>
+                        )}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</div>

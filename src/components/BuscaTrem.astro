@@ -1,0 +1,55 @@
+---
+// src/components/BuscaTrem.astro
+const estacoes = [
+    "Saracuruna", "Parque Estrela", "Santa Dalila", "Suruí", "Santa Guilhermina", 
+    "Iriri", "Magé", "Jardim Nova Marília", "Jororó", "Citrolândia", 
+    "Parada Ideal", "Jardim Guapimirim", "Parada Modelo", "Bananal", "Guapimirim"
+];
+---
+
+<div class="bg-white p-8 rounded-3xl shadow-2xl border-2 border-gray-100">
+    <div class="grid md:grid-cols-4 gap-4 items-end">
+        <div>
+            <label class="block text-[10px] font-black uppercase text-gray-400 mb-2">Embarque</label>
+            <select id="origem" class="w-full p-3 rounded-lg border-2 border-gray-100 focus:border-[#2b1d7b] outline-none font-bold text-sm">
+                {estacoes.map(e => <option value={e}>{e}</option>)}
+            </select>
+        </div>
+        <div>
+            <label class="block text-[10px] font-black uppercase text-gray-400 mb-2">Desembarque</label>
+            <select id="destino" class="w-full p-3 rounded-lg border-2 border-gray-100 focus:border-[#2b1d7b] outline-none font-bold text-sm">
+                {estacoes.reverse().map(e => <option value={e}>{e}</option>)}
+            </select>
+        </div>
+        <div>
+            <label class="block text-[10px] font-black uppercase text-gray-400 mb-2">Dia da Semana</label>
+            <select id="dia" class="w-full p-3 rounded-lg border-2 border-gray-100 focus:border-[#2b1d7b] outline-none font-bold text-sm">
+                <option value="util">Dia Útil</option>
+                <option value="sabado">Sábado</option>
+                <option value="domingo">Domingo/Feriado</option>
+            </select>
+        </div>
+        <button id="btnBuscar" class="bg-[#ed2923] text-white p-3 rounded-lg font-black uppercase text-xs hover:bg-red-700 transition-all shadow-lg shadow-red-200">
+            Consultar Horário
+        </button>
+    </div>
+
+    <div id="resultadoBusca" class="hidden mt-8 p-6 bg-blue-50 rounded-xl border-2 border-blue-100 text-center">
+        <p class="text-[#2b1d7b] font-bold">Próxima partida estimada:</p>
+        <span id="horaResultado" class="text-4xl font-black text-[#2b1d7b] italic">--:--</span>
+    </div>
+</div>
+
+<script>
+    // Lógica simples de consulta (exemplo de funcionamento)
+    document.getElementById('btnBuscar')?.addEventListener('click', () => {
+        const resultado = document.getElementById('resultadoBusca');
+        const hora = document.getElementById('horaResultado');
+        
+        if (resultado && hora) {
+            resultado.classList.remove('hidden');
+            // Aqui você conectaria com um JSON de horários reais
+            hora.innerText = "05:15"; 
+        }
+    });
+</script>

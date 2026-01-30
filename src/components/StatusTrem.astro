@@ -1,0 +1,23 @@
+---
+// src/components/StatusTrem.astro
+const { status = "Normal" } = Astro.props;
+const isNormal = status === "Normal";
+---
+
+<div class="bg-white border-l-8 p-4 mb-8 rounded-lg shadow-md flex items-center justify-between" 
+     class:list={[{ 'border-green-500': isNormal, 'border-red-500': !isNormal }]}>
+    <div>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400">Giro do Ramal</h2>
+        <p class="text-2xl font-black text-gray-800 italic">Guapimirim</p>
+    </div>
+    
+    <div class="flex items-center gap-3 bg-gray-50 px-4 py-2 rounded-full border border-gray-100">
+        <span class="relative flex h-3 w-3">
+            <span class={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isNormal ? 'bg-green-400' : 'bg-red-400'}`}></span>
+            <span class={`relative inline-flex rounded-full h-3 w-3 ${isNormal ? 'bg-green-500' : 'bg-red-500'}`}></span>
+        </span>
+        <span class={`font-black text-sm ${isNormal ? 'text-green-600' : 'text-red-600'}`}>
+            {status.toUpperCase()}
+        </span>
+    </div>
+</div>

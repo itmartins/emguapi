@@ -1,0 +1,112 @@
+---
+// src/pages/denuncia.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+
+// Lista de bairros consolidada baseada no Ramal Guapimirim
+const bairros = [
+    "Centro (Guapimirim)", "Citrolândia", "Jardim Guapimirim", "Parada Modelo", 
+    "Parada Ideal", "Parada Bananal", "Magé (Centro)", "Suruí", "Iriri", 
+    "Santa Guilhermina", "Saracuruna"
+];
+
+const problemas = [
+    "Falta de Água", "Coleta de Lixo", "Iluminação Pública", 
+    "Problemas no Trem (Diesel)", "Segurança", "Buracos/Pavimentação"
+];
+---
+
+<Layout title="Voz da Comunidade - Denúncias | emguapi.com">
+    <Navbar />
+
+    <main class="max-w-3xl mx-auto p-6 my-12 bg-white shadow-2xl rounded-[2.5rem] overflow-hidden border-t-8 border-red-base">
+        <header class="mb-10 text-center">
+            <h1 class="text-4xl font-black text-navy-dark uppercase italic tracking-tighter">
+                Voz da <span class="text-red-base">Comunidade</span>
+            </h1>
+            <p class="text-navy-soft mt-2 font-medium italic">O canal de utilidade pública de Guapimirim</p>
+        </header>
+
+        <form id="denuncia-form" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-[10px] font-black uppercase text-navy-soft mb-2 tracking-widest">Localidade</label>
+                    <select id="bairro" required class="w-full bg-ice text-navy-dark p-4 rounded-xl font-bold border-2 border-transparent focus:border-red-base outline-none transition-all">
+                        <option value="">Selecione o Bairro</option>
+                        {bairros.map(b => <option value={b}>{b}</option>)}
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-black uppercase text-navy-soft mb-2 tracking-widest">Assunto</label>
+                    <select id="assunto" required class="w-full bg-ice text-navy-dark p-4 rounded-xl font-bold border-2 border-transparent focus:border-red-base outline-none transition-all">
+                        <option value="">Tipo de Ocorrência</option>
+                        {problemas.map(p => <option value={p}>{p}</option>)}
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-[10px] font-black uppercase text-navy-soft mb-2 tracking-widest">Relato do Morador</label>
+                <textarea 
+                    id="relato" 
+                    rows="5" 
+                    required 
+                    placeholder="Descreva o problema com detalhes..."
+                    class="w-full bg-ice text-navy-dark p-4 rounded-xl font-medium border-2 border-transparent focus:border-red-base outline-none resize-none transition-all"
+                ></textarea>
+            </div>
+
+            <div>
+                <label class="block text-[10px] font-black uppercase text-navy-soft mb-2 tracking-widest">Seu Nome (Opcional)</label>
+                <input 
+                    type="text" 
+                    id="nome" 
+                    placeholder="Ex: Dona Maria ou Morador do Centro" 
+                    class="w-full bg-ice text-navy-dark p-4 rounded-xl font-bold border-2 border-transparent focus:border-red-base outline-none transition-all"
+                />
+            </div>
+
+            <button 
+                type="submit" 
+                class="w-full bg-navy-dark hover:bg-red-base text-white p-5 rounded-2xl font-black uppercase tracking-widest shadow-xl transition-all active:scale-95 flex items-center justify-center gap-3"
+            >
+                Enviar para a Redação no WhatsApp
+            </button>
+        </form>
+
+        <div class="mt-12 p-6 bg-ice rounded-2xl border-l-4 border-navy-soft">
+            <p class="text-[11px] text-navy-soft uppercase font-bold leading-relaxed">
+                As denúncias são recebidas pela nossa equipe e podem ser transformadas em pautas jornalísticas para cobrar soluções dos órgãos responsáveis.
+            </p>
+        </div>
+    </main>
+
+    <script>
+        // Lógica de envio corrigida para TypeScript e Astro 5
+        const form = document.getElementById('denuncia-form') as HTMLFormElement;
+        
+        if (form) {
+            form.addEventListener('submit', (e: Event) => {
+                e.preventDefault();
+                
+                const bairro = (document.getElementById('bairro') as HTMLSelectElement).value;
+                const assunto = (document.getElementById('assunto') as HTMLSelectElement).value;
+                const relato = (document.getElementById('relato') as HTMLTextAreaElement).value;
+                const nomeInput = document.getElementById('nome') as HTMLInputElement;
+                const nome = nomeInput.value || "Morador Anônimo";
+                
+                // Mude aqui para o seu número real de WhatsApp
+                const meuTelefone = "5521999999999"; 
+                
+                const mensagem = `📢 *DENÚNCIA - EMGUAPI.COM*%0A%0A` +
+                                `*Local:* ${bairro}%0A` +
+                                `*Assunto:* ${assunto}%0A` +
+                                `*Relato:* ${relato}%0A%0A` +
+                                `*Enviado por:* ${nome}`;
+                
+                window.open(`https://api.whatsapp.com/send?phone=${meuTelefone}&text=${mensagem}`, '_blank');
+            });
+        }
+    </script>
+</Layout>

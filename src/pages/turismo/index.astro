@@ -1,0 +1,49 @@
+---
+// src/pages/turismo/index.astro
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+const pontosTuristicos = await getCollection('turismo');
+---
+
+<Layout title="Turismo e Natureza | emguapi.com">
+    <Navbar />
+
+    <main class="max-w-6xl mx-auto p-6 my-12">
+        <header class="mb-16 text-center">
+            <span class="text-red-base font-black uppercase tracking-[0.3em] text-[10px]">Explore Guapimirim</span>
+            <h1 class="text-5xl font-black text-navy-dark uppercase italic tracking-tighter mt-2">
+                Guia de <span class="text-red-base">Turismo</span>
+            </h1>
+            <p class="text-navy-soft mt-4 max-w-2xl mx-auto font-medium">
+                Conheça as belezas naturais, trilhas e monumentos históricos da nossa região.
+            </p>
+        </header>
+
+        <div class="grid md:grid-cols-3 gap-10">
+            {pontosTuristicos.map(ponto => (
+                <a href={`/turismo/${ponto.slug || ponto.id}`} class="group relative h-[450px] rounded-[2.5rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2">
+                    <img 
+                        src={ponto.data.imagem} 
+                        alt={ponto.data.nome} 
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-base/20 to-transparent opacity-90"></div>
+                    
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <span class="bg-red-base text-white text-[9px] font-black px-3 py-1 rounded-full uppercase mb-3 inline-block shadow-lg">
+                            {ponto.data.categoria}
+                        </span>
+                        <h3 class="text-2xl font-black text-white uppercase italic tracking-tighter leading-none mb-2">
+                            {ponto.data.nome}
+                        </h3>
+                        <p class="text-white/70 text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+                            <span class="text-red-light">📍</span> {ponto.data.localizacao}
+                        </p>
+                    </div>
+                </a>
+            ))}
+        </div>
+    </main>
+</Layout>
