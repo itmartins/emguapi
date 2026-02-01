@@ -19,5 +19,7 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'), // O plugin que formata o texto das notícias
+  ],
 }

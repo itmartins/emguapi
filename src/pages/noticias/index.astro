@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import NoticiaCard from '../../components/NoticiaCard.astro';
+
+// Busca e ordena as notícias por data (mais recente primeiro)
+const todasNoticias = (await getCollection('noticias')).sort(
+  (a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
+);
+---
+
+<Layout title="Últimas Notícias | emguapi.com">
+    <Navbar />
+
+    <main class="max-w-6xl mx-auto p-6 my-12">
+        <header class="mb-16 border-b border-ice pb-10">
+            <span class="text-red-base font-black uppercase tracking-widest text-xs">Fique por dentro</span>
+            <h1 class="text-5xl font-black text-navy-dark uppercase italic tracking-tighter mt-2">
+                Últimas <span class="text-red-base">Notícias</span>
+            </h1>
+        </header>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {todasNoticias.map(noticia => (
+                <NoticiaCard 
+                    categoria={noticia.data.categoria}
+                    titulo={noticia.data.titulo}
+                    resumo={noticia.data.resumo}
+                    data={noticia.data.data}
+                    
+                    link={`/noticias/${noticia.id.replace(/\.md$/, '')}`}
+                    imagem={noticia.data.imagem || "/fotos/estacao-guapi.jpg"}
+                />
+            ))}
+        </div>
+    </main>
+</Layout>

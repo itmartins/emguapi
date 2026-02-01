@@ -1,9 +1,30 @@
 ---
 // src/pages/horarios.astro
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import statusData from '../data/statusTrem.json'; 
 
-// Dados consolidados do Ramal Guapimirim
+// --- LÓGICA DE AVISOS ---
+const todasNoticias = (await getCollection('noticias')).sort(
+  (a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
+);
+const avisosOperacionais = todasNoticias.filter(noticia => 
+    ['Manutenção', 'Serviço', 'Alerta'].includes(noticia.data.categoria)
+).slice(0, 2);
+
+// --- LÓGICA DE STATUS ---
+const statusConfig = {
+    'normal': { border: 'border-green-600', text: 'text-green-600', desc: 'Operação Normal', luzCor: 'bg-green-500', luzPing: 'bg-green-400' },
+    'atrasado': { border: 'border-yellow-500', text: 'text-yellow-600', desc: 'Com Atrasos', luzCor: 'bg-yellow-500', luzPing: 'bg-yellow-400' },
+    'suspenso': { border: 'border-red-base', text: 'text-red-base', desc: 'Operação Suspensa', luzCor: 'bg-red-500', luzPing: 'bg-red-400' },
+    'manutencao': { border: 'border-navy-base', text: 'text-navy-base', desc: 'Manutenção Programada', luzCor: 'bg-blue-600', luzPing: 'bg-blue-400' }
+};
+
+const currentStatusState = statusData.estado.toLowerCase() as keyof typeof statusConfig;
+const currentConfig = statusConfig[currentStatusState] || statusConfig['normal'];
+
+// --- DADOS DAS ESTAÇÕES (Ordem: Guapimirim -> Saracuruna) ---
 const estacoesData = [
     { nome: "Guapimirim", acessivel: "Acesso por Rampa", integracao: "Ônibus Municipais" },
     { nome: "Parada Bananal", acessivel: "Não Acessível", integracao: "Local" },
@@ -17,8 +38,8 @@ const estacoesData = [
     { nome: "Iriri", acessivel: "Não Acessível", integracao: "Local" },
     { nome: "Santa Guilhermina", acessivel: "Não Acessível", integracao: "Local" },
     { nome: "Suruí", acessivel: "Não Acessível", integracao: "Local" },
-    { nome: "Santa Dalila", acessivel: "Não Acessível", integracao: "Local" },
-    { nome: "Parque Estrela", acessivel: "Não Acessível", integracao: "Local" },
+    { nome: "Santa Dalila", acessivel: "Acessível", integracao: "Local" },
+    { nome: "Parque Estrela", acessivel: "Acessível", integracao: "Local" },
     { nome: "Saracuruna", acessivel: "Totalmente Acessível", integracao: "Trens Elétricos" }
 ];
 ---
@@ -30,7 +51,7 @@ const estacoesData = [
         <section class="bg-navy-dark text-white p-10 rounded-[2.5rem] shadow-2xl mb-12 border-b-8 border-red-base">
             <header class="mb-10 text-center md:text-left">
                 <h2 class="text-3xl font-black uppercase italic tracking-tighter">Planeje sua Viagem</h2>
-                <p class="text-red-light text-xs font-black uppercase tracking-widest mt-1 italic">Consulte horários para qualquer dia da semana</p>
+                <p class="text-red-light text-xs font-black uppercase tracking-widest mt-1 italic">Horários oficiais baseados na grade da SuperVia</p>
             </header>
             
             <form id="planning-form" class="space-y-8">
@@ -70,59 +91,138 @@ const estacoesData = [
                 </div>
             </form>
 
-            <div id="result-box" class="hidden mt-12 p-10 bg-navy-base/50 rounded-[2rem] border border-white/5 backdrop-blur-md">
-                <div id="has-train">
-                    <div class="flex flex-col md:flex-row justify-around items-center gap-10">
+            <div id="result-box" class="hidden mt-12 p-8 bg-navy-base/50 rounded-[2rem] border border-white/5 backdrop-blur-md">
+                <div id="has-train" class="hidden">
+                    <div class="flex flex-col md:flex-row justify-around items-center gap-10 mb-8">
                         <div class="text-center">
-                            <span class="text-[10px] uppercase font-black opacity-40 block mb-3 tracking-widest">Embarque às</span>
-                            <p id="dep-time" class="text-6xl font-black italic">--:--</p>
+                            <span class="text-[10px] uppercase font-black opacity-40 block mb-3 tracking-widest">Partida de <span id="lbl-origin" class="text-white"></span></span>
+                            <p id="dep-time" class="text-5xl md:text-6xl font-black italic">--:--</p>
                         </div>
                         <div class="hidden md:block h-20 w-px bg-white/10"></div>
                         <div class="text-center">
-                            <span class="text-[10px] uppercase font-black text-red-light block mb-3 tracking-widest">Chegada Prevista</span>
-                            <p id="arr-time" class="text-6xl font-black italic text-red-light">--:--</p>
+                            <span class="text-[10px] uppercase font-black text-red-light block mb-3 tracking-widest">Chegada em <span id="lbl-dest" class="text-red-light"></span></span>
+                            <p id="arr-time" class="text-5xl md:text-6xl font-black italic text-red-light">--:--</p>
                         </div>
                     </div>
-                    <p class="text-center text-[10px] mt-10 opacity-30 uppercase tracking-[0.4em] font-black">
-                        Estimativa para viagem no Ramal Diesel
+
+                    <div id="connection-box" class="hidden bg-white/5 rounded-xl p-4 border border-white/10 flex items-start gap-4">
+                        <div class="bg-blue-600 text-white p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-black uppercase text-sm text-blue-400 mb-1 tracking-widest">Integração SuperVia</h4>
+                            <p id="connection-text" class="text-xs text-gray-300 leading-relaxed"></p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-center text-[10px] mt-6 opacity-30 uppercase tracking-[0.4em] font-black">
+                        Horários estimados • Ramal Guapimirim (Diesel)
                     </p>
                 </div>
+
                 <div id="no-train" class="hidden text-center py-6">
-                    <p class="text-xl font-bold text-red-light uppercase italic">Nenhuma viagem disponível para o horário selecionado.</p>
+                    <p class="text-xl font-bold text-red-light uppercase italic">Nenhuma viagem encontrada após o horário selecionado.</p>
                 </div>
             </div>
         </section>
 
-        <section class="grid md:grid-cols-2 gap-8 mb-20">
-            <div class="bg-ice p-8 rounded-3xl border-l-8 border-navy-dark">
-                <h4 class="font-black text-navy-dark uppercase text-xs mb-3 tracking-widest italic">Atenção:</h4>
-                <p class="text-sm text-navy-soft leading-relaxed font-medium">O simulador utiliza a base de dados consolidada da SuperVia. O tempo de viagem é estimado em 90 minutos para o trajeto completo.</p>
+        <section class="grid md:grid-cols-2 gap-8 mb-20 font-sans">
+            <div class={`bg-ice p-8 rounded-3xl border-l-8 ${currentConfig.border} shadow-md hover:shadow-xl transition-all`}>
+                <div class="flex items-center gap-4 mb-2">
+                    <div class="relative flex h-6 w-6">
+                        <span class={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentConfig.luzPing}`}></span>
+                        <span class={`relative inline-flex rounded-full h-6 w-6 ${currentConfig.luzCor}`}></span>
+                    </div>
+                    <h4 class={`font-black ${currentConfig.text} uppercase text-lg tracking-tighter italic`}>
+                        {currentConfig.desc}
+                    </h4>
+                </div>
+                 <p class="text-sm text-navy-soft leading-relaxed font-bold uppercase tracking-widest opacity-60">
+                    Última atualização: {statusData.ultimaAtualizacao}
+                </p>
             </div>
-            <div class="bg-ice p-8 rounded-3xl border-l-8 border-red-base">
-                <h4 class="font-black text-red-base uppercase text-xs mb-3 tracking-widest italic">Acessibilidade:</h4>
-                <p class="text-sm text-navy-soft leading-relaxed font-medium">Lembre-se: o embarque em Guapimirim é feito por rampa, mas o ressalto e vão entre o trem e a plataforma exige cuidado.</p>
+
+            <div class="bg-ice p-8 rounded-3xl border-l-8 border-red-base shadow-md hover:shadow-xl transition-all relative overflow-hidden">
+                <h4 class="font-black text-red-base uppercase text-sm mb-6 tracking-widest flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.401 3.003ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" /></svg>
+                    Alertas e Manutenções
+                </h4>
+                {avisosOperacionais.length > 0 ? (
+                    <div class="space-y-4 relative z-10">
+                        {avisosOperacionais.map(aviso => (
+                            <a href={`/noticias/${aviso.id.replace(/\.md$/, '')}`} class="group block bg-white p-4 rounded-xl border-2 border-red-base/10 hover:border-red-base transition-all shadow-sm hover:shadow-md">
+                                <span class="text-[10px] font-black uppercase text-red-base tracking-widest mb-1 block">{new Date(aviso.data.data).toLocaleDateString('pt-BR')}</span>
+                                <h4 class="text-navy-dark font-bold leading-tight group-hover:text-red-base transition-colors line-clamp-2">
+                                    {aviso.data.titulo}
+                                </h4>
+                            </a>
+                        ))}
+                    </div>
+                ) : (
+                    <div class="flex flex-col items-center justify-center h-full py-4 text-center opacity-50">
+                        <p class="text-sm text-navy-soft font-bold italic uppercase tracking-widest">Nenhum alerta operacional no momento.</p>
+                    </div>
+                )}
             </div>
         </section>
     </main>
 
     <script define:vars={{ estacoesData }}>
-        // Grades Horárias Oficiais
-        const schedules = {
+        // --- DADOS REAIS DE TEMPO DE VIAGEM (OFFSETS) ---
+        // Tempo acumulado (em minutos) partindo de Guapimirim (Estação 0)
+        // Baseado na média operacional de 90min para o trajeto completo
+        const timeOffsets = {
+            "Guapimirim": 0,
+            "Parada Bananal": 6,
+            "Parada Modelo": 10,
+            "Jardim Guapimirim": 14, // Ref: 03:55 -> 04:09
+            "Parada Ideal": 19,
+            "Citrolândia": 25,
+            "Jororó": 29,
+            "Jardim Nova Marília": 34,
+            "Magé": 42,       // Principal parada intermediária
+            "Iriri": 50,
+            "Santa Guilhermina": 57,
+            "Suruí": 65,
+            "Santa Dalila": 72,
+            "Parque Estrela": 80,
+            "Saracuruna": 90  // Chegada final
+        };
+
+        // --- GRADE OFICIAL DE PARTIDAS (Terminais) ---
+        // 'fromGuapi': Trens que SAEM de Guapimirim (Destino Saracuruna)
+        // 'fromSaracuruna': Trens que SAEM de Saracuruna (Destino Guapimirim)
+        const baseSchedules = {
             util: {
-                toSaracuruna: ["03:55", "05:45", "10:30", "12:00", "15:20", "16:40", "20:10"],
-                toGuapi: ["05:35", "07:30", "09:20", "12:15", "14:00", "18:00", "19:35"]
+                fromGuapi:      ["03:55", "05:45", "10:30", "12:00", "15:20", "16:40", "20:10"],
+                fromSaracuruna: ["05:40", "07:30", "09:20", "12:15", "14:00", "18:00", "19:35"]
             },
             sabado: {
-                toSaracuruna: ["05:45", "12:00", "16:40"],
-                toGuapi: ["07:30", "14:00", "18:00"]
+                fromGuapi:      ["04:16", "06:55", "11:20", "14:20", "18:20"], 
+                fromSaracuruna: ["06:30", "08:50", "12:35", "16:30", "20:00"]
             },
             domingo: {
-                toSaracuruna: ["07:45", "15:20"],
-                toGuapi: ["09:30", "17:00"]
+                fromGuapi:      ["05:00", "11:50", "14:50", "17:28"],
+                fromSaracuruna: ["08:24", "13:24", "16:04", "19:04"]
             }
         };
 
-        // Coloca a hora atual como valor padrão no input
+        // --- FUNÇÕES AUXILIARES ---
+        function addMinutes(timeStr, minutes) {
+            const [h, m] = timeStr.split(':').map(Number);
+            const date = new Date();
+            date.setHours(h, m + minutes);
+            return date.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
+        }
+
+        function timeToMinutes(timeStr) {
+            const [h, m] = timeStr.split(':').map(Number);
+            return h * 60 + m;
+        }
+
+        // --- INICIALIZAÇÃO E LÓGICA ---
         const now = new Date();
         const currentTimeString = now.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
         const timeInput = document.getElementById('travel-time');
@@ -135,46 +235,112 @@ const estacoesData = [
             
             const dayType = document.getElementById('day-type').value;
             const selectedTime = document.getElementById('travel-time').value;
-            const [selH, selM] = selectedTime.split(':').map(Number);
-            const selectedTotalMinutes = selH * 60 + selM;
+            const selectedTotalMinutes = timeToMinutes(selectedTime);
 
             const origin = document.getElementById('origin').value;
             const destination = document.getElementById('destination').value;
+            
+            // Verifica direção
             const idxOrigin = estacoesData.findIndex(e => e.nome === origin);
             const idxDest = estacoesData.findIndex(e => e.nome === destination);
 
             if (idxOrigin === idxDest) {
-                alert("Por favor, selecione uma estação de destino diferente da partida.");
+                alert("Por favor, selecione origem e destino diferentes.");
                 return;
             }
 
-            // Define o sentido da grade (ID menor para maior = Sentido Saracuruna)
-            const currentGrade = schedules[dayType];
-            const times = (idxOrigin < idxDest) ? currentGrade.toSaracuruna : currentGrade.toGuapi;
+            // Definir direção e qual array de horário base usar
+            const direction = (idxOrigin < idxDest) ? "goingToSaracuruna" : "goingToGuapi";
+            
+            const currentGrade = baseSchedules[dayType];
+            
+            // Lógica Crucial: 
+            // Se estou indo PARA Saracuruna (Descendo), o trem vem DE Guapi.
+            // Se estou indo PARA Guapi (Subindo), o trem vem DE Saracuruna.
+            const baseTrips = (direction === "goingToSaracuruna") 
+                ? currentGrade.fromGuapi 
+                : currentGrade.fromSaracuruna;
 
-            // Encontra o primeiro comboio após a hora selecionada
-            const nextTrip = times.find(t => {
-                const [h, m] = t.split(':').map(Number);
-                return (h * 60 + m) >= selectedTotalMinutes;
-            });
+            let foundTrip = null;
 
+            for (let tripBaseTime of baseTrips) {
+                let departureAtOrigin;
+                let arrivalAtDest;
+
+                // Cálculo do horário em cada estação baseado no Offset
+                if (direction === "goingToSaracuruna") {
+                    // Trem sai de Guapimirim (Offset 0)
+                    // Hora na Minha Estação = HoraBase + MeuOffset
+                    departureAtOrigin = addMinutes(tripBaseTime, timeOffsets[origin]);
+                    arrivalAtDest = addMinutes(tripBaseTime, timeOffsets[destination]);
+                } else {
+                    // Trem sai de Saracuruna (Offset 90)
+                    // Hora na Minha Estação = HoraBase + (90 - MeuOffset)
+                    // Ex: Se estou em Magé (42), e trem sai de Saracuruna às 05:40:
+                    // Tempo de viagem de Sara até Magé = 90 - 42 = 48 min.
+                    // Chega em Magé = 05:40 + 48 min.
+                    
+                    const totalTripTime = 90; // Tempo total fixo estimado
+                    const invOffsetOrigin = totalTripTime - timeOffsets[origin];
+                    const invOffsetDest = totalTripTime - timeOffsets[destination];
+
+                    departureAtOrigin = addMinutes(tripBaseTime, invOffsetOrigin);
+                    arrivalAtDest = addMinutes(tripBaseTime, invOffsetDest);
+                }
+
+                // Verifica se essa viagem serve (é depois do horário escolhido?)
+                if (timeToMinutes(departureAtOrigin) >= selectedTotalMinutes) {
+                    foundTrip = { dep: departureAtOrigin, arr: arrivalAtDest };
+                    break; // Pega o próximo disponível e para
+                }
+            }
+
+            // --- EXIBIÇÃO ---
             const resultBox = document.getElementById('result-box');
-            resultBox?.classList.remove('hidden');
+            const hasTrainDiv = document.getElementById('has-train');
+            const noTrainDiv = document.getElementById('no-train');
+            const connectionBox = document.getElementById('connection-box');
+            
+            resultBox.classList.remove('hidden');
 
-            if (nextTrip) {
-                document.getElementById('has-train').classList.remove('hidden');
-                document.getElementById('no-train').classList.add('hidden');
-                document.getElementById('dep-time').innerText = nextTrip;
+            if (foundTrip) {
+                hasTrainDiv.classList.remove('hidden');
+                noTrainDiv.classList.add('hidden');
                 
-                // Cálculo de Chegada (+90 min médios)
-                const [h, m] = nextTrip.split(':').map(Number);
-                let arrMinutes = m + 90;
-                let arrHours = h + Math.floor(arrMinutes / 60);
-                arrMinutes %= 60;
-                document.getElementById('arr-time').innerText = `${String(arrHours % 24).padStart(2,'0')}:${String(arrMinutes).padStart(2,'0')}`;
+                document.getElementById('lbl-origin').innerText = origin;
+                document.getElementById('lbl-dest').innerText = destination;
+                document.getElementById('dep-time').innerText = foundTrip.dep;
+                document.getElementById('arr-time').innerText = foundTrip.arr;
+
+                // --- LÓGICA DE CONEXÃO (Integração) ---
+                connectionBox.classList.add('hidden');
+
+                // 1. Chegando em Saracuruna -> Vai para Central?
+                if (destination === "Saracuruna") {
+                    connectionBox.classList.remove('hidden');
+                    // Simulação: Trem para Central sai a cada 20/30 min
+                    const waitTime = (dayType === 'util') ? 15 : 30;
+                    const nextTrain = addMinutes(foundTrip.arr, waitTime);
+                    
+                    document.getElementById('connection-text').innerHTML = 
+                        `Chegada em Saracuruna às <strong>${foundTrip.arr}</strong>.<br>
+                         Previsão de trem para Central do Brasil: <strong>${nextTrain}</strong>.`;
+                }
+
+                // 2. Saindo de Saracuruna -> Veio da Central?
+                if (origin === "Saracuruna") {
+                    connectionBox.classList.remove('hidden');
+                    // Simulação: Chegar 15 min antes
+                    const arrivalTime = addMinutes(foundTrip.dep, -15);
+                    
+                    document.getElementById('connection-text').innerHTML = 
+                        `Partida do Guapimirim às <strong>${foundTrip.dep}</strong>.<br>
+                         Para pegar este trem, seu trem da Central deve chegar até <strong>${arrivalTime}</strong>.`;
+                }
+
             } else {
-                document.getElementById('has-train').classList.add('hidden');
-                document.getElementById('no-train').classList.remove('hidden');
+                hasTrainDiv.classList.add('hidden');
+                noTrainDiv.classList.remove('hidden');
             }
         });
     </script>

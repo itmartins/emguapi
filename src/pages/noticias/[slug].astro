@@ -3,48 +3,165 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
+import NoticiaCard from '../../components/NoticiaCard.astro'; 
 
 export async function getStaticPaths() {
-  const noticias = await getCollection('noticias');
-  return noticias.map(entry => ({
-    // O segredo está aqui: usamos entry.id para bater com o nome do arquivo .md
-    params: { slug: entry.id }, 
+  const noticiaEntries = await getCollection('noticias');
+  return noticiaEntries.map(entry => ({
+    params: { slug: entry.id.replace(/\.md$/, '') }, 
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+// --- LÓGICA DE NOTÍCIAS RELACIONADAS ---
+const allNoticias = await getCollection('noticias');
+const noticiasRelacionadas = allNoticias
+    .filter(n => n.id !== entry.id) // Remove a notícia atual da lista
+    .sort((a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()) // Ordena por data
+    .slice(0, 3); // Pega apenas as 3 primeiras
+
+// Tratamento seguro do Autor
+const nomeAutor = entry.data.autor || "Equipe emguapi";
+const autorSlug = nomeAutor.toLowerCase().trim().replace(/\s+/g, '-');
+
+const dataFormatada = new Date(entry.data.data).toLocaleDateString('pt-BR', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric'
+});
+
+const shareUrl = `https://emguapi.com/noticias/${entry.id.replace(/\.md$/, '')}`;
+const shareText = encodeURIComponent(entry.data.titulo);
 ---
 
 <Layout title={`${entry.data.titulo} | emguapi.com`}>
     <Navbar />
-    <article class="max-w-3xl mx-auto p-8 my-12 bg-white shadow-2xl rounded-[2.5rem] border border-borderLight">
-        <header class="mb-10 border-b border-ice pb-10">
-            <div class="flex items-center gap-4 mb-6">
-                <span class="bg-red-base text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">
+    
+    <main class="max-w-4xl mx-auto my-12 bg-white shadow-2xl rounded-[3rem] overflow-hidden border border-ice">
+        <header class="relative h-[400px]">
+            <img 
+                src={entry.data.imagem || "/fotos/estacao-guapi.jpg"} 
+                class="w-full h-full object-cover" 
+                alt={entry.data.titulo} 
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-transparent"></div>
+            <div class="absolute bottom-10 left-10 right-10">
+                <span class="bg-red-base text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase mb-4 inline-block tracking-widest shadow-xl">
                     {entry.data.categoria}
                 </span>
-                <span class="text-navy-soft text-xs font-bold uppercase tracking-[0.2em]">
-                    {entry.data.data}
-                </span>
+                <h1 class="text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter leading-none">
+                    {entry.data.titulo}
+                </h1>
             </div>
-            <h1 class="text-4xl md:text-5xl font-black text-navy-dark leading-tight mb-6 italic tracking-tighter uppercase">
-                {entry.data.titulo}
-            </h1>
-            <p class="text-xl text-navy-soft italic leading-relaxed border-l-4 border-red-base pl-6">
-                {entry.data.resumo}
-            </p>
         </header>
 
-        <div class="prose prose-lg max-w-none text-navy-dark/90 leading-loose prose-headings:text-navy-dark prose-headings:italic prose-strong:text-red-base">
-            <Content />
+        <article class="p-8 md:p-16">
+            <div class="flex flex-wrap items-center justify-between gap-6 mb-8 pb-6 border-b border-ice">
+                <div class="text-navy-safe text-sm font-bold uppercase tracking-widest">
+                    {dataFormatada} | Por 
+                    <a href={`/autor/${autorSlug}`} class="text-red-base hover:underline">
+                        {nomeAutor}
+                    </a>
+                </div>
+
+                <div class="flex gap-3">
+                    <a href={`https://wa.me/?text=${shareText}%20${shareUrl}`} target="_blank" class="bg-[#25D366] text-white px-4 py-2 rounded-full hover:scale-105 transition-all text-[10px] font-black uppercase shadow-md">
+                        WhatsApp
+                    </a>
+                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`} target="_blank" class="bg-[#1877F2] text-white px-4 py-2 rounded-full hover:scale-105 transition-all text-[10px] font-black uppercase shadow-md">
+                        Facebook
+                    </a>
+                </div>
+            </div>
+
+            <div class="mb-12 py-8 border-y border-dashed border-ice flex flex-col items-center">
+                <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Publicidade</span>
+                <div class="w-full h-32 bg-ice rounded-2xl flex items-center justify-center group cursor-pointer hover:bg-white hover:border-red-base border-2 border-transparent transition-all">
+                    <a href="/anuncie" class="text-navy-base font-bold italic opacity-40 group-hover:text-red-base">Anuncie sua marca aqui no emguapi.com</a>
+                </div>
+            </div>
+
+            <div class="
+                prose prose-lg max-w-none text-navy-dark leading-relaxed
+                prose-headings:font-black prose-headings:text-navy-dark
+                prose-a:text-red-base hover:prose-a:text-red-light
+                prose-strong:text-navy-dark prose-strong:font-black
+                prose-img:rounded-2xl prose-img:shadow-lg prose-img:w-full
+                
+                /* --- ESTILOS PARA LEGENDAS (Passo 2) --- */
+                [&_figure]:my-8             
+                [&_figure]:block
+                [&_figcaption]:text-center  
+                [&_figcaption]:text-sm      
+                [&_figcaption]:text-navy-soft 
+                [&_figcaption]:italic       
+                [&_figcaption]:mt-2         
+                [&_figcaption]:font-medium
+                /* ------------------------------------- */
+
+                /* Estilo da Letra Capitular (Drop Cap) */
+                [&>p:first-of-type::first-letter]:float-left
+                [&>p:first-of-type::first-letter]:text-[3.5rem]
+                [&>p:first-of-type::first-letter]:leading-[0.8]
+                [&>p:first-of-type::first-letter]:font-black
+                [&>p:first-of-type::first-letter]:mr-3
+                [&>p:first-of-type::first-letter]:mt-1
+                [&>p:first-of-type::first-letter]:text-red-base
+                [&>p:first-of-type::first-letter]:uppercase
+
+                /* Estilo do 'Leia Mais' (Blockquote) */
+                prose-blockquote:not-italic
+                prose-blockquote:font-bold
+                prose-blockquote:text-navy-base
+                prose-blockquote:bg-ice
+                prose-blockquote:border-l-8
+                prose-blockquote:border-red-base
+                prose-blockquote:py-4
+                prose-blockquote:px-6
+                prose-blockquote:rounded-r-xl
+                prose-blockquote:shadow-sm
+            ">
+                <Content />
+            </div>
+            
+            <div class="mt-20 pt-12 border-t-2 border-ice">
+                <h3 class="text-xl font-black uppercase tracking-tighter text-navy-dark mb-8 flex items-center gap-3 italic">
+                    <span class="w-10 h-1.5 bg-red-base inline-block"></span>
+                    Você pode gostar
+                </h3>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    {noticiasRelacionadas.map(noticia => (
+                        <div class="transform scale-95 origin-top-left"> 
+                            <NoticiaCard 
+                                categoria={noticia.data.categoria}
+                                titulo={noticia.data.titulo}
+                                resumo=""
+                                data={noticia.data.data}
+                                link={`/noticias/${noticia.id.replace(/\.md$/, '')}`}
+                                imagem={noticia.data.imagem || "/fotos/estacao-guapi.jpg"}
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <footer class="mt-12 pt-8 border-t border-ice">
+                <a href="/noticias" class="text-navy-base font-black uppercase text-xs hover:text-red-base transition-colors">
+                    ← Voltar para todas as Notícias
+                </a>
+            </footer>
+
+        <div class="mx-8 md:mx-12 mb-12 py-8 border-t border-dashed border-ice flex flex-col items-center">
+            <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Publicidade</span>
+        <div class="w-full h-32 bg-ice rounded-2xl overflow-hidden border-2 border-transparent hover:border-red-base transition-all group relative">
+            <img src="/banners/seu-anuncio.jpg" class="w-full h-full object-cover" alt="Anúncio">
+            <a href="/anuncie" class="absolute inset-0 z-10"></a> 
         </div>
-        
-        <footer class="mt-16 pt-8 border-t border-ice">
-             <a href="/" class="text-navy-dark font-black uppercase text-xs hover:text-red-base transition-colors tracking-widest">
-                ← Voltar para a Início
-            </a>
-        </footer>
-    </article>
+        </div>
+        </article>
+    </main>
 </Layout>

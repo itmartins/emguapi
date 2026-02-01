@@ -7,7 +7,6 @@ import Navbar from '../../components/Navbar.astro';
 export async function getStaticPaths() {
   const entries = await getCollection('turismo');
   return entries.map(entry => ({
-    // .replace(/\.md$/, '') garante que o 'slug' não tenha o .md no final
     params: { slug: entry.id.replace(/\.md$/, '') }, 
     props: { entry },
   }));
@@ -34,21 +33,80 @@ const { Content } = await entry.render();
             </div>
         </div>
 
-        <div class="p-12 grid md:grid-cols-3 gap-12">
-            <aside class="space-y-6">
-                <div class="bg-ice p-6 rounded-2xl border-l-4 border-red-base">
-                    <span class="text-[10px] font-black text-gray-400 uppercase block mb-1">Dificuldade</span>
-                    <p class="font-bold text-navy-dark uppercase italic">{entry.data.dificuldade || "Acesso Livre"}</p>
+        <div class="p-8 md:p-12 grid md:grid-cols-3 gap-12">
+            
+            <aside class="space-y-6 md:sticky md:top-8 h-fit">
+                <div class="bg-ice p-6 rounded-2xl border-l-4 border-red-base shadow-sm">
+                    <span class="text-[10px] font-black text-navy-soft uppercase block mb-1 tracking-widest">Nível de Dificuldade</span>
+                    <p class="font-bold text-navy-dark uppercase italic text-lg">{entry.data.dificuldade || "Acesso Livre"}</p>
                 </div>
-                <div class="bg-ice p-6 rounded-2xl border-l-4 border-navy-base">
-                    <span class="text-[10px] font-black text-gray-400 uppercase block mb-1">Localização</span>
-                    <p class="font-bold text-navy-dark text-sm">{entry.data.localizacao}</p>
+                
+                <div class="bg-ice p-6 rounded-2xl border-l-4 border-navy-base shadow-sm">
+                    <span class="text-[10px] font-black text-navy-soft uppercase block mb-1 tracking-widest">Localização</span>
+                    <p class="font-bold text-navy-dark text-sm leading-tight">{entry.data.localizacao}</p>
                 </div>
+
+                <a href={`https://maps.google.com/?q=${entry.data.localizacao}`} target="_blank" class="block w-full py-4 rounded-xl bg-navy-base text-white text-center font-black uppercase text-xs tracking-widest hover:bg-red-base transition-colors shadow-lg">
+                    Ver no Mapa
+                </a>
             </aside>
 
-            <div class="md:col-span-2 prose prose-lg max-w-none text-gray-700 leading-relaxed italic">
-                <Content />
+            <div class="md:col-span-2">
+                <div class="
+                    prose prose-lg max-w-none text-navy-dark leading-relaxed
+                    prose-headings:font-black prose-headings:text-navy-dark
+                    prose-a:text-red-base hover:prose-a:text-red-light
+                    prose-strong:text-navy-dark prose-strong:font-black
+                    prose-img:rounded-2xl prose-img:shadow-lg prose-img:w-full
+                    
+                    /* Estilo da Letra Capitular (Drop Cap) */
+                    [&>p:first-of-type::first-letter]:float-left
+                    [&>p:first-of-type::first-letter]:text-[3.5rem]
+                    [&>p:first-of-type::first-letter]:leading-[0.8]
+                    [&>p:first-of-type::first-letter]:font-black
+                    [&>p:first-of-type::first-letter]:mr-3
+                    [&>p:first-of-type::first-letter]:mt-1
+                    [&>p:first-of-type::first-letter]:text-red-base
+                    [&>p:first-of-type::first-letter]:uppercase
+
+                    /* Estilos para Legendas (Figure/Figcaption) */
+                    [&_figure]:my-8             
+                    [&_figure]:block
+                    [&_figcaption]:text-center  
+                    [&_figcaption]:text-sm      
+                    [&_figcaption]:text-navy-soft 
+                    [&_figcaption]:italic       
+                    [&_figcaption]:mt-2         
+                    [&_figcaption]:font-medium
+
+                    /* Estilo para Citações/Destaques */
+                    prose-blockquote:not-italic
+                    prose-blockquote:font-bold
+                    prose-blockquote:text-navy-base
+                    prose-blockquote:bg-ice
+                    prose-blockquote:border-l-8
+                    prose-blockquote:border-red-base
+                    prose-blockquote:py-4
+                    prose-blockquote:px-6
+                    prose-blockquote:rounded-r-xl
+                ">
+                    <Content />
+                </div>
             </div>
+        </div>
+
+        <div class="mx-8 md:mx-12 mb-12 py-8 border-t border-dashed border-ice flex flex-col items-center">
+            <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Apoio Local</span>
+        <div class="w-full h-32 bg-ice rounded-2xl overflow-hidden border-2 border-transparent hover:border-red-base transition-all group relative">
+            <img src="/banners/seu-anuncio.jpg" class="w-full h-full object-cover" alt="Anúncio">
+            <a href="/anuncie" class="absolute inset-0 z-10"></a> 
+        </div>
+        </div>
+
+        <div class="bg-ice/50 p-8 border-t border-ice text-center md:text-left">
+             <a href="/turismo" class="text-navy-base font-black uppercase text-xs hover:text-red-base transition-colors flex items-center gap-2 justify-center md:justify-start">
+                <span>←</span> Voltar para Pontos Turísticos
+            </a>
         </div>
     </main>
 </Layout>

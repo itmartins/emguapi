@@ -2,20 +2,24 @@
 // src/components/Navbar.astro
 ---
 <nav class="bg-navy-dark text-white py-4 shadow-xl sticky top-0 z-50 border-b-2 border-red-base">
-    <div class="max-w-5xl mx-auto px-6 flex justify-between items-center">
-        <a href="/" class="text-xl font-black tracking-tighter">
+    <div class="max-w-5xl mx-auto px-10 flex justify-between items-center">
+
+<a href="/" class="group flex items-center gap-2">
+        <span class="text-2xl font-black tracking-tighter">
+
+        <a href="/" class="text-2xl font-black tracking-tighter">
             em<span class="text-white font-light">guapi</span><span class="text-red-base">.com</span>
         </a>
         
-        <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest">
-            <a href="/horarios" class="hover:text-red-light transition-colors">Trens</a>
-            <a href="/denuncia" class="hover:text-red-light transition-colors">Comunidade</a>
+        <div class="hidden md:flex gap-12 text-xs font-bold uppercase tracking-widest">
+            <a href="/horarios" class="hover:text-red-light transition-colors">Planeje sua Viagem</a>
+            <a href="/denuncia" class="hover:text-red-light transition-colors">Denúncia</a>
             <a href="/turismo" class="hover:text-red-light transition-colors">Turismo</a>
-            <a href="#" class="text-red-light font-black">Anuncie</a>
+            <a href="/noticias" class="text-red-light font-black">Últimas Notícias</a>
         </div>
 
-        <button class="bg-red-base hover:bg-red-light px-6 py-2 rounded-full text-[10px] uppercase font-black transition-all shadow-lg">
-            Últimas Notícias
-        </button>
+        <a href="/anuncie" class="bg-red-base hover:bg-red-light px-6 py-2 rounded-full text-[14px] uppercase font-black transition-all shadow-lg text-center">
+            Anuncie Aqui
+        </a>
     </div>
 </nav>

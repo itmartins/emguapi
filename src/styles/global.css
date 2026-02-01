@@ -23,3 +23,13 @@ body {
   color: var(--color-navy-dark);
   font-family: 'Inter', sans-serif;
 }
+/* src/styles/global.css */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<Layout title="Anuncie no Portal | emguapi.com">
+    <Navbar />
+
+    <main class="max-w-4xl mx-auto p-6 my-12">
+        <header class="text-center mb-16">
+            <h1 class="text-5xl font-black text-navy-dark uppercase italic tracking-tighter">
+                Destaque sua <span class="text-red-base">Marca</span>
+            </h1>
+            <p class="text-navy-soft mt-4 text-xl">Conecte sua empresa com milhares de moradores e turistas em Guapimirim.</p>
+        </header>
+
+        <section class="grid md:grid-cols-2 gap-8 mb-16">
+            <div class="bg-navy-dark p-8 rounded-[2.5rem] text-white shadow-xl border-t-8 border-red-base">
+                <h3 class="text-2xl font-black uppercase italic mb-4">Por que o emguapi.com?</h3>
+                <ul class="space-y-4 text-white/80">
+                    <li class="flex items-center gap-3">✅ +15 Pontos turísticos catalogados</li>
+                    <li class="flex items-center gap-3">✅ Público local engajado</li>
+                    <li class="flex items-center gap-3">✅ Foco total na Baixada Fluminense</li>
+                </ul>
+            </div>
+
+            <div class="bg-ice p-8 rounded-[2.5rem] border border-navy-dark/10">
+                <h3 class="text-2xl font-black text-navy-dark uppercase italic mb-4">Nossos Planos</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center border-b pb-2">
+                        <span class="font-bold">Destaque na Home</span>
+                        <span class="text-red-base font-black">Sob consulta</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b pb-2">
+                        <span class="font-bold">Guia de Turismo</span>
+                        <span class="text-red-base font-black">Grátis*</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center">
+            <a 
+                href="https://wa.me/5521969400053?text= Olá! Quero anunciar no emguapi.com." 
+                target="_blank"
+                class="inline-block bg-red-base text-white font-black uppercase px-12 py-5 rounded-full hover:bg-navy-dark transition-all transform hover:scale-105 shadow-2xl tracking-widest"
+            >
+                Falar com a Equipe Comercial
+            </a>
+            <p class="text-[10px] text-navy-soft uppercase mt-6 font-bold tracking-widest">Atendimento de Segunda a Sexta</p>
+        </div>
+    </main>
+</Layout>
