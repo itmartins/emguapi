@@ -1,5 +1,5 @@
 ---
-titulo: "Acidente fatal envolve quatro veículos e deixa trânsito em meia pista na Serra Rio-Teresópolis"
+titulo: "Acidente fatal envolve quatro veículos e deixa trânsito em meia pista no Monte Olivete"
 resumo: "Colisão seguida de engavetamento ocorreu na manhã desta terça (03) no km 104, em Guapimirim. Uma pessoa morreu no local e tráfego opera em sistema de Pare e Siga."
 data: 2026-02-03T10:30:00
 categoria: "Segurança"
