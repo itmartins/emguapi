@@ -17,11 +17,10 @@ O contraste é gritante: enquanto o Centro de Guapimirim recebe decoração, eve
 Imagens divulgadas por moradores mostram a dificuldade de transitar pelas vias, tomadas pela lama e buracos. O transporte público, essencial para que crianças cheguem à escola, é descrito como precário, quebrando constantemente e prejudicando o ano letivo dos alunos.
 
 <div class="flex justify-center my-8">
-    <div class="w-full max-w-[560px] shadow-lg rounded-xl overflow-hidden border border-gray-200 bg-black">
+    <div class="w-full max-w-[320px] shadow-lg rounded-xl overflow-hidden border border-gray-200 bg-black">
         <iframe 
-            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1403135158153962%2F&show_text=false&width=560&t=0" 
-            width="100%" 
-            height="314" 
+            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1403135158153962%2F&show_text=false&t=0" 
+            class="w-full aspect-[9/16]" 
             style="border:none;overflow:hidden" 
             scrolling="no" 
             frameborder="0" 
