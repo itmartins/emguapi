@@ -1,5 +1,5 @@
 ---
-titulo: "Reforma 'Maquiagem': Ponto de ônibus no Segredo ganha tinta fresca sobre ferrugem e bancos quebrados"
+titulo: "Reforma 'Maquiagem': Tinta nova sob banco quebrado e ferrugem"
 resumo: "Moradores denunciam obra precária que apenas pintou estruturas corroídas. Local sofre com cheiro insuportável, alagamentos e riscos de acidentes, enquanto ponto vizinho recebe tratamento de primeira linha."
 data: 2026-02-05T15:30:00
 categoria: "Voz da Comunidade"
