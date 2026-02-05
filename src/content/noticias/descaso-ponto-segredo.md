@@ -14,7 +14,7 @@ As imagens enviadas por moradores à nossa redação mostram a precariedade do s
 
 <div class="grid md:grid-cols-2 gap-4 my-8">
   <figure class="m-0!">
-    <img src="/fotos/assento.jpg" alt="Banco quebrado e interditado com tinta fresca" class="rounded-xl shadow-md w-full h-64 object-cover">
+    <img src="/fotos/assento-quebrado.jpg" alt="Banco quebrado e interditado com tinta fresca" class="rounded-xl shadow-md w-full h-64 object-cover">
     <figcaption>Tinta fresca, problema velho: O assento continua quebrado, impedindo o uso por idosos e gestantes.</figcaption>
   </figure>
   <figure class="m-0!">
