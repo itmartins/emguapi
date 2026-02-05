@@ -1,5 +1,5 @@
 ---
-titulo: "Desconto esquecido: Moradores podem estar pagando até 50% a mais na conta d'água"
+titulo: "Desconto esquecido: Moradores de Guapimirim podem estar pagando até 50% a mais na conta d'água"
 resumo: "Nova regra de obrigatoriedade do cadastro na Tarifa Social vigora desde 1º de janeiro de 2026, mas adesão ainda é baixa. Saiba como a falta de informação está tirando dinheiro da renda familiar e aprenda a solicitar o benefício."
 data: 2026-02-05T10:00:00
 categoria: "Investigação"
@@ -50,7 +50,7 @@ Não espere pelo sistema automático. Se você se enquadra nos critérios, exer�
 ### 2. Passo a Passo para o Cadastro
 
 **Passo 1: Atualize o CadÚnico**
-Vá ao CRAS mais próximo de sua casa (Centro, Citrolândia, Vale das Pedreiras, etc) e verifique se seu cadastro está ativo.
+Vá ao CRAS mais próximo de sua casa (Centro, Citrolândia, Vale das Pedrinhas etc) e verifique se seu cadastro está ativo.
 * *Documentos:* CPF, RG, Carteira de Trabalho e Comprovante de Residência.
 
 **Passo 2: Vá à Fontes da Serra**
