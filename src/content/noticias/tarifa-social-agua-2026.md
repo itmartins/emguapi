@@ -1,5 +1,5 @@
 ---
-titulo: "Água cara, desconto esquecido: Moradores podem estar pagando até 50% a mais na conta por falta de cadastro"
+titulo: "Desconto esquecido: Moradores podem estar pagando até 50% a mais na conta d'água"
 resumo: "Nova regra de obrigatoriedade do cadastro na Tarifa Social vigora desde 1º de janeiro de 2026, mas adesão ainda é baixa. Saiba como a falta de informação está tirando dinheiro da renda familiar e aprenda a solicitar o benefício."
 data: 2026-02-05T10:00:00
 categoria: "Investigação"
