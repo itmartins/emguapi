@@ -5,7 +5,7 @@ data: 2026-02-01T15:30:00
 categoria: "Turismo"
 imagem: "/fotos/serra-dos-orgaos-neblina.webp"
 destaque: true
-tags: ["SuperVia", "Educação", "Passe Livre", "Transporte", "Gratuidade"]
+tags: ["Turismo", "Natureza", "Cachoeira da Neblina", "Guapimirim", "Serra dos Órgãos"]
 ---
 
 Um vídeo que circula nas redes sociais tem deixado moradores e turistas de Guapimirim boquiabertos. As imagens, registradas por **Fernando**, mostram com clareza impressionante a **Cachoeira da Neblina**, uma queda d'água monumental situada nas encostas mais íngremes do Parque Nacional da Serra dos Órgãos (PARNASO).
@@ -28,16 +28,14 @@ A melhor forma de admirar essa maravilha natural é, curiosamente, do asfalto. E
 O registro feito por Fernando é precioso justamente por usar o zoom para nos levar aonde nossos pés não podem ir, revelando a força da água que nasce no topo dos nossos "Órgãos".
 
 <div class="flex justify-center my-12">
-    <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-black">
+    <div class="w-full max-w-[400px] h-[600px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-black">
         <iframe 
-            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F884797877252755%2F&show_text=false&width=267&t=0" 
-            width="267" 
-            height="476" 
-            style="border:none;overflow:hidden" 
-            scrolling="no" 
-            frameborder="0" 
-            allowfullscreen="true" 
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+            src="https://drive.google.com/file/d/1tIpoUV_nBu0W26YBfrPhU6LZllNg1CzF/preview" 
+            width="100%" 
+            height="100%" 
+            style="border:none;" 
+            allow="autoplay; encrypted-media" 
+            allowfullscreen>
         </iframe>
     </div>
 </div>
