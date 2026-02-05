@@ -48,10 +48,14 @@ const statusConfig = {
 const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof typeof statusConfig] || statusConfig['normal'];
 ---
 
-<Layout title="emguapi.com | Notícias de Guapimirim">
+<Layout 
+    title="emguapi.com | Notícias de Guapimirim"
+    description="Portal de notícias focado no dia a dia de Guapimirim, trânsito, política e eventos."
+    image="/fotos/estacao-guapi.jpg"
+>
     <Navbar />
 
-    <main class="max-w-5xl mx-auto p-6 bg-white min-h-screen shadow-2xl my-8 rounded-[2.5rem] overflow-hidden border border-borderLight">
+    <main class="max-w-5xl mx-auto p-6 bg-white dark:bg-[#112240] dark:border-white/5 min-h-screen shadow-2xl my-8 rounded-[2.5rem] overflow-hidden border border-gray-200 transition-colors duration-300">
         
         <section class="mb-8">
             {destaquesFinais.length > 0 ? (
@@ -76,24 +80,22 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
                     </div>
                 </div>
             ) : (
-                <div class="bg-navy-dark h-[400px] rounded-3xl flex items-center justify-center text-white italic">Carregando...</div>
+                <div class="bg-navy-dark h-[400px] rounded-3xl flex items-center justify-center text-white italic">Carregando notícias...</div>
             )}
         </section>
 
         <section class="mb-12">
             <a href="/horarios" class="group block">
-                <div class="bg-ice border-l-8 border-navy-base rounded-2xl p-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all hover:bg-gray-50">
+                <div class="bg-ice dark:bg-white/5 border-l-8 border-navy-base dark:border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all">
                     <div class="flex items-center gap-4">
-                        
                         <div class={`h-6 w-6 rounded-full shadow-sm border-2 border-white/50 ${currentStatus.bg}`}></div>
-                        
                         <div>
-                            <h3 class="text-xs font-black uppercase tracking-widest text-navy-soft mb-1">Circulação de Trens</h3>
-                            <p class="text-lg font-black text-navy-dark leading-none">Ramal Guapimirim</p>
+                            <h3 class="text-xs font-black uppercase tracking-widest text-navy-soft dark:text-gray-400 mb-1">Circulação de Trens</h3>
+                            <p class="text-lg font-black text-navy-dark dark:text-white leading-none">Ramal Guapimirim</p>
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-3 bg-white px-4 py-2 rounded-xl border border-borderLight group-hover:border-navy-base/30 transition-colors">
+                    <div class="flex items-center gap-3 bg-white dark:bg-black/20 px-4 py-2 rounded-xl border border-gray-200 dark:border-white/10 group-hover:border-navy-base/30 transition-colors">
                         <span class="relative flex h-3 w-3">
                             <span class={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentStatus.ping}`}></span>
                             <span class={`relative inline-flex rounded-full h-3 w-3 ${currentStatus.bg}`}></span>
@@ -101,22 +103,20 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
                         <span class={`font-black text-xs uppercase ${currentStatus.bg.replace('bg-', 'text-')}`}>
                             {currentStatus.label}
                         </span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-navy-soft">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                        </svg>
                     </div>
                 </div>
             </a>
         </section>
 
         <section class="mb-12">
-            <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark mb-10 flex items-center gap-3 italic">
+            <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white mb-10 flex items-center gap-3 italic">
                 <span class="w-10 h-1.5 bg-red-base inline-block"></span>
                 Cidade Alerta
             </h2>
             
             <div class="grid md:grid-cols-2 gap-10 mb-12">
                 
+                {/* Primeiras 2 notícias */}
                 {noticiasParaGrid.slice(0, 2).map(noticia => (
                     <NoticiaCard 
                         categoria={noticia.data.categoria}
@@ -128,12 +128,13 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
                     />
                 ))}
 
-                <a href="https://www.gigamaisfibra.com.br/internet-streaming/globoplay/" target="_blank" class="group block bg-ice rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-dashed border-navy-base/20 hover:border-red-base flex flex-col h-full relative">
+                {/* --- ANÚNCIO NO MEIO DO GRID --- */}
+                <a href="https://www.gigamaisfibra.com.br/internet-streaming/globoplay/" target="_blank" class="group block bg-ice dark:bg-white/5 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-dashed border-navy-base/20 hover:border-red-base dark:border-white/10 flex flex-col h-full relative">
                     <div class="absolute top-4 right-4 z-10">
                         <span class="bg-white/90 text-navy-dark text-[9px] font-black px-2 py-1 rounded md:rounded-lg uppercase tracking-widest border border-gray-200">Parceiro</span>
                     </div>
                     
-                    <div class="relative w-full h-56 overflow-hidden bg-white border-b border-gray-100">
+                    <div class="relative w-full h-56 overflow-hidden bg-white border-b border-gray-100 dark:border-white/5">
                         <img 
                             src="/banners/bbb-giga.jpg" 
                             alt="Giga+ Fibra com Globoplay" 
@@ -142,10 +143,10 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
                     </div>
 
                     <div class="p-6 flex flex-col flex-grow justify-center text-center">
-                        <h3 class="text-xl font-black text-navy-dark leading-tight mb-2 group-hover:text-red-base uppercase italic">
+                        <h3 class="text-xl font-black text-navy-dark dark:text-white leading-tight mb-2 group-hover:text-red-base uppercase italic">
                             Giga+ com Globoplay
                         </h3>
-                        <p class="text-navy-soft text-sm leading-relaxed">
+                        <p class="text-navy-soft dark:text-gray-400 text-sm leading-relaxed">
                             Assine a internet fibra oficial da sua casa e leve o BBB 24h, novelas e séries originais.
                         </p>
                         <span class="mt-4 text-red-base text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2">
@@ -154,6 +155,7 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
                     </div>
                 </a>
 
+                {/* Restante das notícias */}
                 {noticiasParaGrid.slice(2, 5).map(noticia => (
                     <NoticiaCard 
                         categoria={noticia.data.categoria}
@@ -169,7 +171,7 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
             <div class="text-center">
                 <a 
                     href="/noticias"
-                    class="group inline-flex items-center gap-2 mx-auto text-xs font-black uppercase tracking-widest text-navy-base hover:text-red-base transition-colors px-10 py-5 rounded-full border-2 border-navy-base/20 hover:border-red-base/50 bg-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0"
+                    class="group inline-flex items-center gap-2 mx-auto text-xs font-black uppercase tracking-widest text-navy-base dark:text-white hover:text-red-base transition-colors px-10 py-5 rounded-full border-2 border-navy-base/20 dark:border-white/20 hover:border-red-base/50 bg-white dark:bg-white/5 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0"
                 >
                     Ver todas as notícias recentes
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 group-hover:translate-x-1 transition-transform">
@@ -179,9 +181,10 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
             </div>
         </section>
 
-        <div class="mb-12 py-8 border-y border-dashed border-ice flex flex-col items-center">
+        {/* SEÇÃO 4: PUBLICIDADE HORIZONTAL */}
+        <div class="mb-12 py-8 border-y border-dashed border-ice dark:border-white/10 flex flex-col items-center">
             <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Publicidade</span>
-            <div class="w-full h-48 md:h-32 bg-[#000066] rounded-2xl flex items-center justify-center group cursor-pointer hover:border-red-base border-2 border-transparent transition-all overflow-hidden relative">
+            <div class="w-full h-48 md:h-32 bg-[#000066] dark:bg-black rounded-2xl flex items-center justify-center group cursor-pointer hover:border-red-base border-2 border-transparent transition-all overflow-hidden relative">
                 <img src="/banners/seu-anuncio.webp" 
                      class="w-full h-full object-contain transition-opacity duration-300 opacity-90 group-hover:opacity-100" 
                      alt="Anúncio Giga Mais">
@@ -193,14 +196,15 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
             </div>
         </div>
 
+        {/* SEÇÃO 5: VOZ DA COMUNIDADE */}
         <section class="mb-12">
             <div class="flex flex-wrap justify-between items-end mb-10 gap-4">
                 <div>
-                    <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark flex items-center gap-3 italic">
-                        <span class="w-10 h-1.5 bg-navy-base inline-block"></span>
+                    <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white flex items-center gap-3 italic">
+                        <span class="w-10 h-1.5 bg-navy-base dark:bg-white inline-block"></span>
                         Voz da Comunidade
                     </h2>
-                    <p class="text-[10px] text-navy-soft font-bold uppercase mt-2 tracking-widest">O canal direto do morador local</p>
+                    <p class="text-[10px] text-navy-soft dark:text-gray-400 font-bold uppercase mt-2 tracking-widest">O canal direto do morador local</p>
                 </div>
                 <a href="/denuncia" class="bg-red-base text-white text-[10px] font-black px-6 py-2.5 rounded-full uppercase hover:bg-red-light transition-all shadow-lg active:scale-95">
                     Enviar Relato
@@ -217,7 +221,7 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
                         />
                     ))
                 ) : (
-                    <div class="col-span-2 bg-ice p-8 rounded-3xl text-center text-navy-soft italic">
+                    <div class="col-span-2 bg-ice dark:bg-white/5 p-8 rounded-3xl text-center text-navy-soft dark:text-gray-400 italic">
                         <p>Nenhum relato em destaque nesta semana.</p>
                     </div>
                 )}
@@ -225,7 +229,7 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
 
             {temMaisDenuncias && (
                 <div class="text-center">
-                    <a href="/denuncia" class="text-navy-base font-black uppercase text-xs hover:underline decoration-red-base underline-offset-4">
+                    <a href="/denuncia" class="text-navy-base dark:text-white font-black uppercase text-xs hover:underline decoration-red-base underline-offset-4">
                         Ver relatos anteriores →
                     </a>
                 </div>
@@ -236,7 +240,7 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
 </Layout>
 
 <script>
-    // Script do Carrossel
+    // Script do Carrossel (Inalterado)
     const container = document.getElementById('carousel-container');
     const dots = document.querySelectorAll('.carousel-dot');
     let currentIndex = 0;
@@ -301,7 +305,7 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
     /* CORREÇÃO DO DESTAQUE: Força a imagem a preencher todo o container sem distorcer */
-    /* Isso resolve o problema do espaço cinza embaixo */
+    
     #carousel-container img {
         height: 100% !important;
         width: 100% !important;
