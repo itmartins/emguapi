@@ -3,7 +3,7 @@ titulo: "Tragédia em Suruí: Pastor morre e passageiro fica ferido após carro 
 resumo: "Vítima estava a caminho da inauguração de uma igreja quando seu veículo foi atingido na lateral e prensado contra a plataforma da estação na tarde deste sábado (07)."
 data: 2026-02-07T17:30:00
 categoria: "Segurança"
-imagem: "/fotos/acidente-trem-surui.jpg"
+imagem: "/fotos/acidente-trem-surui.jpeg"
 destaque: true
 tags: ["Acidente", "Suruí", "Trem", "Pastor Elil", "Magé", "Luto"]
 ---
