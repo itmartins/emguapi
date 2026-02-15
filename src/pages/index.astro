@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar.astro';
 import DestaquePrincipal from '../components/DestaquePrincipal.astro';
 import NoticiaCard from '../components/NoticiaCard.astro';
 import VozComunidade from '../components/VozComunidade.astro';
-import QuickInfo from '../components/QuickInfo.astro'; // Importando o novo widget
+
 // Importamos os dados do trem
 import statusData from '../data/statusTrem.json'; 
 
@@ -57,8 +57,6 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
     <Navbar />
 
     <main class="max-w-5xl mx-auto p-6 bg-white dark:bg-[#112240] dark:border-white/5 min-h-screen shadow-2xl my-8 rounded-[2.5rem] overflow-hidden border border-gray-200 transition-colors duration-300">
-        
-        <QuickInfo />
 
         <section class="mb-8">
             {destaquesFinais.length > 0 ? (

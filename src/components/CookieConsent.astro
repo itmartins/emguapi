@@ -4,13 +4,25 @@
 <div id="cookie-banner" class="fixed bottom-6 left-6 right-6 md:left-auto md:max-w-md bg-navy-dark text-white p-6 rounded-[2rem] shadow-2xl z-[100] border border-white/10 hidden transform translate-y-20 transition-transform duration-500">
   <div class="flex items-start gap-4">
     <div class="bg-red-base p-2 rounded-xl">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"></path><path d="M12 12v.01"></path><path d="M11 17v.01"></path><path d="M7 14v.01"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path>
+        <path d="M8.5 8.5v.01"></path>
+        <path d="M16 15.5v.01"></path>
+        <path d="M12 12v.01"></path>
+        <path d="M11 17v.01"></path>
+        <path d="M7 14v.01"></path>
+      </svg>
     </div>
+
     <div class="flex-1">
       <h4 class="font-black uppercase italic tracking-tighter text-sm mb-2">Valorizamos a sua privacidade</h4>
       <p class="text-[11px] leading-relaxed text-white/70 mb-4">
-        Usamos cookies para melhorar a sua experiência, analisar o tráfego do portal e personalizar anúncios (o que ajuda a manter o **emguapi.com** gratuito). Ao clicar em "Aceitar Tudo", você concorda com o uso de cookies.
+        Usamos cookies para melhorar a sua experiência, analisar o tráfego do portal e personalizar anúncios (o que ajuda a manter o *emguapi.com* gratuito). 
+        Ao clicar em "Aceitar Tudo", você concorda com nossos 
+        <a href="/termos" class="text-white underline hover:text-red-base transition-colors">Termos de Uso</a> e 
+        <a href="/privacidade" class="text-white underline hover:text-red-base transition-colors">Política de Privacidade</a>.
       </p>
+
       <div class="flex gap-3">
         <button id="accept-cookies" class="bg-white text-navy-dark px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-red-base hover:text-white transition-colors">
           Aceitar Tudo
@@ -28,22 +40,27 @@
   const acceptBtn = document.getElementById('accept-cookies');
   const closeBtn = document.getElementById('close-cookie');
 
-  // Verifica se já aceitou antes (usa localStorage para lembrar da escolha)
+  // Verifica se o usuário já tomou uma decisão anteriormente
   if (!localStorage.getItem('cookies-accepted')) {
     setTimeout(() => {
         banner?.classList.remove('hidden');
+        // Pequeno delay para a animação de subida (transform) funcionar
         setTimeout(() => banner?.classList.remove('translate-y-20'), 100);
-    }, 2000); // Aparece 2 segundos após o carregamento
+    }, 2000); // Aparece 2 segundos após o carregamento da página
+  }
+
+  // Função para fechar o banner com animação
+  function hideBanner() {
+    banner?.classList.add('translate-y-20');
+    setTimeout(() => banner?.classList.add('hidden'), 500);
   }
 
   acceptBtn?.addEventListener('click', () => {
     localStorage.setItem('cookies-accepted', 'true');
-    banner?.classList.add('translate-y-20');
-    setTimeout(() => banner?.classList.add('hidden'), 500);
+    hideBanner();
   });
 
   closeBtn?.addEventListener('click', () => {
-    banner?.classList.add('translate-y-20');
-    setTimeout(() => banner?.classList.add('hidden'), 500);
+    hideBanner();
   });
 </script>
