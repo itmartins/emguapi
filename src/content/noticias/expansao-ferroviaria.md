@@ -3,7 +3,7 @@ titulo: "Expansão do Ramal Guapimirim: VLT 'Prosper' da Marcopolo é a aposta p
 resumo: "Governo e nova concessionária discutem aquisição de trens leves fabricados no Brasil. Modelo promete ar-condicionado e visão panorâmica da Serra."
 data: 2026-01-02T23:12:00
 categoria: "Trens"
-imagem: "/fotos/vlt-guapi-2.jpg"
+imagem: "/fotos/vlt-guapi-2.jpeg"
 destaque: true
 tags: ["SuperVia", "VLT", "Marcopolo", "Mobilidade", "Trens", "Guapimirim"]
 ---
