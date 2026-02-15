@@ -1,33 +1,28 @@
 ---
-titulo: "Expansão do Ramal Guapimirim: O que esperar para 2026?"
-resumo: "Novas composições e melhorias nas estações prometem reduzir o tempo de viagem para Saracuruna."
-data: 2026-01-02T23:12:00
-categoria: "Trens"
+titulo: "Nova gestão nos trens: Consórcio assume SuperVia e traz novas perspectivas para o Ramal Guapimirim"
+resumo: "Com novo modelo de contrato baseado em quilometragem e não apenas em passageiros, extensão de Guapimirim pode finalmente receber investimentos e nova composição."
+data: 2026-02-12T10:30:00
+categoria: "Transporte"
 imagem: "/fotos/vlt-guapi.jpg"
 destaque: true
+tags: ["SuperVia", "Nova Via Mobilidade", "Transporte Público", "Ramal Guapimirim", "Baixada Fluminense"]
 ---
 
-O Ramal Guapimirim, um dos trechos ferroviários mais estratégicos da Baixada Fluminense, deverá passar por uma etapa decisiva de modernização ao longo de 2026. O projeto de expansão e requalificação começa a sair do papel com a promessa de melhorar significativamente a experiência do passageiro e a integração com outros modais da Região Metropolitana.
+O cenário ferroviário do Rio de Janeiro sofreu uma mudança drástica nesta semana. O consórcio **Nova Via Mobilidade** venceu o leilão realizado na última terça-feira (10) e será o novo responsável pela operação dos trens urbanos, substituindo a antiga gestão da SuperVia. Para os moradores de **Guapimirim** e da Baixada Fluminense, a troca de comando traz uma esperança baseada em um detalhe técnico crucial: a mudança no modelo de remuneração.
 
-Atualmente operando com composições a diesel, o ramal enfrenta desafios históricos. A proposta apresentada para 2026 busca atacar esses gargalos de forma estruturada.
+Diferente do contrato anterior, onde a operadora lucrava quase exclusivamente com a tarifa paga pelo passageiro (o que desestimulava investimentos em ramais de menor demanda como o nosso), o novo contrato prevê o pagamento por **quilômetro rodado e disponibilidade de frota**. Na prática, isso obriga a nova concessionária a manter os trens circulando e cumprindo horários para receber o repasse do Governo do Estado, independentemente da lotação do vagão.
 
-<figure>
-  <img src="/fotos/ramal-atual.jpg" alt="Trem de passageiros do Ramal Guapimirim operando em trecho de via singela">
-  <figcaption>A infraestrutura atual passará por reformas em sinalização e via permanente.</figcaption>
-</figure>
+## A promessa de novos trens
+Embora a eletrificação total ainda seja um sonho distante, a realidade da frota deve mudar ainda em 2026. Seguindo o cronograma anunciado pela Secretaria de Estado de Transportes em setembro de 2025, o Ramal Vila Inhomirim será o primeiro a receber uma nova composição a diesel climatizada, servindo de piloto.
 
-## Modernização da frota e estações
-Entre as intervenções previstas estão a revitalização das estações, adequação às normas de acessibilidade e modernização dos sistemas de sinalização. Embora a operação continue sendo diesel no curto prazo, há estudos para a adoção de novas composições mais eficientes.
+A previsão é que, logo após essa implementação, o **Ramal Guapimirim** receba o mesmo modelo. Essa atualização é vital para substituir as locomotivas antigas que frequentemente apresentam falhas mecânicas, deixando os passageiros a pé em estações como **Parada Modelo**, **Bananal** e **Suruí**.
 
-<figure>
-  <img src="/fotos/vlt-guapi-2.jpg" alt="Ilustração digital de trem moderno circulando pelo Ramal Guapimirim">
-  <figcaption>Novas composições podem representar o primeiro passo para a eletrificação futura.</figcaption>
-</figure>
+## O que esperar para o curto prazo?
+Com a transição operacional (handling) ocorrendo nas próximas semanas, as prioridades contratuais para o primeiro ano incluem:
 
-## O que muda para o passageiro?
-* Melhor sinalização em estações como Magé e Suruí.
-* Ampliação da acessibilidade com rampas e pisos táteis.
-* Aumento da frequência das viagens em horários de pico.
-* Possível redução no tempo total de viagem até Saracuruna.
+* **Estabilidade da grade:** Redução dos intervalos irregulares que hoje castigam quem depende do trem para ir a Saracuruna.
+* **Segurança patrimonial:** O novo consórcio tem metas rígidas de recuperação de estações vandalizadas.
+* **Integração:** Estudos para melhorar a conexão temporal com os ônibus municipais no Centro de Guapimirim.
 
-> **Leia também:** [Guapimirim reforça ações de preservação ambiental na Serra dos Órgãos](/noticias/prevencao)
+A Nova Via Mobilidade assume o sistema por um período inicial de cinco anos, renováveis por mais cinco. Resta agora à população fiscalizar se a mudança de CNPJ resultará, de fato, em dignidade nos trilhos.
+
