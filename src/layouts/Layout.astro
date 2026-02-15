@@ -23,7 +23,7 @@ const {
 } = Astro.props;
 
 // 2. Ajuste do Link para funcionar no Zap usando o domínio automático
-const siteURL = Astro.url.origin; 
+const siteURL = "https://www.emguapi.com"; 
 const imageURL = new URL(image, siteURL).href;
 ---
 
