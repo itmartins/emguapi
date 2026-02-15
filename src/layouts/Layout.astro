@@ -9,7 +9,7 @@ import Analytics from '@vercel/analytics/astro'
 import Footer from '../components/Footer.astro'; 
 
 interface Props {
-	title: string;
+    title: string;
     description?: string;
     image?: string; 
     tags?: string[];
@@ -22,20 +22,20 @@ const {
     tags = []
 } = Astro.props;
 
-// 2. Ajuste do Link para funcionar no Zap (Vercel)
-const siteURL = "https://emguapi.vercel.app"; 
+// 2. Ajuste do Link para funcionar no Zap usando o domínio automático
+const siteURL = Astro.url.origin; 
 const imageURL = new URL(image, siteURL).href;
 ---
 
 <!doctype html>
 <html lang="pt-br">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		
-		<title>{title}</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        
+        <title>{title}</title>
         <meta name="description" content={description} />
 
         <meta property="og:type" content="article" />
@@ -56,17 +56,19 @@ const imageURL = new URL(image, siteURL).href;
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
-	</head>
+    </head>
     
     <body class="bg-gray-50 font-sans text-navy-base flex flex-col min-h-screen">
-		
+        
         <div class="flex-grow">
             <slot />
         </div>
         
         <Footer />
         
+        <Analytics />
+        
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0" nonce="12345"></script>
-	</body>
+    </body>
 </html>
