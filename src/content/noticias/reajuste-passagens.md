@@ -17,7 +17,7 @@ Os usuários do transporte público intermunicipal de Guapimirim e municípios v
 
 ## Aumento de tarifa, queda na qualidade
 
-Se o valor para ir ao Rio de Janeiro ou até mesmo dentro da própria Baixada subiu, o conforto parece ter ficado na garagem. Passageiros relatam diariamente ao **emguapi.com** que o aumento não representa melhoria nos veículos. Pelo contrário: muitas linhas operam com frotas visivelmente sucateadas, como mostra o flagrante abaixo.
+Se o valor para ir ao Rio de Janeiro ou até mesmo dentro da própria Baixada subiu, o conforto parece ter ficado na garagem. Passageiros relatam diariamente ao [**em**guapi.**com**](/denuncia) que o aumento não representa melhoria nos veículos. Pelo contrário: muitas linhas operam com frotas visivelmente sucateadas, como mostra o flagrante abaixo.
 
 <div class="flex justify-center my-8">
    <div class="w-full max-w-[640px] shadow-lg rounded-xl overflow-hidden border border-gray-200 bg-black aspect-video">
