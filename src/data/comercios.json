@@ -6,53 +6,5 @@
     "descricao": "Limpeza de terrenos, lotes e sítios. Roçagem de mato, cortes de grama e poda de árvores pequenas. Atendimento rápido e com qualidade!",
     "telefone": "21971993894",
     "destaque": true
-  },
-  {
-    "nome": "Delícias da Serra - Bolos Artesanais",
-    "categoria": "Alimentação",
-    "bairro": "Centro",
-    "descricao": "Bolos de pote, tortas e doces para festas. Encomendas com 24h de antecedência.",
-    "telefone": "21999999999",
-    "destaque": false
-  },
-  {
-    "nome": "Borracharia do Zé",
-    "categoria": "Serviços",
-    "bairro": "Parada Modelo",
-    "descricao": "Conserto de pneus, alinhamento e balanceamento. Socorro rápido na RJ-122.",
-    "telefone": "21988888888",
-    "destaque": false
-  },
-  {
-    "nome": "Cantinho da Ração",
-    "categoria": "Serviços",
-    "bairro": "Barreira",
-    "descricao": "Rações, medicamentos e banho & tosa. Entrega grátis em toda a cidade.",
-    "telefone": "21977777777",
-    "destaque": false
-  },
-  {
-    "nome": "Espaço Beleza Certa",
-    "categoria": "Estética",
-    "bairro": "Quinta Mariana",
-    "descricao": "Cortes, coloração, unhas e design de sobrancelhas. Agende o seu horário!",
-    "telefone": "21966666666",
-    "destaque": false
-  },
-  {
-    "nome": "Terreno Vale das Pedrinhas",
-    "categoria": "Imóveis",
-    "bairro": "Vale das Pedrinhas",
-    "descricao": "Lote de 360m² plano, pronto para construir. Documentação OK. Direto com o proprietário.",
-    "telefone": "21955555555",
-    "destaque": false
-  },
-  {
-    "nome": "Atendente de Padaria",
-    "categoria": "Vagas",
-    "bairro": "Centro",
-    "descricao": "Contrata-se atendente com experiência. Enviar currículo pelo WhatsApp.",
-    "telefone": "21944444444",
-    "destaque": false
   }
 ]
