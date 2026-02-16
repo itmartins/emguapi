@@ -3,7 +3,7 @@ titulo: "A pandemia acabou, mas o ônibus não voltou: o sumiço dos horários n
 resumo: "Além de pagar passagens mais caras, moradores enfrentam 'apagão' de frota. Linhas executivas viraram 'fantasmas' e população é espremida no serviço parador."
 data: 2026-02-16T04:30:00
 categoria: "Investigação"
-imagem: "/fotos/ponto-onibus-vazio.jpge"
+imagem: "/fotos/ponto-onibus-vazio.jpg"
 destaque: true
 tags: ["Transporte", "Horários", "Reginas", "Central", "Caxias", "Detro"]
 ---
