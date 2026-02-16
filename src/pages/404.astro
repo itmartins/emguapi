@@ -1,0 +1,43 @@
+---
+// src/pages/404.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Página não encontrada - emguapi.com">
+  <main class="min-h-[70vh] flex flex-col items-center justify-center px-6 py-16 text-center">
+    
+    <div class="max-w-2xl mx-auto relative">
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12rem] md:text-[16rem] font-black text-gray-100 z-0 select-none">
+        404
+      </div>
+      
+      <div class="relative z-10">
+        <div class="w-20 h-20 bg-red-base text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-black uppercase italic tracking-tighter text-navy-dark mb-4">
+          Fim da <span class="text-red-base">Linha!</span>
+        </h1>
+        
+        <p class="text-gray-600 mb-8 leading-relaxed text-lg">
+          Parece que você pegou o trem errado. A página que você está procurando não existe, mudou de endereço ou foi retirada do ar.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/" class="w-full sm:w-auto bg-navy-dark text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-xs hover:bg-navy-base transition-colors shadow-md">
+            ← Voltar para a Capa
+          </a>
+          <a href="/horarios" class="w-full sm:w-auto bg-white text-navy-dark border-2 border-navy-dark px-8 py-4 rounded-full font-black uppercase tracking-widest text-xs hover:bg-navy-dark hover:text-white transition-colors shadow-sm">
+            Ver Horários do Trem
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</Layout>

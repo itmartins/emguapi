@@ -1,0 +1,43 @@
+---
+// src/pages/autor/equipe-emguapi.astro
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Equipe emguapi.com - Autores">
+  <main class="max-w-4xl mx-auto px-6 py-16">
+    
+    <div class="bg-navy-dark text-white p-8 md:p-12 rounded-[2rem] shadow-2xl flex flex-col md:flex-row items-center gap-8 border border-white/10 relative overflow-hidden">
+      
+      <div class="absolute top-0 right-0 w-64 h-64 bg-red-base rounded-full mix-blend-multiply filter blur-3xl opacity-20 translate-x-1/2 -translate-y-1/2"></div>
+
+      <div class="w-32 h-32 md:w-40 md:h-40 bg-white rounded-full flex items-center justify-center shrink-0 shadow-lg z-10 p-2">
+        <div class="w-full h-full bg-ice rounded-full flex items-center justify-center">
+            <span class="text-4xl font-black text-navy-dark tracking-tighter">
+              <span class="font-light">em</span><span class="text-red-base">G</span>
+            </span>
+        </div>
+      </div>
+
+      <div class="text-center md:text-left z-10 flex-1">
+        <h1 class="text-3xl md:text-4xl font-black uppercase italic tracking-tighter mb-4">
+          Equipe <span class="text-red-base">emguapi.com</span>
+        </h1>
+        <p class="text-white/80 leading-relaxed text-sm md:text-base mb-6">
+          Somos um portal de jornalismo hiperlocal dedicado a trazer as notícias mais relevantes de Guapimirim e de toda a Baixada Fluminense. Nosso compromisso é com a verdade, a utilidade pública e a defesa dos interesses da nossa população.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+            <span class="px-4 py-1.5 bg-white/10 rounded-full text-xs font-bold uppercase tracking-widest">Jornalismo Local</span>
+            <span class="px-4 py-1.5 bg-white/10 rounded-full text-xs font-bold uppercase tracking-widest">Utilidade Pública</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-12 flex justify-center">
+        <a href="/" class="text-navy-base font-bold uppercase text-sm tracking-widest hover:text-red-base transition-colors flex items-center gap-2">
+            ← Voltar para a Página Inicial
+        </a>
+    </div>
+
+  </main>
+</Layout>
