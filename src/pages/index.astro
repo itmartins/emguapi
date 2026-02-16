@@ -85,18 +85,19 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
             )}
         </section>
 
+        {/* Box do Trem (Rei do topo novamente) */}
         <section class="mb-12">
             <a href="/horarios" class="group block">
-                <div class="bg-ice dark:bg-white/5 border-l-8 border-navy-base dark:border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all">
+                <div class="bg-ice dark:bg-white/5 border-l-8 border-navy-base dark:border-white/20 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between shadow-sm hover:shadow-md transition-all gap-4">
                     <div class="flex items-center gap-4">
-                        <div class={`h-6 w-6 rounded-full shadow-sm border-2 border-white/50 ${currentStatus.bg}`}></div>
+                        <div class={`h-6 w-6 rounded-full shadow-sm border-2 border-white/50 shrink-0 ${currentStatus.bg}`}></div>
                         <div>
                             <h3 class="text-xs font-black uppercase tracking-widest text-navy-soft dark:text-gray-400 mb-1">Circulação de Trens</h3>
                             <p class="text-lg font-black text-navy-dark dark:text-white leading-none">Ramal Guapimirim</p>
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-3 bg-white dark:bg-black/20 px-4 py-2 rounded-xl border border-gray-200 dark:border-white/10 group-hover:border-navy-base/30 transition-colors">
+                    <div class="flex items-center justify-center gap-3 bg-white dark:bg-black/20 px-4 py-2 rounded-xl border border-gray-200 dark:border-white/10 group-hover:border-navy-base/30 transition-colors">
                         <span class="relative flex h-3 w-3">
                             <span class={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentStatus.ping}`}></span>
                             <span class={`relative inline-flex rounded-full h-3 w-3 ${currentStatus.bg}`}></span>
@@ -150,7 +151,7 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
                         <p class="text-navy-soft dark:text-gray-400 text-sm leading-relaxed">
                             Assine a internet fibra oficial da sua casa e leve o BBB 24h, novelas e séries originais.
                         </p>
-                        <span class="mt-4 text-red-base text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2">
+                        <span class="mt-4 inline-flex items-center justify-center gap-2 text-red-base text-xs font-black uppercase tracking-widest">
                             Ver Ofertas <span class="group-hover:translate-x-1 transition-transform">→</span>
                         </span>
                     </div>
@@ -182,20 +183,28 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
             </div>
         </section>
 
-        {/* SEÇÃO 4: PUBLICIDADE HORIZONTAL */}
-        <div class="mb-12 py-8 border-y border-dashed border-ice dark:border-white/10 flex flex-col items-center">
-            <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Publicidade</span>
-            <div class="w-full h-48 md:h-32 bg-[#000066] dark:bg-black rounded-2xl flex items-center justify-center group cursor-pointer hover:border-red-base border-2 border-transparent transition-all overflow-hidden relative">
-                <img src="/banners/seu-anuncio.webp" 
-                     class="w-full h-full object-contain transition-opacity duration-300 opacity-90 group-hover:opacity-100" 
-                     alt="Anúncio Giga Mais">
-                <a href="https://www.gigamaisfibra.com.br/" 
-                   target="_blank"
-                   class="absolute inset-0 z-10">
-                   <span class="sr-only">Visitar site do anunciante</span>
-                </a>
-            </div>
-        </div>
+        {/* NOVO BANNER: Guia Comercial */}
+        <section class="mb-12">
+            <a href="/classificados" class="group block bg-navy-base rounded-[2rem] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between shadow-lg hover:shadow-xl transition-all relative overflow-hidden">
+                
+                <div class="absolute right-0 top-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl transform translate-x-20 -translate-y-20 group-hover:scale-125 transition-transform duration-1000"></div>
+                
+                <div class="relative z-10 text-center md:text-left mb-6 md:mb-0">
+                    <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white mb-2 flex items-center gap-3 justify-center md:justify-start">
+                        <span class="text-3xl">📰</span> Classificados
+                    </h2>
+                    <p class="text-white/90 text-sm md:text-base max-w-md mx-auto md:mx-0">
+                        Descubra os melhores serviços, vagas e produtos de Guapimirim. Apoie o pequeno negócio local!
+                    </p>
+                </div>
+                
+                <div class="relative z-10 shrink-0">
+                    <span class="bg-white text-red-base font-black uppercase tracking-widest text-xs px-8 py-4 rounded-full group-hover:bg-navy-dark group-hover:text-white transition-colors inline-block shadow-md">
+                        Acessar Guia de Classificados →
+                    </span>
+                </div>
+            </a>
+        </section>
 
         {/* SEÇÃO 5: VOZ DA COMUNIDADE */}
         <section class="mb-12">
@@ -236,6 +245,21 @@ const currentStatus = statusConfig[statusData.estado.toLowerCase() as keyof type
                 </div>
             )}
         </section>
+
+        {/* SEÇÃO 4: PUBLICIDADE HORIZONTAL */}
+        <div class="mb-12 py-8 border-y border-dashed border-ice dark:border-white/10 flex flex-col items-center">
+            <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Publicidade</span>
+            <div class="w-full h-48 md:h-32 bg-[#000066] dark:bg-black rounded-2xl flex items-center justify-center group cursor-pointer hover:border-red-base border-2 border-transparent transition-all overflow-hidden relative">
+                <img src="/banners/seu-anuncio.webp" 
+                     class="w-full h-full object-contain transition-opacity duration-300 opacity-90 group-hover:opacity-100" 
+                     alt="Anúncio Giga Mais">
+                <a href="https://www.gigamaisfibra.com.br/" 
+                   target="_blank"
+                   class="absolute inset-0 z-10">
+                   <span class="sr-only">Visitar site do anunciante</span>
+                </a>
+            </div>
+        </div>
         
     </main>
 </Layout>

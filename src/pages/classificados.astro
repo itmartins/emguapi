@@ -1,0 +1,181 @@
+---
+// src/pages/classificados.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro'; // <-- Importação da Navbar adicionada aqui!
+
+// A magia acontece aqui: O Astro importa o JSON automaticamente como um Array!
+import comercios from '../data/comercios.json';
+
+// Categorias disponíveis para o filtro
+const categorias = ["Todos", "Alimentação", "Serviços", "Estética", "Imóveis", "Vagas"];
+---
+
+<Layout title="Classificados e Guia Comercial - emguapi.com">
+  <Navbar /> 
+
+  <main class="max-w-6xl mx-auto px-6 py-12 md:py-20">
+    
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-black uppercase italic tracking-tighter text-navy-dark mb-4">
+        Guia <span class="text-red-base">Local</span>
+      </h1>
+      <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+        Apoie o comércio de Guapimirim! Encontre os melhores serviços, produtos e oportunidades da nossa cidade.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-3 mb-12">
+      {categorias.map((cat) => (
+        <button 
+          class="btn-filtro px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest border-2 transition-all duration-300"
+          data-categoria={cat}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="grid-comercios">
+      {comercios.map((comercio) => (
+        <div 
+          class="card-comercio bg-white rounded-2xl p-6 border transition-all hover:shadow-xl"
+          data-categoria={comercio.categoria}
+          data-destaque={comercio.destaque.toString()}
+        >
+          <div class="flex justify-between items-start mb-4">
+            <span class="bg-navy-dark text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">
+              {comercio.categoria}
+            </span>
+            {comercio.destaque && (
+              <span class="text-red-base text-xs font-black uppercase tracking-widest animate-pulse">
+                ★ Destaque
+              </span>
+            )}
+          </div>
+
+          <h3 class="text-xl font-black text-navy-dark leading-tight mb-2">
+            {comercio.nome}
+          </h3>
+          
+          <p class="text-xs text-gray-500 mb-3 flex items-center gap-1 font-bold uppercase tracking-wide">
+            📍 {comercio.bairro}
+          </p>
+
+          <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+            {comercio.descricao}
+          </p>
+
+          <a 
+            href={`https://wa.me/55${comercio.telefone}?text=Olá! Vi o anúncio no portal emguapi.com e gostaria de mais informações.`}
+            target="_blank"
+            class="block w-full text-center bg-green-600 hover:bg-green-700 text-white font-black uppercase tracking-widest text-xs py-3 rounded-full transition-colors mt-auto"
+          >
+            Chamar no WhatsApp
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <div id="msg-vazio" class="hidden text-center py-12">
+      <p class="text-gray-500 text-lg font-bold">Nenhum anúncio encontrado nesta categoria.</p>
+    </div>
+
+<div class="mt-16 bg-navy-dark rounded-[2rem] p-8 md:p-12 text-center text-white relative overflow-hidden">
+      <div class="relative z-10">
+        <h2 class="text-2xl md:text-3xl font-black uppercase italic tracking-tighter mb-4">
+          Anuncie de Graça!
+        </h2>
+        <p class="text-white/80 mb-8 max-w-xl mx-auto">
+          Escolha o seu canal favorito abaixo e envie os dados do seu comércio. O cadastro no portal é rápido e 100% gratuito!
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          
+          <a href="https://wa.me/5521969400053?text=Olá! Quero cadastrar meu negócio no Guia Comercial do emguapi.com" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white font-black uppercase tracking-widest text-xs px-8 py-4 rounded-full transition-all shadow-lg hover:scale-105">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            WhatsApp
+          </a>
+          
+          <a href="https://m.me/emguapi" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#0084FF] hover:bg-[#006bce] text-white font-black uppercase tracking-widest text-xs px-8 py-4 rounded-full transition-all shadow-lg hover:scale-105">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.145 2 11.259c0 2.923 1.516 5.518 3.864 7.185v3.42l3.526-1.936c.84.233 1.718.354 2.61.354 5.523 0 10-4.145 10-9.259C22 6.145 17.523 2 12 2zm1.054 12.336l-2.695-2.88-5.263 2.88 5.795-6.177 2.768 2.88 5.187-2.88-5.792 6.177z"/></svg>
+            Messenger
+          </a>
+
+          <a href="mailto:contato@emguapi.com" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-red-base hover:bg-red-light text-white font-black uppercase tracking-widest text-xs px-8 py-4 rounded-full transition-all shadow-lg hover:scale-105">
+            <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            E-mail
+          </a>
+          
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</Layout>
+
+<style>
+  .btn-filtro {
+    @apply border-gray-200 text-gray-500 hover:border-red-base hover:text-red-base bg-white;
+  }
+  
+  .btn-filtro.ativo {
+    @apply bg-red-base border-red-base text-white;
+  }
+
+  .card-comercio {
+    @apply border-gray-100 shadow-sm flex flex-col;
+  }
+  .card-comercio[data-destaque="true"] {
+    @apply border-red-base border-2 shadow-md;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Avisamos ao código que as listas são compostas por Elementos HTML (<HTMLElement>)
+    const botoesFiltro = document.querySelectorAll<HTMLElement>('.btn-filtro');
+    const cardsComercio = document.querySelectorAll<HTMLElement>('.card-comercio');
+    const msgVazio = document.getElementById('msg-vazio');
+
+    // 2. Definimos que a variável que chega aqui é um Texto (string) ou vazia (null)
+    function filtrarCards(categoriaSelecionada: string | null) {
+      let cardsVisiveis = 0;
+
+      cardsComercio.forEach(card => {
+        const categoriaCard = card.getAttribute('data-categoria');
+        
+        if (categoriaSelecionada === 'Todos' || categoriaSelecionada === categoriaCard) {
+          card.style.display = 'flex';
+          cardsVisiveis++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // 3. Verificamos se a div de mensagem realmente existe antes de mudar a classe dela
+      if (msgVazio) {
+        if (cardsVisiveis === 0) {
+          msgVazio.classList.remove('hidden');
+        } else {
+          msgVazio.classList.add('hidden');
+        }
+      }
+    }
+
+    botoesFiltro.forEach(botao => {
+      botao.addEventListener('click', () => {
+        botoesFiltro.forEach(b => b.classList.remove('ativo'));
+        botao.classList.add('ativo');
+        
+        const categoria = botao.getAttribute('data-categoria');
+        filtrarCards(categoria);
+      });
+    });
+
+    const botaoTodos = document.querySelector('.btn-filtro[data-categoria="Todos"]');
+    if (botaoTodos) {
+      botaoTodos.classList.add('ativo');
+    }
+  });
+</script>

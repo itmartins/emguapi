@@ -18,6 +18,11 @@ A prova mais clara desse sucateamento operacional é a confusão e o sumiço das
 
 Hoje, essa divisão praticamente não existe. A Viação Reginas fundiu e alterou a dinâmica das linhas. O serviço Seletiva (Executivo) tornou-se escasso, obrigando toda a demanda de trabalhadores de Guapimirim a se espremer nos ônibus de serviço Parador — muitos deles rodando sem ar-condicionado. Na prática, o passageiro paga uma tarifa altíssima de viagem intermunicipal de longa distância, mas viaja nas mesmas condições precárias de um ônibus circular de bairro.
 
+<figure class="my-8">
+  <img src="/fotos/onibus-reginas-close.webp" alt="Frente de um ônibus da Viação Reginas evidenciando o logotipo e letreiro.">
+  <figcaption>População sofre com fusão de linhas e sumiço dos ônibus executivos da Viação Reginas. (Foto: Leonardo Lopes)</figcaption>
+</figure>
+
 ## A 'Linha Fantasma' para o Castelo
 
 O caso mais revoltante é a linha executiva direta para o Castelo (2195C). Antes uma opção viável para quem precisava chegar ao Centro do Rio com o mínimo de conforto, hoje a linha opera em esquema de "racionamento". 
