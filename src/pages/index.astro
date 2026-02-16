@@ -295,13 +295,13 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
 <script>
     const container = document.getElementById('carousel-container');
     const dots = document.querySelectorAll('.carousel-dot');
-    let currentIndex = 0;
     
-    /** @type {number | undefined} */
-    let autoPlayInterval;
+    // Devolvemos o ": number" para o VS Code ficar feliz
+    let currentIndex: number = 0;
+    let autoPlayInterval: number | undefined;
 
-    /** @param {number} index */
-    function scrollToSlide(index) {
+    // Avisamos que o parâmetro index é sempre um número
+    function scrollToSlide(index: number) {
         if (!container) return;
         const width = container.offsetWidth;
         if (index >= dots.length) index = 0;
@@ -310,8 +310,7 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
         currentIndex = index;
     }
 
-    /** @param {number} index */
-    function updateDots(index) {
+    function updateDots(index: number) {
         dots.forEach((dot, i) => {
             if (i === index) {
                 dot.classList.add('bg-red-base', 'w-6');
@@ -336,6 +335,7 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         
         if (!prefersReducedMotion) {
+            // Usamos window.setInterval para o TypeScript ter certeza que estamos no navegador
             autoPlayInterval = window.setInterval(() => {
                 currentIndex++;
                 scrollToSlide(currentIndex);
@@ -344,7 +344,9 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
     }
 
     function resetInterval() {
-        clearInterval(autoPlayInterval);
+        if (autoPlayInterval !== undefined) {
+            clearInterval(autoPlayInterval);
+        }
         startInterval();
     }
 
