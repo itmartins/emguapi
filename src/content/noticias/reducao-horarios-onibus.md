@@ -10,7 +10,7 @@ tags: ["Transporte", "Horários", "Reginas", "Central", "Caxias", "Detro"]
 
 Se a tarifa intermunicipal em Guapimirim já pesa no bolso, quem depende dos ônibus enfrenta um segundo e silencioso castigo: **a redução drástica de horários**. 
 
-Levantamentos e denúncias recebidas pelo **emguapi.com** revelam que o sistema rodoviário que atende a cidade sofreu um enxugamento severo durante a pandemia de Covid-19, em 2020. O problema é que a pandemia acabou, a rotina de trabalho presencial voltou ao normal, mas as empresas nunca devolveram as frotas completas às ruas, usando o corte emergencial como uma manobra permanente para reduzir custos.
+Levantamentos e denúncias recebidas pelo [**em**guapi.**com**](/denuncia) revelam que o sistema rodoviário que atende a cidade sofreu um enxugamento severo durante a pandemia de Covid-19, em 2020. O problema é que a pandemia acabou, a rotina de trabalho presencial voltou ao normal, mas as empresas nunca devolveram as frotas completas às ruas, usando o corte emergencial como uma manobra permanente para reduzir custos.
 
 ## O fim do conforto: Seletiva vs. Parador
 
