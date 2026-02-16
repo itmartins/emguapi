@@ -6,5 +6,13 @@
     "descricao": "Limpeza de terrenos, lotes e sítios. Roçagem de mato, cortes de grama e poda de árvores pequenas. Atendimento rápido e com qualidade!",
     "telefone": "21971993894",
     "destaque": true
+  },
+  {
+    "nome": "Magé Tropical - Picolés Artesanais",
+    "categoria": "Alimentação",
+    "bairro": "Praia de Mauá / Delivery",
+    "descricao": "Picolés artesanais (fruta, ao leite, recheados e MagéCaipi alcoólico). Vendas no varejo e atacado para festas a partir de R$ 1,00. Consulte taxa de entrega.",
+    "telefone": "21974269306",
+    "destaque": false
   }
 ]
