@@ -1,7 +1,7 @@
 ---
 titulo: "A pandemia acabou, mas o ônibus não voltou: o sumiço dos horários nas linhas de Guapimirim"
 resumo: "Além de pagar passagens mais caras, moradores enfrentam 'apagão' de frota. Linhas executivas viraram 'fantasmas' e população é espremida no serviço parador."
-data: 2026-02-16T14:30:00
+data: 2026-02-16T04:30:00
 categoria: "Investigação"
 imagem: "/fotos/ponto-onibus-vazio.webp"
 destaque: true
