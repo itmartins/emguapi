@@ -59,6 +59,8 @@ Abaixo, detalhamos os novos preços das principais linhas que atendem Guapimirim
 * **121Q:** Niterói x Magé (Via Itambi) – **R$ 15,95**
 * **511Q:** Niterói x Imbariê (Via Magé e Piabetá) – **R$ 15,10**
 
+## A falta de investimento
+
 <figure>
   <img src="/fotos/ponto-onibus-sem-cobertura.jpg" alt="Passageiros aguardando ônibus em ponto sem cobertura na Quinta Mariana">
   <figcaption>Aumento de preço, zero investimento: passageiros esperam os ônibus em locais improvisados.</figcaption>
