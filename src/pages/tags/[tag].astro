@@ -1,0 +1,77 @@
+---
+// src/pages/tags/[tag].astro
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import NoticiaCard from '../../components/NoticiaCard.astro';
+
+// 1. Função obrigatória do Astro para gerar páginas dinâmicas
+export async function getStaticPaths() {
+  const todasNoticias = await getCollection('noticias');
+  
+  // 2. Extrai todas as tags únicas de todas as matérias
+  const tagsUnicas = [...new Set(todasNoticias.map((noticia) => noticia.data.tags || []).flat())];
+
+  // 3. Função para limpar o texto da URL (Ex: "Serra dos Órgãos" vira "serra-dos-orgaos")
+  const formatarTagParaURL = (tag: string) => {
+    return tag.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
+  };
+
+  // 4. Cria o caminho e passa as notícias filtradas para cada tag
+  return tagsUnicas.map((tag) => {
+    const noticiasFiltradas = todasNoticias
+      .filter((noticia) => noticia.data.tags?.includes(tag))
+      // CORREÇÃO 1: Voltando para a sua lógica de ordenação de Datas que sempre funcionou!
+      .sort((a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime());
+
+    return {
+      params: { tag: formatarTagParaURL(tag) },
+      props: { tagOriginal: tag, noticias: noticiasFiltradas },
+    };
+  });
+}
+
+// 5. Recebe as propriedades para montar a tela
+const { tag } = Astro.params;
+const { tagOriginal, noticias } = Astro.props;
+---
+
+<Layout 
+    title={`Notícias sobre ${tagOriginal} em Guapimirim | emguapi.com`} 
+    description={`Acompanhe todas as últimas notícias, reportagens e atualizações sobre ${tagOriginal} na Baixada Fluminense.`}
+>
+    <Navbar />
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 bg-white dark:bg-[#0b1120] min-h-screen border-x border-gray-100 dark:border-white/5">
+        
+        <div class="mb-10 border-b-2 border-black dark:border-white pb-6 mt-4">
+            <p class="text-red-600 font-bold uppercase tracking-widest text-xs mb-2">Explorando o Tópico</p>
+            <h1 class="text-4xl md:text-5xl font-black text-black dark:text-white uppercase tracking-tighter">
+                #{tagOriginal}
+            </h1>
+            <p class="text-gray-500 dark:text-gray-400 mt-3 font-medium">
+                {noticias.length} {noticias.length === 1 ? 'resultado encontrado' : 'resultados encontrados'}
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-x-8 gap-y-10 mb-12">
+            {noticias.map(noticia => (
+                <NoticiaCard 
+                    categoria={noticia.data.categoria}
+                    titulo={noticia.data.titulo}
+                    resumo={noticia.data.resumo}
+                    data={noticia.data.data}
+                    link={`/noticias/${noticia.id.replace(/\.md$/, '')}`}
+                    imagem={noticia.data.imagem || "/fotos/estacao-guapi.jpg"}
+                />
+            ))}
+        </div>
+
+        <div class="text-center border-t border-gray-200 dark:border-white/10 pt-8">
+            <a href="/" class="inline-block border-2 border-black dark:border-white text-black dark:text-white font-bold uppercase text-xs tracking-widest px-8 py-3 rounded-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
+                ← Voltar para a Capa
+            </a>
+        </div>
+
+    </main>
+</Layout>

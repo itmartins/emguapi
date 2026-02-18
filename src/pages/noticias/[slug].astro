@@ -13,6 +13,11 @@ export async function getStaticPaths() {
   }));
 }
 
+// Função para limpar o texto da URL das tags
+const formatarTagParaURL = (tag: string) => {
+  return tag.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
+};
+
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
@@ -144,15 +149,18 @@ const shareText = encodeURIComponent(entry.data.titulo);
                 <Content />
             </div>
 
-            {/* --- BLOCO DE TAGS (ADICIONADO AQUI) --- */}
+            {/* --- BLOCO DE TAGS CORRIGIDO COM LINKS --- */}
             {entry.data.tags && entry.data.tags.length > 0 && (
                 <div class="mt-10 mb-10 pt-8 border-t border-dashed border-ice">
                     <h4 class="text-xs font-black uppercase tracking-widest text-navy-soft mb-3">Tópicos Relacionados:</h4>
                     <div class="flex flex-wrap gap-2">
-                        {entry.data.tags.map(tag => (
-                            <span class="bg-gray-100 hover:bg-red-base hover:text-white text-navy-base px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wide transition-colors cursor-default shadow-sm border border-gray-200">
+                        {entry.data.tags.map((tag: string) => (
+                            <a 
+                                href={`/tags/${formatarTagParaURL(tag)}`}
+                                class="bg-gray-100 hover:bg-red-base hover:text-white text-navy-base px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wide transition-colors shadow-sm border border-gray-200"
+                            >
                                 #{tag}
-                            </span>
+                            </a>
                         ))}
                     </div>
                 </div>
