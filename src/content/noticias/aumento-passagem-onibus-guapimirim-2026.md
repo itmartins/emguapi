@@ -15,16 +15,54 @@ A medida, oficializada pela portaria DETRO/PRES nº 1960/2026, estabelece um aum
 
 ## O peso no bolso: como ficam as linhas de Guapimirim
 
-Para se ter uma dimensão do impacto, a linha **Guapimirim x Central do Brasil**, uma das mais utilizadas por quem trabalha na capital, passará dos atuais R$ 18,00 para **R$ 20,25**. 
+Para se ter uma dimensão do impacto na rotina do trabalhador, a linha **Guapimirim x Central do Brasil** e as viagens regionais como **Caneca Fina x Magé** sofreram reajustes que vão comprometer uma fatia gigantesca do orçamento de quem ganha um salário mínimo. Confira os valores detalhados e o custo assustador no fim do mês:
 
-Isso significa que um morador gastará **R$ 40,50 por dia** apenas com o trajeto de ida e volta. Em um mês útil de 22 dias de trabalho, o custo do transporte rodoviário chegará a absurdos **R$ 891,00** — comprometendo uma fatia gigantesca do orçamento de quem ganha um salário mínimo.
-
-As viagens mais curtas também não escaparam do reajuste. A linha **Caneca Fina x Magé**, vital para o deslocamento entre os municípios vizinhos, subirá de R$ 8,10 para **R$ 9,10**. 
+<div class="not-prose bg-navy-dark text-white p-6 md:p-8 rounded-2xl my-8 shadow-xl border border-white/10">
+<h3 class="text-white font-black uppercase text-lg mb-8 flex items-center gap-3"><span class="w-2 h-6 bg-red-base rounded-sm"></span>Confira os Novos Valores (A partir de 15/Fev)</h3>
+<div class="space-y-6">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-white/10 pb-6">
+<div class="mb-3 sm:mb-0"><h4 class="text-white font-black text-xl uppercase tracking-tight">Guapimirim x Central</h4><p class="text-gray-400 text-sm">Linha principal para o Rio</p></div>
+<div class="flex items-center gap-4 shrink-0"><span class="text-gray-400 line-through text-sm font-medium">De R$ 18,00</span><span class="bg-red-base text-white font-black text-2xl px-4 py-2 rounded-lg shadow-md tracking-tight">Por R$ 20,25</span></div>
+</div>
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-4">
+<div class="mb-3 sm:mb-0"><h4 class="text-white font-bold text-lg uppercase tracking-tight">Caneca Fina x Magé</h4><p class="text-gray-400 text-sm">Deslocamento regional</p></div>
+<div class="flex items-center gap-4 shrink-0"><span class="text-gray-400 line-through text-sm font-medium">De R$ 8,10</span><span class="bg-red-base text-white font-black text-xl px-4 py-2 rounded-lg shadow-md tracking-tight">Por R$ 9,10</span></div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t-2 border-white/20 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-white/5 p-4 rounded-xl border border-white/10 text-center"><p class="text-red-300 text-xs font-bold uppercase tracking-widest mb-1">Custo Diário (Ida e Volta)</p><p class="text-white font-black text-3xl tracking-tighter">R$ 40,50</p></div>
+<div class="bg-white/5 p-4 rounded-xl border border-red-base/30 text-center relative overflow-hidden"><div class="absolute inset-0 bg-red-base/10 z-0"></div><p class="text-red-300 text-xs font-bold uppercase tracking-widest mb-1 relative z-10">Impacto Mensal (22 dias)</p><p class="text-white font-black text-3xl tracking-tighter relative z-10">R$ 891,00</p></div>
+</div>
+</div>
 
 > **Entenda os índices do Detro-RJ:**
 > * **Região Metropolitana:** Aumento de 12,61%
 > * **Linhas do Interior:** Aumento de 11,69%
 > * **Linhas Urbanas (não metropolitanas):** Aumento de 9,93%
+
+<div class="not-prose bg-navy-dark text-white p-6 md:p-8 rounded-2xl my-8 shadow-xl border border-white/10">
+<h3 class="text-white font-black uppercase text-lg mb-2 flex items-center gap-3"><span class="w-2 h-6 bg-red-base rounded-sm"></span>Tabela Completa de Valores</h3>
+<p class="text-gray-400 text-sm mb-8">Abaixo, detalhamos os novos preços das principais linhas que atendem Guapimirim, Magé e Teresópolis:</p>
+<h4 class="text-red-base font-black uppercase tracking-widest text-sm mb-4 border-b border-white/10 pb-2 mt-6">Viação Reginas</h4>
+<ul class="space-y-4 text-sm md:text-base mb-8">
+<li class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start"><span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-1.5 rounded-md min-w-[80px] text-center shrink-0 shadow-md">195C</span><p class="text-gray-300 leading-relaxed"><strong class="text-white text-base">R$ 20,25</strong> — Guapimirim x Central</p></li>
+<li class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start"><span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-1.5 rounded-md min-w-[80px] text-center shrink-0 shadow-md">2195C</span><p class="text-gray-300 leading-relaxed"><strong class="text-white text-base">R$ 32,10</strong> — Guapimirim x Castelo</p></li>
+<li class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start"><span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-1.5 rounded-md min-w-[80px] text-center shrink-0 shadow-md">576i</span><p class="text-gray-300 leading-relaxed"><strong class="text-white text-base">R$ 10,40</strong> — Guapimirim x Duque de Caxias</p></li>
+<li class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start"><span class="bg-white/20 text-white font-black text-xs uppercase tracking-widest px-3 py-1.5 rounded-md min-w-[80px] text-center shrink-0 shadow-md">TRECHO</span><p class="text-gray-300 leading-relaxed"><strong class="text-white text-base">R$ 6,70</strong> — Guapimirim x Imbariê</p></li>
+<li class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start"><span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-1.5 rounded-md min-w-[80px] text-center shrink-0 shadow-md">800i</span><p class="text-gray-300 leading-relaxed"><strong class="text-white text-base">R$ 9,10</strong> — Magé x Caneca Fina</p></li>
+<li class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start"><span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-1.5 rounded-md min-w-[80px] text-center shrink-0 shadow-md">810i</span><p class="text-gray-300 leading-relaxed"><strong class="text-white text-base">R$ 6,70</strong> — Magé x Vale das Pedrinhas</p></li>
+</ul>
+<h4 class="text-red-base font-black uppercase tracking-widest text-sm mb-4 border-b border-white/10 pb-2 mt-6">Viação Teresópolis</h4>
+<ul class="space-y-4 text-sm md:text-base mb-8">
+<li class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start"><span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-1.5 rounded-md min-w-[80px] text-center shrink-0 shadow-md">MS11</span><p class="text-gray-300 leading-relaxed"><strong class="text-white text-base">R$ 10,75</strong> — Teresópolis x Guapimirim</p></li>
+<li class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start"><span class="bg-white/20 text-white font-black text-xs uppercase tracking-widest px-3 py-1.5 rounded-md min-w-[80px] text-center shrink-0 shadow-md">DIRETO</span><p class="text-gray-300 leading-relaxed"><strong class="text-white text-base">R$ 18,80</strong> — Teresópolis x Magé</p></li>
+</ul>
+<h4 class="text-red-base font-black uppercase tracking-widest text-sm mb-4 border-b border-white/10 pb-2 mt-6">Expresso Rio de Janeiro</h4>
+<ul class="space-y-4 text-sm md:text-base">
+<li class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start"><span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-1.5 rounded-md min-w-[80px] text-center shrink-0 shadow-md">121Q</span><p class="text-gray-300 leading-relaxed"><strong class="text-white text-base">R$ 15,95</strong> — Niterói x Magé (Via Itambi)</p></li>
+<li class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start"><span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-1.5 rounded-md min-w-[80px] text-center shrink-0 shadow-md">511Q</span><p class="text-gray-300 leading-relaxed"><strong class="text-white text-base">R$ 15,10</strong> — Niterói x Imbariê (Via Magé e Piabetá)</p></li>
+</ul>
+</div>
 
 ## O Trem como salvação e a importância da Tarifa Social
 

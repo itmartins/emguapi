@@ -31,22 +31,25 @@ As investigações da 67ª DP detalham que a quadrilha integrada por "Gasparzinh
 * **Roupas Táticas:** O bando atuava frequentemente usando balaclavas (toucas ninja), coletes e roupas táticas para dificultar a identificação e intimidar as vítimas.
 * **Terror Psicológico:** Famílias eram mantidas reféns sob a mira de armas enquanto o grupo exigia transferências bancárias via PIX.
 
-<div class="bg-navy-dark text-white p-6 rounded-xl my-8 shadow-lg">
-    <h3 class="text-red-base font-black uppercase text-sm mb-4 border-b border-white/10 pb-2">Cronologia da Investigação</h3>
-    <ul class="space-y-3 text-sm">
-        <li class="flex gap-3">
-            <span class="font-bold text-red-base min-w-[80px]">Maio/2025:</span>
-            <p>A <strong>esposa de Gasparzinho</strong> foi presa pela 67ª DP. Segundo a polícia, ela atuava como "olheira", levantando informações sobre as vítimas e auxiliando na logística dos crimes enquanto o marido ainda estava preso ou foragido.</p>
-        </li>
-        <li class="flex gap-3">
-            <span class="font-bold text-red-base min-w-[80px]">Dez/2025:</span>
-            <p>A "Operação Escudo Residencial" desarticulou parte do núcleo operacional da quadrilha, reduzindo drasticamente os índices de roubo na cidade.</p>
-        </li>
-        <li class="flex gap-3">
-            <span class="font-bold text-red-base min-w-[80px]">Fev/2026:</span>
-            <p>Prisão de "Gasparzinho" no bairro Status após confronto, fechando o cerco contra a liderança do grupo.</p>
-        </li>
-    </ul>
+<div class="not-prose bg-navy-dark text-white p-6 md:p-8 rounded-2xl my-8 shadow-xl border border-white/10">
+<h3 class="text-white font-black uppercase text-lg mb-6 flex items-center gap-3">
+<span class="w-2 h-6 bg-red-base rounded-sm"></span>
+Cronologia da Investigação
+</h3>
+<ul class="space-y-6 text-sm md:text-base">
+<li class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start">
+<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-1.5 rounded-md min-w-[100px] text-center shrink-0 shadow-md">Maio/2025</span>
+<p class="text-gray-300 leading-relaxed"><strong class="text-white">A esposa de Gasparzinho</strong> foi presa pela 67ª DP. Segundo a polícia, ela atuava como "olheira", levantando informações sobre as vítimas e auxiliando na logística dos crimes enquanto o marido ainda estava preso ou foragido.</p>
+</li>
+<li class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start">
+<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-1.5 rounded-md min-w-[100px] text-center shrink-0 shadow-md">Dez/2025</span>
+<p class="text-gray-300 leading-relaxed">A <strong class="text-white">"Operação Escudo Residencial"</strong> desarticulou parte do núcleo operacional da quadrilha, reduzindo drasticamente os índices de roubo na cidade.</p>
+</li>
+<li class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start">
+<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-1.5 rounded-md min-w-[100px] text-center shrink-0 shadow-md">Fev/2026</span>
+<p class="text-gray-300 leading-relaxed"><strong class="text-white">Prisão de "Gasparzinho"</strong> no bairro Status após confronto, fechando o cerco contra a liderança do grupo.</p>
+</li>
+</ul>
 </div>
 
 A ação reforça o compromisso da Polícia Civil de Guapimirim no combate à criminalidade organizada. A 67ª DP solicita que a população continue colaborando com denúncias anônimas, fundamentais para o sucesso de operações como esta.
