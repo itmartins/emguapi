@@ -12,19 +12,19 @@ import statusData from '../data/statusTrem.json';
 
 // --- LÓGICA DE NOTÍCIAS ---
 const todasNoticias = (await getCollection('noticias')).sort(
-  (a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
+    (a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
 );
 
 // 1. Destaques (Carrossel - Top 5)
 const noticiasCarrossel = todasNoticias
-  .filter(noticia => noticia.data.destaque === true)
-  .slice(0, 5);
+    .filter(noticia => noticia.data.destaque === true)
+    .slice(0, 5);
 
 const destaquesFinais = noticiasCarrossel.length > 0 ? noticiasCarrossel : todasNoticias.slice(0, 5);
 
 // 2. Grid "Cidade Alerta"
 const todasNoticiasRestantes = todasNoticias.filter(
-  noticia => !destaquesFinais.some(d => d.id === noticia.id)
+    noticia => !destaquesFinais.some(d => d.id === noticia.id)
 );
 
 const noticiasParaGrid = todasNoticiasRestantes.slice(0, 5);
@@ -32,7 +32,7 @@ const existeMaisNoticias = todasNoticiasRestantes.length > 5;
 
 // --- LÓGICA DA VOZ DA COMUNIDADE ---
 const todasDenuncias = (await getCollection('denuncias')).sort(
-  (a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
+    (a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
 );
 const denunciasRecentes = todasDenuncias.slice(0, 4);
 const temMaisDenuncias = todasDenuncias.length > 4;
@@ -59,12 +59,14 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
 >
     <Navbar />
 
-    <main class="max-w-5xl mx-auto p-6 bg-white dark:bg-[#112240] dark:border-white/5 min-h-screen shadow-2xl my-8 rounded-[2.5rem] overflow-hidden border border-gray-200 transition-colors duration-300">
+    {/* MAIN CONTAINER: Mudado de rounded-xl para rounded-lg */}
+    <main class="max-w-5xl mx-auto p-6 bg-white dark:bg-[#112240] dark:border-white/5 min-h-screen shadow-2xl my-8 rounded-lg overflow-hidden border border-gray-200 transition-colors duration-300">
 
         <section class="mb-8">
             {destaquesFinais.length > 0 ? (
                 <div class="relative group" id="carousel-parent">
-                    <div id="carousel-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-[2.5rem] gap-0">
+                    {/* CARROSSEL: Mudado de rounded-xl para rounded-lg */}
+                    <div id="carousel-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-lg gap-0">
                         {destaquesFinais.map((noticia, index) => (
                             <div class="min-w-full snap-center" data-index={index}>
                                 <DestaquePrincipal 
@@ -79,6 +81,7 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
                     </div>
                     <div class="absolute bottom-12 right-12 flex gap-3 z-10" role="tablist">
                         {destaquesFinais.map((_, i) => (
+                            // DOTS mantidos rounded-full pois são bolinhas
                             <button 
                                 type="button"
                                 aria-label={`Ir para o destaque ${i + 1}`}
@@ -90,15 +93,18 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
                     </div>
                 </div>
             ) : (
-                <div class="bg-navy-dark h-[400px] rounded-3xl flex items-center justify-center text-white italic">Carregando notícias...</div>
+                // PLACEHOLDER: Mudado para rounded-lg
+                <div class="bg-navy-dark h-[400px] rounded-lg flex items-center justify-center text-white italic">Carregando notícias...</div>
             )}
         </section>
 
         {/* Box do Trem */}
         <section class="mb-12">
             <a href="/horarios" class="group block">
-                <div class="bg-ice dark:bg-white/5 border-l-8 border-navy-base dark:border-white/20 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between shadow-sm hover:shadow-md transition-all gap-4">
+                {/* CONTAINER DO TREM: Mudado de rounded-xl para rounded-lg */}
+                <div class="bg-ice dark:bg-white/5 border-l-8 border-navy-base dark:border-white/20 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between shadow-sm hover:shadow-md transition-all gap-4">
                     <div class="flex items-center gap-4">
+                        {/* ÍCONE: Mantido full */}
                         <div class={`h-6 w-6 rounded-full shadow-sm border-2 border-white/50 shrink-0 ${currentStatus.bg}`}></div>
                         <div>
                             <h3 class="text-xs font-black uppercase tracking-widest text-navy-soft dark:text-gray-400 mb-1">Circulação de Trens</h3>
@@ -107,7 +113,8 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
                         </div>
                     </div>
 
-                    <div class="flex items-center justify-center gap-3 bg-white dark:bg-black/20 px-4 py-2 rounded-xl border border-gray-200 dark:border-white/10 group-hover:border-navy-base/30 transition-colors">
+                    {/* BADGE DE STATUS: Mudado de rounded-xl para rounded-md (mais quadrado) */}
+                    <div class="flex items-center justify-center gap-3 bg-white dark:bg-black/20 px-4 py-2 rounded-md border border-gray-200 dark:border-white/10 group-hover:border-navy-base/30 transition-colors">
                         {currentStatus.label !== 'Sem Informação' && (
                             <span class="relative flex h-3 w-3">
                                 <span class={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentStatus.ping}`}></span>
@@ -123,7 +130,7 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
         </section>
 
         <section class="mb-12">
-            <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white mb-10 flex items-center gap-3 italic">
+            <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white mb-10 flex items-center gap-3">
                 <span class="w-10 h-1.5 bg-red-base inline-block"></span>
                 Cidade Alerta
             </h2>
@@ -148,10 +155,11 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
                     rel="noopener noreferrer sponsored"
                     aria-label="Publicidade: Giga Mais Fibra"
                     data-ad="true"
-                    class="group block bg-ice dark:bg-white/5 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-dashed border-navy-base/20 hover:border-red-base dark:border-white/10 flex flex-col h-full relative"
+                    // ANÚNCIO: Mudado de rounded-xl para rounded-lg
+                    class="group block bg-ice dark:bg-white/5 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-dashed border-navy-base/20 hover:border-red-base dark:border-white/10 flex flex-col h-full relative"
                 >
                     <div class="absolute top-4 right-4 z-10">
-                        <span class="bg-white/90 text-navy-dark text-[9px] font-black px-2 py-1 rounded md:rounded-lg uppercase tracking-widest border border-gray-200">Patrocinado</span>
+                        <span class="bg-white/90 text-navy-dark text-[9px] font-black px-2 py-1 rounded md:rounded-md uppercase tracking-widest border border-gray-200">Patrocinado</span>
                     </div>
                     
                     <div class="relative w-full h-56 overflow-hidden bg-white border-b border-gray-100 dark:border-white/5">
@@ -165,7 +173,7 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
                     </div>
 
                     <div class="p-6 flex flex-col flex-grow justify-center text-center">
-                        <h3 class="text-xl font-black text-navy-dark dark:text-white leading-tight mb-2 group-hover:text-red-base uppercase italic">
+                        <h3 class="text-xl font-black text-navy-dark dark:text-white leading-tight mb-2 group-hover:text-red-base uppercase">
                             Giga+ com Globoplay
                         </h3>
                         <p class="text-navy-soft dark:text-gray-400 text-sm leading-relaxed">
@@ -190,9 +198,10 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
             </div>
 
             <div class="text-center">
+                {/* BOTÃO VER TODAS: Mudado de rounded-full para rounded-lg */}
                 <a 
                     href="/noticias"
-                    class="group inline-flex items-center gap-2 mx-auto text-xs font-black uppercase tracking-widest text-navy-base dark:text-white hover:text-red-base transition-colors px-10 py-5 rounded-full border-2 border-navy-base/20 dark:border-white/20 hover:border-red-base/50 bg-white dark:bg-white/5 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0"
+                    class="group inline-flex items-center gap-2 mx-auto text-xs font-black uppercase tracking-widest text-navy-base dark:text-white hover:text-red-base transition-colors px-10 py-5 rounded-lg border-2 border-navy-base/20 dark:border-white/20 hover:border-red-base/50 bg-white dark:bg-white/5 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0"
                 >
                     Ver todas as notícias recentes
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 group-hover:translate-x-1 transition-transform">
@@ -204,7 +213,8 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
 
         {/* BANNER: Guia Comercial */}
         <section class="mb-12">
-            <a href="/classificados" class="group block bg-navy-base rounded-[2rem] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between shadow-lg hover:shadow-xl transition-all relative overflow-hidden">
+            {/* BANNER CLASSIFICADOS: Mudado de rounded-2xl para rounded-lg */}
+            <a href="/classificados" class="group block bg-navy-base rounded-lg p-8 md:p-10 flex flex-col md:flex-row items-center justify-between shadow-lg hover:shadow-xl transition-all relative overflow-hidden">
                 
                 <div class="absolute right-0 top-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl transform translate-x-20 -translate-y-20 group-hover:scale-125 transition-transform duration-1000"></div>
                 
@@ -218,7 +228,8 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
                 </div>
                 
                 <div class="relative z-10 shrink-0">
-                    <span class="bg-white text-red-base font-black uppercase tracking-widest text-xs px-8 py-4 rounded-full group-hover:bg-navy-dark group-hover:text-white transition-colors inline-block shadow-md">
+                    {/* BOTÃO CLASSIFICADOS: Mudado de rounded-full para rounded-lg */}
+                    <span class="bg-white text-red-base font-black uppercase tracking-widest text-xs px-8 py-4 rounded-lg group-hover:bg-navy-dark group-hover:text-white transition-colors inline-block shadow-md">
                         Acessar Guia de Classificados →
                     </span>
                 </div>
@@ -229,13 +240,14 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
         <section class="mb-12">
             <div class="flex flex-wrap justify-between items-end mb-10 gap-4">
                 <div>
-                    <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white flex items-center gap-3 italic">
+                    <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white flex items-center gap-3">
                         <span class="w-10 h-1.5 bg-navy-base dark:bg-white inline-block"></span>
                         Voz da Comunidade
                     </h2>
                     <p class="text-[10px] text-navy-soft dark:text-gray-400 font-bold uppercase mt-2 tracking-widest">O canal direto do morador local</p>
                 </div>
-                <a href="/denuncia" class="bg-red-base text-white text-[10px] font-black px-6 py-2.5 rounded-full uppercase hover:bg-red-light transition-all shadow-lg active:scale-95">
+                {/* BOTÃO ENVIAR RELATO: Mudado de rounded-full para rounded-lg */}
+                <a href="/denuncia" class="bg-red-base text-white text-[10px] font-black px-6 py-2.5 rounded-lg uppercase hover:bg-red-light transition-all shadow-lg active:scale-95">
                     Enviar Relato
                 </a>
             </div>
@@ -250,7 +262,8 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
                         />
                     ))
                 ) : (
-                    <div class="col-span-2 bg-ice dark:bg-white/5 p-8 rounded-3xl text-center text-navy-soft dark:text-gray-400 italic">
+                    // PLACEHOLDER: Mudado de rounded-2xl para rounded-lg
+                    <div class="col-span-2 bg-ice dark:bg-white/5 p-8 rounded-lg text-center text-navy-soft dark:text-gray-400 italic">
                         <p>Nenhum relato em destaque nesta semana.</p>
                     </div>
                 )}
@@ -268,7 +281,8 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
         {/* PUBLICIDADE HORIZONTAL */}
         <div class="mb-12 py-8 border-y border-dashed border-ice dark:border-white/10 flex flex-col items-center">
             <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Publicidade</span>
-            <div class="w-full h-48 md:h-32 bg-[#000066] dark:bg-black rounded-2xl flex items-center justify-center group cursor-pointer hover:border-red-base border-2 border-transparent transition-all overflow-hidden relative">
+            {/* CONTAINER PUBLICIDADE: Mudado de rounded-xl para rounded-lg */}
+            <div class="w-full h-48 md:h-32 bg-[#000066] dark:bg-black rounded-lg flex items-center justify-center group cursor-pointer hover:border-red-base border-2 border-transparent transition-all overflow-hidden relative">
                 <img 
                     src="/banners/seu-anuncio.webp" 
                     loading="lazy"
@@ -296,11 +310,9 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
     const container = document.getElementById('carousel-container');
     const dots = document.querySelectorAll('.carousel-dot');
     
-    // Devolvemos o ": number" para o VS Code ficar feliz
     let currentIndex: number = 0;
     let autoPlayInterval: number | undefined;
 
-    // Avisamos que o parâmetro index é sempre um número
     function scrollToSlide(index: number) {
         if (!container) return;
         const width = container.offsetWidth;
@@ -335,7 +347,6 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         
         if (!prefersReducedMotion) {
-            // Usamos window.setInterval para o TypeScript ter certeza que estamos no navegador
             autoPlayInterval = window.setInterval(() => {
                 currentIndex++;
                 scrollToSlide(currentIndex);
