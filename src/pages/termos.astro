@@ -1,25 +1,41 @@
 ---
+// src/pages/termos.astro
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 ---
 
 <Layout title="Termos de Uso | emguapi.com">
     <Navbar />
-    <main class="max-w-4xl mx-auto p-8 my-12 bg-white rounded-[2.5rem] shadow-xl border border-ice">
-        <h1 class="text-4xl font-black text-navy-dark uppercase italic mb-8">Termos de <span class="text-red-base">Uso</span></h1>
+    
+    <main class="max-w-4xl mx-auto p-8 md:p-12 my-12 bg-white rounded-lg shadow-sm border border-gray-200">
         
-        <div class="prose prose-navy max-w-none text-navy-soft leading-relaxed italic">
-            <h2 class="text-xl font-bold text-navy-dark mb-4 not-italic uppercase">1. Aceitação dos Termos</h2>
-            <p>Ao acessar ao site <strong>emguapi.com</strong>, você concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis. Se você não concordar com algum destes termos, está proibido de usar ou acessar este site.</p>
+        <header class="mb-10 border-b border-gray-100 pb-8">
+            <h1 class="text-4xl md:text-5xl font-black text-navy-dark uppercase tracking-tighter">
+                Termos de <span class="text-red-base">Uso</span>
+            </h1>
+        </header>
+        
+        <div class="prose max-w-none text-gray-700 leading-relaxed font-medium text-sm md:text-base">
+            
+            <h2 class="text-lg font-black text-navy-dark mb-4 uppercase tracking-tight">1. Aceitação dos Termos</h2>
+            <p>Ao acessar o site <strong>emguapi.com</strong>, você concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis. Se você não concordar com algum destes termos, está proibido de usar ou acessar este site.</p>
 
-            <h2 class="text-xl font-bold text-navy-dark mt-8 mb-4 not-italic uppercase">2. Propriedade do Conteúdo</h2>
-            <p>Todo o conteúdo publicado, incluindo reportagens sobre a expansão ferroviária, guia de turismo e notícias locais, é de propriedade intelectual de <strong>Ítalo Martins</strong> e do portal emguapi.com. A reprodução sem autorização prévia é proibida.</p>
+            <h2 class="text-lg font-black text-navy-dark mt-10 mb-4 uppercase tracking-tight">2. Propriedade do Conteúdo</h2>
+            <p>Todo o conteúdo publicado, incluindo reportagens sobre a expansão ferroviária, guia de turismo e notícias locais, é de propriedade intelectual de <strong>Ítalo Martins</strong> e do portal emguapi.com. A reprodução em outros sites ou veículos sem autorização e citação prévia é proibida.</p>
 
-            <h2 class="text-xl font-bold text-navy-dark mt-8 mb-4 not-italic uppercase">3. Isenção de Responsabilidade</h2>
-            <p>As informações sobre horários de trens, eventos e pontos turísticos são fornecidas "como estão". O emguapi.com não garante a precisão ou confiabilidade do uso dos materiais, especialmente em casos de alterações repentinas na operação ferroviária por parte das concessionárias.</p>
+            <h2 class="text-lg font-black text-navy-dark mt-10 mb-4 uppercase tracking-tight">3. Isenção de Responsabilidade</h2>
+            <p>As informações sobre horários de trens, eventos e pontos turísticos são fornecidas "como estão". O emguapi.com não garante a precisão absoluta em tempo real, especialmente em casos de alterações repentinas na operação ferroviária por parte das concessionárias.</p>
 
-            <h2 class="text-xl font-bold text-navy-dark mt-8 mb-4 not-italic uppercase">4. Modificações</h2>
+            <h2 class="text-lg font-black text-navy-dark mt-10 mb-4 uppercase tracking-tight">4. Modificações</h2>
             <p>O portal pode revisar estes termos de serviço a qualquer momento, sem aviso prévio. Ao usar este site, você concorda em ficar vinculado à versão atual desses termos de serviço.</p>
+
+            <div class="mt-12 border-t border-gray-100 pt-6">
+                <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">
+                    Termos em vigor a partir de fevereiro de 2026.
+                </p>
+            </div>
+            
         </div>
+        
     </main>
 </Layout>

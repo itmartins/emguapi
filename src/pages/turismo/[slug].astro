@@ -7,7 +7,7 @@ import Navbar from '../../components/Navbar.astro';
 export async function getStaticPaths() {
   const entries = await getCollection('turismo');
   return entries.map(entry => ({
-    params: { slug: entry.id.replace(/\.md$/, '') }, 
+    params: { slug: entry.slug || entry.id.replace(/\.md$/, '') }, 
     props: { entry },
   }));
 }
@@ -19,15 +19,23 @@ const { Content } = await entry.render();
 <Layout title={`${entry.data.nome} | emguapi.com`}>
     <Navbar />
     
-    <main class="max-w-4xl mx-auto my-12 bg-white rounded-[3rem] shadow-2xl overflow-hidden">
-        <div class="h-[500px] relative">
-            <img src={entry.data.imagem} class="w-full h-full object-cover" alt={entry.data.nome} />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-12 left-12">
-                <span class="bg-red-base text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase mb-4 inline-block tracking-widest">
+    <main class="max-w-4xl mx-auto my-12 bg-white rounded-lg shadow-xl overflow-hidden border border-gray-100">
+        
+        {/* HERO SECTION: Altura aumentada para 650px no desktop e adicionado efeito de zoom */}
+        <div class="relative h-[450px] md:h-[650px] group overflow-hidden">
+            <img 
+                src={entry.data.imagem} 
+                class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" 
+                alt={entry.data.nome} 
+            />
+            {/* Gradiente reforçado para garantir leitura do texto em imagens claras */}
+            <div class="absolute inset-0 bg-gradient-to-t from-[#000033]/95 via-[#000033]/40 to-transparent"></div>
+            
+            <div class="absolute bottom-10 left-8 right-8 md:left-12 md:right-12">
+                <span class="bg-navy-base text-white text-[10px] font-black px-3 py-1.5 rounded-sm uppercase mb-4 inline-block tracking-widest shadow-md">
                     {entry.data.categoria}
                 </span>
-                <h1 class="text-6xl font-black text-white uppercase italic tracking-tighter">
+                <h1 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-tight drop-shadow-lg">
                     {entry.data.nome}
                 </h1>
             </div>
@@ -36,77 +44,79 @@ const { Content } = await entry.render();
         <div class="p-8 md:p-12 grid md:grid-cols-3 gap-12">
             
             <aside class="space-y-6 md:sticky md:top-8 h-fit">
-                <div class="bg-ice p-6 rounded-2xl border-l-4 border-red-base shadow-sm">
+                <div class="bg-gray-50 p-6 rounded-md border-l-4 border-red-base shadow-sm border border-gray-100">
                     <span class="text-[10px] font-black text-navy-soft uppercase block mb-1 tracking-widest">Nível de Dificuldade</span>
-                    <p class="font-bold text-navy-dark uppercase italic text-lg">{entry.data.dificuldade || "Acesso Livre"}</p>
+                    <p class="font-black text-navy-dark uppercase text-lg">{entry.data.dificuldade || "Acesso Livre"}</p>
                 </div>
                 
-                <div class="bg-ice p-6 rounded-2xl border-l-4 border-navy-base shadow-sm">
+                <div class="bg-gray-50 p-6 rounded-md border-l-4 border-navy-base shadow-sm border border-gray-100">
                     <span class="text-[10px] font-black text-navy-soft uppercase block mb-1 tracking-widest">Localização</span>
                     <p class="font-bold text-navy-dark text-sm leading-tight">{entry.data.localizacao}</p>
                 </div>
 
-                <a href={`https://maps.google.com/?q=${entry.data.localizacao}`} target="_blank" class="block w-full py-4 rounded-xl bg-navy-base text-white text-center font-black uppercase text-xs tracking-widest hover:bg-red-base transition-colors shadow-lg">
+                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(entry.data.localizacao + " Guapimirim")}`} target="_blank" class="block w-full py-4 rounded-sm bg-navy-base text-white text-center font-black uppercase text-[10px] tracking-[0.2em] hover:bg-navy-dark transition-all shadow-md active:scale-95">
                     Ver no Mapa
                 </a>
             </aside>
 
             <div class="md:col-span-2">
                 <div class="
-                    prose prose-lg max-w-none text-navy-dark leading-relaxed
-                    prose-headings:font-black prose-headings:text-navy-dark
+                    prose prose-lg max-w-none text-gray-700 leading-relaxed
+                    prose-headings:font-black prose-headings:text-navy-dark prose-headings:uppercase prose-headings:tracking-tighter
                     prose-a:text-red-base hover:prose-a:text-red-light
                     prose-strong:text-navy-dark prose-strong:font-black
-                    prose-img:rounded-2xl prose-img:shadow-lg prose-img:w-full
+                    prose-img:rounded-lg prose-img:shadow-md prose-img:w-full
                     
-                    /* Estilo da Letra Capitular (Drop Cap) */
                     [&>p:first-of-type::first-letter]:float-left
-                    [&>p:first-of-type::first-letter]:text-[3.5rem]
+                    [&>p:first-of-type::first-letter]:text-[4rem]
                     [&>p:first-of-type::first-letter]:leading-[0.8]
                     [&>p:first-of-type::first-letter]:font-black
                     [&>p:first-of-type::first-letter]:mr-3
-                    [&>p:first-of-type::first-letter]:mt-1
+                    [&>p:first-of-type::first-letter]:mt-2
                     [&>p:first-of-type::first-letter]:text-red-base
                     [&>p:first-of-type::first-letter]:uppercase
 
-                    /* Estilos para Legendas (Figure/Figcaption) */
                     [&_figure]:my-8             
                     [&_figure]:block
                     [&_figcaption]:text-center  
-                    [&_figcaption]:text-sm      
-                    [&_figcaption]:text-navy-soft 
-                    [&_figcaption]:italic       
-                    [&_figcaption]:mt-2         
-                    [&_figcaption]:font-medium
+                    [&_figcaption]:text-xs      
+                    [&_figcaption]:text-gray-500 
+                    [&_figcaption]:uppercase       
+                    [&_figcaption]:mt-3         
+                    [&_figcaption]:font-bold
+                    [&_figcaption]:tracking-widest
 
-                    /* Estilo para Citações/Destaques */
                     prose-blockquote:not-italic
                     prose-blockquote:font-bold
                     prose-blockquote:text-navy-base
-                    prose-blockquote:bg-ice
+                    prose-blockquote:bg-gray-50
                     prose-blockquote:border-l-8
                     prose-blockquote:border-red-base
-                    prose-blockquote:py-4
-                    prose-blockquote:px-6
-                    prose-blockquote:rounded-r-xl
+                    prose-blockquote:py-6
+                    prose-blockquote:px-8
+                    prose-blockquote:rounded-r-md
+                    prose-blockquote:border-y prose-blockquote:border-r prose-blockquote:border-gray-100
                 ">
                     <Content />
                 </div>
             </div>
         </div>
 
-        <div class="mb-12 py-8 border-y border-dashed border-ice flex flex-col items-center">
-                <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Publicidade</span>
-                <div class="w-full h-32 bg-ice rounded-2xl flex items-center justify-center group cursor-pointer hover:bg-white hover:border-red-base border-2 border-transparent transition-all overflow-hidden relative">
-                     <img src="/banners/seu-anuncio.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" alt="">
-                    <a href={`https://www.gigamaisfibra.com.br/`} class="absolute inset-0 z-10 flex items-center justify-center text-navy-base font-bold italic opacity-0 group-hover:opacity-100 transition-opacity"></a>
-                </div>
+        <div class="mb-12 mx-8 py-8 border-t border-gray-100 flex flex-col items-center">
+            <span class="text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
+            <div class="w-full h-32 bg-gray-50 rounded-md flex items-center justify-center group cursor-pointer border border-gray-200 hover:border-red-base/50 transition-all overflow-hidden relative shadow-sm">
+                 <img src="/banners/seu-anuncio.webp" class="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity" alt="Publicidade">
+                <a href="https://www.gigamaisfibra.com.br/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 z-10">
+                    <span class="sr-only">Visitar site do anunciante</span>
+                </a>
+            </div>
         </div>
 
-        <div class="bg-ice/50 p-8 border-t border-ice text-center md:text-left">
-             <a href="/turismo" class="text-navy-base font-black uppercase text-xs hover:text-red-base transition-colors flex items-center gap-2 justify-center md:justify-start">
-                <span>←</span> Voltar para Pontos Turísticos
+        <div class="bg-gray-50 p-8 border-t border-gray-100 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+             <a href="/turismo" class="text-navy-base font-black uppercase text-[10px] tracking-widest hover:text-red-base transition-colors flex items-center gap-2 group">
+                <span class="group-hover:-translate-x-1 transition-transform">←</span> Voltar para o Guia de Turismo
             </a>
+            <p class="text-gray-400 text-[9px] font-bold uppercase tracking-widest italic">Fonte: Redação emguapi.com</p>
         </div>
     </main>
 </Layout>

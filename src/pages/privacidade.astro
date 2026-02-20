@@ -6,29 +6,40 @@ import Navbar from '../components/Navbar.astro';
 
 <Layout title="Política de Privacidade | emguapi.com">
     <Navbar />
-    <main class="max-w-4xl mx-auto p-8 my-12 bg-white rounded-[2.5rem] shadow-xl border border-ice">
-        <h1 class="text-4xl font-black text-navy-dark uppercase italic mb-8">Política de <span class="text-red-base">Privacidade</span></h1>
+    
+    <main class="max-w-4xl mx-auto p-8 md:p-12 my-12 bg-white rounded-lg shadow-sm border border-gray-200">
         
-        <div class="prose prose-navy max-w-none text-navy-soft leading-relaxed">
+        <header class="mb-10 border-b border-gray-100 pb-8">
+            <h1 class="text-4xl md:text-5xl font-black text-navy-dark uppercase tracking-tighter">
+                Política de <span class="text-red-base">Privacidade</span>
+            </h1>
+        </header>
+        
+        <div class="prose max-w-none text-gray-700 leading-relaxed font-medium text-sm md:text-base">
             <p>A sua privacidade é prioridade para o <strong>emguapi.com</strong>. Esta política explica como lidamos com as informações coletadas para garantir transparência e segurança aos nossos leitores de Guapimirim e região.</p>
 
-            <h2 class="text-xl font-bold text-navy-dark mt-8 mb-4 uppercase">1. Coleta de Informações</h2>
+            <h2 class="text-lg font-black text-navy-dark mt-10 mb-4 uppercase tracking-tight">1. Coleta de Informações</h2>
             <p>Coletamos dados de duas formas:</p>
-            <ul class="list-disc pl-5 space-y-2">
+            <ul class="list-disc pl-5 space-y-2 text-gray-600 mt-2">
                 <li><strong>Dados fornecidos por você:</strong> Nome ou contatos enviados voluntariamente através do canal de denúncias ou e-mail.</li>
                 <li><strong>Dados de navegação (Google Analytics):</strong> Informações anônimas como páginas mais visitadas e tempo de permanência, usadas apenas para entender o que é relevante para a nossa audiência.</li>
             </ul>
 
-            <h2 class="text-xl font-bold text-navy-dark mt-8 mb-4 uppercase">2. Uso de Cookies</h2>
+            <h2 class="text-lg font-black text-navy-dark mt-10 mb-4 uppercase tracking-tight">2. Uso de Cookies</h2>
             <p>Utilizamos cookies para facilitar a sua navegação e permitir que o Google Analytics funcione corretamente. Você pode gerenciar suas preferências de cookies através do nosso banner de consentimento ou nas configurações do seu navegador.</p>
 
-            <h2 class="text-xl font-bold text-navy-dark mt-8 mb-4 uppercase">3. LGPD e seus Direitos</h2>
+            <h2 class="text-lg font-black text-navy-dark mt-10 mb-4 uppercase tracking-tight">3. LGPD e seus Direitos</h2>
             <p>Em conformidade com a LGPD, garantimos que você pode solicitar a qualquer momento o acesso, correção ou exclusão de seus dados pessoais armazenados em nossa base. Para isso, entre em contato via WhatsApp ou e-mail.</p>
 
-            <h2 class="text-xl font-bold text-navy-dark mt-8 mb-4 uppercase">4. Links Externos</h2>
+            <h2 class="text-lg font-black text-navy-dark mt-10 mb-4 uppercase tracking-tight">4. Links Externos</h2>
             <p>Nosso portal contém links para serviços úteis (como os horários da SuperVia). Não nos responsabilizamos pelas políticas de privacidade ou conteúdos desses sites externos.</p>
             
-            <p class="mt-8 text-xs font-bold border-t pt-4 italic">Esta política foi atualizada em 15 de fevereiro de 2026.</p>
+            <div class="mt-12 border-t border-gray-100 pt-6">
+                <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">
+                    Esta política foi atualizada em 20 de fevereiro de 2026.
+                </p>
+            </div>
         </div>
+        
     </main>
 </Layout>

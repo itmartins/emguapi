@@ -14,14 +14,16 @@ const todasNoticias = (await getCollection('noticias')).sort(
     <Navbar />
 
     <main class="max-w-6xl mx-auto p-6 my-12">
-        <header class="mb-16 border-b border-ice pb-10">
-            <span class="text-red-base font-black uppercase tracking-widest text-xs">Fique por dentro</span>
-            <h1 class="text-5xl font-black text-navy-dark uppercase italic tracking-tighter mt-2">
+        {/* HEADER: Removido o italic e trocado border-ice por border-gray-200 */}
+        <header class="mb-16 border-b border-gray-200 pb-10">
+            <span class="text-red-base font-black uppercase tracking-[0.2em] text-[10px]">Fique por dentro</span>
+            <h1 class="text-4xl md:text-6xl font-black text-navy-dark uppercase tracking-tighter mt-2 leading-none">
                 Últimas <span class="text-red-base">Notícias</span>
             </h1>
         </header>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* GRID: O NoticiaCard já foi atualizado anteriormente para rounded-lg e tag azul */}
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {todasNoticias.map(noticia => (
                 <NoticiaCard 
                     categoria={noticia.data.categoria}
@@ -30,9 +32,16 @@ const todasNoticias = (await getCollection('noticias')).sort(
                     data={noticia.data.data}
                     
                     link={`/noticias/${noticia.id.replace(/\.md$/, '')}`}
-                    imagem={noticia.data.imagem || "/fotos/estacao-guapi.jpg"}
+                    imagem={noticia.data.imagem || "/fotos/emguapi-capa.png"}
                 />
             ))}
         </div>
+
+        {/* FOOTER DA PÁGINA: Mensagem de fim de arquivo */}
+        {todasNoticias.length > 0 && (
+            <div class="mt-20 pt-10 border-t border-gray-100 text-center">
+                <p class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">Você chegou ao fim do acervo</p>
+            </div>
+        )}
     </main>
 </Layout>

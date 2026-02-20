@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   // Apenas isso deve estar aqui
-  site: 'https://www.emguapi.com', // <-- ESSA É A LINHA QUE FALTAVA!
+  site: 'https://www.emguapi.com', // URL do site
   
   integrations: [tailwind(), sitemap()],
 

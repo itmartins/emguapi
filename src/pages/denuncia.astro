@@ -3,7 +3,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
-import VozComunidade from '../components/VozComunidade.astro'; // Importe o componente do card
+import VozComunidade from '../components/VozComunidade.astro';
 
 // Busca TODAS as denúncias e ordena da mais recente para a mais antiga
 const todasDenuncias = (await getCollection('denuncias')).sort(
@@ -21,26 +21,26 @@ const problemas = [ "Falta de Água", "Coleta de Lixo", "Iluminação Pública",
 
     <main class="max-w-4xl mx-auto p-6 my-12">
         
-        <section class="bg-white shadow-2xl rounded-[2.5rem] overflow-hidden border-t-8 border-red-base p-8 md:p-12 mb-20">
-            <header class="mb-10 text-center">
-                <h1 class="text-4xl font-black text-navy-dark uppercase italic tracking-tighter">
+        <section class="bg-white shadow-lg rounded-lg overflow-hidden border-t-8 border-red-base p-8 md:p-12 mb-20 border border-gray-200">
+            <header class="mb-10 text-center border-b border-gray-100 pb-8">
+                <h1 class="text-4xl font-black text-navy-dark uppercase tracking-tighter">
                     Voz da <span class="text-red-base">Comunidade</span>
                 </h1>
-                <p class="text-navy-soft mt-2 font-medium italic">O canal de utilidade pública de Guapimirim</p>
+                <p class="text-navy-soft mt-2 font-medium">O canal de utilidade pública de Guapimirim</p>
             </header>
 
             <form id="denuncia-form" class="space-y-6">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-[10px] font-black uppercase text-navy-soft mb-2 tracking-widest">Localidade</label>
-                        <select id="bairro-form" required class="w-full bg-ice text-navy-dark p-4 rounded-xl font-bold border-2 border-transparent focus:border-red-base outline-none transition-all">
+                        <select id="bairro-form" required class="w-full bg-ice text-navy-dark p-4 rounded-sm font-bold border border-gray-200 focus:border-red-base outline-none transition-all cursor-pointer">
                             <option value="">Selecione o Bairro</option>
                             {bairros.map(b => <option value={b}>{b}</option>)}
                         </select>
                     </div>
                     <div>
                         <label class="block text-[10px] font-black uppercase text-navy-soft mb-2 tracking-widest">Assunto</label>
-                        <select id="assunto-form" required class="w-full bg-ice text-navy-dark p-4 rounded-xl font-bold border-2 border-transparent focus:border-red-base outline-none transition-all">
+                        <select id="assunto-form" required class="w-full bg-ice text-navy-dark p-4 rounded-sm font-bold border border-gray-200 focus:border-red-base outline-none transition-all cursor-pointer">
                             <option value="">Tipo de Ocorrência</option>
                             {problemas.map(p => <option value={p}>{p}</option>)}
                         </select>
@@ -48,32 +48,32 @@ const problemas = [ "Falta de Água", "Coleta de Lixo", "Iluminação Pública",
                 </div>
                 <div>
                     <label class="block text-[10px] font-black uppercase text-navy-soft mb-2 tracking-widest">Relato do Morador</label>
-                    <textarea id="relato-form" rows="5" required placeholder="Descreva o problema com detalhes..." class="w-full bg-ice text-navy-dark p-4 rounded-xl font-medium border-2 border-transparent focus:border-red-base outline-none resize-none transition-all"></textarea>
+                    <textarea id="relato-form" rows="5" required placeholder="Descreva o problema com detalhes..." class="w-full bg-ice text-navy-dark p-4 rounded-sm font-medium border border-gray-200 focus:border-red-base outline-none resize-none transition-all"></textarea>
                 </div>
                 <div>
                     <label class="block text-[10px] font-black uppercase text-navy-soft mb-2 tracking-widest">Seu Nome (Opcional)</label>
-                    <input type="text" id="nome-form" placeholder="Ex: Dona Maria ou Morador do Centro" class="w-full bg-ice text-navy-dark p-4 rounded-xl font-bold border-2 border-transparent focus:border-red-base outline-none transition-all" />
+                    <input type="text" id="nome-form" placeholder="Ex: Dona Maria ou Morador do Centro" class="w-full bg-ice text-navy-dark p-4 rounded-sm font-bold border border-gray-200 focus:border-red-base outline-none transition-all" />
                 </div>
-                <button type="submit" class="w-full bg-navy-dark hover:bg-red-base text-white p-5 rounded-2xl font-black uppercase tracking-widest shadow-xl transition-all active:scale-95 flex items-center justify-center gap-3">
+                
+                <button type="submit" class="w-full bg-navy-dark hover:bg-red-base text-white p-5 rounded-md font-black uppercase tracking-widest shadow-md transition-all active:scale-95 flex items-center justify-center gap-3">
                     Enviar para a Redação no WhatsApp
                 </button>
             </form>
-            <div class="mt-8 p-4 bg-ice rounded-xl border-l-4 border-navy-soft text-center">
-                <p class="text-[10px] text-navy-soft uppercase font-bold">As denúncias são recebidas pela nossa equipe e podem ser transformadas em pautas jornalísticas.</p>
+            
+            <div class="mt-8 p-4 bg-gray-50 rounded-sm border-l-4 border-navy-soft text-center">
+                <p class="text-[10px] text-navy-soft uppercase font-bold tracking-wider">As denúncias são recebidas pela nossa equipe e podem ser transformadas em pautas jornalísticas.</p>
             </div>
         </section>
 
         <section>
-            <h2 class="text-2xl font-black uppercase tracking-tighter text-navy-dark mb-10 flex items-center gap-3 italic">
-                <span class="w-10 h-1.5 bg-red-base inline-block"></span>
+            <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark mb-10 flex items-center gap-3 border-b border-gray-100 pb-4">
+                <span class="w-2 h-6 bg-red-base inline-block rounded-sm"></span>
                 Relatos Recentes
             </h2>
 
             <div id="denuncias-list" class="grid md:grid-cols-2 gap-6 mb-12">
                 {todasDenuncias.length > 0 ? (
                     todasDenuncias.map((relato, index) => (
-                        // O atributo data-hidden controla se o item está visível ou não.
-                        // Os primeiros 4 (índices 0, 1, 2, 3) são visíveis. O resto é oculto.
                         <div class="denuncia-item transition-all duration-500" data-hidden={index >= 4 ? "true" : "false"}>
                             <VozComunidade 
                                 bairro={relato.data.bairro}
@@ -83,24 +83,24 @@ const problemas = [ "Falta de Água", "Coleta de Lixo", "Iluminação Pública",
                         </div>
                     ))
                 ) : (
-                    <div class="col-span-2 bg-white p-12 rounded-[2.5rem] text-center border border-ice shadow-xl">
-                        <p class="text-navy-soft italic text-lg mb-4">Ainda não há relatos publicados.</p>
+                    <div class="col-span-2 bg-white p-12 rounded-lg text-center border border-gray-100 shadow-sm">
+                        <p class="text-navy-soft text-sm mb-4">Ainda não há relatos publicados.</p>
                     </div>
                 )}
             </div>
 
             {todasDenuncias.length > 4 && (
-                <div class="text-center">
+                <div class="text-center pt-6 border-t border-gray-100">
                     <button 
                         id="btn-carregar-mais"
-                        class="group flex items-center gap-2 mx-auto text-xs font-black uppercase tracking-widest text-navy-base hover:text-white hover:bg-navy-base transition-all px-8 py-4 rounded-full border-2 border-navy-base"
+                        class="group flex items-center gap-2 mx-auto text-xs font-black uppercase tracking-widest text-navy-base bg-white border border-navy-base/20 hover:border-navy-base/50 transition-all px-8 py-4 rounded-md shadow-sm"
                     >
                         Carregar mais 4 relatos
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 group-hover:translate-y-1 transition-transform">
                           <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                         </svg>
                     </button>
-                    <p id="msg-fim-lista" class="hidden text-xs font-black uppercase tracking-[0.2em] text-navy-soft opacity-50 mt-4">
+                    <p id="msg-fim-lista" class="hidden text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mt-6">
                         Todos os relatos foram exibidos.
                     </p>
                 </div>
@@ -111,13 +111,11 @@ const problemas = [ "Falta de Água", "Coleta de Lixo", "Iluminação Pública",
 </Layout>
 
 <style>
-    /* Esconde os itens que têm o atributo data-hidden="true" */
     .denuncia-item[data-hidden="true"] {
         display: none;
         opacity: 0;
         transform: translateY(20px);
     }
-    /* Mostra os itens com data-hidden="false" com uma animação suave */
     .denuncia-item[data-hidden="false"] {
         display: block;
         opacity: 1;
@@ -126,7 +124,6 @@ const problemas = [ "Falta de Água", "Coleta de Lixo", "Iluminação Pública",
 </style>
 
 <script>
-    // --- Script do Formulário de Envio ---
     const form = document.getElementById('denuncia-form') as HTMLFormElement;
     if (form) {
         form.addEventListener('submit', (e: Event) => {
@@ -141,33 +138,26 @@ const problemas = [ "Falta de Água", "Coleta de Lixo", "Iluminação Pública",
         });
     }
 
-    // --- Script da Paginação "Carregar Mais" ---
     const btnCarregarMais = document.getElementById('btn-carregar-mais');
     const msgFimLista = document.getElementById('msg-fim-lista');
-    let itensVisiveis = 4; // Começamos mostrando 4
-    const itensPorPagina = 4; // Carregamos mais 4 a cada clique
+    let itensVisiveis = 4; 
+    const itensPorPagina = 4; 
 
     if (btnCarregarMais) {
         btnCarregarMais.addEventListener('click', () => {
-            // Seleciona todos os itens que estão escondidos no momento
             const itensEscondidos = document.querySelectorAll('.denuncia-item[data-hidden="true"]');
-            
-            // Pega os próximos 'itensPorPagina' (ex: 4) dessa lista de escondidos
             const proximosItens = Array.from(itensEscondidos).slice(0, itensPorPagina);
 
-            // Se não houver mais itens para mostrar...
             if (proximosItens.length === 0) {
-                btnCarregarMais.classList.add('hidden'); // Esconde o botão
-                msgFimLista?.classList.remove('hidden'); // Mostra a mensagem de fim
+                btnCarregarMais.classList.add('hidden'); 
+                msgFimLista?.classList.remove('hidden'); 
                 return;
             }
 
-            // Para cada um dos próximos itens, muda o atributo para mostrar
             proximosItens.forEach(item => {
                 item.setAttribute('data-hidden', 'false');
             });
 
-            // Atualiza o contador e verifica se acabaram os itens
             itensVisiveis += proximosItens.length;
             if (document.querySelectorAll('.denuncia-item[data-hidden="true"]').length === 0) {
                 btnCarregarMais.classList.add('hidden');

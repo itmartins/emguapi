@@ -20,18 +20,6 @@ const comunicadosFixos = [
         tipo: "manutencao"
     },
     {
-        data: "12 de fevereiro de 2026 | 14:00",
-        titulo: "14 a 18/02 - Ramal Belford Roxo",
-        texto: "De 14 a 18/02, das 10h até o fim da operação, será necessário realizar troca de composição na estação Mercadão de Madureira, para seguir viagem até os terminais.",
-        tipo: "info"
-    },
-    {
-        data: "12 de fevereiro de 2026 | 16:00",
-        titulo: "Embarque com bicicletas no Carnaval",
-        texto: "Excepcionalmente no período de Carnaval, nos dias 14 e 17/02 (sábado e terça-feira), o embarque com bicicletas não será permitido.",
-        tipo: "info"
-    },
-    {
         data: "26 de janeiro de 2026 | 13:00",
         titulo: "22/02 - Interrupção extensão Paracambi",
         texto: "No domingo (22/02), não haverá circulação de trens na extensão Paracambi, em função de manutenções na via e rede aérea.",
@@ -83,12 +71,12 @@ const estacoesData = [
 
     <main class="max-w-5xl mx-auto p-6 my-8">
         
-        <section class="bg-navy-dark text-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl mb-12 border-b-8 border-red-base">
+        <section class="bg-navy-dark text-white p-8 md:p-10 rounded-lg shadow-xl mb-12 border-b-8 border-red-base">
             
             <div class="grid md:grid-cols-2 gap-6 mb-10">
                 
-                <div class="bg-white/10 rounded-2xl p-5 border border-white/20 flex items-start gap-4 hover:bg-white/15 transition-colors">
-                    <div class="bg-red-base p-2.5 rounded-xl shadow-lg shrink-0">
+                <div class="bg-white/10 rounded-md p-5 border border-white/20 flex items-start gap-4 hover:bg-white/15 transition-colors">
+                    <div class="bg-red-base p-2.5 rounded-sm shadow-md shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-white">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437" />
                         </svg>
@@ -97,21 +85,21 @@ const estacoesData = [
                         <span class="text-[9px] font-black uppercase tracking-widest text-red-light mb-0.5 block">
                             Extensão Vila Inhomirim
                         </span>
-                        <h3 class="text-base font-black uppercase italic tracking-tighter mb-1 leading-none">{manutencaoDestaque.titulo}</h3>
+                        <h3 class="text-base font-black uppercase tracking-tight mb-1 leading-none">{manutencaoDestaque.titulo}</h3>
                         <p class="text-xs opacity-80 leading-snug">{manutencaoDestaque.resumo}</p>
                     </div>
                 </div>
 
-                <div class={`bg-white/10 rounded-2xl p-5 border border-white/20 flex items-center gap-5 hover:bg-white/15 transition-colors group cursor-default`}>
+                <div class={`bg-white/10 rounded-md p-5 border border-white/20 flex items-center gap-5 hover:bg-white/15 transition-colors group cursor-default`}>
                     <div class="relative flex h-8 w-8 shrink-0">
                         <span class={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentConfig.luzPing}`}></span>
-                        <span class={`relative inline-flex rounded-full h-8 w-8 ${currentConfig.luzCor} shadow-lg ring-2 ring-white/20`}></span>
+                        <span class={`relative inline-flex rounded-full h-8 w-8 ${currentConfig.luzCor} shadow-md ring-2 ring-white/20`}></span>
                     </div>
                     <div class="flex-1">
                         <span class="text-[9px] font-black uppercase tracking-widest text-white/50 mb-0.5 block">
                             Status do Ramal Guapimirim
                         </span>
-                        <h3 class={`text-xl font-black uppercase italic tracking-tighter leading-none ${currentConfig.text} drop-shadow-md`}>
+                        <h3 class={`text-xl font-black uppercase tracking-tight leading-none ${currentConfig.text} drop-shadow-md`}>
                             {currentConfig.desc}
                         </h3>
                         <p class="text-[10px] text-white/60 mt-1 font-mono">
@@ -123,21 +111,21 @@ const estacoesData = [
             </div>
 
             <header class="mb-10 text-center md:text-left border-t border-white/10 pt-8">
-                <h2 class="text-3xl font-black uppercase italic tracking-tighter">Planeje sua Viagem</h2>
-                <p class="text-red-light text-xs font-black uppercase tracking-widest mt-1 italic">Horários oficiais baseados na grade da SuperVia</p>
+                <h2 class="text-3xl font-black uppercase tracking-tighter">Planeje sua Viagem</h2>
+                <p class="text-red-light text-xs font-bold uppercase tracking-widest mt-1">Horários oficiais baseados na grade da SuperVia</p>
             </header>
             
             <form id="planning-form" class="space-y-8">
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="space-y-3">
                         <label class="block text-[10px] font-black uppercase opacity-50 tracking-widest">Partida de:</label>
-                        <select id="origin" class="w-full bg-navy-base text-white p-5 rounded-2xl font-bold border-2 border-transparent focus:border-red-base outline-none transition-all">
+                        <select id="origin" class="w-full bg-navy-base text-white p-4 rounded-sm font-bold border border-transparent focus:border-red-base outline-none transition-all cursor-pointer">
                             {estacoesData.map(e => <option value={e.nome}>{e.nome}</option>)}
                         </select>
                     </div>
                     <div class="space-y-3">
                         <label class="block text-[10px] font-black uppercase opacity-50 tracking-widest">Destino:</label>
-                        <select id="destination" class="w-full bg-navy-base text-white p-5 rounded-2xl font-bold border-2 border-transparent focus:border-red-base outline-none">
+                        <select id="destination" class="w-full bg-navy-base text-white p-4 rounded-sm font-bold border border-transparent focus:border-red-base outline-none cursor-pointer">
                             {[...estacoesData].reverse().map(e => <option value={e.nome}>{e.nome}</option>)}
                         </select>
                     </div>
@@ -146,7 +134,7 @@ const estacoesData = [
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="space-y-3">
                         <label class="block text-[10px] font-black uppercase opacity-50 tracking-widest">Tipo de Dia:</label>
-                        <select id="day-type" class="w-full bg-navy-base text-white p-5 rounded-2xl font-bold border-2 border-transparent focus:border-red-base outline-none">
+                        <select id="day-type" class="w-full bg-navy-base text-white p-4 rounded-sm font-bold border border-transparent focus:border-red-base outline-none cursor-pointer">
                             <option value="util">Segunda a Sexta</option>
                             <option value="sabado">Sábados</option>
                             <option value="domingo">Domingos e Feriados</option>
@@ -154,32 +142,32 @@ const estacoesData = [
                     </div>
                     <div class="space-y-3">
                         <label class="block text-[10px] font-black uppercase opacity-50 tracking-widest">A partir das:</label>
-                        <input type="time" id="travel-time" class="w-full bg-navy-base text-white p-5 rounded-2xl font-bold border-2 border-transparent focus:border-red-base outline-none" />
+                        <input type="time" id="travel-time" class="w-full bg-navy-base text-white p-4 rounded-sm font-bold border border-transparent focus:border-red-base outline-none" />
                     </div>
                     <div class="flex items-end">
-                        <button type="submit" class="w-full bg-red-base hover:bg-red-light p-5 rounded-2xl font-black uppercase transition-all shadow-xl active:scale-95 text-white tracking-widest">
+                        <button type="submit" class="w-full bg-red-base hover:bg-red-light p-4 rounded-md font-black uppercase transition-all shadow-md active:scale-95 text-white tracking-widest">
                             Pesquisar Viagem
                         </button>
                     </div>
                 </div>
             </form>
 
-            <div id="result-box" class="hidden mt-12 p-8 bg-navy-base/50 rounded-[2rem] border border-white/5 backdrop-blur-md">
+            <div id="result-box" class="hidden mt-12 p-8 bg-navy-base/50 rounded-lg border border-white/10 backdrop-blur-sm">
                 <div id="has-train" class="hidden">
                     <div class="flex flex-col md:flex-row justify-around items-center gap-10 mb-8">
                         <div class="text-center">
                             <span class="text-[10px] uppercase font-black opacity-40 block mb-3 tracking-widest">Partida de <span id="lbl-origin" class="text-white"></span></span>
-                            <p id="dep-time" class="text-5xl md:text-6xl font-black italic">--:--</p>
+                            <p id="dep-time" class="text-5xl md:text-6xl font-black">--:--</p>
                         </div>
                         <div class="hidden md:block h-20 w-px bg-white/10"></div>
                         <div class="text-center">
                             <span class="text-[10px] uppercase font-black text-red-light block mb-3 tracking-widest">Chegada em <span id="lbl-dest" class="text-red-light"></span></span>
-                            <p id="arr-time" class="text-5xl md:text-6xl font-black italic text-red-light">--:--</p>
+                            <p id="arr-time" class="text-5xl md:text-6xl font-black text-red-light">--:--</p>
                         </div>
                     </div>
 
-                    <div id="connection-box" class="hidden bg-white/5 rounded-xl p-4 border border-white/10 flex items-start gap-4">
-                        <div class="bg-blue-600 text-white p-2 rounded-lg">
+                    <div id="connection-box" class="hidden bg-white/5 rounded-md p-4 border border-white/10 flex items-start gap-4">
+                        <div class="bg-blue-600 text-white p-2 rounded-sm shrink-0">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                             </svg>
@@ -196,7 +184,7 @@ const estacoesData = [
                 </div>
 
                 <div id="no-train" class="hidden text-center py-6">
-                    <p class="text-xl font-bold text-red-light uppercase italic">Nenhuma viagem encontrada após o horário selecionado.</p>
+                    <p class="text-lg font-bold text-red-light uppercase">Nenhuma viagem encontrada após o horário selecionado.</p>
                 </div>
             </div>
         </section>
@@ -204,14 +192,13 @@ const estacoesData = [
         <section class="grid lg:grid-cols-3 gap-8 mb-16">
             
             <div class="lg:col-span-2 space-y-6">
-                <h3 class="text-xl font-black uppercase italic tracking-tighter text-navy-dark flex items-center gap-2">
-                    <span class="w-2 h-8 bg-red-base rounded-full"></span>
+                <h3 class="text-xl font-black uppercase tracking-tighter text-navy-dark flex items-center gap-2 border-b border-gray-100 pb-3">
+                    <span class="w-2 h-6 bg-red-base rounded-sm"></span>
                     Comunicados Oficiais
                 </h3>
 
                 <div class="grid md:grid-cols-2 gap-4">
                     
-                    {/* 2. RENDERIZA OS COMUNICADOS FIXOS DEPOIS */}
                     {comunicadosFixos.map(aviso => {
                         let borderClass = 'border-navy-base';
                         if (aviso.tipo === 'alerta') borderClass = 'border-yellow-500';
@@ -219,26 +206,26 @@ const estacoesData = [
                         if (aviso.tipo === 'manutencao') borderClass = 'border-blue-500';
 
                         return (
-                            <div class={`bg-white p-6 rounded-2xl border-l-4 ${borderClass} shadow-sm hover:shadow-md transition-shadow`}>
+                            <div class={`bg-white p-6 rounded-lg border-l-4 border border-gray-100 ${borderClass} shadow-sm hover:shadow-md transition-shadow`}>
                                 <span class="text-[10px] font-black text-navy-soft uppercase tracking-widest mb-2 block">{aviso.data}</span>
                                 <h4 class="text-navy-dark font-black uppercase text-sm mb-3 leading-tight">{aviso.titulo}</h4>
-                                <p class="text-xs text-navy-base leading-relaxed">{aviso.texto}</p>
+                                <p class="text-xs text-gray-600 leading-relaxed">{aviso.texto}</p>
                             </div>
                         )
                     })}
                 </div>
             </div>
 
-            <div class="space-y-8">
+            <div class="space-y-6">
                 
-                <div class="bg-navy-dark text-white p-8 rounded-3xl shadow-lg relative overflow-hidden">
+                <div class="bg-navy-dark text-white p-8 rounded-lg shadow-md relative overflow-hidden">
                     <div class="absolute top-0 right-0 p-8 opacity-10">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-24 h-24">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
                         </svg>
                     </div>
 
-                    <h3 class="text-xl font-black uppercase italic tracking-tighter mb-6 relative z-10">Tarifas</h3>
+                    <h3 class="text-xl font-black uppercase tracking-tighter mb-6 relative z-10 border-b border-white/20 pb-3">Tarifas</h3>
                     
                     <div class="space-y-4 relative z-10">
                         <div>
@@ -265,8 +252,8 @@ const estacoesData = [
                     </div>
                 </div>
 
-                <div class="bg-ice rounded-3xl p-6">
-                    <h3 class="text-lg font-black uppercase italic tracking-tighter text-navy-dark mb-4 flex items-center gap-2">
+                <div class="bg-gray-50 border border-gray-100 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-black uppercase tracking-tighter text-navy-dark mb-4 flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-navy-base">
                                     <circle cx="5.5" cy="17.5" r="3.5" />
                                     <circle cx="18.5" cy="17.5" r="3.5" />
@@ -276,16 +263,16 @@ const estacoesData = [
                         Bike no Trem
                     </h3>
                     
-                    <div class="bg-white rounded-xl p-4 mb-4 border border-navy-base/10">
-                        <p class="text-xs font-bold text-navy-dark uppercase tracking-widest mb-1">Horários Permitidos:</p>
-                        <ul class="text-xs text-navy-base space-y-1">
+                    <div class="bg-white rounded-sm p-4 mb-4 border border-gray-200">
+                        <p class="text-[10px] font-black text-navy-dark uppercase tracking-widest mb-2 border-b border-gray-100 pb-2">Horários Permitidos:</p>
+                        <ul class="text-xs text-gray-600 space-y-2 font-medium">
                             <li>• <strong>Dias úteis:</strong> A partir das 21h</li>
                             <li>• <strong>Sábados, domingos e feriados:</strong> O dia todo</li>
                         </ul>
                     </div>
 
                     
-                    <details class="group bg-white rounded-xl border border-navy-base/10 overflow-hidden cursor-pointer">
+                    <details class="group bg-white rounded-sm border border-gray-200 overflow-hidden cursor-pointer shadow-sm">
                         <summary class="flex items-center justify-between p-4 font-black text-xs uppercase tracking-widest text-navy-dark hover:bg-gray-50 transition-colors">
                             
                             <div class="flex items-center gap-3">
@@ -302,14 +289,14 @@ const estacoesData = [
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                             </svg>
                         </summary>
-                        <div class="p-4 pt-0 text-xs text-navy-soft space-y-2 leading-relaxed bg-gray-50 border-t border-gray-100">
+                        <div class="p-4 pt-0 text-xs text-gray-600 space-y-2 leading-relaxed bg-gray-50 border-t border-gray-100 font-medium">
                             <p>• Procure um funcionário para liberar o acesso pelo portão de serviço.</p>
                             <p>• Proibido: Bicicleta de carga, motorizada ou elétrica.</p>
                             <p>• Dentro da estação: Empurre a bicicleta, não pedale.</p>
                             <p>• Use as escadas fixas. Proibido usar escada rolante ou elevador.</p>
                             <p>• Na plataforma: Respeite a faixa amarela.</p>
                             <p>• No trem: Não bloqueie as portas.</p>
-                            <p class="text-[10px] italic mt-2 opacity-70">Grupos acima de 10 pessoas: Agendar com antecedência via 0800 726 9494.</p>
+                            <p class="text-[10px] italic mt-4 opacity-70 border-t border-gray-200 pt-2">Grupos acima de 10 pessoas: Agendar com antecedência via 0800 726 9494.</p>
                         </div>
                     </details>
                 </div>

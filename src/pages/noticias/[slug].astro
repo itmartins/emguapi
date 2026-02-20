@@ -24,12 +24,12 @@ const { Content } = await entry.render();
 // --- LÓGICA DE NOTÍCIAS RELACIONADAS ---
 const allNoticias = await getCollection('noticias');
 const noticiasRelacionadas = allNoticias
-    .filter(n => n.id !== entry.id) // Remove a notícia atual da lista
-    .sort((a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()) // Ordena por data
-    .slice(0, 3); // Pega apenas as 3 primeiras
+    .filter(n => n.id !== entry.id) 
+    .sort((a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime())
+    .slice(0, 3);
 
 // Tratamento seguro do Autor
-const nomeAutor = entry.data.autor || "Equipe emguapi";
+const nomeAutor = entry.data.autor || "Redação emguapi";
 const autorSlug = nomeAutor.toLowerCase().trim().replace(/\s+/g, '-');
 
 const dataFormatada = new Date(entry.data.data).toLocaleDateString('pt-BR', {
@@ -50,114 +50,104 @@ const shareText = encodeURIComponent(entry.data.titulo);
 >
     <Navbar />
     
-    <main class="max-w-4xl mx-auto my-12 bg-white shadow-2xl rounded-[3rem] overflow-hidden border border-ice">
+    {/* CONTAINER PRINCIPAL: Mudado para rounded-lg e border-gray-200 */}
+    <main class="max-w-4xl mx-auto my-12 bg-white shadow-xl rounded-lg overflow-hidden border border-gray-200">
         
-        <header class="relative h-[400px]">
+        {/* HEADER DA NOTÍCIA */}
+        <header class="relative h-[400px] md:h-[500px]">
             <img 
                 src={entry.data.imagem || "/fotos/estacao-guapi.jpg"} 
                 class="w-full h-full object-cover" 
                 alt={entry.data.titulo} 
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-transparent"></div>
-            <div class="absolute bottom-10 left-10 right-10">
-                <span class="bg-red-base text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase mb-4 inline-block tracking-widest shadow-xl">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#000033]/95 via-[#000033]/20 to-transparent"></div>
+            <div class="absolute bottom-10 left-8 right-8 md:left-12 md:right-12">
+                {/* TAG: Mudada para Navy e rounded-sm */}
+                <span class="bg-navy-base text-white text-[10px] font-black px-3 py-1.5 rounded-sm uppercase mb-4 inline-block tracking-widest shadow-md">
                     {entry.data.categoria}
                 </span>
-                <h1 class="text-3xl md:text-5xl font-black text-white tracking-tighter leading-none mb-4">
+                {/* TÍTULO: Sem itálico e com peso visual */}
+                <h1 class="text-3xl md:text-5xl font-black text-white tracking-tighter leading-tight drop-shadow-lg">
                     {entry.data.titulo}
                 </h1>
             </div>
         </header>
 
         <article class="p-8 md:p-16">
-            <div class="flex flex-wrap items-center justify-between gap-6 mb-8 pb-6 border-b border-ice">
-                <div class="text-navy-safe text-sm font-bold uppercase tracking-widest">
-                    {dataFormatada} | Por 
-                    <a href={`/autor/${autorSlug}`} class="text-red-base hover:underline">
+            {/* META INFO E SHARE */}
+            <div class="flex flex-wrap items-center justify-between gap-6 mb-10 pb-6 border-b border-gray-100">
+                <div class="text-gray-500 text-[10px] font-bold uppercase tracking-widest">
+                    {dataFormatada} <span class="mx-2 text-gray-300">|</span> Por 
+                    <a href={`/autor/${autorSlug}`} class="text-red-base hover:text-navy-base transition-colors">
                         {nomeAutor}
                     </a>
                 </div>
 
-                <div class="flex gap-3">
-                    <a href={`https://wa.me/?text=${shareText}%20${shareUrl}`} target="_blank" class="bg-[#25D366] text-white px-4 py-2 rounded-full hover:scale-105 transition-all text-[10px] font-black uppercase shadow-md flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg>
+                <div class="flex gap-2">
+                    {/* BOTÕES DE SHARE: Mudados para rounded-md e texto menor */}
+                    <a href={`https://wa.me/?text=${shareText}%20${shareUrl}`} target="_blank" class="bg-[#25D366] text-white px-4 py-2 rounded-md hover:opacity-90 transition-all text-[9px] font-black uppercase shadow-sm flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg>
                         WhatsApp
                     </a>
-                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`} target="_blank" class="bg-[#1877F2] text-white px-4 py-2 rounded-full hover:scale-105 transition-all text-[10px] font-black uppercase shadow-md">
+                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`} target="_blank" class="bg-[#1877F2] text-white px-4 py-2 rounded-md hover:opacity-90 transition-all text-[9px] font-black uppercase shadow-sm">
                         Facebook
                     </a>
                 </div>
             </div>
 
-            <div class="mb-12 py-8 border-y border-dashed border-ice flex flex-col items-center">
-                <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Publicidade</span>
-                
-                <div class="w-full h-48 md:h-32 bg-[#000066] rounded-2xl flex items-center justify-center group cursor-pointer hover:border-red-base border-2 border-transparent transition-all overflow-hidden relative">
-                    <img src="/banners/seu-anuncio.webp" 
-                        class="w-full h-full object-contain transition-opacity duration-300 opacity-90 group-hover:opacity-100" 
-                        alt="Anúncio Giga Mais">
-                    <a href="https://www.gigamaisfibra.com.br/" 
-                    target="_blank"
-                    class="absolute inset-0 z-10">
-                    <span class="sr-only">Visitar site do anunciante</span>
-                    </a>
-                </div>
-            </div>
-
+            {/* CONTEÚDO DA MATÉRIA */}
             <div class="
-                prose prose-lg max-w-none text-navy-dark leading-relaxed
-                prose-headings:font-black prose-headings:text-navy-dark
-                prose-a:text-red-base hover:prose-a:text-red-light
+                prose prose-lg max-w-none text-gray-700 leading-relaxed
+                prose-headings:font-black prose-headings:text-navy-dark prose-headings:uppercase prose-headings:tracking-tight
+                prose-a:text-red-base hover:prose-a:text-navy-base
                 prose-strong:text-navy-dark prose-strong:font-black
-                prose-img:rounded-2xl prose-img:shadow-lg prose-img:w-full
+                prose-img:rounded-lg prose-img:shadow-md prose-img:w-full
                 
-                /* Estilos para Vídeos (Iframe/YouTube) */
-                [&_iframe]:w-full [&_iframe]:aspect-video [&_iframe]:rounded-2xl [&_iframe]:shadow-lg [&_iframe]:mb-8
+                [&_iframe]:w-full [&_iframe]:aspect-video [&_iframe]:rounded-lg [&_iframe]:shadow-md [&_iframe]:mb-8
                 
-                /* Estilos para Legendas (Figure/Figcaption) */
                 [&_figure]:my-8             
                 [&_figure]:block
                 [&_figcaption]:text-center  
-                [&_figcaption]:text-sm      
-                [&_figcaption]:text-navy-soft 
-                [&_figcaption]:italic       
-                [&_figcaption]:mt-2         
-                [&_figcaption]:font-medium
+                [&_figcaption]:text-xs      
+                [&_figcaption]:text-gray-500 
+                [&_figcaption]:mt-3         
+                [&_figcaption]:font-bold
+                [&_figcaption]:tracking-widest
+                [&_figcaption]:uppercase
 
-                /* Estilo da Letra Capitular (Drop Cap) */
                 [&>p:first-of-type::first-letter]:float-left
-                [&>p:first-of-type::first-letter]:text-[3.5rem]
+                [&>p:first-of-type::first-letter]:text-[4rem]
                 [&>p:first-of-type::first-letter]:leading-[0.8]
                 [&>p:first-of-type::first-letter]:font-black
                 [&>p:first-of-type::first-letter]:mr-3
-                [&>p:first-of-type::first-letter]:mt-1
+                [&>p:first-of-type::first-letter]:mt-2
                 [&>p:first-of-type::first-letter]:text-red-base
                 [&>p:first-of-type::first-letter]:uppercase
 
-                /* Estilo do 'Leia Mais' (Blockquote) */
                 prose-blockquote:not-italic
                 prose-blockquote:font-bold
                 prose-blockquote:text-navy-base
-                prose-blockquote:bg-ice
+                prose-blockquote:bg-gray-50
                 prose-blockquote:border-l-8
                 prose-blockquote:border-red-base
-                prose-blockquote:py-4
-                prose-blockquote:px-6
-                prose-blockquote:rounded-r-xl
+                prose-blockquote:py-6
+                prose-blockquote:px-8
+                prose-blockquote:rounded-r-md
                 prose-blockquote:shadow-sm
+                prose-blockquote:border-y prose-blockquote:border-r prose-blockquote:border-gray-100
             ">
                 <Content />
             </div>
 
-            {/* --- BLOCO DE TAGS CORRIGIDO COM LINKS --- */}
+            {/* TAGS */}
             {entry.data.tags && entry.data.tags.length > 0 && (
-                <div class="mt-10 mb-10 pt-8 border-t border-dashed border-ice">
-                    <h4 class="text-xs font-black uppercase tracking-widest text-navy-soft mb-3">Tópicos Relacionados:</h4>
+                <div class="mt-12 mb-12 pt-8 border-t border-gray-100">
+                    <h4 class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-4">Tópicos Relacionados:</h4>
                     <div class="flex flex-wrap gap-2">
                         {entry.data.tags.map((tag: string) => (
                             <a 
                                 href={`/tags/${formatarTagParaURL(tag)}`}
-                                class="bg-gray-100 hover:bg-red-base hover:text-white text-navy-base px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wide transition-colors shadow-sm border border-gray-200"
+                                class="bg-gray-50 hover:bg-red-base hover:text-white text-gray-500 text-[9px] font-black uppercase px-3 py-1.5 rounded-sm border border-gray-200 transition-colors"
                             >
                                 #{tag}
                             </a>
@@ -166,15 +156,16 @@ const shareText = encodeURIComponent(entry.data.titulo);
                 </div>
             )}
             
-            <div class="mt-20 pt-12 border-t-2 border-ice">
-                <h3 class="text-xl font-black uppercase tracking-tighter text-navy-dark mb-8 flex items-center gap-3 italic">
-                    <span class="w-10 h-1.5 bg-red-base inline-block"></span>
+            {/* RELACIONADAS */}
+            <div class="mt-20 pt-12 border-t-2 border-gray-100">
+                <h3 class="text-xl font-black uppercase tracking-tighter text-navy-dark mb-8 flex items-center gap-3">
+                    <span class="w-2 h-6 bg-red-base inline-block rounded-sm"></span>
                     Você pode gostar
                 </h3>
                 
                 <div class="grid md:grid-cols-3 gap-6">
                     {noticiasRelacionadas.map(noticia => (
-                        <div class="transform md:scale-95 md:origin-top-left hover:scale-100 transition-transform duration-300"> 
+                        <div class="h-full"> 
                             <NoticiaCard 
                                 categoria={noticia.data.categoria}
                                 titulo={noticia.data.titulo}
@@ -188,28 +179,25 @@ const shareText = encodeURIComponent(entry.data.titulo);
                 </div>
             </div>
 
-            <footer class="mt-12 pt-8 border-t border-ice flex justify-between items-center">
-                <a href="/noticias" class="text-navy-base font-black uppercase text-xs hover:text-red-base transition-colors">
-                    ← Voltar para todas as Notícias
-                </a>
-            </footer>
-
-            <div class="mb-12 py-8 border-y border-dashed border-ice flex flex-col items-center">
-                <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Publicidade</span>
-                
-                <div class="w-full h-48 md:h-32 bg-[#000066] rounded-2xl flex items-center justify-center group cursor-pointer hover:border-red-base border-2 border-transparent transition-all overflow-hidden relative">
-                    
+            {/* PUBLICIDADE HORIZONTAL */}
+            <div class="mt-16 pt-12 border-t border-gray-100 flex flex-col items-center">
+                <span class="text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
+                <div class="w-full h-48 md:h-32 bg-gray-50 rounded-lg flex items-center justify-center group cursor-pointer border border-gray-200 hover:border-red-base/50 transition-all overflow-hidden relative shadow-sm">
                     <img src="/banners/seu-anuncio.webp" 
-                        class="w-full h-full object-contain transition-opacity duration-300 opacity-90 group-hover:opacity-100" 
-                        alt="Anúncio Giga Mais">
-                    
-                    <a href="https://www.gigamaisfibra.com.br/" 
-                    target="_blank"
-                    class="absolute inset-0 z-10">
-                    <span class="sr-only">Visitar site do anunciante</span>
+                        class="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity" 
+                        alt="Publicidade">
+                    <a href="https://www.gigamaisfibra.com.br/" target="_blank" rel="noopener noreferrer sponsored" class="absolute inset-0 z-10">
+                        <span class="sr-only">Visitar site do anunciante</span>
                     </a>
                 </div>
             </div>
+
+            <footer class="mt-16 pt-8 border-t border-gray-100 flex justify-between items-center">
+                <a href="/noticias" class="text-navy-base font-black uppercase text-[16px] tracking-widest hover:text-red-base transition-colors flex items-center gap-2 group">
+                    <span class="group-hover:-translate-x-1 transition-transform">←</span> Voltar para Notícias
+                </a>
+                <p class="text-gray-400 text-[9px] font-bold uppercase tracking-widest italic"></p>
+            </footer>
         </article>
     </main>
 </Layout>
