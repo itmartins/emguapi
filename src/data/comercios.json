@@ -14,5 +14,21 @@
     "descricao": "Picolés artesanais (fruta, ao leite, recheados e MagéCaipi alcoólico). Vendas no varejo e atacado para festas a partir de R$ 1,00. Consulte taxa de entrega.",
     "telefone": "21974269306",
     "destaque": false
-  }
+  },
+  {
+  "nome": "Priscila Oresna - Tranças",
+  "categoria": "Estética",
+  "bairro": "Guapimirim",
+  "descricao": "Especialista em tranças: Box braids, Nagô desenhada, Tiara e Boxeadora. Aproveite nossas promoções de Carnaval para elevar sua autoestima.",
+  "telefone": "21967032312",
+  "destaque": false
+},
+{
+  "nome": "Brenda Gomes - Cílios e Sobrancelhas",
+  "categoria": "Estética",
+  "bairro": "Guapimirim",
+  "descricao": "Realce a sua beleza com extensão de cílios e design de sobrancelhas. Aproveite nossos combos especiais e renove o seu olhar.",
+  "telefone": "21987225662",
+  "destaque": false
+}
 ]
