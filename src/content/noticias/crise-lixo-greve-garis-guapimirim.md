@@ -6,7 +6,6 @@ categoria: "Cidades"
 autor: "Redação emguapi"
 imagem: "/fotos/lixo-ruas-guapimirim.jpg" 
 tags: ["Guapimirim", "Limpeza Urbana", "Coleta de Lixo", "Greve", "Garis", "Infraestrutura"]
-destaque: true
 ---
 
 As ruas de diversos bairros de Guapimirim têm amanhecido com um cenário preocupante de abandono, e a crise na limpeza urbana agora se estende também para as rodovias que cortam o município. A situação, que já vinha gerando reclamações constantes, atingiu um ponto crítico neste fim de semana, revelando um colapso estrutural na coleta de resíduos.

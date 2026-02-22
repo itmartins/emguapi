@@ -5,7 +5,7 @@ data: 2026-02-14T16:00:00
 categoria: "Mobilidade"
 imagem: "/fotos/onibus-guapimirim-aumento.jpg"
 legenda_imagem: "Ônibus da linha Guapimirim x Central. Foto: Matheus Souza / Ônibus Brasil"
-destaque: true
+destaque: false
 tags: ["Transporte", "Aumento", "Ônibus", "Trem", "Tarifa Social", "Economia", "Guapimirim"]
 ---
 
