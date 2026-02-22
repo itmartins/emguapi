@@ -1,7 +1,7 @@
 ---
 titulo: "Susto no Vale da Lua: Casal é surpreendido por cobra durante fotos em cachoeira de Guapimirim"
 resumo: "O momento de lazer na natureza foi interrompido quando o réptil apareceu deslizando pelas pedras. Veja o vídeo e confira dicas para visitar o local com segurança."
-data: "2026-02-21"
+data: 2026-02-21T17:00:00
 categoria: "Turismo"
 destaque: true
 imagem: "/fotos/cobra-vale-da-lua.png" 
