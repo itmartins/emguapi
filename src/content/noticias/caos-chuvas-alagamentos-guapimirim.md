@@ -1,7 +1,7 @@
 ---
 titulo: "Fim de semana de caos em Guapimirim: Chuvas revelam falhas de drenagem, suspendem aulas e agravam falta de água e coleta de lixo"
 resumo: "Temporais que começaram na quarta-feira deixaram bairros submersos. No Bananal, moradores culpam obras recentes. No Parque Santo Antônio, CIEP tem aulas suspensas."
-data: "2026-02-22"
+data: 2026-02-22T7:00:00
 categoria: "Cidades"
 autor: "Redação emguapi"
 imagem: "/fotos/imagem-camera-bananal.jpg" 
