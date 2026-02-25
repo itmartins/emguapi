@@ -3,24 +3,60 @@
 ---
 
 <nav class="bg-navy-dark text-white py-4 shadow-xl sticky top-0 z-50 border-b-2 border-red-base">
-    <div class="max-w-5xl mx-auto px-10 flex justify-between items-center">
+    <div class="max-w-5xl mx-auto px-6 md:px-10 flex justify-between items-center">
 
-<a href="/" class="group flex items-center gap-2">
-        <span class="text-2xl font-black tracking-tighter">
-
-        <a href="/" class="text-2xl font-black tracking-tighter">
-            em<span class="text-white font-light">guapi</span><span class="text-red-base">.com</span>
+        {/* LOGO */}
+        <a href="/" class="group flex items-center gap-2">
+            <span class="text-2xl font-black tracking-tighter">
+                em<span class="text-white font-light">guapi</span><span class="text-red-base">.com</span>
+            </span>
         </a>
         
-        <div class="hidden md:flex gap-12 text-xs font-bold uppercase tracking-widest">
+        {/* MENU DESKTOP (Esconde no celular) */}
+        <div class="hidden md:flex gap-12 text-xs font-bold uppercase tracking-widest items-center">
             <a href="/horarios" class="hover:text-red-light transition-colors">Planeje sua Viagem</a>
             <a href="/denuncia" class="hover:text-red-light transition-colors">Denúncia</a>
             <a href="/turismo" class="hover:text-red-light transition-colors">Turismo</a>
             <a href="/noticias" class="text-red-light font-black">Últimas Notícias</a>
+            
+            <a href="/anuncie" class="bg-red-base hover:bg-red-light px-6 py-2 rounded-full text-[14px] uppercase font-black transition-all shadow-lg text-center text-white">
+                Anuncie Aqui
+            </a>
         </div>
 
-        <a href="/anuncie" class="bg-red-base hover:bg-red-light px-6 py-2 rounded-full text-[14px] uppercase font-black transition-all shadow-lg text-center">
-            Anuncie Aqui
-        </a>
+        {/* MENU MOBILE: Botão Hamburguer e Botão Anuncie */}
+        <div class="md:hidden flex items-center gap-4">
+            <a href="/anuncie" class="bg-red-base text-white hover:bg-red-light px-4 py-1.5 rounded-full text-[10px] uppercase font-black shadow-sm">
+                Anuncie
+            </a>
+            <button id="mobile-menu-btn" class="text-white hover:text-red-light focus:outline-none p-1 flex items-center gap-1">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <span class="text-[10px] font-black uppercase tracking-widest mt-0.5">Menu</span>
+            </button>
+        </div>
+    </div>
+
+    {/* DROPDOWN MENU MOBILE (Começa escondido) */}
+    <div id="mobile-menu" class="hidden md:hidden bg-navy-dark border-t border-white/10 mt-4 px-6 py-4 shadow-inner">
+        <div class="flex flex-col gap-4 text-sm font-bold uppercase tracking-widest">
+            <a href="/horarios" class="hover:text-red-light py-2 border-b border-white/10">Planeje sua Viagem</a>
+            <a href="/denuncia" class="hover:text-red-light py-2 border-b border-white/10">Denúncia</a>
+            <a href="/turismo" class="hover:text-red-light py-2 border-b border-white/10">Turismo</a>
+            <a href="/noticias" class="text-red-light py-2">Últimas Notícias</a>
+        </div>
     </div>
 </nav>
+
+<script>
+    // Script para abrir/fechar o menu no celular
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+
+    if (btn && menu) {
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    }
+</script>
