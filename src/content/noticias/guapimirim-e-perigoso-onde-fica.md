@@ -14,18 +14,23 @@ Quando alguém decide visitar a nossa cidade pela primeira vez, seja para explor
 
 Muitos perguntam "**Guapimirim fica perto de onde?**". O município é privilegiado por estar no sopé da imponente Serra dos Órgãos. A cidade pertence à Região Metropolitana do Rio de Janeiro, mas com ares de serra. 
 
-Ela é vizinha de Magé, Cachoeiras de Macacu e Teresópolis (com a qual divide a famosa subida da serra). Saindo da capital, o trajeto de carro leva cerca de 1 hora. 
+Ela é vizinha de Magé, Cachoeiras de Macacu e Teresópolis (com a qual divide a famosa subida da serra). Saindo da capital, o trajeto de carro leva cerca de 1 hora.
 📍 [Veja o Mapa do Centro de Guapimirim aqui](https://maps.google.com/?q=Centro+Guapimirim+-+RJ).
 
 ## Afinal, Guapimirim é perigoso?
 
 Esta é uma das perguntas de topo na internet: "**Guapimirim é perigoso?**". Em comparação com os índices de violência dos grandes centros urbanos e de outros municípios da Baixada Fluminense, Guapimirim é considerada uma cidade bastante pacata e segura. 
 
-A vida em **Guapimirim centro** e nos bairros residenciais costuma manter o clima de "cidade do interior". Obviamente, como em qualquer cidade brasileira, é recomendável manter a atenção básica, mas incidentes graves com turistas são raríssimos. É um destino perfeito e tranquilo para famílias.
+A vida no **Centro** de **Guapimirim** e nos bairros residenciais costuma manter o clima de "cidade do interior". Obviamente, como em qualquer cidade brasileira, é recomendável manter a atenção básica, mas incidentes graves com turistas são raríssimos. É um destino perfeito e tranquilo para famílias.
 
 ## Quantos habitantes tem?
 
 Se você tem curiosidade sobre o tamanho da cidade, as últimas estimativas apontam que o número de **Guapimirim habitantes** gira em torno de 51 mil pessoas (dados base do Censo do IBGE). Isso garante um comércio local forte, mas sem o caos das grandes metrópoles.
+
+## Tem trem em Guapimirim?
+
+Sim, a cidade conta com uma malha ferroviária que liga Guapimirim o Centro do Rio cortanto a **Baixada Fluminense** por Magé e Duque de Caxias até chegar à estação Central do Brasil (Dom Pedro II) no Rio de Janeiro.
+
 
 ## Coisas legais para fazer em Guapimirim
 

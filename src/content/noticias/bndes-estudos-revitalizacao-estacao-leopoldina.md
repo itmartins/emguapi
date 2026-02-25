@@ -1,5 +1,5 @@
 ---
-titulo: "Já foi nossa casa: BNDES inicia projeto para revitalizar a histórica Estação Leopoldina no Rio"
+titulo: "Já foi nosso lar: BNDES inicia projeto para revitalizar a histórica Estação Leopoldina no Rio"
 resumo: "Governo avança em estudos para transformar a antiga estação Barão de Mauá. Prédio abandonado já fpo terminal histórico dos ramais de Guapimirim e Saracuruna."
 data: "2026-02-25T19:30:00"
 categoria: "História e Mobilidade"
