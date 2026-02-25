@@ -7,17 +7,26 @@ import Navbar from '../../components/Navbar.astro';
 const pontosTuristicos = await getCollection('turismo');
 ---
 
-<Layout title="Turismo e Natureza | emguapi.com">
+<Layout 
+    title="Visite Guapi: O Guia Oficial de Turismo | emguapi.com"
+    description="Procurando o que fazer em Guapimirim? Descubra cachoeiras, trilhas e pontos turísticos no guia online mais completo da cidade."
+    image="/fotos/turismo-capa.jpg"
+>
     <Navbar />
 
     <main class="max-w-6xl mx-auto p-6 my-12">
         <header class="mb-16 text-center border-b border-gray-200 pb-10">
-            <span class="text-red-base font-black uppercase tracking-[0.3em] text-[10px]">Explore Guapimirim</span>
+            <span class="text-red-base font-black uppercase tracking-[0.3em] text-[10px]">Guapimirim Online</span>
             <h1 class="text-5xl font-black text-navy-dark uppercase tracking-tighter mt-2">
-                Guia de <span class="text-red-base">Turismo</span>
+                Visite <span class="text-red-base">Guapi</span>
             </h1>
             <p class="text-gray-600 mt-4 max-w-2xl mx-auto font-medium text-lg">
-                Conheça as belezas naturais, trilhas e monumentos históricos da nossa região.
+                Seu guia oficial para explorar cachoeiras, trilhas e pontos históricos da região.
+            </p>
+            
+            {/* Bloco de SEO Invisível visualmente mas importante para o Google */}
+            <p class="sr-only">
+                Bem-vindo ao portal Guapimirim online focado em turismo. Se você busca informações oficiais da Prefeitura de Guapimirim sobre o Parnaso ou quer saber o que fazer neste final de semana, o Visite Guapi do emguapi.com traz as melhores rotas da cidade, conectando a comunidade através da Guapi na rede de turismo local.
             </p>
         </header>
 

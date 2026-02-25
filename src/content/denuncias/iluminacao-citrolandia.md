@@ -1,8 +1,8 @@
 ---
-# src/content/denuncias/iluminacao-citrolandia.md
+titulo: "Insegurança: Rua principal da estação de trem de Citrolândia está às escuras"
 autor: "Dona Maria Silva"
 bairro: "Citrolândia"
 data: 2026-01-17T19:55:00
-# Este é o texto curto que aparecerá na página inicial
-resumo_relato: "Moradores pedem melhorias na iluminação da rua principal próximo à estação de trem, que está muito escura à noite."
+tags: ["Denúncia", "Iluminação", "Citrolândia", "Guapimirim", "Segurança"]
+resumo_relato: "Moradores de Citrolândia pedem melhorias urgentes na iluminação da rua principal, próximo à estação de trem de Guapimirim, que está muito escura e perigosa à noite. Com quem devemos reclamar, com a Prefeitura de Magé ou com a Prefeitura de Guapimirim?"
 ---

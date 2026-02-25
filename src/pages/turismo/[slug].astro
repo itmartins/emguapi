@@ -16,19 +16,22 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Layout title={`${entry.data.nome} | emguapi.com`}>
+<Layout 
+    title={`${entry.data.nome} | Visite Guapi - Guapimirim Online`}
+    description={`Guia completo sobre ${entry.data.nome} em Guapimirim. Como chegar, dicas e informações turísticas atualizadas no emguapi.com.`}
+    image={entry.data.imagem}
+>
     <Navbar />
     
     <main class="max-w-4xl mx-auto my-12 bg-white rounded-lg shadow-xl overflow-hidden border border-gray-100">
         
-        {/* HERO SECTION: Altura aumentada para 650px no desktop e adicionado efeito de zoom */}
+        {/* HERO SECTION */}
         <div class="relative h-[450px] md:h-[650px] group overflow-hidden">
             <img 
                 src={entry.data.imagem} 
                 class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" 
-                alt={entry.data.nome} 
+                alt={`${entry.data.nome} - Turismo em Guapimirim`} 
             />
-            {/* Gradiente reforçado para garantir leitura do texto em imagens claras */}
             <div class="absolute inset-0 bg-gradient-to-t from-[#000033]/95 via-[#000033]/40 to-transparent"></div>
             
             <div class="absolute bottom-10 left-8 right-8 md:left-12 md:right-12">
@@ -76,7 +79,7 @@ const { Content } = await entry.render();
                     [&>p:first-of-type::first-letter]:text-red-base
                     [&>p:first-of-type::first-letter]:uppercase
 
-                    [&_figure]:my-8             
+                    [&_figure]:my-8            
                     [&_figure]:block
                     [&_figcaption]:text-center  
                     [&_figcaption]:text-xs      
@@ -105,7 +108,7 @@ const { Content } = await entry.render();
         <div class="mb-12 mx-8 py-8 border-t border-gray-100 flex flex-col items-center">
             <span class="text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
             <div class="w-full h-32 bg-gray-50 rounded-md flex items-center justify-center group cursor-pointer border border-gray-200 hover:border-red-base/50 transition-all overflow-hidden relative shadow-sm">
-                 <img src="/banners/seu-anuncio.webp" class="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity" alt="Publicidade">
+                 <img src="/banners/seu-anuncio.webp" class="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity" alt="Publicidade Turismo Guapimirim">
                 <a href="https://www.gigamaisfibra.com.br/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 z-10">
                     <span class="sr-only">Visitar site do anunciante</span>
                 </a>
@@ -114,9 +117,9 @@ const { Content } = await entry.render();
 
         <div class="bg-gray-50 p-8 border-t border-gray-100 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
              <a href="/turismo" class="text-navy-base font-black uppercase text-[10px] tracking-widest hover:text-red-base transition-colors flex items-center gap-2 group">
-                <span class="group-hover:-translate-x-1 transition-transform">←</span> Voltar para o Guia de Turismo
+                <span class="group-hover:-translate-x-1 transition-transform">←</span> Voltar para o Visite Guapi
             </a>
-            <p class="text-gray-400 text-[9px] font-bold uppercase tracking-widest italic">Fonte: Redação emguapi.com</p>
+            <p class="text-gray-400 text-[9px] font-bold uppercase tracking-widest italic">Guapimirim Online: emguapi.com</p>
         </div>
     </main>
 </Layout>
