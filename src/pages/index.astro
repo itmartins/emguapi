@@ -77,7 +77,7 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
                                     titulo={noticia.data.titulo}
                                     resumo={noticia.data.resumo}
                                     categoria={noticia.data.categoria}
-                                    imagem={noticia.data.imagem || "/fotos/estacao-guapi.jpg"} 
+                                    imagem={noticia.data.imagem || "/fotos/emguapi-capa.png"} 
                                     link={`/noticias/${noticia.id.replace(/\.md$/, '')}`}
                                 />
                             </div>
@@ -116,7 +116,7 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
                         <div>
                             <h3 class="text-xs font-bold uppercase tracking-widest text-navy-soft dark:text-gray-400 mb-1">Mobilidade</h3>
                             <p class="text-lg font-black text-navy-dark dark:text-white leading-none">Ramal Guapimirim</p>
-                            <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-wider font-medium">Atualizado às: {horaAtualizacaoTrem}</p>
+                            <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-wider font-medium">Atualizado: {horaAtualizacaoTrem}</p>
                         </div>
                     </div>
 
@@ -207,7 +207,7 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
                     href="/noticias"
                     class="group inline-flex items-center gap-2 mx-auto text-xs font-black uppercase tracking-widest text-navy-base dark:text-white hover:text-red-base transition-colors px-8 py-3 rounded-sm border border-gray-200 dark:border-white/20 hover:border-navy-base/50 bg-white dark:bg-white/5"
                 >
-                    Acessar Acervo de Notícias
+                    Acessar Todas as Notícias
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 group-hover:translate-x-1 transition-transform">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                     </svg>
