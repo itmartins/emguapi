@@ -93,3 +93,60 @@ const imageURL = new URL(image, siteURL).href;
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0" nonce="12345"></script>
     </body>
 </html>
+
+<style is:global>
+    /* ----------------------------------------- */
+    /* AUTOMATIZAÇÃO DE CITAÇÕES (BLOCKQUOTE)    */
+    /* ----------------------------------------- */
+    
+    /* Remove a barra lateral padrão cinza/feia do Tailwind */
+    .prose blockquote {
+        border-left: none !important;
+        padding: 2rem 1rem !important;
+        margin: 3rem 0 !important;
+        position: relative;
+        font-style: normal !important;
+        color: #112240 !important; /* Cor navy-dark */
+        font-size: 1.125rem !important; /* text-lg */
+        font-weight: 700 !important;
+        line-height: 1.625 !important;
+        text-align: center !important;
+        quotes: none !important; /* Remove as aspas automáticas */
+    }
+
+    /* Desenha as linhas cinzas (cima e baixo) */
+    .prose blockquote::before,
+    .prose blockquote::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: #d1d5db !important; /* gray-300 */
+    }
+
+    .prose blockquote::before { top: 0; }
+    .prose blockquote::after { bottom: 0; }
+
+    /* Desenha a barrinha vermelha (cima e baixo) */
+    .prose blockquote p::before,
+    .prose blockquote p::after {
+        content: "" !important; /* Sobrescreve as aspas do Tailwind */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4rem !important; /* w-16 */
+        height: 4px !important;
+        background-color: #dc2626 !important; /* red-base */
+        display: block !important;
+    }
+
+    /* Posiciona a barra vermelha exatamente em cima das linhas cinzas */
+    .prose blockquote p::before { top: -1.5px; }
+    .prose blockquote p::after { bottom: -1.5px; }
+
+    /* Remove margens extras do parágrafo de dentro */
+    .prose blockquote p {
+        margin: 0 !important;
+    }
+</style>
