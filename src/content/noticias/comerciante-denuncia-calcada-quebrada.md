@@ -10,15 +10,15 @@ tags: ["Guapimirim", "Voz da Comunidade", "Infraestrutura", "Prefeitura de Guapi
 
 O trabalhador guapimiriense que luta diariamente para manter as portas do seu comércio abertas tem esbarrado em um obstáculo frustrante: a falta de zeladoria da própria gestão municipal. 
 
-Na manhã desta sexta-feira (27), um vídeo publicado nas redes sociais pelo morador e comerciante Marcos Vidal escancarou a situação de abandono de um trecho da **Rua Claudionor Batista**, no Centro de Guapimirim. Segundo o relato, já se passou exatamente um mês desde que a Prefeitura abriu um buraco na calçada em frente ao seu estabelecimento e foi embora sem finalizar o serviço.
+Na manhã desta sexta-feira (27), um vídeo publicado nas redes sociais pelo morador e comerciante Marcos Vidal escancarou a situação de abandonono de um trecho da **Rua Claudionor Batista**, no Parque Fleixal em Guapimirim. Segundo o relato, já se passou exatamente um mês desde que a Prefeitura abriu um buraco na calçada em frente ao seu estabelecimento e foi embora sem finalizar o serviço.
 
-De acordo com Marcos, a intervenção pública ocorreu no dia **27 de janeiro de 2026**. Trinta dias depois, o passeio público continua destruído, acumulando entulho e poeira bem ao lado da Refrigeração Única (Loja de Vasos).
+De acordo com Marcos, a intervenção pública ocorreu no dia **27 de janeiro de 2026**. Trinta dias depois, a calçada continua destruída, o que resultou em uma cratera que só aumenta com a intensidade das [fortes chuvas que atingiram e colocaram Guapimirim em alerta nas últimas semanas](/noticias/alerta-chuvas-guapimirim), bem ao lado da Refrigeração Única (Loja de Vasos).
 
 ## "Se fosse na casa da Prefeita, estaria assim?"
 
 A revolta do morador reflete um sentimento comum de quem paga seus impostos em dia, mas não vê o retorno na porta de casa. No vídeo, que rapidamente gerou engajamento entre outros moradores insatisfeitos, Marcos cobra uma postura da classe política da cidade:
 
-> "Pergunto: se fosse em frente à loja de materiais deles ou na entrada da casa da Prefeita, estaria dessa maneira?" — **Marcos Vidal, morador e comerciante.**
+<div class="my-10 not-prose"><div class="flex items-center w-full mb-6"><div class="flex-1 border-t border-gray-300"></div><div class="w-16 border-t-4 border-red-base"></div><div class="flex-1 border-t border-gray-300"></div></div><p class="text-lg md:text-xl font-bold text-navy-dark px-4 md:px-12 leading-relaxed">"Pergunto: se fosse em frente à loja de materiais deles ou na entrada da casa da Prefeita, estaria dessa maneira?" — Marcos Vidal, morador e comerciante.</p><div class="flex items-center w-full mt-6"><div class="flex-1 border-t border-gray-300"></div><div class="w-16 border-t-4 border-red-base"></div><div class="flex-1 border-t border-gray-300"></div></div></div>
 
 Ele ressalta ainda que o problema já foi repassado a vereadores do município, que deveriam fiscalizar as obras do Executivo, mas nenhuma máquina ou equipe técnica retornou ao local para fechar a calçada até o momento.
 
@@ -26,7 +26,7 @@ Ele ressalta ainda que o problema já foi repassado a vereadores do município, 
 
 O abandono de uma obra no meio do Centro da cidade vai muito além do problema estético. Calçadas esburacadas representam um risco grave de acidentes para os pedestres, afetando diretamente a segurança de idosos, gestantes e pessoas com mobilidade reduzida que circulam por ali todos os dias.
 
-Para o comércio local, o impacto é no bolso. O entulho e a dificuldade de acesso afastam clientes e prejudicam as vendas. Vale lembrar que a recomposição do asfalto e do passeio público é uma **obrigação legal** da Prefeitura após o término de qualquer intervenção de infraestrutura. 
+Para o comércio local, o impacto é no bolso. O entulho e a dificuldade de acesso afastam clientes e prejudicam as vendas. Vale lembrar que a recomposição do asfalto e da calçada é uma **obrigação legal** da Prefeitura após o término de qualquer intervenção de infraestrutura. 
 
 ## O espaço segue aberto
 
