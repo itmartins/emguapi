@@ -99,51 +99,53 @@ const imageURL = new URL(image, siteURL).href;
     /* AUTOMATIZAÇÃO DE CITAÇÕES (BLOCKQUOTE)    */
     /* ----------------------------------------- */
     
-    /* Remove a barra lateral padrão cinza/feia do Tailwind */
     .prose blockquote {
-        border-left: none !important;
-        padding: 2rem 1rem !important;
-        margin: 3rem 0 !important;
+        border: none !important; /* Remove QUALQUER borda lateral que o Tailwind tente colocar */
+        border-top: 1px solid #d1d5db !important; /* Linha cinza em cima */
+        border-bottom: 1px solid #d1d5db !important; /* Linha cinza embaixo */
+        padding: 2.5rem 1rem !important; /* Respiro interno */
+        margin: 3rem 0 !important; /* Distância do resto do texto */
         position: relative;
         font-style: normal !important;
         color: #112240 !important; /* Cor navy-dark */
-        font-size: 1.125rem !important; /* text-lg */
-        font-weight: 700 !important;
+        font-size: 1.125rem !important; /* Tamanho da fonte */
+        font-weight: 700 !important; /* Negrito */
         line-height: 1.625 !important;
         text-align: center !important;
-        quotes: none !important; /* Remove as aspas automáticas */
+        background: transparent !important; /* Garante que não tenha fundo cinza */
+        quotes: none !important;
     }
 
-    /* Desenha as linhas cinzas (cima e baixo) */
-    .prose blockquote::before,
-    .prose blockquote::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background-color: #d1d5db !important; /* gray-300 */
-    }
-
-    .prose blockquote::before { top: 0; }
-    .prose blockquote::after { bottom: 0; }
-
-    /* Desenha a barrinha vermelha (cima e baixo) */
+    /* Remove as aspas automáticas feias do Tailwind */
     .prose blockquote p::before,
     .prose blockquote p::after {
-        content: "" !important; /* Sobrescreve as aspas do Tailwind */
+        content: none !important;
+        display: none !important;
+    }
+
+    /* Desenha a barrinha vermelha (cima) */
+    .prose blockquote::before {
+        content: "" !important;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        width: 4rem !important; /* w-16 */
+        width: 4rem !important; /* Largura da barra vermelha */
         height: 4px !important;
-        background-color: #dc2626 !important; /* red-base */
-        display: block !important;
+        background-color: #dc2626 !important; /* Cor red-base */
+        top: -2.5px; /* Centraliza exatamente em cima da borda de 1px */
     }
 
-    /* Posiciona a barra vermelha exatamente em cima das linhas cinzas */
-    .prose blockquote p::before { top: -1.5px; }
-    .prose blockquote p::after { bottom: -1.5px; }
+    /* Desenha a barrinha vermelha (baixo) */
+    .prose blockquote::after {
+        content: "" !important;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4rem !important;
+        height: 4px !important;
+        background-color: #dc2626 !important;
+        bottom: -2.5px; /* Centraliza exatamente em cima da borda de 1px */
+    }
 
     /* Remove margens extras do parágrafo de dentro */
     .prose blockquote p {
