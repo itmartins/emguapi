@@ -3,7 +3,6 @@ titulo: "Concorrência de peso: 99Food inicia cadastro de restaurantes em Guapim
 resumo: "Plataforma de delivery chega à cidade com isenção de mensalidade, comissão de 8,9% e opções flexíveis de entrega para atrair o comércio local."
 data: "2026-02-25T00:00:01"
 categoria: "Economia"
-autor: "Redação emguapi"
 imagem: "/fotos/99food-divulgacao.webp" 
 tags: ["Guapimirim", "99Food", "Delivery", "Empreendedorismo", "Comércio Local", "Economia"]
 ---

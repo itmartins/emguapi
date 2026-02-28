@@ -3,7 +3,6 @@ titulo: "'Água é necessidade, não é favor!': Moradores cobram a concessioná
 resumo: "Com torneiras secas há mais de três dias, famílias e comércios exigem soluções imediatas, construção de reservatórios e cobram responsabilidade da empresa."
 data: 2026-02-22T19:00:01
 categoria: "Cidades"
-autor: "Redação emguapi"
 imagem: "/fotos/manutencao-agua.jpg"
 destaque: true
 tags: ["Guapimirim", "Falta de Água", "Abastecimento", "Fontes da Serra", "Saneamento", "Infraestrutura"]
