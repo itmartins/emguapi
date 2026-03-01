@@ -10,10 +10,9 @@ let config = {
     border: "border-green-400",
     titulo: "Operação Normal",
     texto: "Trens circulando conforme a grade horária prevista.",
-    // Novas propriedades para a luz
-    luzCor: "bg-green-400", // A cor da bolinha
-    luzGlow: "shadow-green-300", // A cor do brilho/sombra
-    bgIcone: "bg-green-700/30" // Fundo do círculo onde fica a luz
+    luzCor: "bg-green-400", 
+    luzGlow: "shadow-green-300", 
+    bgIcone: "bg-green-700/30" 
 };
 
 // Lógica de cores baseada no estado do JSON
@@ -36,7 +35,7 @@ switch (estado.toLowerCase()) {
             titulo: "Operação Suspensa",
             texto: "Circulação interrompida temporariamente no ramal.",
             luzCor: "bg-red-200",
-            luzGlow: "shadow-red-900", // Sombra escura para destacar o vermelho claro
+            luzGlow: "shadow-red-900", 
             bgIcone: "bg-red-900/30"
         };
         break;
@@ -49,6 +48,17 @@ switch (estado.toLowerCase()) {
             luzCor: "bg-blue-300",
             luzGlow: "shadow-blue-200",
             bgIcone: "bg-blue-900/30"
+        };
+        break;
+    case 'parcial':
+        config = {
+            bg: "bg-orange-500",
+            border: "border-orange-400",
+            titulo: "Operação Parcial",
+            texto: "A circulação está indo apenas até Magé.",
+            luzCor: "bg-orange-200",
+            luzGlow: "shadow-orange-100",
+            bgIcone: "bg-orange-800/30"
         };
         break;
 }

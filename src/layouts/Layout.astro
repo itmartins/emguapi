@@ -92,6 +92,28 @@ const imageURL = new URL(image, siteURL).href;
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0" nonce="12345"></script>
     </body>
+    <script>
+        // Bloqueia o botão direito do mouse (menu de contexto)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Bloqueia atalhos de teclado usados para cópia e inspeção de código
+        document.addEventListener('keydown', function(e) {
+            // Bloqueia o F12 (Inspecionar)
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+            // Bloqueia Ctrl+C, Ctrl+A (selecionar tudo), Ctrl+U (ver código-fonte), Ctrl+S (salvar), Ctrl+P (imprimir)
+            if (e.ctrlKey && (e.key.toLowerCase() === 'c' || e.key.toLowerCase() === 'a' || e.key.toLowerCase() === 'u' || e.key.toLowerCase() === 's' || e.key.toLowerCase() === 'p')) {
+                e.preventDefault();
+            }
+            // Bloqueia Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+Shift+J (Ferramentas de Desenvolvedor)
+            if (e.ctrlKey && e.shiftKey && (e.key.toLowerCase() === 'i' || e.key.toLowerCase() === 'c' || e.key.toLowerCase() === 'j')) {
+                e.preventDefault();
+            }
+        });
+    </script>
 </html>
 
 <style is:global>
@@ -150,5 +172,25 @@ const imageURL = new URL(image, siteURL).href;
     /* Remove margens extras do parágrafo de dentro */
     .prose blockquote p {
         margin: 0 !important;
+    }
+    
+    /* ----------------------------------------- */
+    /* BLOQUEIO DE SELEÇÃO E CÓPIA               */
+    /* ----------------------------------------- */
+    
+    /* Bloqueia a seleção de texto (ficar azul) em todo o site */
+    body {
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+    }
+
+    /* Impede o leitor de "arrastar" as imagens para a área de trabalho */
+    img {
+        -webkit-user-drag: none !important;
+        -khtml-user-drag: none !important;
+        -moz-user-drag: none !important;
+        -o-user-drag: none !important;
     }
 </style>
