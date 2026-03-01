@@ -7,32 +7,39 @@ import { getCollection } from 'astro:content';
 const noticias = await getCollection('noticias');
 const denuncias = await getCollection('denuncias');
 
-// Usamos "as any" para o TypeScript não reclamar da falta do título na configuração atual
+// Filtramos as notícias para pegar APENAS as que são da categoria "Voz da Comunidade"
+const noticiasVozDaComunidade = noticias.filter(
+    item => (item.data as any).categoria === 'Voz da Comunidade'
+);
+
 const atualizacoes = [
-    ...noticias.map(item => ({ 
+    ...noticiasVozDaComunidade.map(item => ({ 
         id: item.id, 
         slug: item.slug, 
         titulo: (item.data as any).titulo, 
-        data: new Date(item.data.data), 
+        data: new Date((item.data as any).data), 
         tipo: 'noticia',
-        categoria: (item.data as any).categoria || 'Notícia'
+        categoria: 'Voz da Comunidade'
     })),
     ...denuncias.map(item => ({ 
         id: item.id, 
         slug: item.slug, 
-        titulo: (item.data as any).titulo || `Denúncia no bairro: ${item.data.bairro}`, 
-        data: new Date(item.data.data), 
+        titulo: (item.data as any).titulo || `Denúncia no bairro: ${(item.data as any).bairro}`, 
+        data: new Date((item.data as any).data), 
         tipo: 'denuncia',
         categoria: 'Voz da Comunidade'
     }))
-].sort((a, b) => b.data.getTime() - a.data.getTime());
+];
+
+// ORDENAÇÃO RIGOROSA: Garante que o mais recente (maior data) fique sempre no início [0]
+atualizacoes.sort((a, b) => b.data.getTime() - a.data.getTime());
 
 const ultimasAtualizacoes = atualizacoes.slice(0, 15);
 ---
 
 <Layout 
-    title="Ao Vivo | Radar de Guapimirim em Tempo Real"
-    description="Acompanhe o que está acontecendo agora em Guapimirim. Trânsito, trens, notícias urgentes e denúncias dos moradores em tempo real."
+    title="Voz da Comunidade Ao Vivo | emguapi.com"
+    description="Acompanhe em tempo real os relatos, denúncias e as vozes dos moradores de Guapimirim."
 >
     <Navbar />
 
@@ -47,9 +54,9 @@ const ultimasAtualizacoes = atualizacoes.slice(0, 15);
                     <span class="text-red-base font-black uppercase tracking-[0.2em] text-xs">Tempo Real</span>
                 </div>
                 <h1 class="text-4xl md:text-5xl font-black text-navy-dark uppercase tracking-tighter">
-                    Radar <span class="text-red-base">Guapimirim</span>
+                    Voz da <span class="text-red-base">Comunidade</span>
                 </h1>
-                <p class="text-gray-500 mt-2 font-medium">Acompanhe as últimas atualizações da cidade, minuto a minuto.</p>
+                <p class="text-gray-500 mt-2 font-medium">O espaço do morador. Acompanhe as últimas denúncias e relatos da cidade.</p>
             </div>
             
             <div class="bg-gray-50 border border-gray-200 rounded-md px-4 py-3 flex items-center gap-3 shadow-sm">
@@ -63,35 +70,41 @@ const ultimasAtualizacoes = atualizacoes.slice(0, 15);
 
         <div class="relative border-l-2 border-gray-100 ml-3 md:ml-6 space-y-12 pb-12">
             
-            {ultimasAtualizacoes.map((item) => (
-                <div class="relative pl-8 md:pl-12 item-linha-do-tempo" data-date={item.data.toISOString()}>
-                    <div class={`absolute -left-[9px] top-1 h-4 w-4 rounded-full border-4 border-white shadow-sm flex items-center justify-center ${item.tipo === 'noticia' ? 'bg-navy-base' : 'bg-orange-500'}`}></div>
+            {ultimasAtualizacoes.length > 0 ? (
+                ultimasAtualizacoes.map((item) => (
+                    <div class="relative pl-8 md:pl-12 item-linha-do-tempo" data-date={item.data.toISOString()}>
+                        <div class="absolute -left-[9px] top-1 h-4 w-4 rounded-full border-4 border-white shadow-sm flex items-center justify-center bg-orange-500"></div>
 
-                    <div class="group">
-                        <div class="flex items-center gap-3 mb-2">
-                            <span class="bg-gray-100 text-gray-600 text-[10px] font-black px-2 py-1 rounded-sm uppercase tracking-widest hora-postagem">
-                                {item.data.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
-                            </span>
-                            <span class={`text-[10px] font-black uppercase tracking-widest ${item.tipo === 'noticia' ? 'text-navy-base' : 'text-orange-500'}`}>
-                                {item.categoria}
-                            </span>
-                            
-                            <span class="etiqueta-hoje hidden bg-red-base text-white text-[9px] font-black px-2 py-0.5 rounded-sm uppercase tracking-widest animate-pulse">
-                                Hoje
-                            </span>
+                        <div class="group">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="bg-gray-100 text-gray-600 text-[10px] font-black px-2 py-1 rounded-sm uppercase tracking-widest hora-postagem">
+                                    {item.data.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
+                                </span>
+                                <span class="text-[10px] font-black uppercase tracking-widest text-orange-500">
+                                    {item.categoria}
+                                </span>
+                                
+                                <span class="etiqueta-hoje hidden bg-red-base text-white text-[9px] font-black px-2 py-0.5 rounded-sm uppercase tracking-widest animate-pulse">
+                                    Hoje
+                                </span>
+                            </div>
+
+                            <a href={`/${item.tipo === 'noticia' ? 'noticias' : 'denuncia'}/${item.slug}`} class="block">
+                                <h2 class="text-xl md:text-2xl font-black text-navy-dark uppercase tracking-tight leading-tight group-hover:text-red-base transition-colors">
+                                    {item.titulo}
+                                </h2>
+                                <p class="text-sm font-bold text-gray-400 mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                    Ler relato completo <span class="text-red-base">➔</span>
+                                </p>
+                            </a>
                         </div>
-
-                        <a href={`/${item.tipo === 'noticia' ? 'noticias' : 'denuncia'}/${item.slug}`} class="block">
-                            <h2 class="text-xl md:text-2xl font-black text-navy-dark uppercase tracking-tight leading-tight group-hover:text-red-base transition-colors">
-                                {item.titulo}
-                            </h2>
-                            <p class="text-sm font-bold text-gray-400 mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                                Ler cobertura completa <span class="text-red-base">➔</span>
-                            </p>
-                        </a>
                     </div>
+                ))
+            ) : (
+                <div class="pl-8 md:pl-12 text-gray-500 font-medium">
+                    Nenhuma denúncia registrada recentemente.
                 </div>
-            ))}
+            )}
 
         </div>
     </main>
@@ -110,7 +123,7 @@ const ultimasAtualizacoes = atualizacoes.slice(0, 15);
         
         itens.forEach(item => {
             const dataAttr = item.getAttribute('data-date');
-            if (!dataAttr) return; // Trava de segurança 1
+            if (!dataAttr) return;
 
             const dataPostagem = new Date(dataAttr);
             const etiquetaHoje = item.querySelector('.etiqueta-hoje');
@@ -120,9 +133,9 @@ const ultimasAtualizacoes = atualizacoes.slice(0, 15);
                 dataPostagem.getMonth() === hoje.getMonth() && 
                 dataPostagem.getFullYear() === hoje.getFullYear()) {
                 
-                if (etiquetaHoje) etiquetaHoje.classList.remove('hidden'); // Trava de segurança 2
+                if (etiquetaHoje) etiquetaHoje.classList.remove('hidden');
             } else {
-                if (horaEl) { // Trava de segurança 3
+                if (horaEl) {
                     horaEl.textContent = dataPostagem.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' }) + ' às ' + dataPostagem.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
                 }
             }

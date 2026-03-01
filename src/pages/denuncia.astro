@@ -4,11 +4,34 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import VozComunidade from '../components/VozComunidade.astro';
+import NoticiaCard from '../components/NoticiaCard.astro';
 
-// Busca TODAS as denúncias e ordena da mais recente para a mais antiga
-const todasDenuncias = (await getCollection('denuncias')).sort(
-  (a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
+// Busca todas as coleções
+const noticias = await getCollection('noticias');
+const denuncias = await getCollection('denuncias');
+
+// Filtra APENAS as notícias que têm a categoria "Voz da Comunidade"
+const noticiasVozDaComunidade = noticias.filter(
+    item => (item.data as any).categoria === 'Voz da Comunidade'
 );
+
+// Unifica as duas listas em um único array, usando "as any" para o TypeScript não dar erro
+const todasAsDenuncias = [
+    ...noticiasVozDaComunidade.map(item => ({
+        tipo: 'noticia',
+        id: item.id,
+        slug: item.slug,
+        dataPostagem: new Date((item.data as any).data).getTime(),
+        dados: item.data as any // CORREÇÃO AQUI: "as any" acalma o TypeScript
+    })),
+    ...denuncias.map(item => ({
+        tipo: 'denuncia_crua',
+        id: item.id,
+        slug: item.slug,
+        dataPostagem: new Date((item.data as any).data).getTime(),
+        dados: item.data as any // CORREÇÃO AQUI: "as any" acalma o TypeScript
+    }))
+].sort((a, b) => b.dataPostagem - a.dataPostagem);
 
 // Lista de bairros consolidada baseada no Ramal Guapimirim
 const bairros = [ "Área Rural de Guapimirim", "Bananal", "Barreira", "Cadetes Fabres", "Caneca Fina", "Cantagalo", "Centro", "Citrolândia", "Corujas", "Cotia", "Espinhaço", "Garrafão", "Iconha", "Jardim Guapimirim", "Limoeiro", "Monte Oliveti", "Nova Marília", "Orindi", "Paiol", "Ideal", "Parque Santo Antônio (Modelo)", "Paraíso", "Parque Fleixal", "Parque Nossa Senhora da Ajuda", "Parque Santa Eugênia", "Parque Silvestre", "Quinta Mariana", "Quinta Rosângela", "Segredo", "Soberbo", "Vale das Pedrinhas", "Vale do Jequitibá", "Várzea Alegre", "Vila Olímpia" ];
@@ -68,18 +91,29 @@ const problemas = [ "Falta de Água", "Coleta de Lixo", "Iluminação Pública",
         <section>
             <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark mb-10 flex items-center gap-3 border-b border-gray-100 pb-4">
                 <span class="w-2 h-6 bg-red-base inline-block rounded-sm"></span>
-                Relatos Recentes
+                Relatos e Pautas Recentes
             </h2>
 
             <div id="denuncias-list" class="grid md:grid-cols-2 gap-6 mb-12">
-                {todasDenuncias.length > 0 ? (
-                    todasDenuncias.map((relato, index) => (
+                {todasAsDenuncias.length > 0 ? (
+                    todasAsDenuncias.map((item, index) => (
                         <div class="denuncia-item transition-all duration-500" data-hidden={index >= 4 ? "true" : "false"}>
-                            <VozComunidade 
-                                bairro={relato.data.bairro}
-                                relato={relato.data.resumo_relato}
-                                autor={relato.data.autor}
-                            />
+                            {item.tipo === 'noticia' ? (
+                                <NoticiaCard 
+                                    categoria={item.dados.categoria}
+                                    titulo={item.dados.titulo}
+                                    resumo={item.dados.resumo}
+                                    data={item.dados.data}
+                                    link={`/noticias/${item.slug}`}
+                                    imagem={item.dados.imagem || "/fotos/estacao-guapi.jpg"}
+                                />
+                            ) : (
+                                <VozComunidade 
+                                    bairro={item.dados.bairro}
+                                    relato={item.dados.resumo_relato}
+                                    autor={item.dados.autor}
+                                />
+                            )}
                         </div>
                     ))
                 ) : (
@@ -89,13 +123,13 @@ const problemas = [ "Falta de Água", "Coleta de Lixo", "Iluminação Pública",
                 )}
             </div>
 
-            {todasDenuncias.length > 4 && (
+            {todasAsDenuncias.length > 4 && (
                 <div class="text-center pt-6 border-t border-gray-100">
                     <button 
                         id="btn-carregar-mais"
                         class="group flex items-center gap-2 mx-auto text-xs font-black uppercase tracking-widest text-navy-base bg-white border border-navy-base/20 hover:border-navy-base/50 transition-all px-8 py-4 rounded-md shadow-sm"
                     >
-                        Carregar mais 4 relatos
+                        Carregar mais relatos
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 group-hover:translate-y-1 transition-transform">
                           <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                         </svg>
@@ -132,9 +166,8 @@ const problemas = [ "Falta de Água", "Coleta de Lixo", "Iluminação Pública",
             const assunto = (document.getElementById('assunto-form') as HTMLSelectElement).value;
             const relato = (document.getElementById('relato-form') as HTMLTextAreaElement).value;
             const nome = (document.getElementById('nome-form') as HTMLInputElement).value || "Morador Anônimo";
-            const meuTelefone = "5521969400053"; 
             const mensagem = `📢 *DENÚNCIA - emguapi.com*%0A%0A*Local:* ${bairro}%0A*Assunto:* ${assunto}%0A*Relato:* ${relato}%0A%0A*Enviado por:* ${nome}`;
-            window.open(`https://api.whatsapp.com/send?phone=${meuTelefone}&text=${mensagem}`, '_blank');
+            window.open(`https://api.whatsapp.com/send?phone=21969400053&text=${mensagem}`, '_blank');
         });
     }
 
