@@ -3,28 +3,39 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
-import statusData from '../data/statusTrem.json'; 
+import fs from 'node:fs';
+import path from 'node:path';
+
+let statusData = { estado: 'indisponivel', ultimaAtualizacao: '--:--' };
+try {
+    const filePath = path.join(process.cwd(), 'public', 'api', 'trem.json');
+    if (fs.existsSync(filePath)) {
+        statusData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    }
+} catch (e) {
+    console.error("Erro ao ler /api/trem.json:", e);
+} 
 
 // --- DADOS DOS COMUNICADOS FIXOS ---
 const comunicadosFixos = [
     {
         data: "28 de fevereiro de 2026 | 18:00",
         titulo: "28/02 e 01/03 - Extensão Guapimirim",
-        texto:"Neste final de semana, os trens da extensão Guapimirim irão circular somente entre Saracuruna e Magé, em função das intervenções emergenciais da Prefeitura de Guapimirim para atuar nos impactos causados pelas fortes chuvas no municipio. A partir de segunda-feira (02/03), também haverá ajustes na circulação. Orientamos que os clientes, ao final do dia de domingo, entrem em contato com os nossos canais de atendimento ou verifiquem nos canais oficiais sobre o status da operação da extensão.",
-        tipo: "manutenção"
+        texto:"Neste final de semana, os trens da extensão Guapimirim irão circular somente entre Saracuruna e Magé, em função das intervenções emergenciais da Prefeitura de Guapimirim para atuar nos impactos causados pelas fortes chuvas no municipio. A partir de segunda-feira (02/03), também haverá ajustes na circulação. Orientamos que os clientes verifiquem os canais oficiais.",
+        tipo: "manutencao"
     },
     {
         data: "12 de fevereiro de 2026 | 14:00",
-        titulo: "07 e 08/03 - Interrupção Gramacho-Saracuruna, Guapimirim e Vila Inhomirim",
-        texto: "No sábado (07), a partir das 13h, e no domingo (08), durante toda a operação, não haverá circulação de trens no trecho entre as estações Gramacho-Saracuruna e extensões Vila Inhomirim e Guapimirim devido a manutenções na via e rede aérea.",
+        titulo: "07 e 08/03 - Interrupção Gramacho-Saracuruna, Guapi e Vila Inhomirim",
+        texto: "No sábado (07), a partir das 13h, e no domingo (08), durante toda a operação, não haverá circulação de trens no trecho entre as estações Gramacho-Saracuruna e extensões devido a manutenções na via e rede aérea.",
         tipo: "alerta"
     },
     {
         data: "12 de fevereiro de 2026 | 14:00",
-        titulo: "28 e 29/03 - Interrupção Gramacho-Saracuruna, Guapimirim e Vila Inhomirim",
-        texto: "No sábado (28), a partir das 13h, e no domingo (29), durante toda a operação, não haverá circulação de trens no trecho entre as estações Gramacho-Saracuruna e extensões Vila Inhomirim e Guapimirim devido a manutenções na via e rede aérea.",
+        titulo: "28 e 29/03 - Interrupção Gramacho-Saracuruna, Guapi e Vila Inhomirim",
+        texto: "No sábado (28), a partir das 13h, e no domingo (29), durante toda a operação, não haverá circulação de trens no trecho entre as estações Gramacho-Saracuruna e extensões devido a manutenções na via e rede aérea.",
         tipo: "alerta"
-    },
+    }
 ];
 
 // --- LÓGICA DE AVISOS DE NOTÍCIAS (Dinâmico) ---
@@ -32,7 +43,6 @@ const todasNoticias = (await getCollection('noticias')).sort(
   (a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
 );
 
-// Filtramos notícias relevantes para operação
 const avisosRecentes = todasNoticias.filter(noticia => 
     ['Manutenção', 'Serviço', 'Alerta', 'Segurança'].includes(noticia.data.categoria)
 ).slice(0, 2);
@@ -45,7 +55,7 @@ const statusConfig = {
     'manutencao': { border: 'border-blue-500', text: 'text-blue-400', desc: 'Manutenção', luzCor: 'bg-blue-500', luzPing: 'bg-blue-400' }
 };
 
-const currentStatusState = statusData.estado.toLowerCase() as keyof typeof statusConfig;
+const currentStatusState = (statusData.estado || 'indisponivel').toLowerCase() as keyof typeof statusConfig;
 const currentConfig = statusConfig[currentStatusState] || statusConfig['normal'];
 
 // --- DADOS DAS ESTAÇÕES ---
@@ -66,7 +76,7 @@ const estacoesData = [
             
             <header class="mb-10 text-center md:text-left">
                 <h2 class="text-3xl font-black uppercase tracking-tighter">Planeje sua Viagem</h2>
-                <p class="text-red-light text-xs font-bold uppercase tracking-widest mt-1">Horários baseados na grade oficial</p>
+                <p class="text-red-light text-xs font-bold uppercase tracking-widest mt-1">Horários reais do Ramal Guapimirim</p>
             </header>
             
             <form id="planning-form" class="space-y-8">
@@ -246,26 +256,27 @@ const estacoesData = [
     </main>
 
     <script define:vars={{ estacoesData }}>
-        // --- DADOS REAIS DE TEMPO DE VIAGEM (OFFSETS EM MINUTOS) ---
+        // --- DADOS REAIS E ABSOLUTOS (OFFSETS EM MINUTOS ENTRE ESTAÇÕES) ---
         const timeOffsets = {
             "Guapimirim": 0, "Parada Bananal": 6, "Parada Modelo": 10, "Jardim Guapimirim": 14,
             "Parada Ideal": 19, "Citrolândia": 25, "Jororó": 29, "Jardim Nova Marília": 34,
             "Magé": 42, "Iriri": 50, "Santa Guilhermina": 57, "Suruí": 65,
-            "Santa Dalila": 72, "Parque Estrela": 80, "Saracuruna": 90
+            "Santa Dalila": 72, "Parque Estrela": 82, "Saracuruna": 90 // Corrigido Pq Estrela para 82m de distância
         };
 
+        // A linha é via singela com 1 locomotiva operando ida e volta. Base 2026.
         const baseSchedules = {
             util: {
-                fromGuapi:      ["03:55", "05:45", "10:30", "12:00", "15:20", "16:40", "19:35"], 
-                fromSaracuruna: ["05:40", "07:30", "09:20", "12:15", "14:00", "18:00", "20:10"]  
+                fromGuapi:      ["03:55", "07:23", "11:20", "16:40"], 
+                fromSaracuruna: ["05:40", "09:32", "14:30", "19:25"]  
             },
             sabado: {
-                fromGuapi:      ["04:16", "06:55", "11:20", "14:20", "18:20"], 
-                fromSaracuruna: ["06:30", "08:50", "12:35", "16:30", "20:00"]
+                fromGuapi:      ["04:16", "08:15", "12:15", "16:55"], 
+                fromSaracuruna: ["06:30", "10:30", "14:30", "19:37"]
             },
             domingo: {
-                fromGuapi:      ["05:00", "11:50", "14:50", "17:28"],
-                fromSaracuruna: ["08:24", "13:24", "16:04", "19:04"]
+                fromGuapi:      ["05:00", "11:15", "17:28"],
+                fromSaracuruna: ["08:24", "14:15", "20:09"]
             }
         };
 
@@ -340,7 +351,7 @@ const estacoesData = [
                 }
             }
 
-            // CORREÇÃO: Se não achar viagem hoje, pega a primeira do dia seguinte
+            // Se não achar viagem hoje, pega a primeira do dia seguinte
             if (!foundTrip && baseTrips.length > 0) {
                 let tripBaseTime = baseTrips[0];
                 let departureAtOrigin;
@@ -385,12 +396,12 @@ const estacoesData = [
 
                 connectionBox.classList.add('hidden');
 
-                // CORREÇÃO: Lógica para calcular viagem e integração até a Central do Brasil
+                // Lógica para calcular viagem e integração até a Central do Brasil
                 if (destination === "Saracuruna") {
                     connectionBox.classList.remove('hidden');
-                    const waitTime = (dayType === 'util') ? 15 : 25; // 15 min na semana, 25 fds
+                    const waitTime = (dayType === 'util') ? 15 : 25; 
                     const nextTrain = addMinutes(foundTrip.arr, waitTime);
-                    const arrivalCentral = addMinutes(nextTrain, 55); // Tempo médio Saracuruna-Central
+                    const arrivalCentral = addMinutes(nextTrain, 55); 
 
                     document.getElementById('connection-text').innerHTML = 
                         `Chegada em Saracuruna às <strong>${foundTrip.arr}</strong>.<br>
@@ -400,7 +411,6 @@ const estacoesData = [
 
                 if (origin === "Saracuruna") {
                     connectionBox.classList.remove('hidden');
-                    // Se o trem parte de Saracuruna em 'foundTrip.dep', a pessoa tem que ter pego na Central 70 min antes (55 de viagem + 15 de espera).
                     const departureCentral = addMinutes(foundTrip.dep, -70); 
 
                     document.getElementById('connection-text').innerHTML = 

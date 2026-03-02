@@ -12,51 +12,60 @@
             </span>
         </a>
         
-        {/* MENU DESKTOP (Esconde no celular) */}
-        <div class="hidden md:flex gap-12 text-xs font-bold uppercase tracking-widest items-center">
+        {/* MENU DESKTOP (Esconde no telemóvel) */}
+        <div class="hidden md:flex gap-8 lg:gap-12 text-xs font-bold uppercase tracking-widest items-center">
             <a href="/horarios" class="hover:text-red-light transition-colors">Planeje sua Viagem</a>
             <a href="/denuncia" class="hover:text-red-light transition-colors">Denúncia</a>
             <a href="/turismo" class="hover:text-red-light transition-colors">Turismo</a>
-            <a href="/noticias" class="text-red-light font-black">Últimas Notícias</a>
+            <a href="/tempo" class="hover:text-blue-300 transition-colors text-blue-400">Clima</a>
+            <a href="/noticias" class="text-red-light font-black hover:text-white transition-colors">Notícias</a>
             
-            <a href="/anuncie" class="bg-red-base hover:bg-red-light px-6 py-2 rounded-full text-[14px] uppercase font-black transition-all shadow-lg text-center text-white">
+            <a href="/anuncie" class="bg-red-base hover:bg-red-light px-6 py-2.5 rounded-sm text-[12px] uppercase font-black transition-all shadow-lg text-center text-white">
                 Anuncie Aqui
             </a>
         </div>
 
-        {/* MENU MOBILE: Botão Hamburguer e Botão Anuncie */}
+        {/* MENU MOBILE: Botão Hambúrguer e Botão Anuncie */}
         <div class="md:hidden flex items-center gap-4">
-            <a href="/anuncie" class="bg-red-base text-white hover:bg-red-light px-4 py-1.5 rounded-full text-[10px] uppercase font-black shadow-sm">
+            <a href="/anuncie" class="bg-red-base text-white hover:bg-red-light px-4 py-2 rounded-sm text-[10px] uppercase font-black shadow-sm">
                 Anuncie
             </a>
-            <button id="mobile-menu-btn" class="order-first text-white hover:text-red-light focus:outline-none p-1 flex items-center gap-1">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <button id="mobile-menu-btn" class="text-white hover:text-red-light focus:outline-none p-1 flex items-center justify-center">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
-                <span class="text-[10px] font-black uppercase tracking-widest mt-0.5"></span>
             </button>
         </div>
     </div>
 
     {/* DROPDOWN MENU MOBILE (Começa escondido) */}
-    <div id="mobile-menu" class="hidden md:hidden bg-navy-dark border-t border-white/10 mt-4 px-6 py-4 shadow-inner">
-        <div class="flex flex-col gap-4 text-sm font-bold uppercase tracking-widest">
-            <a href="/horarios" class="hover:text-red-light py-2 border-b border-white/10">Planeje sua Viagem</a>
-            <a href="/denuncia" class="hover:text-red-light py-2 border-b border-white/10">Denúncia</a>
-            <a href="/turismo" class="hover:text-red-light py-2 border-b border-white/10">Turismo</a>
-            <a href="/noticias" class="text-red-light py-2">Últimas Notícias</a>
+    <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-navy-dark border-b-2 border-red-base shadow-2xl flex flex-col transition-all duration-300">
+        <div class="flex flex-col text-sm font-bold uppercase tracking-widest divide-y divide-white/10 px-6 py-2">
+            <a href="/horarios" class="hover:text-red-light py-4 block">Planeje sua Viagem</a>
+            <a href="/denuncia" class="hover:text-red-light py-4 block">Denúncia</a>
+            <a href="/turismo" class="hover:text-red-light py-4 block">Turismo</a>
+            <a href="/tempo" class="text-blue-400 hover:text-blue-300 py-4 block">Clima e Tempo</a>
+            <a href="/noticias" class="text-red-light py-4 block">Últimas Notícias</a>
         </div>
     </div>
 </nav>
 
 <script>
-    // Script para abrir/fechar o menu no celular
+    // Script para abrir/fechar o menu e alterar o ícone
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
 
-    if (btn && menu) {
+    if (btn && menu && icon) {
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
+            
+            // Troca o ícone de hambúrguer para um 'X' quando aberto
+            if (menu.classList.contains('hidden')) {
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            } else {
+                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            }
         });
     }
 </script>

@@ -1,0 +1,230 @@
+---
+// src/pages/tempo.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+
+// Coordenadas de Guapimirim para a API gratuita Open-Meteo
+const url = "https://api.open-meteo.com/v1/forecast?latitude=-22.5364&longitude=-42.9844&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,precipitation_sum&timezone=America%2FSao_Paulo";
+
+// Valores padrão (caso a internet falhe ou a API demore)
+let previsaoHoje = {
+    tempAtual: "--", min: "--", max: "--", condicao: "Carregando...", 
+    descricao: "Buscando dados em tempo real...", umidade: "--%", 
+    vento: "-- km/h", chuva: "--%", volume: "--mm", icone: "☁️"
+};
+let previsaoProximosDias: any[] = [];
+let temAlertaDeChuva = false;
+
+// Função para traduzir o código numérico do tempo em palavras e ícones
+const mapearClima = (codigo: number) => {
+    const codigos: Record<number, { condicao: string, icone: string, desc: string }> = {
+        0: { condicao: "Céu Limpo", icone: "☀️", desc: "Tempo aberto e sem nuvens na cidade." },
+        1: { condicao: "Quase Limpo", icone: "🌤️", desc: "Sol com algumas nuvens passageiras." },
+        2: { condicao: "Parc. Nublado", icone: "⛅", desc: "Sol entre nuvens ao longo do dia." },
+        3: { condicao: "Nublado", icone: "☁️", desc: "Céu completamente encoberto na região." },
+        45: { condicao: "Neblina", icone: "🌫️", desc: "Baixa visibilidade devido à neblina. Atenção na BR-116." },
+        48: { condicao: "Névoa", icone: "🌫️", desc: "Névoa sobre a cidade." },
+        51: { condicao: "Chuvisco", icone: "🌧️", desc: "Chuva muito fraca e isolada." },
+        53: { condicao: "Chuva Leve", icone: "🌧️", desc: "Chuva fraca na região." },
+        55: { condicao: "Chuva", icone: "🌧️", desc: "Chuva constante, mas de intensidade fraca." },
+        61: { condicao: "Chuva", icone: "🌧️", desc: "Pancadas de chuva leve em Guapi." },
+        63: { condicao: "Chuva Moderada", icone: "🌧️", desc: "Chuva constante. Atenção a áreas de encosta." },
+        65: { condicao: "Chuva Forte", icone: "⛈️", desc: "Chuva pesada. Risco de alagamentos na cidade." },
+        71: { condicao: "Frio Extremo", icone: "❄️", desc: "Temperaturas muito atípicas e queda brusca." },
+        80: { condicao: "Pancadas", icone: "🌦️", desc: "Pancadas de chuva passageiras." },
+        81: { condicao: "Tempestade", icone: "⛈️", desc: "Pancadas de chuva fortes e repentinas." },
+        82: { condicao: "Tempestade Violenta", icone: "⛈️", desc: "Chuva muito violenta e repentina." },
+        95: { condicao: "Trovoada", icone: "🌩️", desc: "Raios e trovoadas na região serrana." },
+        96: { condicao: "Granizo", icone: "⛈️", desc: "Raios, chuva forte e chance de granizo." },
+        99: { condicao: "Granizo Forte", icone: "⛈️", desc: "Tempestade severa com granizo pesado." }
+    };
+    return codigos[codigo] || { condicao: "Variável", icone: "☁️", desc: "Condição meteorológica variada." };
+};
+
+try {
+    // Busca os dados na API em tempo real
+    const resposta = await fetch(url);
+    const dados = await resposta.json();
+
+    const climaAtual = mapearClima(dados.current.weather_code);
+    const probabilidadeChuva = dados.daily.precipitation_probability_max[0];
+    const volumeChuva = dados.daily.precipitation_sum[0];
+    
+    // Se a chance de chuva for maior que 60% e o volume for maior que 20mm, aciona o banner de alerta
+    if (probabilidadeChuva > 60 && volumeChuva > 20) {
+        temAlertaDeChuva = true;
+    }
+
+    previsaoHoje = {
+        tempAtual: Math.round(dados.current.temperature_2m).toString(),
+        min: Math.round(dados.daily.temperature_2m_min[0]).toString(),
+        max: Math.round(dados.daily.temperature_2m_max[0]).toString(),
+        condicao: climaAtual.condicao,
+        descricao: climaAtual.desc,
+        umidade: `${dados.current.relative_humidity_2m}%`,
+        vento: `${Math.round(dados.current.wind_speed_10m)} km/h`,
+        chuva: `${probabilidadeChuva}%`,
+        volume: `${volumeChuva}mm`,
+        icone: climaAtual.icone
+    };
+
+    // Gera a lista dinâmica para os próximos 5 dias
+    const diasSemana = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+    for(let i = 1; i <= 5; i++) {
+        // A API retorna a data no formato YYYY-MM-DD
+        const dataParte = dados.daily.time[i].split('-'); // [YYYY, MM, DD]
+        const dataObjeto = new Date(Number(dataParte[0]), Number(dataParte[1]) - 1, Number(dataParte[2]));
+        
+        const climaDia = mapearClima(dados.daily.weather_code[i]);
+        
+        previsaoProximosDias.push({
+            dia: diasSemana[dataObjeto.getDay()],
+            data: `${dataParte[2]}/${dataParte[1]}`,
+            min: Math.round(dados.daily.temperature_2m_min[i]),
+            max: Math.round(dados.daily.temperature_2m_max[i]),
+            chuva: `${dados.daily.precipitation_probability_max[i]}%`,
+            icone: climaDia.icone,
+            condicao: climaDia.condicao
+        });
+    }
+} catch (error) {
+    console.error("Erro ao buscar dados do tempo:", error);
+}
+---
+
+<Layout 
+    title="Previsão do Tempo em Guapimirim Ao Vivo | emguapi.com"
+    description="Acompanhe a previsão do tempo detalhada e em tempo real para Guapimirim, RJ. Alertas, chance de chuva e temperatura para a semana."
+>
+    <Navbar />
+
+    <main class="max-w-4xl mx-auto p-6 my-8">
+        
+        <header class="mb-8 border-b border-gray-200 pb-4">
+            <div class="flex items-center gap-3 mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-navy-base">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
+                </svg>
+                <span class="text-navy-base font-black uppercase tracking-widest text-xs">Clima e Tempo</span>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-black text-navy-dark uppercase tracking-tighter">
+                Previsão em <span class="text-blue-500">Guapimirim</span>
+            </h1>
+            <p class="text-gray-500 mt-2 font-medium">Acompanhe as condições meteorológicas reais para a cidade e região serrana.</p>
+        </header>
+
+        {/* ALERTA AUTOMÁTICO DA DEFESA CIVIL (Só aparece se o volume e chance de chuva forem altos na API) */}
+        {temAlertaDeChuva && (
+            <div class="bg-red-50 border-l-4 border-red-base p-4 mb-8 rounded-r-md flex items-start gap-4 shadow-sm animate-pulse">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-red-base shrink-0">
+                    <path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                </svg>
+                <div>
+                    <h3 class="text-red-base font-black uppercase tracking-widest text-sm mb-1">Alerta de Chuvas Fortes</h3>
+                    <p class="text-red-900 text-sm font-medium leading-relaxed">
+                        A previsão indica um volume considerável de chuva nas próximas horas. O solo encharcado requer atenção redobrada em áreas de encosta. Siga as orientações da Defesa Civil.
+                    </p>
+                </div>
+            </div>
+        )}
+
+        {/* DESTAQUE: HOJE */}
+        <section class="bg-gradient-to-br from-navy-dark to-[#1a2b4c] rounded-2xl p-8 text-white shadow-xl mb-12 relative overflow-hidden border border-navy-base/50">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 relative z-10">
+                
+                {/* Temperatura Principal */}
+                <div class="text-center md:text-left">
+                    <h2 class="text-blue-300 font-bold uppercase tracking-widest text-xs mb-2 flex items-center gap-2 justify-center md:justify-start">
+                        Agora em Guapimirim 
+                        <span class="flex h-2 w-2 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span></span>
+                    </h2>
+                    <div class="flex items-center justify-center md:justify-start gap-4 mt-2">
+                        <span class="text-7xl md:text-8xl font-black tracking-tighter">{previsaoHoje.tempAtual}°</span>
+                        <div class="flex flex-col text-left">
+                            <span class="text-4xl drop-shadow-md">{previsaoHoje.icone}</span>
+                            <span class="font-bold text-lg text-blue-100 mt-1">{previsaoHoje.condicao}</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mt-4 text-sm max-w-sm leading-relaxed">{previsaoHoje.descricao}</p>
+                </div>
+
+                {/* Min/Max e Detalhes */}
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-xl w-full md:w-auto shrink-0">
+                    <div class="flex items-center justify-between gap-8 mb-6 pb-6 border-b border-white/10">
+                        <div class="text-center">
+                            <span class="block text-gray-400 text-[10px] uppercase tracking-widest font-bold mb-1">Mínima</span>
+                            <span class="text-2xl font-black text-blue-300">{previsaoHoje.min}°</span>
+                        </div>
+                        <div class="text-center">
+                            <span class="block text-gray-400 text-[10px] uppercase tracking-widest font-bold mb-1">Máxima</span>
+                            <span class="text-2xl font-black text-red-400">{previsaoHoje.max}°</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-x-8 gap-y-4">
+                        <div>
+                            <span class="block text-gray-400 text-[10px] uppercase font-bold tracking-widest">Umidade</span>
+                            <span class="font-bold text-sm">{previsaoHoje.umidade}</span>
+                        </div>
+                        <div>
+                            <span class="block text-gray-400 text-[10px] uppercase font-bold tracking-widest">Vento</span>
+                            <span class="font-bold text-sm">{previsaoHoje.vento}</span>
+                        </div>
+                        <div>
+                            <span class="block text-gray-400 text-[10px] uppercase font-bold tracking-widest">Probabilidade</span>
+                            <span class="font-bold text-sm text-blue-300">{previsaoHoje.chuva}</span>
+                        </div>
+                        <div>
+                            <span class="block text-gray-400 text-[10px] uppercase font-bold tracking-widest">Volume</span>
+                            <span class="font-bold text-sm text-blue-300">{previsaoHoje.volume}</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        {/* PRÓXIMOS DIAS */}
+        <section>
+            <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark mb-6 flex items-center gap-3">
+                <span class="w-2 h-6 bg-blue-500 inline-block rounded-sm"></span>
+                Próximos Dias
+            </h2>
+
+            <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                <div class="grid grid-cols-1 divide-y divide-gray-100">
+                    {previsaoProximosDias.length > 0 ? previsaoProximosDias.map(dia => (
+                        <div class="flex items-center justify-between p-4 md:p-6 hover:bg-gray-50 transition-colors">
+                            <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 w-1/3">
+                                <span class="font-black text-navy-dark uppercase">{dia.dia}</span>
+                                <span class="text-xs text-gray-400 font-bold">{dia.data}</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-3 w-1/3 justify-center">
+                                <span class="text-2xl drop-shadow-sm" title={dia.condicao}>{dia.icone}</span>
+                                <div class="hidden md:flex items-center gap-1 bg-blue-50 text-blue-600 px-2 py-1 rounded-sm text-xs font-bold">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3 h-3"><path fill-rule="evenodd" d="M10 3a.75.75 0 01.75.75v10.638l3.96-4.158a.75.75 0 111.08 1.04l-5.25 5.5a.75.75 0 01-1.08 0l-5.25-5.5a.75.75 0 111.08-1.04l3.96 4.158V3.75A.75.75 0 0110 3z" clip-rule="evenodd" /></svg>
+                                    {dia.chuva}
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4 w-1/3 justify-end font-bold text-lg">
+                                <span class="text-blue-500">{dia.min}°</span>
+                                <span class="text-gray-300">/</span>
+                                <span class="text-red-500">{dia.max}°</span>
+                            </div>
+                        </div>
+                    )) : (
+                        <div class="p-8 text-center text-gray-500 font-medium">Não foi possível carregar a previsão estendida no momento.</div>
+                    )}
+                </div>
+            </div>
+            <p class="text-center text-[10px] text-gray-400 mt-4 uppercase tracking-widest font-black flex justify-center items-center gap-2">
+                Dados atualizados ao vivo <span class="flex h-1.5 w-1.5 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span></span>
+            </p>
+        </section>
+
+    </main>
+</Layout>
