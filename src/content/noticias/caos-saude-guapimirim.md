@@ -4,7 +4,7 @@ resumo: "De gestante socorrida por Uber a bairros abandonados desde o Carnaval: 
 data: "2026-03-12T22:00:00"
 categoria: "Especial"
 autor: "Equipe emguapi"
-imagem: "/fotos/emguapi-capa.png"
+imagem: "/fotos/hospital_jose_rabello_de_mello"
 legenda_imagem: "A crise na gestão de Guapimirim escancarada pelos próprios moradores através das redes sociais. Foto: Ilustrativa/Equipe emguapi"
 destaque: true
 tags: ["Denúncia", "Especial", "Saúde", "Infraestrutura", "Prefeitura de Guapimirim", "Voz da Comunidade", "Lixo"]
