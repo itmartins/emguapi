@@ -193,7 +193,6 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
             </div>
         </section>
 
-        {/* Restante do layout mantido sem alterações... */}
         <section class="mb-12">
             <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white mb-8 flex items-center gap-3 border-b border-gray-100 pb-4">
                 <span class="w-2 h-6 bg-red-base inline-block rounded-sm"></span>
@@ -248,6 +247,40 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
             </div>
         </section>
 
+        <section class="mb-12">
+            <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white mb-6 flex items-center gap-3 border-b border-gray-100 pb-4">
+                <span class="w-2 h-6 bg-yellow-400 inline-block rounded-sm"></span>
+                Imóvel em Destaque
+            </h2>
+            <a href="/classificados/fazenda-pasteis-belem" class="block group">
+                <div class="relative rounded-sm overflow-hidden shadow-sm border border-gray-200 dark:border-white/10 bg-white dark:bg-[#1a2b4c] transition-all duration-300 hover:shadow-lg hover:border-yellow-400/50">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-2/5 relative h-64 md:h-auto overflow-hidden">
+                            <img src="/fotos/PHOTO-2026-04-09-10-24-01.jpg" alt="Fazenda dos Pastéis de Belém" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                            <div class="absolute top-4 left-4 bg-yellow-400 text-yellow-900 text-[10px] font-black px-3 py-1 rounded-sm uppercase tracking-widest shadow-sm">
+                                Premium
+                            </div>
+                        </div>
+                        <div class="md:w-3/5 p-6 md:p-8 flex flex-col justify-center">
+                            <p class="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase tracking-widest mb-2">Oportunidade de Investimento</p>
+                            <h3 class="text-2xl md:text-3xl font-black text-navy-dark dark:text-white mb-3 leading-tight group-hover:text-blue-600 transition-colors">
+                                À Venda: A Tradicional Fazenda dos Pastéis de Belém
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-6 line-clamp-3">
+                                Localizada na subida de Teresópolis, propriedade exuberante com lagos, riacho e 7 suítes. O local perfeito para Pousada, SPA de luxo ou moradia em meio à natureza.
+                            </p>
+                            <div class="inline-flex items-center text-blue-600 dark:text-blue-400 font-black text-xs uppercase tracking-widest">
+                                Ver fotos e detalhes
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </section>
+        
         <section class="mb-12">
             <a href="/classificados" class="group block bg-navy-dark rounded-sm p-8 flex flex-col md:flex-row items-center justify-between border border-navy-base relative overflow-hidden">
                 <div class="relative z-10 text-center md:text-left mb-6 md:mb-0">
