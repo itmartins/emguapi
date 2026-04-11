@@ -22,7 +22,7 @@ Abaixo, você confere uma galeria exclusiva com as imagens enviadas pelos seguid
             <img src="/fotos/uno-bike.jpg" alt="Detalhe da corrente arrebentada e torcida" class="w-full h-full object-contain" />
         </div>
         <div class="w-full h-full shrink-0 relative">
-            <img src="/fotcorrente-quebradaimage_fa1979.jpg" alt="Veículo da prefeitura recolhendo bicicletas depredadas" class="w-full h-full object-contain" />
+            <img src="/fotos/corrente-quebrada.jpg" alt="Veículo da prefeitura recolhendo bicicletas depredadas" class="w-full h-full object-contain" />
         </div>
         <div class="w-full h-full shrink-0 relative">
             <img src="/fotos/vandalismo-bikes-guapi.jpg" alt="Outro ângulo do vandalismo no pneu traseiro" class="w-full h-full object-contain" />
