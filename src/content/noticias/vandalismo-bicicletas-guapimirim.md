@@ -17,28 +17,23 @@ A denúncia, repercutida inicialmente pela página parceira *Info Guapi*, traz i
 Abaixo, você confere uma galeria exclusiva com as imagens enviadas pelos seguidores, que mostram a extensão do dano causado ao patrimônio de todos:
 
 <div class="w-full rounded-lg overflow-hidden shadow-md border border-gray-100 bg-gray-100 my-8 relative">
-    <div class="flex w-full aspect-[16/9] overflow-x-auto snap-x snap-mandatory scroll-smooth" style="scrollbar-width: none; -ms-overflow-style: none;">
-        
-        <div class="w-full h-full shrink-0 snap-center relative">
-            <img src="/fotos/corrente-quebrada.jpg" alt="Detalhe da corrente arrebentada e torcida" class="w-full h-full object-contain" />
-        </div>
-        
-        <div class="w-full h-full shrink-0 snap-center relative">
-            <img src="/fotos/uno-bike.jpg" alt="Veículo da prefeitura recolhendo bicicletas depredadas" class="w-full h-full object-contain" />
-        </div>
-        
-        <div class="w-full h-full shrink-0 snap-center relative">
-            <img src="/fotos/vandalismo-bikes-guapi.jpg" alt="Outro ângulo do vandalismo no pneu traseiro" class="w-full h-full object-contain" />
-        </div>
-
-    </div>
-    
-    <div class="absolute bottom-4 left-0 right-0 flex justify-center pointer-events-none">
-        <span class="bg-black/60 text-white text-[10px] font-black px-4 py-1.5 rounded-full backdrop-blur-sm tracking-widest uppercase shadow-lg flex items-center gap-2">
-            Deslize para ver mais
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-3 h-3"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-        </span>
-    </div>
+<div class="flex w-full aspect-[16/9] overflow-x-auto snap-x snap-mandatory scroll-smooth" style="scrollbar-width: none; -ms-overflow-style: none;">
+<div class="w-full h-full shrink-0 snap-center relative">
+<img src="/fotos/corrente-quebrada.jpg" alt="Detalhe da corrente arrebentada e torcida" class="w-full h-full object-contain" />
+</div>
+<div class="w-full h-full shrink-0 snap-center relative">
+<img src="/fotos/uno-bike.jpg" alt="Veículo da prefeitura recolhendo bicicletas depredadas" class="w-full h-full object-contain" />
+</div>
+<div class="w-full h-full shrink-0 snap-center relative">
+<img src="/fotos/vandalismo-bikes-guapi.jpg" alt="Outro ângulo do vandalismo no pneu traseiro" class="w-full h-full object-contain" />
+</div>
+</div>
+<div class="absolute bottom-4 left-0 right-0 flex justify-center pointer-events-none">
+<span class="bg-black/60 text-white text-[10px] font-black px-4 py-1.5 rounded-full backdrop-blur-sm tracking-widest uppercase shadow-lg flex items-center gap-2">
+Deslize para ver mais
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-3 h-3"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+</span>
+</div>
 </div>
 
 As fotos evidenciam atos que vão além do simples mau uso: em uma das unidades, a corrente de tração foi completamente arrebentada e torcida nos raios da roda traseira.
