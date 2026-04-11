@@ -18,7 +18,7 @@ try {
 
 // --- DADOS DOS COMUNICADOS FIXOS ---
 const comunicadosFixos = [
-{
+    {
         data: "16 de março de 2026 | 10:00",
         titulo: "18 e 19/04 - Interrupção do trecho Gramacho - Saracuruna e extensões Guapimirim e Vila Inhomirim",
         texto: "No sábado (18), a partir das 13h, e no domingo (19), durante toda a operação, realizaremos manutenções na via e rede aérea e não haverá circulação de trens no trecho entre as estações Gramacho-Saracuruna e extensões Vila Inhomirim e Guapimirim.",
@@ -93,7 +93,7 @@ const estacoesData = [
                     <div class="space-y-3">
                         <label class="block text-[10px] font-black uppercase opacity-50 tracking-widest">Tipo de Dia:</label>
                         <select id="day-type" class="w-full bg-navy-base text-white p-4 rounded-sm font-bold border border-transparent focus:border-red-base outline-none cursor-pointer">
-                            <option value="util">Segunda a Sexta</option>
+                            <option value="util">Segunda a Sexta (Horário Especial)</option>
                             <option value="sabado">Sábados</option>
                             <option value="domingo">Domingos e Feriados</option>
                         </select>
@@ -110,8 +110,12 @@ const estacoesData = [
                 </div>
             </form>
 
-            <div id="result-box" class="hidden mt-12 p-8 bg-navy-base/50 rounded-lg border border-white/10 backdrop-blur-sm">
-                <div id="has-train" class="hidden">
+            <div id="result-box" class="hidden mt-12 p-8 bg-navy-base/50 rounded-lg border border-white/10 backdrop-blur-sm relative">
+                <div id="partial-alert" class="hidden absolute top-0 left-0 w-full bg-yellow-500 text-yellow-900 text-[10px] font-black uppercase tracking-widest text-center py-1 rounded-t-lg">
+                    ⚠️ Atenção: Esta viagem faz parada final em Citrolândia
+                </div>
+
+                <div id="has-train" class="hidden mt-4">
                     <div class="flex flex-col md:flex-row justify-around items-center gap-10 mb-8">
                         <div class="text-center">
                             <span class="text-[10px] uppercase font-black opacity-40 block mb-3 tracking-widest">Partida de <span id="lbl-origin" class="text-white"></span></span>
@@ -140,7 +144,8 @@ const estacoesData = [
                 </div>
 
                 <div id="no-train" class="hidden text-center py-6">
-                    <p class="text-lg font-bold text-red-light uppercase">Nenhuma viagem encontrada.</p>
+                    <p class="text-lg font-bold text-red-light uppercase">Nenhuma viagem encontrada para este trajeto.</p>
+                    <p class="text-sm text-gray-400 mt-2">Verifique os avisos de operação parcial (ex: Trens apenas até Citrolândia).</p>
                 </div>
             </div>
         </section>
@@ -155,7 +160,7 @@ const estacoesData = [
                 <div class="grid md:grid-cols-2 gap-4">
                     {comunicadosFixos.map(aviso => {
                         let borderClass = 'border-navy-base';
-                        if (aviso.tipo === 'alerta') borderClass = 'border-yellow-500';
+                        if (aviso.tipo === 'alerta') borderClass = 'border-yellow-500 bg-yellow-50';
                         if (aviso.tipo === 'crime') borderClass = 'border-red-base';
                         if (aviso.tipo === 'manutencao') borderClass = 'border-blue-500';
 
@@ -255,26 +260,50 @@ const estacoesData = [
             "Guapimirim": 0, "Parada Bananal": 6, "Parada Modelo": 10, "Jardim Guapimirim": 14,
             "Parada Ideal": 19, "Citrolândia": 25, "Jororó": 29, "Jardim Nova Marília": 34,
             "Magé": 42, "Iriri": 50, "Santa Guilhermina": 57, "Suruí": 65,
-            "Santa Dalila": 72, "Parque Estrela": 82, "Saracuruna": 90 // Corrigido Pq Estrela para 82m de distância
+            "Santa Dalila": 72, "Parque Estrela": 82, "Saracuruna": 90 
         };
 
-        // A linha é via singela com 1 locomotiva operando ida e volta. Base 2026.
+        // --- ATUALIZAÇÃO DA GRADE EMERGENCIAL (Março 2026) ---
+        // A lógica agora aceita objetos para indicar se a viagem é parcial
         const baseSchedules = {
             util: {
-                fromGuapi:      ["03:55", "07:23", "11:20", "16:40"], 
-                fromSaracuruna: ["05:40", "09:32", "14:30", "19:25"]  
+                fromGuapi: [
+                    { time: "03:55", dest: "Saracuruna" }, 
+                    { time: "07:23", dest: "Saracuruna" }
+                ],
+                // Adicionando as partidas de Citrolândia que a notícia menciona
+                fromCitrolandia: [
+                    { time: "11:44", dest: "Saracuruna" },
+                    { time: "17:04", dest: "Saracuruna" }
+                ],
+                fromSaracuruna: [
+                    { time: "05:40", dest: "Guapimirim" }, 
+                    { time: "09:32", dest: "Citrolândia" }, // Parcial
+                    { time: "14:30", dest: "Citrolândia" }, // Parcial
+                    { time: "19:25", dest: "Guapimirim" }  
+                ]
             },
+            // Mantendo final de semana normal por enquanto, pois a nota não os cita
             sabado: {
-                fromGuapi:      ["04:16", "08:15", "12:15", "16:55"], 
-                fromSaracuruna: ["06:30", "10:30", "14:30", "19:37"]
+                fromGuapi: [
+                    { time: "04:16", dest: "Saracuruna" }, { time: "08:15", dest: "Saracuruna" }, 
+                    { time: "12:15", dest: "Saracuruna" }, { time: "16:55", dest: "Saracuruna" }
+                ], 
+                fromSaracuruna: [
+                    { time: "06:30", dest: "Guapimirim" }, { time: "10:30", dest: "Guapimirim" }, 
+                    { time: "14:30", dest: "Guapimirim" }, { time: "19:37", dest: "Guapimirim" }
+                ]
             },
             domingo: {
-                fromGuapi:      ["05:00", "11:15", "17:28"],
-                fromSaracuruna: ["08:24", "14:15", "20:09"]
+                fromGuapi: [
+                    { time: "05:00", dest: "Saracuruna" }, { time: "11:15", dest: "Saracuruna" }, { time: "17:28", dest: "Saracuruna" }
+                ],
+                fromSaracuruna: [
+                    { time: "08:24", dest: "Guapimirim" }, { time: "14:15", dest: "Guapimirim" }, { time: "20:09", dest: "Guapimirim" }
+                ]
             }
         };
 
-        // Função robusta para somar ou subtrair minutos
         function addMinutes(timeStr, minutes) {
             const [h, m] = timeStr.split(':').map(Number);
             const date = new Date();
@@ -287,7 +316,6 @@ const estacoesData = [
             return h * 60 + m;
         }
 
-        // Configura a hora atual ao carregar a página
         const now = new Date();
         const currentTimeString = now.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
         const timeInput = document.getElementById('travel-time');
@@ -314,54 +342,79 @@ const estacoesData = [
             }
 
             const direction = (idxOrigin < idxDest) ? "goingToSaracuruna" : "goingToGuapi";
-            
             const currentGrade = baseSchedules[dayType];
-            const baseTrips = (direction === "goingToSaracuruna") 
-                ? currentGrade.fromGuapi 
-                : currentGrade.fromSaracuruna;
+            
+            let baseTrips = [];
+            
+            // Monta a lista de viagens válidas baseada na direção e no trajeto parcial
+            if (direction === "goingToSaracuruna") {
+                // Viagens completas saindo de Guapi
+                baseTrips = [...currentGrade.fromGuapi];
+                
+                // Se a origem for de Citrolândia pra frente (índice 5 a 14), pode pegar as viagens extras de Citrolândia
+                if (idxOrigin >= 5 && currentGrade.fromCitrolandia) {
+                    currentGrade.fromCitrolandia.forEach(trip => {
+                        // Converte a hora de Citrolândia para a base de Guapimirim para o algoritmo funcionar igual
+                        const fakeGuapiTime = addMinutes(trip.time, -timeOffsets["Citrolândia"]);
+                        baseTrips.push({ time: fakeGuapiTime, dest: trip.dest, isPartial: false });
+                    });
+                    // Reordena pelo horário
+                    baseTrips.sort((a, b) => timeToMinutes(a.time) - timeToMinutes(b.time));
+                }
+            } else {
+                // Sentido Guapimirim: Filtra os trens que não chegam no destino desejado
+                baseTrips = currentGrade.fromSaracuruna.filter(trip => {
+                    if (trip.dest === "Citrolândia") {
+                        // Se o trem só vai até Citrolândia, e o usuário quer ir para Ideal, Modelo ou Guapi (índices < 5), descarta o trem
+                        if (idxDest < 5) return false;
+                        trip.isPartial = true;
+                    }
+                    return true;
+                });
+            }
 
             let foundTrip = null;
             let isNextDay = false;
 
             // Busca a primeira viagem disponível
-            for (let tripBaseTime of baseTrips) {
+            for (let tripObj of baseTrips) {
                 let departureAtOrigin;
                 let arrivalAtDest;
 
                 if (direction === "goingToSaracuruna") {
-                    departureAtOrigin = addMinutes(tripBaseTime, timeOffsets[origin]);
-                    arrivalAtDest = addMinutes(tripBaseTime, timeOffsets[destination]);
+                    departureAtOrigin = addMinutes(tripObj.time, timeOffsets[origin]);
+                    arrivalAtDest = addMinutes(tripObj.time, timeOffsets[destination]);
                 } else {
                     const totalTripTime = 90;
                     const invOffsetOrigin = totalTripTime - timeOffsets[origin];
                     const invOffsetDest = totalTripTime - timeOffsets[destination];
-                    departureAtOrigin = addMinutes(tripBaseTime, invOffsetOrigin);
-                    arrivalAtDest = addMinutes(tripBaseTime, invOffsetDest);
+                    departureAtOrigin = addMinutes(tripObj.time, invOffsetOrigin);
+                    arrivalAtDest = addMinutes(tripObj.time, invOffsetDest);
                 }
 
                 if (timeToMinutes(departureAtOrigin) >= selectedTotalMinutes) {
-                    foundTrip = { dep: departureAtOrigin, arr: arrivalAtDest };
+                    foundTrip = { dep: departureAtOrigin, arr: arrivalAtDest, partial: tripObj.isPartial };
                     break;
                 }
             }
 
             // Se não achar viagem hoje, pega a primeira do dia seguinte
             if (!foundTrip && baseTrips.length > 0) {
-                let tripBaseTime = baseTrips[0];
+                let tripObj = baseTrips[0];
                 let departureAtOrigin;
                 let arrivalAtDest;
 
                 if (direction === "goingToSaracuruna") {
-                    departureAtOrigin = addMinutes(tripBaseTime, timeOffsets[origin]);
-                    arrivalAtDest = addMinutes(tripBaseTime, timeOffsets[destination]);
+                    departureAtOrigin = addMinutes(tripObj.time, timeOffsets[origin]);
+                    arrivalAtDest = addMinutes(tripObj.time, timeOffsets[destination]);
                 } else {
                     const totalTripTime = 90;
                     const invOffsetOrigin = totalTripTime - timeOffsets[origin];
                     const invOffsetDest = totalTripTime - timeOffsets[destination];
-                    departureAtOrigin = addMinutes(tripBaseTime, invOffsetOrigin);
-                    arrivalAtDest = addMinutes(tripBaseTime, invOffsetDest);
+                    departureAtOrigin = addMinutes(tripObj.time, invOffsetOrigin);
+                    arrivalAtDest = addMinutes(tripObj.time, invOffsetDest);
                 }
-                foundTrip = { dep: departureAtOrigin, arr: arrivalAtDest };
+                foundTrip = { dep: departureAtOrigin, arr: arrivalAtDest, partial: tripObj.isPartial };
                 isNextDay = true;
             }
 
@@ -370,6 +423,7 @@ const estacoesData = [
             const noTrainDiv = document.getElementById('no-train');
             const connectionBox = document.getElementById('connection-box');
             const nextDayAlert = document.getElementById('next-day-alert');
+            const partialAlert = document.getElementById('partial-alert');
             
             resultBox.classList.remove('hidden');
 
@@ -382,15 +436,14 @@ const estacoesData = [
                 document.getElementById('dep-time').innerText = foundTrip.dep;
                 document.getElementById('arr-time').innerText = foundTrip.arr;
 
-                if(isNextDay) {
-                    nextDayAlert.classList.remove('hidden');
-                } else {
-                    nextDayAlert.classList.add('hidden');
-                }
+                if(isNextDay) nextDayAlert.classList.remove('hidden');
+                else nextDayAlert.classList.add('hidden');
+
+                if(foundTrip.partial) partialAlert.classList.remove('hidden');
+                else partialAlert.classList.add('hidden');
 
                 connectionBox.classList.add('hidden');
 
-                // Lógica para calcular viagem e integração até a Central do Brasil
                 if (destination === "Saracuruna") {
                     connectionBox.classList.remove('hidden');
                     const waitTime = (dayType === 'util') ? 15 : 25; 
@@ -408,13 +461,14 @@ const estacoesData = [
                     const departureCentral = addMinutes(foundTrip.dep, -70); 
 
                     document.getElementById('connection-text').innerHTML = 
-                        `Partida para Guapimirim às <strong>${foundTrip.dep}</strong>.<br>
+                        `Partida para ${foundTrip.partial ? 'Citrolândia' : 'Guapimirim'} às <strong>${foundTrip.dep}</strong>.<br>
                          Para pegar esta conexão, embarque na Central do Brasil por volta de <strong>${departureCentral}</strong>.`;
                 }
 
             } else {
                 hasTrainDiv.classList.add('hidden');
                 noTrainDiv.classList.remove('hidden');
+                partialAlert.classList.add('hidden');
             }
         });
     </script>
