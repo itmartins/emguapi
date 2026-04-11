@@ -3,7 +3,7 @@ titulo: "Vandalismo: Bicicletas gratuitas de Guapimirim viram alvo de depredaç�
 resumo: "Projeto que deveria beneficiar a mobilidade dos bairros sofre com a ação de uma minoria. Imagens mostram correntes arrebentadas e unidades sendo recolhidas."
 data: "2026-04-11T18:30:00"
 categoria: "Cidade Alerta"
-imagem: "/fotos/vandalismo-bikes-guapi.jpg" # Use a imagem mais impactante como capa
+imagem: "/fotos/vandalismo-bikes-guapi.jpg"
 destaque: true
 tags: ["Vandalismo", "Mobilidade", "Bicicletas", "Patrimônio Público", "Guapimirim", "Denúncia"]
 ---
@@ -56,30 +56,3 @@ O patrimônio público não é "de ninguém"; ele é construído e mantido com o
 O portal **emguapi.com** se junta ao apelo das páginas locais e das autoridades: a fiscalização mais eficiente contra esse tipo de crime é a própria comunidade. 
 
 Ao presenciar qualquer pessoa vandalizando, quebrando ou fazendo uso imprudente das bicicletas públicas (como carregar excesso de peso ou realizar manobras destrutivas), **não hesite: filme, fotografe e denuncie imediatamente** às autoridades locais através do **190**. A impunidade só acaba quando a comunidade não se cala.
-
-<script>
-    // Lógica do Carrossel de Imagens das Bikes
-    const trackBikes = document.getElementById('bike-slider-track');
-    const btnPrevBikes = document.getElementById('bike-btn-prev');
-    const btnNextBikes = document.getElementById('bike-btn-next');
-    
-    let currentIdxBikes = 0;
-    const totalSlidesBikes = 3;
-
-    function updateBikeSlider() {
-        if (!trackBikes) return;
-        trackBikes.style.transform = `translateX(-${currentIdxBikes * 100}%)`;
-    }
-
-    if (btnNextBikes && btnPrevBikes) {
-        btnNextBikes.addEventListener('click', () => {
-            currentIdxBikes = (currentIdxBikes + 1) % totalSlidesBikes;
-            updateBikeSlider();
-        });
-
-        btnPrevBikes.addEventListener('click', () => {
-            currentIdxBikes = (currentIdxBikes - 1 + totalSlidesBikes) % totalSlidesBikes;
-            updateBikeSlider();
-        });
-    }
-</script>
