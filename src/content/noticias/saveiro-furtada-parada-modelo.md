@@ -3,7 +3,7 @@ titulo: "Saveiro furtada em Parada Modelo é encontrada 'depenada' em Teresópol
 resumo: "Veículo levado durante a madrugada em Guapimirim foi localizado sem rodas e bateria às margens da RJ-130. Família cobra mais policiamento nas entradas da cidade."
 data: "2026-04-11T09:00:00"
 categoria: "Segurança"
-imagem: "/fotos/emguapi-capa.png"
+imagem: "/fotos/saveiro-recuperada.png"
 destaque: false
 tags: ["Furto", "Segurança", "Parada Modelo", "Guapimirim", "Teresópolis", "Polícia", "RJ-130"]
 ---
