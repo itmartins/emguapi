@@ -8,7 +8,7 @@ destaque: true
 tags: ["SuperVia", "Ramal Guapimirim", "Mobilidade", "Chuvas", "Transporte", "Guapimirim"]
 ---
 
-Os passageiros que dependem do transporte ferroviário em Guapimirim precisam ficar atentos a uma mudança importante na grade de viagens. A SuperVia anunciou que os trens da **extensão Guapimirim** estão a circular com alterações temporárias.
+Os passageiros que dependem do transporte ferroviário em Guapimirim precisam ficar atentos a uma mudança importante na grade de viagens. A SuperVia anunciou que os trens da **extensão Guapimirim** estão circulando com alterações temporárias.
 
 A mudança ocorre em função das intervenções emergenciais realizadas pela Prefeitura de Guapimirim para conter e reparar os impactos causados pelas fortes chuvas que atingiram o município recentemente. 
 
@@ -28,4 +28,4 @@ Para que a população não seja pega de surpresa nas estações, a concessioná
 
 A concessionária não estipulou um prazo definitivo para o retorno da grade normal, uma vez que a normalização depende da conclusão das obras emergenciais da prefeitura nos arredores da via férrea. 
 
-Orientamos que os passageiros programem as suas viagens com antecedência e acompanhem as atualizações do portal **emguapi.com** para qualquer nova mudança na operação do ramal.
+Orientamos que os passageiros programem suas viagens com antecedência e acompanhem as atualizações do portal **emguapi.com** para qualquer nova mudança na operação do ramal.
