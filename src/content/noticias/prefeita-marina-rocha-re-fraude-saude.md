@@ -42,16 +42,17 @@ O ápice da fraude, segundo os promotores, ocorreu em um dos últimos editais. O
 
 ### Assista à reportagem completa do RJ2:
 
-<div class="relative overflow-hidden pb-[56.25%] my-8 rounded-lg shadow-md border border-gray-200 bg-black w-full">
-    <iframe 
-        src="https://globoplay.globo.com/v/14510014/video/" 
-        width="100%" 
-        height="100%" 
-        style="border:none; position:absolute; top:0; left:0;" 
-        allow="autoplay; fullscreen; encrypted-media" 
-        allowfullscreen="true">
-    </iframe>
-</div>
+### Assista à reportagem completa do RJ2:
+
+<a href="https://g1.globo.com/rj/rio-de-janeiro/noticia/2026/04/14/prefeita-de-guapimirim-e-mais-4-viram-reus-por-suspeita-de-fraude-em-contratos-de-saude.ghtml" target="_blank" class="block w-full bg-[#112240] border border-gray-200 dark:border-white/10 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all my-8 group text-center no-underline">
+    <div class="py-16 flex flex-col items-center justify-center relative">
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-red-base group-hover:scale-110 transition-transform mb-4 relative z-10" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+        </svg>
+        <span class="text-white font-black uppercase tracking-widest text-sm relative z-10 group-hover:text-red-base transition-colors">Assistir à Reportagem no G1 ➔</span>
+    </div>
+</a>
 
 *(Atenção: Caso o vídeo acima apareça indisponível, você pode conferir a matéria original diretamente no Globoplay).*
 
