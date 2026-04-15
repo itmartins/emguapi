@@ -42,8 +42,6 @@ O ápice da fraude, segundo os promotores, ocorreu em um dos últimos editais. O
 
 ### Assista à reportagem completa do RJ2:
 
-### Assista à reportagem completa do RJ2:
-
 <a href="https://g1.globo.com/rj/rio-de-janeiro/noticia/2026/04/14/prefeita-de-guapimirim-e-mais-4-viram-reus-por-suspeita-de-fraude-em-contratos-de-saude.ghtml" target="_blank" class="block w-full bg-[#112240] border border-gray-200 dark:border-white/10 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all my-8 group text-center no-underline">
     <div class="py-16 flex flex-col items-center justify-center relative">
         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
