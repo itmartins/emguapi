@@ -3,7 +3,7 @@ titulo: "Conquista Histórica: Guapimirim ganhará unidade própria do Corpo de 
 resumo: "Após anos de espera e tragédias dependendo de socorro de cidades vizinhas, município finalmente terá um destacamento do CBMERJ para acelerar resgates na região."
 data: "2026-04-30T18:00:00"
 categoria: "Cidade"
-imagem: "/fotos/bombeiros-RJ.jpeg"
+imagem: "/fotos/bombeiros-RJ.jpg"
 destaque: true
 tags: ["Corpo de Bombeiros", "Segurança", "Guapimirim", "RJ-122", "Resgate", "Conquista", "CBMERJ"]
 ---
