@@ -3,7 +3,7 @@ titulo: "Apagão e Descaso: Bairro do Segredo completa 24 horas sem energia e En
 resumo: "Moradores e comerciantes contabilizam prejuízos com alimentos estragados e risco de queima de eletrodomésticos. Concessionária esteve no local, mas deixou a região em 'meia fase'."
 data: "2026-05-09T07:00:00"
 categoria: "Cidade Alerta"
-imagem: "/fotos/enel-segredo.jpg"
+imagem: "/fotos/enel-segredo .jpg"
 destaque: true
 tags: ["Enel", "Falta de Luz", "Segredo", "Guapimirim", "Denúncia", "Serviços Públicos", "Prejuízo"]
 ---
