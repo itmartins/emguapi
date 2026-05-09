@@ -26,7 +26,7 @@ A doação, portanto, limpa o pátio da concessionária e dá um destino nobre �
 
 ### O compromisso do portal
 
-O portal **emguapi.com** reafirma seu compromisso com o jornalismo transparente, cedendo espaço integral para os esclarecimentos da Associação. Ao mesmo tempo, continuamos cobrando as autoridades estaduais e a concessionária (em transição para Trens RJ) para que invistam na compra de **novas locomotivas e vagões** para a nossa região, resolvendo o problema real de quem precisa do trem para trabalhar e estudar todos os dias.
+O portal **emguapi.com** reafirma seu compromisso com o jornalismo transparente, cedendo espaço integral para os esclarecimentos da Associação. Ao mesmo tempo, continuamos cobrando as autoridades estaduais e a concessionária (em transição para Trens RJ) para que **invistam na manutenção contínua e reforma das já obsoletas locomotivas e vagões**, e cobra também do Estado **para que realize a compra de novos carros de passageiros para a nossa região**, resolvendo o problema real de quem precisa do trem para trabalhar e estudar todos os dias.
 
 Leia abaixo, na íntegra, a nota enviada pela AFMB:
 
