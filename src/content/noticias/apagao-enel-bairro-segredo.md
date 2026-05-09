@@ -29,4 +29,4 @@ O **emguapi.com** lembra que o consumidor não deve arcar com a incompetência d
 3. **Peça Ressarcimento:** A Resolução da ANEEL garante que a empresa tem prazo para vistoriar e consertar (ou pagar) eletrodomésticos queimados por falha na rede. Faça o pedido diretamente nos canais oficiais da Enel.
 4. **Denuncie:** Caso a empresa negue o reembolso, acione o Procon e a plataforma *Consumidor.gov.br* usando os protocolos anotados.
 
-*(Com informações do colaborador Edson Júnior).*
+*(Com informações de Edson Júnior via Facebook).*
