@@ -4,7 +4,7 @@ resumo: "Decisão do ministro Flávio Dino adia definição sobre nova lei de di
 data: "2026-05-08T13:30:00"
 categoria: "Política"
 imagem: "/fotos/stf-royalties-petroleo.jpg"
-destaque: false
+destaque: true
 tags: ["Royalties", "STF", "Petróleo", "Economia", "Flávio Dino", "Justiça", "Baía de Guanabara", "Guapimirim"]
 ---
 
