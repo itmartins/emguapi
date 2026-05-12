@@ -3,7 +3,7 @@ titulo: "Marco Histórico: Guapimirim sedia abertura da Temporada de Montanhismo
 resumo: "Pela primeira vez, município recebe a cerimônia oficial do Parnaso. Evento consolida a cidade como destino de ecoturismo e inaugura a nova Trilha da Serra do Couto."
 data: "2026-05-12T16:30:00"
 categoria: "Turismo"
-imagem: "https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=1200&auto=format&fit=crop"
+imagem: "http://googleusercontent.com/image_collection/image_retrieval/11635726567062823498_0"
 destaque: true
 tags: ["Turismo", "Ecoturismo", "Montanhismo", "PARNASO", "Pedra do Sino", "Guapimirim", "Meio Ambiente", "História"]
 ---
@@ -13,8 +13,8 @@ Guapimirim acaba de dar um passo gigantesco para se consolidar definitivamente n
 O evento deste ano ganha um contorno ainda mais especial e simbólico: a celebração dos **185 anos da Trilha da Pedra do Sino**. 
 
 <figure class="my-6">
-  <img src="https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=1200&auto=format&fit=crop" alt="Montanhistas apreciando a vista no topo da serra" class="w-full rounded-lg shadow-md border border-gray-200">
-  <figcaption class="text-[10px] text-gray-500 mt-2 text-center uppercase tracking-widest font-bold">Aventura e ecoturismo em alta no Parnaso. (Foto: Divulgação / PARNASO)</figcaption>
+  <img src="http://googleusercontent.com/image_collection/image_retrieval/11635726567062823498_1" alt="Paisagem panorâmica da Pedra do Sino no PARNASO" class="w-full rounded-lg shadow-md border border-gray-200">
+  <figcaption class="text-[10px] text-gray-500 mt-2 text-center uppercase tracking-widest font-bold">O visual impressionante do ponto culminante da Serra dos Órgãos. (Foto: Divulgação / PARNASO)</figcaption>
 </figure>
 
 ### O Teto da Serra dos Órgãos
