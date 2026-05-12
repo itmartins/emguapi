@@ -3,7 +3,7 @@ titulo: "Cinema ao ar livre: Praça Paulo Terra recebe festival gratuito com tel
 resumo: "Projeto 'Cinema Inflável' chega a Guapimirim neste fim de semana. Programação inclui os sucessos 'Kung Fu Panda 4', 'Minecraft' e 'Tô Ryca!' totalmente de graça."
 data: "2026-04-23T10:00:00"
 categoria: "Cultura"
-imagem: "/fotos/emguapi-capa.png"
+imagem: "/fotos/cinema-inflavel.jpeg"
 destaque: false
 tags: ["Cultura", "Cinema Inflável", "Eventos", "Praça Paulo Terra", "Lazer", "Guapimirim", "Gratuito", "Agenda"]
 ---
