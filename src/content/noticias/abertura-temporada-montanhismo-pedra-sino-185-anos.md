@@ -3,7 +3,7 @@ titulo: "Marco Histórico: Guapimirim sedia abertura da Temporada de Montanhismo
 resumo: "Pela primeira vez, município recebe a cerimônia oficial do Parnaso. Evento consolida a cidade como destino de ecoturismo e inaugura a nova Trilha da Serra do Couto."
 data: "2026-05-12T16:30:00"
 categoria: "Turismo"
-imagem: "https://parnaso.tur.br/cms/wp-content/uploads/2017/12/bruno-nepomuceno-cume-da-pedra-do-sino-56.jpg"
+imagem: "https://drive.google.com/file/d/1dAYyEfg6lC_D9wkJqJV9nWRYHXpU8BkI/"
 destaque: true
 tags: ["Turismo", "Ecoturismo", "Montanhismo", "PARNASO", "Pedra do Sino", "Guapimirim", "Meio Ambiente", "História"]
 ---
@@ -13,7 +13,7 @@ Guapimirim acaba de dar um passo gigantesco para se consolidar definitivamente n
 O evento deste ano ganha um contorno ainda mais especial e simbólico: a celebração dos **185 anos da Trilha da Pedra do Sino**. 
 
 <figure class="my-6">
-  <img src="https://parnaso.tur.br/cms/wp-content/uploads/2017/12/bruno-nepomuceno-trilha-do-sino-38.jpg" alt="Paisagem panorâmica da Pedra do Sino no PARNASO" class="w-full rounded-lg shadow-md border border-gray-200">
+  <img src="https://drive.google.com/file/d/1tZGg2uiVogKUM5iigvelPAipPbfm6Cy4/" alt="Paisagem panorâmica da Pedra do Sino no PARNASO" class="w-full rounded-lg shadow-md border border-gray-200">
   <figcaption class="text-[10px] text-gray-500 mt-2 text-center uppercase tracking-widest font-bold">O visual impressionante do ponto culminante da Serra dos Órgãos. (Foto: Divulgação / PARNASO)</figcaption>
 </figure>
 
