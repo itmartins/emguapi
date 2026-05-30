@@ -3,7 +3,7 @@ titulo: "Nova permissionária assume trens do Rio herdando décadas de problemas
 resumo: "Fim de um ciclo expõe o sucateamento extremo do ramal. Documentos técnicos de transição detalham trens vandalizados, falhas críticas e o enorme desafio da nova operadora."
 data: "2026-05-30T17:00:00"
 categoria: "Transporte"
-imagem: "fotos/supervia-guapimirim.jpeg"
+imagem: "/fotos/supervia-guapimirim.jpeg"
 destaque: false
 tags: ["SuperVia", "Ramal Guapimirim", "TrensRJ", "Nova Permissionária", "CENTRAL", "Transporte Público", "Abandono"]
 ---
@@ -21,7 +21,7 @@ Durante anos, passageiros do Ramal Guapimirim conviveram com atrasos, supressõe
 Os documentos também apontam que parte dos veículos utilizados no ramal necessita de recuperação e que as locomotivas responsáveis pela operação apresentam avarias frequentes. Na prática, o trecho passou anos funcionando sob uma lógica de sobrevivência operacional, com dificuldades permanentes para manter a regularidade do serviço.
 
 <figure class="my-6">
-  <img src="fotos/estacao-mage.webp" alt="Trilhos antigos e vagões desgastados pelo tempo" class="w-full rounded-lg shadow-md border border-gray-200">
+  <img src="/fotos/estacao-mage.webp" alt="Trilhos antigos e vagões desgastados pelo tempo" class="w-full rounded-lg shadow-md border border-gray-200">
   <figcaption class="text-[10px] text-gray-500 mt-2 text-center uppercase tracking-widest font-bold">Imagem ilustrativa: O desgaste do sistema reflete anos sem investimentos no interior. (Créditos: Google Maps)</figcaption>
 </figure>
 
