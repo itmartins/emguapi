@@ -62,7 +62,7 @@ Talvez a questão mais interessante seja quem poderia assumir a operação caso 
 
 A empresa integra o Comitê de Transição responsável por acompanhar a mudança de operador e discutir aspectos técnicos da nova fase da ferrovia. Isso não significa que exista uma decisão tomada para transferir o Ramal Guapimirim à CENTRAL. 
 
-Porém, a presença da estatal na estrutura ferroviária e a previsão contratual para retirada dos ramais de bitola estreita permitem levantar uma hipótese que até recentemente parecia improvável: a volta de uma operação ferroviária estadual direta em Guapimirim. Caso isso aconteça, o trecho poderia passar a ter planejamento próprio, orçamento específico e estratégias voltadas exclusivamente para sua realidade operacional.
+Porém, a presença da estatal na estrutura ferroviária e a previsão contratual para retirada dos ramais de bitola estreita permitem levantar uma hipótese que até recentemente parecia improvável: **a volta de uma operação ferroviária estadual direta em Guapimirim**. Caso isso aconteça, o trecho poderia passar a ter planejamento próprio, orçamento específico e estratégias voltadas exclusivamente para sua realidade operacional.
 
 ### Uma oportunidade ou um risco?
 
