@@ -1,5 +1,5 @@
 ---
-titulo: "Novo contrato dos trens abre caminho para operação própria do Ramal Guapimirim e revela situação crítica da ferrovia"
+titulo: "Novo contrato abre caminho para operação própria dos Ramais Guapimirim e Vila Inhomirim e revela situação crítica da ferrovia"
 resumo: "Uma análise dos documentos do novo contrato ferroviário revela uma cláusula que permite ao Estado reassumir o ramal e expõe o sucateamento histórico do trecho."
 data: "2026-05-30T14:47:00"
 categoria: "Transporte"
