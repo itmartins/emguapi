@@ -1,38 +1,79 @@
 ---
-titulo: "BOMBA: Novo contrato de R$ 660 milhões dos trens abre brecha legal para o fim da operação no Ramal Guapimirim"
-resumo: "Minuta do Governo do Estado revela que a nova concessionária tem autorização contratual para cessar as atividades nas linhas de bitola estreita. População de Guapimirim e Magé pode ficar sem o modal."
-data: "2026-05-30T10:00:00"
-categoria: "Cidade Alerta"
-imagem: "/fotos/ramal-guapimirim-2026.jpeg"
+titulo: "Novo contrato dos trens abre caminho para operação própria do Ramal Guapimirim e revela situação crítica da ferrovia"
+resumo: "Uma análise dos documentos do novo contrato ferroviário revela uma cláusula que permite ao Estado reassumir o ramal e expõe o sucateamento histórico do trecho."
+data: "2026-05-30T14:47:00"
+categoria: "Transporte"
+imagem: "/fotos/ramal-guapimirim-2026.jpg"
 destaque: true
-tags: ["Trens", "SuperVia", "Ramal Guapimirim", "Denúncia", "Governo do Estado", "SETRAM", "Transporte Público"]
+tags: ["Trens", "Ramal Guapimirim", "SuperVia", "CENTRAL", "Governo do Estado", "SETRAM", "Mobilidade"]
 ---
 
-A esperança de melhoria na mobilidade da nossa região acaba de colidir com a dura realidade dos documentos oficiais. O portal **emguapi.com** teve acesso exclusivo à minuta do **Contrato de Permissão de Serviço Público N° 01/2026**, elaborado pelo Governo do Estado do Rio de Janeiro[cite: 1]. O texto, que define o futuro da malha ferroviária fluminense, esconde em suas entrelinhas uma ameaça direta e imediata à continuidade dos trens em Guapimirim e Magé.
+Por anos, o Ramal Guapimirim foi tratado como uma extensão periférica da malha ferroviária metropolitana do Rio de Janeiro. Com poucos horários, locomotivas antigas e constantes problemas operacionais, o trecho acabou ficando à margem dos grandes debates sobre mobilidade na Região Metropolitana.
 
-O contrato estabelece a delegação do sistema ferroviário para uma nova operadora, a **PY13 Participações S.A.**, com a interveniência da Nova Via Investimentos e Participações S.A. e da própria CENTRAL (Companhia Estadual de Engenharia de Transportes e Logística). 
+Agora, uma cláusula inserida no novo contrato de operação dos trens do estado pode mudar esse cenário. 
 
-O valor estimado do acordo é de astronômicos **R$ 660.234.654,12** (seiscentos e sessenta milhões, duzentos e trinta e quatro mil e seiscentos e cinquenta e quatro reais e doze centavos), com data-base fixada em setembro de 2025. No entanto, a cifra milionária parece não contemplar a segurança de transporte para o interior do estado.
+Uma análise dos documentos assinados pelo Governo do Estado do Rio de Janeiro revela que, pela primeira vez, existe uma previsão formal para que os ramais Guapimirim e Vila Inhomirim deixem de ser operados pela concessionária principal e passem a ser administrados diretamente pelo Estado. A mudança pode representar uma das maiores transformações na história recente da ferrovia que liga Guapimirim à rede metropolitana.
+
+### A cláusula que quase ninguém percebeu
+
+No meio das mais de cem páginas do novo contrato ferroviário existe uma disposição que permite ao Poder Permitente — o Governo do Estado — assumir a operação dos ramais Saracuruna–Guapimirim e Saracuruna–Vila Inhomirim durante a vigência do contrato.
+
+O texto estabelece inclusive qual será o impacto financeiro dessa decisão, determinando a redução da remuneração da empresa caso os ramais deixem de fazer parte de sua operação. Em outras palavras, o Estado já deixou previamente preparado um mecanismo jurídico para retirar os dois ramais da gestão da nova operadora sem precisar romper o contrato principal. 
+
+Embora a medida não determine que isso acontecerá, sua inclusão demonstra que essa possibilidade foi considerada durante a elaboração do modelo ferroviário.
+
+### O que isso significa para Guapimirim?
+
+A primeira interpretação possível é que o governo pretende apenas se resguardar para o futuro. Mas uma análise mais aprofundada dos documentos indica que a situação pode ser mais complexa.
+
+Os ramais Guapimirim e Vila Inhomirim possuem características muito diferentes do restante da rede ferroviária. Enquanto os principais ramais metropolitanos utilizam trens elétricos e transportam centenas de milhares de passageiros diariamente, Guapimirim opera com locomotivas diesel, possui baixa frequência de viagens, menor demanda e uma infraestrutura bastante distinta.
+
+Na prática, trata-se de uma operação ferroviária quase independente dentro do próprio sistema. Essa diferença ajuda a explicar por que o contrato passou a tratar esses trechos de forma separada.
+
+### O diagnóstico encontrado pelos técnicos
+
+Se a cláusula chamou atenção, o relatório técnico elaborado durante a transição da operação ferroviária revela um cenário ainda mais preocupante.
 
 <figure class="my-6">
-  <img src="/fotos/ramal-guapimirim-sucateado.jpeg" alt="Condições precárias de infraestrutura e sucateamento no Ramal Guapimirim" class="w-full rounded-lg shadow-md border border-gray-200">
-  <figcaption class="text-[10px] text-gray-500 mt-2 text-center uppercase tracking-widest font-bold">O sucateamento do Ramal Guapimirim levanta dúvidas sobre o compromisso do Estado com a nossa região.</figcaption>
+  <img src="/fotos/ramal-guapimirim-sucateado.jpg" alt="Situação de sucateamento e abandono de equipamentos no Ramal Guapimirim" class="w-full rounded-lg shadow-md border border-gray-200">
+  <figcaption class="text-[10px] text-gray-500 mt-2 text-center uppercase tracking-widest font-bold">Equipamentos vandalizados e locomotivas com mais de 60 anos marcam a realidade do trecho. (Foto: Reprodução)</figcaption>
 </figure>
 
-### A Cláusula do Abandono
+Inspeções realizadas no início de 2026 identificaram problemas graves nos equipamentos utilizados em Guapimirim e Vila Inhomirim. Segundo o documento, os carros de passageiros apresentam má conservação e necessitam de recuperação. 
 
-A principal fonte de preocupação para os passageiros locais encontra-se expressa de forma muito clara na **Cláusula 9.2.1** do documento[cite: 1]. O texto cria um cenário legal que permite à nova concessionária, literalmente, "lavar as mãos" em relação à nossa malha ferroviária.
+Os técnicos registraram ainda a existência de veículos ferroviários vandalizados e canibalizados no pátio da estação de Guapimirim, sem previsão clara de recuperação. O relatório também aponta que as locomotivas utilizadas nessas extensões apresentam falhas recorrentes de manutenção, situação que vem provocando supressões de viagens e reclamações dos passageiros.
 
-De acordo com o documento oficial, caso o Poder Permitente (o Governo do Estado) decida assumir a operação exclusiva dos ramais de "bitola estreita" — citando nominalmente os trechos **Saracuruna-Vila Inhomirim e Saracuruna-Guapimirim** —, a tarifa de remuneração paga à operadora sofrerá uma redução irrisória de apenas **2,89%**. 
+Outro dado chama atenção: parte significativa desse material ferroviário opera há mais de 60 anos. Para especialistas em transporte, equipamentos com essa idade exigem manutenção intensiva e investimentos constantes para manter padrões adequados de confiabilidade e segurança.
 
-A gravidade da situação se confirma no trecho seguinte, que determina que, ocorrendo essa hipótese, **"a PERMISSIONÁRIA deverá considerar a possibilidade de cessar a operação dos referidos ramais, em razão de decisão exclusiva do PODER PERMITENTE"**.
+### Segurança também preocupa
 
-### O que isso significa na prática?
+Os problemas não se limitam ao material rodante. Os documentos analisados apontam preocupação com a segurança operacional ao longo do trecho. 
 
-O Governo do Estado, através da Secretaria de Estado de Transporte e Mobilidade Urbana (SETRAM), estruturou um contrato que fornece à empresa privada uma "válvula de escape" jurídica. A PY13 Participações S.A. está autorizada a parar os trens na nossa região caso o Estado decida encampar os ramais. 
+Segundo os técnicos, a baixa circulação de trens em Guapimirim e Vila Inhomirim acaba produzindo um efeito indesejado: muitos motoristas passam a subestimar a presença da ferrovia nas passagens em nível. O relatório recomenda estudos para implantação de novas camadas de proteção nesses cruzamentos, especialmente diante do crescimento do fluxo de motocicletas na região. Também há preocupação com passagens clandestinas e com a necessidade de ampliar mecanismos de segurança ao longo da faixa ferroviária.
 
-Historicamente, quando a operação recai inteiramente sobre a estatal (CENTRAL), o resultado é o sucateamento progressivo e a falta de peças, como denunciado recentemente no caso das antigas locomotivas desativadas. 
+### O retorno da CENTRAL?
 
-Enquanto a nova concessionária fica focada em lucrar com a "bitola larga" e com a faixa de demanda que pode gerar acréscimos na tarifa de remuneração de até 2,62% (para operações acima de 500 mil passageiros), os ramais de Guapimirim e Vila Inhomirim são tratados como um "peso" descartável.
+Talvez a questão mais interessante seja quem poderia assumir a operação caso o Estado decida retirar o ramal da concessionária. O contrato não responde essa pergunta. Mas os documentos mostram que a CENTRAL participa diretamente da nova estrutura de governança ferroviária criada para o período de transição.
 
-O portal **emguapi.com** cobrará explicações formais da SETRAM, da AGETRANSP e das lideranças políticas da cidade. Guapimirim não pode permitir que sua infraestrutura de transporte seja desativada por manobras contratuais. A população exige transparência e a garantia da continuidade do nosso ramal.
+<figure class="my-6">
+  <img src="/fotos/ramal-guapimirim-CENTRAL.jpg" alt="Trem da CENTRAL operando antigamente no Ramal Guapimirim" class="w-full rounded-lg shadow-md border border-gray-200">
+  <figcaption class="text-[10px] text-gray-500 mt-2 text-center uppercase tracking-widest font-bold">A CENTRAL, estatal fluminense, pode reassumir o planejamento e a operação direta do ramal. (Foto: Arquivo/Reprodução)</figcaption>
+</figure>
+
+A empresa integra o Comitê de Transição responsável por acompanhar a mudança de operador e discutir aspectos técnicos da nova fase da ferrovia. Isso não significa que exista uma decisão tomada para transferir o Ramal Guapimirim à CENTRAL. 
+
+Porém, a presença da estatal na estrutura ferroviária e a previsão contratual para retirada dos ramais de bitola estreita permitem levantar uma hipótese que até recentemente parecia improvável: a volta de uma operação ferroviária estadual direta em Guapimirim. Caso isso aconteça, o trecho poderia passar a ter planejamento próprio, orçamento específico e estratégias voltadas exclusivamente para sua realidade operacional.
+
+### Uma oportunidade ou um risco?
+
+A resposta depende do caminho escolhido pelo governo. Por um lado, a separação do ramal poderia permitir que Guapimirim deixasse de competir por recursos com os grandes corredores metropolitanos. Uma gestão dedicada poderia priorizar investimentos em locomotivas, carros de passageiros, segurança e infraestrutura local.
+
+Por outro lado, qualquer mudança exigiria capacidade técnica, planejamento financeiro e compromisso de longo prazo para evitar que a ferrovia permanecesse em situação de precariedade. O histórico do transporte ferroviário fluminense demonstra que soluções improvisadas raramente produzem resultados duradouros.
+
+### O que esperar agora
+
+A nova operadora assumiu a rede ferroviária carregando um sistema que os próprios documentos oficiais classificam como degradado em diversos aspectos. Nos próximos meses deverão ser apresentados planos de operação, manutenção e investimentos que indicarão quais serão as prioridades para recuperação do sistema.
+
+É nesse momento que os moradores de Guapimirim deverão observar atentamente as decisões do Estado. A grande questão já não parece ser se o ramal precisa de atenção especial. Os documentos oficiais deixam claro que precisa. A pergunta que permanece sem resposta é outra: o Governo do Estado está apenas criando uma alternativa jurídica para o futuro ou está preparando, silenciosamente, um novo modelo de operação para o Ramal Guapimirim? 
+
+A resposta poderá definir os rumos da ferrovia nas próximas décadas.
