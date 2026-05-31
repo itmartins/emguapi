@@ -3,7 +3,7 @@ titulo: "TrensRJ: o que muda para os passageiros de Magé e Guapimirim"
 resumo: "Entenda como a transição afeta os horários, tarifas e o que esperar de melhorias para os ramais após anos de operação degradada."
 data: "2026-05-30T17:00:00"
 categoria: "Transporte"
-imagem: "/fotos/locomotiva-guapimirim.jpeg"
+imagem: "/fotos/locomotiva-guapimirim.jpg"
 destaque: false
 tags: ["TrensRJ", "Nova Permissionária", "Ramal Guapimirim", "SuperVia", "Transporte Público", "Mudanças"]
 ---
