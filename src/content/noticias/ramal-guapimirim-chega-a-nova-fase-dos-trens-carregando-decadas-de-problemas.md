@@ -21,7 +21,7 @@ A resposta imediata é: pouca coisa no curto prazo. Apesar da mudança de operad
 Nos bastidores, porém, o trabalho será intenso. A empresa assume uma rede ferroviária que os próprios documentos oficiais classificam como degradada em diversos aspectos. Isso inclui problemas de infraestrutura, equipamentos envelhecidos, falhas operacionais e necessidade de investimentos em diferentes ramais.
 
 <figure class="my-6">
-  <img src="/foto/trilho-guapimirim.jpg" alt="Trilhos antigos e vagões desgastados pelo tempo" class="w-full rounded-lg shadow-md border border-gray-200">
+  <img src="/fotos/trilho-guapimirim.jpg" alt="Trilhos antigos e vagões desgastados pelo tempo" class="w-full rounded-lg shadow-md border border-gray-200">
   <figcaption class="text-[10px] text-gray-500 mt-2 text-center uppercase tracking-widest font-bold">O desgaste do sistema reflete anos sem investimentos nos ramais de bitola métrica. (Créditos: Google)</figcaption>
 </figure>
 
