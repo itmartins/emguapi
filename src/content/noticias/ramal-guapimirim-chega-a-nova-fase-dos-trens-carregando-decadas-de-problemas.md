@@ -3,7 +3,7 @@ titulo: "Ramal Guapimirim chega à nova fase dos trens carregando décadas de pr
 resumo: "Fim de um ciclo expõe o sucateamento extremo do ramal. Documentos técnicos de transição detalham trens vandalizados, falhas críticas e o enorme desafio da nova operadora."
 data: "2026-05-30T17:00:00"
 categoria: "Transporte"
-imagem: "/fotos/locomotiva-guapimirim.jpeg"
+imagem: "/fotos/locomotiva-guapimirim.jpg"
 destaque: false
 tags: ["SuperVia", "Ramal Guapimirim", "TrensRJ", "Nova Permissionária", "CENTRAL", "Transporte Público", "Abandono"]
 ---
