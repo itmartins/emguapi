@@ -3,7 +3,7 @@ titulo: "Incidente próximo à Estação Bananal reacende debate sobre condiçõ
 resumo: "Vídeos mostram trem patinando nos trilhos molhados durante a chuva. Caso ocorre logo após a AGETRANSP confirmar que o ramal não foi totalmente recuperado pela antiga gestão."
 data: "2026-06-11T20:30:00"
 categoria: "Transporte"
-imagem: "/fotos/trem-patinando.jpg"
+imagem: "/fotos/trem-patinando.png"
 destaque: true
 tags: ["Ramal Guapimirim", "TrensRJ", "SuperVia", "Estação Bananal", "AGETRANSP", "Transporte Público", "Chuva"]
 ---
@@ -15,7 +15,7 @@ Segundo os relatos, as rodas da locomotiva deslizaram sobre os trilhos molhados,
 Embora episódios de perda de aderência possam ocorrer em sistemas ferroviários sob determinadas condições climáticas, o caso reacendeu as discussões sobre o estado da infraestrutura e da operação ferroviária no trecho entre Saracuruna e Guapimirim.
 
 <figure class="my-6">
-  <img src="/fotos/trem-patinando.jpg" alt="Trem enfrentando dificuldades nos trilhos do Ramal Guapimirim" class="w-full rounded-lg shadow-md border border-gray-200">
+  <img src="/fotos/trem-patinando.png" alt="Trem enfrentando dificuldades nos trilhos do Ramal Guapimirim" class="w-full rounded-lg shadow-md border border-gray-200">
   <figcaption class="text-[10px] text-gray-500 mt-2 text-center uppercase tracking-widest font-bold">Falta de aderência nos trilhos molhados assustou passageiros na subida. (Créditos: Redes Sociais)</figcaption>
 </figure>
 
