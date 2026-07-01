@@ -4,7 +4,7 @@ resumo: "Plataforma lança as categorias 99Pop e 99Moto na cidade, oferecendo no
 data: "2026-07-01T16:00:00"
 categoria: "Transporte"
 imagem: "/fotos/99-app-guapimirim.jpg"
-destaque: false
+destaque: true
 tags: ["99", "Mobilidade", "Guapimirim", "Transporte por Aplicativo", "99Pop", "99Moto", "Geração de Renda"]
 ---
 
