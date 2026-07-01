@@ -79,8 +79,21 @@ const imageURL = new URL(image, siteURL).href;
     
     <body class="bg-gray-50 font-sans text-navy-base flex flex-col min-h-screen">
         
-        <div class="flex-grow">
-            <slot />
+<div class="flex-grow max-w-4xl mx-auto w-full px-4 py-8">
+            <!-- Título da página -->
+            <h1 class="text-3xl lg:text-4xl font-bold mb-4 text-navy-dark">
+                {title}
+            </h1>
+            
+            <!-- Resumo (description) -->
+            <p class="text-xl text-gray-600 mb-8 font-medium italic">
+                {description}
+            </p>
+            
+            <!-- Conteúdo da matéria (markdown) -->
+            <div class="prose max-w-none">
+                <slot />
+            </div>
         </div>
         
         <Footer />
