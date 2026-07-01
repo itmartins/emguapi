@@ -3,7 +3,7 @@ titulo: "Novo Terminal Missões terá investimento de R$ 46 milhões e promete i
 resumo: "Com prazo de um ano para conclusão, complexo interligará ônibus intermunicipais da Baixada Fluminense ao Terminal Gentileza. Novo viaduto já trará alívio imediato no trânsito nesta quinta-feira."
 data: "2026-07-01T17:00:00"
 categoria: "Mobilidade"
-imagem: "/fotos/terminal-missoes-brt.jpg"
+imagem: "/fotos/terminal-missoes-brt.jpeg"
 destaque: true
 tags: ["BRT Transbrasil", "Terminal Missões", "Mobilidade", "Guapimirim", "Magé", "Duque de Caxias", "Integração", "Obras"]
 ---
