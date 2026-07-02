@@ -2,7 +2,7 @@
 titulo: "99 amplia opções de mobilidade em Guapimirim com viagens de carro e moto por aplicativo"
 resumo: "Plataforma lança as categorias 99Pop e 99Moto na cidade, oferecendo novas alternativas de transporte e criando oportunidades de geração de renda."
 data: "2026-07-01T16:00:00"
-categoria: "Transporte"
+categoria: "Patrocinado"
 imagem: "/fotos/conheca-categoria-99moto-saiba-como-funciona.jpg"
 destaque: true
 tags: ["99", "Mobilidade", "Guapimirim", "Transporte por Aplicativo", "99Pop", "99Moto", "Geração de Renda"]
