@@ -3,7 +3,7 @@ titulo: "Prefeitura do Rio lança obra de R$ 46 milhões que promete integrar Gu
 resumo: "Terminal Metropolitano Missões será construído às margens da BR-040 e deve facilitar a integração de passageiros da Baixada Fluminense com o BRT Transbrasil. Obra foi lançada em meio às dificuldades enfrentadas pelo transporte intermunicipal."
 data: "2026-07-01T21:30:00"
 categoria: "Mobilidade"
-imagem: "terminal-missoes-brt.jpg"
+imagem: "terminal-missoes-brt.jpeg"
 destaque: true
 tags: ["BRT Transbrasil", "Terminal Missões", "Mobilidade", "Guapimirim", "Magé", "Prefeitura do Rio", "Baixada Fluminense", "Transporte Público"]
 ---
