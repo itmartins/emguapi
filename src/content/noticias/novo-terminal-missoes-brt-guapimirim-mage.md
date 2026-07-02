@@ -1,70 +1,62 @@
 ---
-titulo: "Governo lança obra de R$ 46 milhões que promete integrar Guapimirim e Magé ao BRT Transbrasil"
-resumo: "Terminal Metropolitano Missões será construído às margens da BR-040 e deve facilitar o acesso ao BRT para passageiros da Baixada Fluminense. Obra é lançada em meio à crise no transporte intermunicipal."
+titulo: "Prefeitura do Rio lança obra de R$ 46 milhões que promete integrar Guapimirim e Magé ao BRT Transbrasil"
+resumo: "Terminal Metropolitano Missões será construído às margens da BR-040 e deve facilitar a integração de passageiros da Baixada Fluminense com o BRT Transbrasil. Obra foi lançada em meio às dificuldades enfrentadas pelo transporte intermunicipal."
 data: "2026-07-01T21:30:00"
 categoria: "Mobilidade"
-imagem: "/fotos/terminal-missoes-brt.jpg"
+imagem: "terminal-missoes-brt.jpeg"
 destaque: true
-tags: ["BRT Transbrasil", "Terminal Missões", "Mobilidade", "Guapimirim", "Magé", "Baixada Fluminense", "Transporte Público", "Integração"]
+tags: ["BRT Transbrasil", "Terminal Missões", "Mobilidade", "Guapimirim", "Magé", "Prefeitura do Rio", "Baixada Fluminense", "Transporte Público"]
 ---
 
-Enquanto milhares de passageiros enfrentam incertezas provocadas pela paralisação dos rodoviários e por problemas recorrentes no transporte intermunicipal, o Governo do Estado deu início a uma obra que promete mudar a forma como moradores de Guapimirim, Magé e outras cidades da Baixada Fluminense chegam à capital.
+Enquanto milhares de passageiros enfrentam os impactos da paralisação dos rodoviários e convivem diariamente com problemas no transporte intermunicipal, a Prefeitura do Rio de Janeiro deu início a uma obra que poderá alterar a forma como moradores de Guapimirim, Magé e outros municípios da Baixada Fluminense acessam a capital.
 
-No último domingo (28), autoridades estaduais e municipais participaram do lançamento da pedra fundamental do **Terminal Metropolitano Missões**, empreendimento orçado em **R$ 46 milhões** que será construído em uma área estratégica entre a Rodovia Washington Luís (BR-040) e a Avenida Brasil.
+No último domingo (28), o prefeito do Rio, Eduardo Cavaliere, lançou a pedra fundamental do Terminal Metropolitano Missões, empreendimento orçado em R$ 46 milhões que será construído em uma área estratégica entre a Rodovia Washington Luís (BR-040) e a Avenida Brasil.
 
-A expectativa é que a estrutura entre em operação em aproximadamente um ano, funcionando como um dos principais pontos de integração entre os ônibus intermunicipais e o corredor **BRT Transbrasil**.
+Apesar de ser uma obra municipal, o terminal foi planejado para atender passageiros de diversos municípios da Região Metropolitana, funcionando como ponto de integração entre os ônibus intermunicipais e o BRT Transbrasil, um dos principais corredores de transporte da cidade do Rio de Janeiro.
 
-<figure class="my-6">
-  <img src="/fotos/placa-fundacao-terminal-missoes.jpg" alt="Autoridades durante o lançamento da pedra fundamental do Terminal Metropolitano Missões" class="w-full rounded-lg shadow-md border border-gray-200">
-  <figcaption class="text-[10px] text-gray-500 mt-2 text-center uppercase tracking-widest font-bold">
-    Autoridades participaram do lançamento da pedra fundamental do Terminal Metropolitano Missões. (Foto: Divulgação)
-  </figcaption>
-</figure>
+![Placa de fundação do Terminal Missões](placa-fundacao-terminal-missoes.jpg)
 
-## O que muda para quem mora em Guapimirim?
+## Como o terminal poderá beneficiar Guapimirim e Magé?
 
-Hoje, grande parte dos passageiros de Guapimirim e Magé depende de ônibus que percorrem longos trajetos até o Centro do Rio de Janeiro ou outras regiões da capital.
+Hoje, muitos moradores de Guapimirim e Magé dependem de linhas intermunicipais que percorrem longos trajetos até o Centro do Rio de Janeiro, enfrentando congestionamentos frequentes na Avenida Brasil. 
 
-Com a conclusão do terminal, a proposta é alterar esse modelo. Os ônibus intermunicipais deverão desembarcar os passageiros no Terminal Missões, onde será possível realizar integração com o **BRT Transbrasil**, que opera em corredor exclusivo ao longo da Avenida Brasil.
+A proposta do Terminal Metropolitano Missões é mudar essa lógica. 
 
-Na prática, o objetivo é reduzir o tempo perdido no trânsito, aumentar a capacidade de transporte e diminuir o número de ônibus circulando na Avenida Brasil.
+Em vez de seguirem até o destino final, parte dos ônibus deverá encerrar a viagem no novo terminal. A partir dali, os passageiros poderão embarcar no BRT Transbrasil, utilizando um corredor exclusivo até diferentes regiões da capital.
 
-O sucesso desse modelo, porém, dependerá não apenas da infraestrutura do novo terminal, mas também da regularidade das linhas alimentadoras que sairão dos municípios da Baixada. Afinal, de pouco adianta um terminal moderno se os passageiros continuarem enfrentando atrasos, superlotação e redução da oferta de ônibus até o ponto de integração.
+Segundo a Prefeitura do Rio, a integração permitirá reduzir o tempo de deslocamento, aumentar a capacidade de transporte e diminuir a circulação de ônibus na Avenida Brasil.
 
-## Uma estrutura para mais de 1 milhão de passageiros por mês
+## Uma estrutura voltada para a integração metropolitana
 
-Segundo o Governo do Estado, o Terminal Metropolitano Missões deverá atender aproximadamente **1,4 milhão de passageiros por mês**.
+O terminal será construído em uma área de aproximadamente 84 mil metros quadrados e deverá atender cerca de 1,4 milhão de passageiros por mês. 
 
-O projeto ocupará uma área de **84 mil metros quadrados** e contará com:
+O projeto prevê:
+- Plataforma para até 10 ônibus articulados do BRT;
+- Espaço para 22 ônibus intermunicipais simultaneamente;
+- Bilheterias;
+- Sanitários públicos;
+- Quiosques comerciais;
+- Guaritas de segurança;
+- Áreas integradas de embarque e desembarque.
 
-* plataforma para até **10 ônibus articulados do BRT**;
-* espaço para **22 ônibus intermunicipais simultaneamente**;
-* bilheterias;
-* sanitários públicos;
-* quiosques comerciais;
-* guaritas de segurança;
-* áreas de embarque e desembarque integradas.
+Embora esteja localizado no município do Rio de Janeiro, o equipamento foi concebido para receber linhas provenientes de cidades como Guapimirim, Magé, Duque de Caxias, Belford Roxo e São João de Meriti.
 
-A proposta é transformar o local em um dos principais polos de conexão do transporte metropolitano na Baixada Fluminense.
+## Viaduto começa a operar antes da conclusão do terminal
 
-## Primeiro benefício chega nesta semana
+Antes mesmo da inauguração da estrutura completa, parte das intervenções já começará a beneficiar os passageiros. 
 
-Mesmo antes da conclusão do terminal, parte das intervenções começa a produzir efeitos.
+Nesta quinta-feira (2), será liberado o novo viaduto construído sobre o Trevo das Missões. 
 
-Nesta quinta-feira (2), será liberado o novo viaduto construído sobre o Trevo das Missões.
+A estrutura permitirá que ônibus vindos da BR-040 acessem diretamente a pista exclusiva do BRT Transbrasil, reduzindo conflitos com o trânsito local. 
 
-A estrutura permitirá que ônibus vindos da BR-040 acessem diretamente a pista exclusiva do BRT Transbrasil, eliminando parte dos conflitos com o trânsito local.
+De acordo com a Prefeitura do Rio, aproximadamente 300 ônibus (sendo cerca de 160 intermunicipais e 140 rodoviários) deverão utilizar diariamente o novo acesso, reduzindo o tempo de viagem para milhares de passageiros da Baixada Fluminense.
 
-De acordo com a Secretaria de Estado de Transporte e Mobilidade Urbana, cerca de **300 ônibus intermunicipais** deverão utilizar diariamente o novo acesso, reduzindo o tempo de viagem para milhares de passageiros.
+## O desafio será fazer a integração funcionar
 
-## O desafio vai além da obra
+A construção do terminal representa um avanço na infraestrutura de mobilidade, mas seu sucesso dependerá da integração entre diferentes sistemas de transporte.
 
-O lançamento do Terminal Metropolitano Missões acontece em um momento em que o transporte coletivo enfrenta dificuldades em diferentes frentes.
+Para que os benefícios sejam percebidos pelos passageiros, será necessário garantir que as linhas intermunicipais mantenham frequência adequada, que haja integração tarifária eficiente e que os horários dos ônibus estejam sincronizados com a operação do BRT.
 
-A paralisação dos rodoviários evidenciou a dependência da população em relação aos ônibus intermunicipais e reforçou a importância de investimentos que ampliem a integração entre os diferentes modais.
+A obra também chega em um momento em que o transporte coletivo enfrenta dificuldades operacionais, evidenciadas pela paralisação dos rodoviários e pelas reclamações frequentes sobre atrasos, superlotação e redução da oferta de viagens.
 
-Especialistas em mobilidade costumam destacar que grandes terminais, por si só, não resolvem os problemas do transporte público. Para que a integração funcione de forma eficiente, será necessário garantir frequência adequada das linhas alimentadoras, integração tarifária, segurança para os usuários e boa coordenação entre Estado, municípios e empresas operadoras.
-
-Para os moradores de Guapimirim e Magé, a obra representa uma expectativa de viagens mais rápidas e previsíveis. No entanto, os benefícios dependerão não apenas da entrega da estrutura física, mas também da qualidade do serviço prestado após sua inauguração.
-
-Se o planejamento for executado conforme previsto, o Terminal Metropolitano Missões poderá se tornar um importante ponto de conexão para a Baixada Fluminense e um passo relevante na reorganização da mobilidade metropolitana do estado.
+Se o cronograma for cumprido (com previsão de conclusão em cerca de um ano após a assinatura do contrato de licitação), o Terminal Metropolitano Missões poderá se tornar um dos principais pontos de conexão entre a Baixada Fluminense e a capital, oferecendo uma nova alternativa de deslocamento para milhares de passageiros que dependem diariamente do transporte público.
