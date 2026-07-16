@@ -10,7 +10,7 @@ tags: ["Parada Modelo", "Guapimirim", "Meio Ambiente", "Ramal Guapimirim", "Tren
 
 A poda drástica de árvores realizada ao lado da Estação Parada Modelo, em Guapimirim, provocou reações entre moradores e levantou questionamentos sobre a forma como a intervenção foi executada.
 
-As imagens, compartilhadas nas redes sociais e republicadas por moradores da cidade, mostram árvores praticamente reduzidas aos troncos, sem copa e com grande parte da vegetação removida. A publicação que originou as imagens foi feita por Ana Clara Silva, que criticou a ausência de políticas ambientais permanentes no município e questionou a necessidade da poda nos moldes em que foi realizada.
+As imagens, compartilhadas nas redes sociais e republicadas por moradores da cidade, mostram árvores praticamente reduzidas aos troncos, sem copa e com grande parte da vegetação removida. Uma das publicações foi feita por Ana Clara Silva, que criticou a ausência de políticas ambientais permanentes no município e questionou a necessidade da poda nos moldes em que foi realizada.
 
 <figure class="my-6">
   <div class="relative w-full aspect-video rounded-lg shadow-md border border-gray-200 overflow-hidden">
