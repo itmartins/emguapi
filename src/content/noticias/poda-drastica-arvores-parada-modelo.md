@@ -3,7 +3,7 @@ titulo: "Árvores reduzidas a troncos em frente à Estação Parada Modelo geram
 resumo: "Poda drástica em faixa de domínio da ferrovia provoca reações entre moradores de Guapimirim. Ausência de informações oficiais levanta dúvidas sobre critérios técnicos e compensação ambiental."
 data: "2026-07-16T16:40:00"
 categoria: "Cidade"
-imagem: "/fotos/poda-arvores-parada-modelo.jpg"
+imagem: "/fotos/poda-arvores-parada-modelo.png"
 destaque: true
 tags: ["Parada Modelo", "Guapimirim", "Meio Ambiente", "Ramal Guapimirim", "TrensRJ", "Poda"]
 ---
