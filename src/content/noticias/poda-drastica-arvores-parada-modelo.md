@@ -1,7 +1,7 @@
 ---
-titulo: "Árvores reduzidas a troncos em frente à Estação Parada Modelo geram questionamentos sobre intervenção em área ferroviária"
+titulo: "Quem autorizou? Poda radical na Parada Modelo segue sem respostas oficiais"
 resumo: "Poda drástica em faixa de domínio da ferrovia provoca reações entre moradores de Guapimirim. Ausência de informações oficiais levanta dúvidas sobre critérios técnicos e compensação ambiental."
-data: "2026-07-16T16:40:00"
+data: "2026-07-14T16:40:00"
 categoria: "Cidade"
 imagem: "/fotos/poda-arvores-parada-modelo.png"
 destaque: true
@@ -13,12 +13,16 @@ A poda drástica de árvores realizada ao lado da Estação Parada Modelo, em Gu
 As imagens, compartilhadas nas redes sociais e republicadas por moradores da cidade, mostram árvores praticamente reduzidas aos troncos, sem copa e com grande parte da vegetação removida. A publicação que originou as imagens foi feita por Ana Clara Silva, que criticou a ausência de políticas ambientais permanentes no município e questionou a necessidade da poda nos moldes em que foi realizada.
 
 <figure class="my-6">
-  <video controls class="w-full rounded-lg shadow-md border border-gray-200" preload="metadata">
-    <source src="/videos/poda-parada-modelo.mp4" type="video/mp4">
-    Seu navegador não suporta a reprodução deste vídeo.
-  </video>
+  <div class="relative w-full aspect-video rounded-lg shadow-md border border-gray-200 overflow-hidden">
+    <iframe 
+      src="https://drive.google.com/file/d/1_ynmRY2WEPPixvdUkAnTsHf32C6LkEMV/preview" 
+      class="absolute top-0 left-0 w-full h-full" 
+      allow="autoplay" 
+      allowfullscreen>
+    </iframe>
+  </div>
   <figcaption class="text-[10px] text-gray-500 mt-2 text-center uppercase tracking-widest font-bold">
-    Reprodução / Redes Sociais (Imagens originais: Ana Clara Silva)
+    Reprodução / Redes Sociais da Meta
   </figcaption>
 </figure>
 
