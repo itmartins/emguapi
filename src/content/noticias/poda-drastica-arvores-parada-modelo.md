@@ -4,7 +4,7 @@ resumo: "Poda drástica em faixa de domínio da ferrovia provoca reações entre
 data: "2026-07-16T16:40:00"
 categoria: "Cidade"
 imagem: "/fotos/poda-arvores-parada-modelo.jpg"
-destaque: false
+destaque: true
 tags: ["Parada Modelo", "Guapimirim", "Meio Ambiente", "Ramal Guapimirim", "TrensRJ", "Poda"]
 ---
 
