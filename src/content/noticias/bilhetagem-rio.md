@@ -40,13 +40,6 @@ Paralelamente, as tarifas dos transportes públicos sofreram reajustes sucessivo
 
 Embora o benefício continue existindo, muitos passageiros passaram a questionar se ele ainda representa a mesma política pública criada originalmente.
 
-A reportagem pretende levantar, em dados oficiais, como evoluíram:
-
-* o valor máximo da tarifa integrada;
-* o percentual de subsídio estadual;
-* o número de usuários cadastrados;
-* a quantidade de integrações realizadas por ano.
-
 ## A caixa-preta da bilhetagem
 
 Durante anos, outro tema ganhou força: a falta de transparência sobre a arrecadação do sistema de bilhetagem.
