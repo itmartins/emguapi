@@ -8,10 +8,6 @@ destaque: true
 tags: ["Bilhete Único", "Rio de Janeiro", "SEBE", "Jaé", "RioCard", "Mobilidade Urbana"]
 ---
 
-*Projeto do Governo do Estado promete assumir o controle da bilhetagem de ônibus intermunicipais, trens, metrô e barcas. A medida reacende um debate que atravessa mais de 15 anos de políticas públicas, disputas judiciais e questionamentos sobre transparência na arrecadação do transporte coletivo.*
-
-**Por Ítalo Martins**
-
 Quando foi criado, o Bilhete Único Intermunicipal representava uma das maiores políticas públicas de mobilidade urbana do Estado do Rio de Janeiro. A promessa era simples: reduzir o custo das viagens para trabalhadores que dependiam de mais de um transporte para chegar ao emprego.
 
 Mais de uma década depois, o sistema que nasceu como referência nacional convive com restrições, mudanças de regras, aumento das tarifas e sucessivos questionamentos sobre transparência na arrecadação.
