@@ -8,8 +8,6 @@ destaque: true
 tags: ["Bilhete Único", "Rio de Janeiro", "SEBE", "Jaé", "RioCard", "Mobilidade Urbana"]
 ---
 
-# Da promessa do Bilhete Único ao novo sistema estadual: por que o Rio de Janeiro quer mudar novamente a bilhetagem dos transportes?
-
 *Projeto do Governo do Estado promete assumir o controle da bilhetagem de ônibus intermunicipais, trens, metrô e barcas. A medida reacende um debate que atravessa mais de 15 anos de políticas públicas, disputas judiciais e questionamentos sobre transparência na arrecadação do transporte coletivo.*
 
 **Por Ítalo Martins**
