@@ -1,9 +1,9 @@
 ---
 titulo: "Após 10 anos, Guapimirim prepara novo concurso para professores com 508 vagas; edital pode sair a qualquer momento"
 resumo: "Seleção para a Educação é resultado de um acordo firmado com o Ministério Público para reduzir contratações temporárias. Instituto Access organizará o certame."
-data: "2026-07-17T11:00:00"
+data: "2026-07-15T11:00:00"
 categoria: "Educação"
-imagem: "/fotos/concurso-educacao-guapimirim.jpg"
+imagem: "/fotos/concurso-educacao-guapimirim.png"
 destaque: true
 tags: ["Concurso Público", "Educação", "Guapimirim", "Professor", "Instituto Access", "MP-RJ"]
 ---
