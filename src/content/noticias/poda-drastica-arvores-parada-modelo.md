@@ -55,4 +55,4 @@ Independentemente da necessidade da intervenção, a divulgação das justificat
 
 A área onde ocorreu a poda fica ao lado da Estação Parada Modelo, ponto de passagem diária de moradores e usuários do Ramal Guapimirim.
 
-Até o momento da publicação desta reportagem, não havia sido localizada manifestação oficial detalhando os motivos da intervenção, os critérios adotados ou eventual previsão de compensação ambiental.
+A reportagem do emguapi.com entrou em contato com a Secretaria Municipal de Meio Ambiente de Guapimirim e com a TrensRJ, solicitando esclarecimentos sobre a intervenção. Entre os questionamentos encaminhados estão a identificação do órgão responsável pela poda, a existência de laudo técnico ou autorização ambiental, a justificativa para a execução do serviço, os critérios adotados para o manejo da vegetação e a eventual previsão de compensação ambiental ou recuperação paisagística da área. Até o fechamento desta reportagem, nenhuma das instituições havia encaminhado resposta. O espaço permanece aberto para manifestação e a matéria será atualizada caso novos esclarecimentos sejam enviados.
