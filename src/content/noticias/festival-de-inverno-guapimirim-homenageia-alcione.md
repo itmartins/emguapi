@@ -12,7 +12,7 @@ O Festival de Inverno de Guapimirim chega à sua 8ª edição consolidado como u
 
 Neste ano, a grande homenageada será **Alcione**, uma das maiores intérpretes da música brasileira, que encerra o festival com um show previsto para o dia **2 de agosto**. A escolha da artista dá o tom da edição de 2026, que celebra o legado da cantora maranhense conhecida nacionalmente como "Marrom".
 
-![Alcione no Festival de Inverno](imagem: "public/fotos/festival-inverno-alcione.jpeg")
+![Alcione no Festival de Inverno](imagem: "/public/fotos/festival-inverno-alcione.jpeg")
 
 *Foto: Vinicius Mochizuki/Divulgação*
 
