@@ -12,7 +12,7 @@ A forte ventania registrada na madrugada da última sexta-feira (18) provocou di
 
 A cobertura metálica ficou parcialmente inclinada após a ação dos ventos. Como a montagem ainda estava em andamento e o evento não havia sido iniciado, não houve registro de feridos.
 
-![Estrutura do Festival de Inverno após a ventania](/fotos/estrutura-desaba-ventania.jpg)
+![Estrutura do Festival de Inverno após a ventania](/public/fotos/estrutura-desaba-ventania.jpg)
 
 Além do incidente na praça, moradores relataram quedas de árvores, galhos e outros danos em diferentes bairros do município. A Cotia foi uma das regiões mais afetadas pelas rajadas de vento.
 
