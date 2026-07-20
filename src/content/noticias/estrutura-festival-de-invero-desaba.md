@@ -3,7 +3,7 @@ titulo: "Estrutura do Festival de Inverno cede durante ventania em Guapimirim e 
 resumo: "Cobertura metálica montada para a 8ª edição do Festival de Inverno desabou parcialmente durante a ventania da madrugada de 18 de julho. O episódio relembra o caso do Fantástico Natal de 2025 e levanta questionamentos sobre os critérios de segurança adotados em estruturas temporárias."
 data: "2026-07-19T22:30:00"
 categoria: "Cidade"
-imagem: "/fotos/estrutura-desaba-ventania.jpeg"
+imagem: "/fotos/estrutura-desaba-ventania.jpg"
 destaque: true
 tags: ["Festival de Inverno", "Guapimirim", "Cotia", "Ventania", "Estruturas para Eventos", "Defesa Civil", "Fantástico Natal", "Segurança"]
 ---
