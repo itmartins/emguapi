@@ -10,9 +10,9 @@ tags: ["Festival de Inverno", "Alcione", "Guapimirim", "Cultura", "Turismo", "Se
 
 O Festival de Inverno de Guapimirim chega à sua 8ª edição consolidado como um dos principais eventos culturais da Serra Verde Imperial. Entre os dias **25 de julho e 2 de agosto**, moradores e visitantes poderão acompanhar uma programação gratuita com shows, teatro, atrações infantis e atividades voltadas à valorização da cultura e da economia criativa do município.
 
-Neste ano, a grande homenageada será **Alcione**, uma das maiores intérpretes da música brasileira, que encerra o festival com um show previsto para o dia **2 de agosto**. A escolha da artista dá o tom da edição de 2026, que celebra o legado da cantora maranhense conhecida nacionalmente como "Marrom". :contentReference[oaicite:0]{index=0}
+Neste ano, a grande homenageada será **Alcione**, uma das maiores intérpretes da música brasileira, que encerra o festival com um show previsto para o dia **2 de agosto**. A escolha da artista dá o tom da edição de 2026, que celebra o legado da cantora maranhense conhecida nacionalmente como "Marrom".
 
-![Alcione no Festival de Inverno](public/fotos/festival-inverno-alcione.jpeg)
+![Alcione no Festival de Inverno](image: "public/fotos/festival-inverno-alcione.jpeg")
 
 *Foto: Vinicius Mochizuki/Divulgação*
 
@@ -28,9 +28,9 @@ Entre os destaques anunciados estão:
 - Jorge Vercillo;
 - Silva;
 - Nany People, com o espetáculo **"Como Salvar um Casamento"**;
-- espetáculo infantil **"Ritinha Rock & Roll"**. :contentReference[oaicite:1]{index=1}
+- espetáculo infantil **"Ritinha Rock & Roll"**.
 
-O evento também contará com apresentações de artistas locais, feira de artesanato, gastronomia, cervejarias artesanais e espaços voltados à valorização da economia criativa de Guapimirim. Segundo a organização, haverá estrutura com acessibilidade, intérpretes de Libras, banheiros adaptados e atendimento para pessoas neurodivergentes. :contentReference[oaicite:2]{index=2}
+O evento também contará com apresentações de artistas locais, feira de artesanato, gastronomia, cervejarias artesanais e espaços voltados à valorização da economia criativa de Guapimirim. Segundo a organização, haverá estrutura com acessibilidade, intérpretes de Libras, banheiros adaptados e atendimento para pessoas neurodivergentes.
 
 ## Festival é mantido após incidente na montagem
 
@@ -46,6 +46,6 @@ Na semana passada, publicamos uma reportagem detalhando o episódio e os questio
 
 Promovido pela Prefeitura de Guapimirim, por meio das Secretarias de Turismo e de Cultura e Economia Criativa, o Festival de Inverno tornou-se um dos principais eventos do calendário turístico do município.
 
-A expectativa é repetir o sucesso das edições anteriores, que reuniram cerca de **50 mil visitantes**, movimentando hotéis, restaurantes, comércio e o setor de serviços durante o período de férias escolares. :contentReference[oaicite:3]{index=3}
+A expectativa é repetir o sucesso das edições anteriores, que reuniram cerca de **50 mil visitantes**, movimentando hotéis, restaurantes, comércio e o setor de serviços durante o período de férias escolares.
 
-Com entrada gratuita, o evento busca fortalecer Guapimirim como destino de turismo cultural na Serra Verde Imperial, combinando grandes atrações nacionais com a valorização dos artistas e empreendedores locais. :contentReference[oaicite:4]{index=4}
+Com entrada gratuita, o evento busca fortalecer Guapimirim como destino de turismo cultural na Serra Verde Imperial, combinando grandes atrações nacionais com a valorização dos artistas e empreendedores locais.
