@@ -4,7 +4,7 @@ resumo: "Após o incidente com a estrutura principal durante a ventania da últi
 data: "2026-07-20T10:30:00"
 categoria: "Cultura"
 imagem: "/fotos/festival-inverno-alcione.jpeg"
-destaque: false
+destaque: true
 tags: ["Festival de Inverno", "Alcione", "Guapimirim", "Cultura", "Turismo", "Serra Verde Imperial", "Shows", "Eventos"]
 ---
 
