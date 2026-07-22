@@ -110,7 +110,7 @@ A divulgação da programação ocorre poucos dias após a ventania registrada n
 
 O incidente não deixou feridos porque o espaço ainda estava em fase de montagem. As equipes realizaram os trabalhos de reconstrução e preparação da estrutura para manter o cronograma do festival.
 
-> **Leia também:** [Estrutura do Festival de Inverno cede durante ventania em Guapimirim e reacende debate sobre segurança em eventos públicos](/cidade/estrutura-do-festival-de-inverno-cede-durante-ventania)
+> **Leia também:** [Estrutura do Festival de Inverno cede durante ventania em Guapimirim e reacende debate sobre segurança em eventos públicos](/noticias/estrutura-festival-de-inverno-desaba)
 
 ## Cultura e turismo
 
