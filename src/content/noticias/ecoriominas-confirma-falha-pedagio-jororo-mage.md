@@ -3,7 +3,7 @@ titulo: "EcoRioMinas confirma falha sistêmica em pedágio de Magé que cobrou t
 resumo: "Concessionária confirmou ao emguapi.com que uma falha sistêmica provocou cobranças incorretas na praça de pedágio de Jororó, em Magé. Motoristas afetados devem procurar a Ouvidoria para solicitar o ressarcimento."
 data: "2026-07-23T16:30:00"
 categoria: "Transportes"
-imagem: "/fotos/comprovante-pedagio-ecoriominas-falha-sistema.jpg"
+imagem: "/fotos/pedagio-ecoriominas.png"
 destaque: true
 tags: ["EcoRioMinas", "Pedágio", "BR-116", "Jororó", "Magé", "Ressarcimento", "Rodovias"]
 ---
