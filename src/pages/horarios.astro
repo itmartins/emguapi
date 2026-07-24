@@ -23,14 +23,14 @@ const comunicadosFixos = [
         titulo: "TrensRJ",
         texto: "A operação dos trens urbanos do Rio de Janeiro passa, a partir de 30/05, a ser realizada pela TrensRJ. Saiba mais clicando aqui.",
         tipo: "servico"
-    };
-
+    }, // <-- Corrigido: Vírgula para separar os comunicados
     {
-        data: "22 de julho de 2026 | 18:23"
-        titulo: "Interrupção da circulação"
-        texto: "No domingo (16/08), será realizado serviços de via e rede aérea e não haverá circulação no trecho entre as estações Gramacho e Saracuruna e nas extensões Vila Inhomirim e Guapimirim."
+        data: "22 de julho de 2026 | 18:23", // <-- Corrigido: Vírgula adicionada
+        titulo: "Interrupção da circulação", // <-- Corrigido: Vírgula adicionada
+        texto: "No domingo (16/08), será realizado serviços de via e rede aérea e não haverá circulação no trecho entre as estações Gramacho e Saracuruna e nas extensões Vila Inhomirim e Guapimirim.", // <-- Corrigido: Vírgula adicionada
         tipo: "servico"
-    };
+    } // <-- Corrigido: Ponto e vírgula removido
+];
 
 // --- LÓGICA DE AVISOS DE NOTÍCIAS (Dinâmico) ---
 const todasNoticias = (await getCollection('noticias')).sort(
