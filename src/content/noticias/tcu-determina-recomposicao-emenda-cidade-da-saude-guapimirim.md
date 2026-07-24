@@ -3,7 +3,7 @@ titulo: "TCU dá 60 dias para Guapimirim recompor R$ 1,4 milhão de emenda da Ci
 resumo: "Tribunal de Contas da União determinou que a Prefeitura de Guapimirim recomponha recursos utilizados entre diferentes emendas parlamentares. Município reconheceu a falha e informou que fará o ressarcimento."
 data: "2026-07-24T10:00:00"
 categoria: "Transparência"
-imagem: "/public/fotos/cidade-da-saude-guapimirim.jpeg"
+imagem: "/fotos/cidade-da-saude-guapimirim.jpeg"
 destaque: true
 tags: ["TCU", "Emendas Pix", "Cidade da Saúde", "Guapimirim", "Transparência", "Saúde", "Fiscalização"]
 ---
