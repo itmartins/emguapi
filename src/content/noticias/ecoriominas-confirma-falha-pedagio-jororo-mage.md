@@ -13,7 +13,7 @@ Motoristas que tiveram cobrança indevida na praça de pedágio **P7 (Jororó)**
 A confirmação foi enviada pela coordenadora de Comunicação da EcoRioMinas, **Suzana Moura Guimarães**, em resposta a um pedido de esclarecimentos encaminhado pelo **emguapi.com** após a circulação de uma publicação nas redes sociais que relatava uma possível cobrança indevida no pedágio.
 
 <figure>
-  <img src="/public/fotos/comprovante-pedagio-ecoriominas-falha-sistema.jpg" alt="Comprovante de cobrança emitido na praça de pedágio P7, em Jororó, Magé">
+  <img src="/fotos/comprovante-pedagio-ecoriominas-falha-sistema.jpg" alt="Comprovante de cobrança emitido na praça de pedágio P7, em Jororó, Magé">
   <figcaption>Comprovante emitido na praça de pedágio P7 (Jororó), em Magé, registra cobrança de R$ 30,30 para um veículo classificado como Categoria 3 durante a falha sistêmica confirmada pela EcoRioMinas.</figcaption>
 </figure>
 
