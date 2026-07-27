@@ -8,7 +8,7 @@ destaque: true
 tags: ["Ramal Guapimirim", "TrensRJ", "AGETRANSP", "Fiscalização", "Manutenção", "Transporte Ferroviário", "SETRAM"]
 ---
 
-Documentos obtidos com exclusividade pelo <strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong> revelam que a própria Agência Reguladora de Serviços Públicos Concedidos de Transportes do Estado do Rio de Janeiro **(AGETRANSP)** considerou insuficiente a primeira resposta apresentada pela TrensRJ sobre as ações de manutenção do Ramal Guapimirim e determinou que a Permissionária apresentasse novos esclarecimentos.
+Documentos obtidos com exclusividade pelo [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) revelam que a própria Agência Reguladora de Serviços Públicos Concedidos de Transportes do Estado do Rio de Janeiro **(AGETRANSP)** considerou insuficiente a primeira resposta apresentada pela TrensRJ sobre as ações de manutenção do Ramal Guapimirim e determinou que a Permissionária apresentasse novos esclarecimentos.
 Mesmo após a complementação solicitada pela Agência, a resposta encaminhada ao usuário permaneceu sem apresentar cronogramas específicos, registros das intervenções executadas e outras informações detalhadas que haviam sido expressamente solicitadas durante a instrução da manifestação.
 
 A apuração teve início após um pedido formal de informações encaminhado à TrensRJ. Posteriormente, a Ouvidoria da AGETRANSP instaurou processo para acompanhar o caso.
