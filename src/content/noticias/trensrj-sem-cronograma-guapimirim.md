@@ -1,5 +1,5 @@
 ---
-titulo: "AGETRANSP cobrou esclarecimentos da TrensRJ sobre manutenção do Ramal Guapimirim; resposta permanece sem cronogramas e registros detalhados"
+titulo: "Sem cronograma, sem registros e sem datas: TrensRJ não comprova manutenção do Ramal Guapimirim após cobranças"
 resumo: "Documentos obtidos com exclusividade pelo emguapi.com mostram que a própria AGETRANSP considerou insuficiente a primeira resposta da TrensRJ e solicitou complementação. Mesmo após nova manifestação da Permissionária, cronogramas, registros das intervenções e detalhamento das ações de manutenção do Ramal Guapimirim não foram apresentados."
 data: "2026-07-26T09:30:00"
 categoria: "Transporte"
@@ -8,7 +8,7 @@ destaque: true
 tags: ["Ramal Guapimirim", "TrensRJ", "AGETRANSP", "Fiscalização", "Manutenção", "Transporte Ferroviário", "SETRAM"]
 ---
 
-Documentos obtidos com exclusividade pelo <strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong> revelam que a própria Agência Reguladora de Serviços Públicos Concedidos de Transportes do Estado do Rio de Janeiro (AGETRANSP) considerou insuficiente a primeira resposta apresentada pela TrensRJ sobre as ações de manutenção do Ramal Guapimirim e determinou que a Permissionária apresentasse novos esclarecimentos.
+Documentos obtidos com exclusividade pelo <strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong> revelam que a própria **Agência Reguladora de Serviços Públicos Concedidos de Transportes do Estado do Rio de Janeiro** (AGETRANSP) considerou insuficiente a primeira resposta apresentada pela TrensRJ sobre as ações de manutenção do Ramal Guapimirim e determinou que a Permissionária apresentasse novos esclarecimentos.
 Mesmo após a complementação solicitada pela Agência, a resposta encaminhada ao usuário permaneceu sem apresentar cronogramas específicos, registros das intervenções executadas e outras informações detalhadas que haviam sido expressamente solicitadas durante a instrução da manifestação.
 
 A apuração teve início após um pedido formal de informações encaminhado à TrensRJ. Posteriormente, a Ouvidoria da AGETRANSP instaurou processo para acompanhar o caso.
@@ -191,8 +191,4 @@ O objetivo é verificar quais documentos efetivamente fundamentaram a conclusão
 
 Até a publicação desta reportagem, a AGETRANSP ainda não havia respondido ao pedido de acesso aos autos.
 
-O **emguapi.com** continuará acompanhando o caso e divulgará novas informações à medida que os documentos forem disponibilizados pelos órgãos competentes.
-
-> **Leia também:** [Quem autorizou? Poda radical na Parada Modelo segue sem respostas oficiais](/cidade/quem-autorizou-poda-radical-na-parada-modelo-segue-sem-respostas-oficiais)
-
-> **Leia também:** [Estrutura do Festival de Inverno cede durante ventania e reacende debate sobre segurança em eventos públicos](/cidade/estrutura-do-festival-de-inverno-cede-durante-ventania)
+O <strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong> continuará acompanhando o caso e divulgará novas informações à medida que os documentos forem disponibilizados pelos órgãos competentes.
