@@ -11,7 +11,7 @@ tags: ["Ramal Guapimirim", "TrensRJ", "AGETRANSP", "Fiscalização", "Manutenç�
 Documentos obtidos com exclusividade pelo <strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong> revelam que a própria Agência Reguladora de Serviços Públicos Concedidos de Transportes do Estado do Rio de Janeiro (AGETRANSP) considerou insuficiente a primeira resposta apresentada pela TrensRJ sobre as ações de manutenção do Ramal Guapimirim e determinou que a Permissionária apresentasse novos esclarecimentos.
 Mesmo após a complementação solicitada pela Agência, a resposta encaminhada ao usuário permaneceu sem apresentar cronogramas específicos, registros das intervenções executadas e outras informações detalhadas que haviam sido expressamente solicitadas durante a instrução da manifestação.
 
-A apuração teve início após um pedido formal de informações encaminhado à TrensRJ. Posteriormente, a Ouvidoria da AGETRANSP instaurou o Processo SEI nº SEI-100003/000907/2026 para acompanhar o caso.
+A apuração teve início após um pedido formal de informações encaminhado à TrensRJ. Posteriormente, a Ouvidoria da AGETRANSP instaurou processo para acompanhar o caso.
 
 ## Pedido tratava da manutenção cotidiana do ramal
 
@@ -163,9 +163,9 @@ Essa diferenciação também aparece em documentos técnicos produzidos pelo pr�
 
 Desde o início da operação da TrensRJ, redes sociais e sites especializados divulgaram imagens e notícias sobre intervenções em locomotivas, carros de passageiros e outros equipamentos utilizados nos ramais Guapimirim e Vila Inhomirim.
 
-Essas publicações demonstram que atividades de manutenção vêm sendo realizadas pela Permissionária.
+Essas publicações demonstram que atividades de manutenção vêm sendo realizadas pela Permissionária, mas nenhuma delas foram de fato confirmdas ou confirmadas pelos usuário de ambos os trechos que desmentem as informações.
 
-Contudo, durante a apuração realizada pelo **emguapi.com**, foram solicitados formalmente cronogramas, registros das intervenções executadas, periodicidade das manutenções e identificação dos principais serviços realizados especificamente no Ramal Guapimirim.
+Durante a apuração realizada pelo <strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>, foram solicitados formalmente cronogramas, registros das intervenções executadas, periodicidade das manutenções e identificação dos principais serviços realizados especificamente no Ramal Guapimirim.
 
 Mesmo após a complementação determinada pela própria AGETRANSP, esses documentos não foram apresentados.
 
