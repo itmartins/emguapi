@@ -8,7 +8,7 @@ destaque: true
 tags: ["Ramal Guapimirim", "TrensRJ", "AGETRANSP", "Fiscalização", "Manutenção", "Transporte Ferroviário", "SETRAM"]
 ---
 
-Documentos obtidos com exclusividade pelo <strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong> revelam que a própria **Agência Reguladora de Serviços Públicos Concedidos de Transportes do Estado do Rio de Janeiro** (AGETRANSP) considerou insuficiente a primeira resposta apresentada pela TrensRJ sobre as ações de manutenção do Ramal Guapimirim e determinou que a Permissionária apresentasse novos esclarecimentos.
+Documentos obtidos com exclusividade pelo <strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong> revelam que a própria Agência Reguladora de Serviços Públicos Concedidos de Transportes do Estado do Rio de Janeiro **(AGETRANSP)** considerou insuficiente a primeira resposta apresentada pela TrensRJ sobre as ações de manutenção do Ramal Guapimirim e determinou que a Permissionária apresentasse novos esclarecimentos.
 Mesmo após a complementação solicitada pela Agência, a resposta encaminhada ao usuário permaneceu sem apresentar cronogramas específicos, registros das intervenções executadas e outras informações detalhadas que haviam sido expressamente solicitadas durante a instrução da manifestação.
 
 A apuração teve início após um pedido formal de informações encaminhado à TrensRJ. Posteriormente, a Ouvidoria da AGETRANSP instaurou processo para acompanhar o caso.
@@ -71,8 +71,6 @@ Segundo a AGETRANSP:
 - não foram apresentados cronogramas individualizados relativos às manutenções das composições;
 - não foram apresentados registros específicos das situações apontadas na manifestação; e
 - não foram disponibilizadas informações individualizando os serviços executados no ramal.
-
-Na prática, a resposta limita-se a afirmar que a Permissionária executa ações permanentes de manutenção preventiva, corretiva, limpeza, conservação e inspeção, sem indicar datas, periodicidade, ordens de serviço, relatórios técnicos ou registros das intervenções realizadas.
 
 Na prática, a resposta limita-se a afirmar que a Permissionária executa ações permanentes de manutenção preventiva, corretiva, limpeza, conservação e inspeção, sem indicar datas, periodicidade, ordens de serviço, relatórios técnicos ou registros das intervenções realizadas.
 
@@ -149,6 +147,8 @@ Confira o comparativo entre os questionamentos enviados à Permissionária e a d
 
 </div>
 
+Em outras palavras, embora a Permissionária afirme que realiza manutenção contínua, a documentação encaminhada ao usuário não permite verificar quando, onde, como, com que periodicidade e em quais equipamentos essas atividades foram efetivamente executadas no Ramal Guapimirim
+
 ## Manutenção não se confunde com investimentos
 
 Durante toda a tramitação da manifestação ficou evidente uma distinção importante.
@@ -161,11 +161,9 @@ Essa diferenciação também aparece em documentos técnicos produzidos pelo pr�
 
 ## Publicações sobre manutenções não substituem documentação oficial
 
-Desde o início da operação da TrensRJ, redes sociais e sites especializados divulgaram imagens e notícias sobre intervenções em locomotivas, carros de passageiros e outros equipamentos utilizados nos ramais Guapimirim e Vila Inhomirim.
+Desde o início da operação da TrensRJ, redes sociais e sites especializados divulgaram imagens e notícias sobre intervenções em locomotivas e outros equipamentos utilizados nos ramais Guapimirim e Vila Inhomirim.
 
-Essas publicações demonstram que atividades de manutenção vêm sendo realizadas pela Permissionária, mas nenhuma delas foram de fato confirmdas ou confirmadas pelos usuário de ambos os trechos que desmentem as informações.
-
-Durante a apuração realizada pelo <strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>, foram solicitados formalmente cronogramas, registros das intervenções executadas, periodicidade das manutenções e identificação dos principais serviços realizados especificamente no Ramal Guapimirim.
+Essas publicações indicam que intervenções vêm sendo realizadas pela Permissionária. Entretanto, durante a apuração realizada pelo <strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>, não foram apresentados cronogramas, ordens de serviço, registros técnicos ou outros documentos oficiais capazes de comprovar, de forma individualizada, a execução dessas atividades especificamente no Ramal Guapimirim.
 
 Mesmo após a complementação determinada pela própria AGETRANSP, esses documentos não foram apresentados.
 
@@ -179,16 +177,8 @@ Segundo a resposta encaminhada ao usuário, as informações reunidas durante a 
 
 A Ouvidoria também registrou que a conclusão da manifestação não impede nova avaliação caso surjam fatos supervenientes ou novos elementos técnicos.
 
-O requerimento solicita:
+## Processo passou a tramitar com acesso restrito
 
-- a íntegra da resposta complementar apresentada pela TrensRJ;
-- os documentos que instruíram a conclusão administrativa da manifestação;
-- eventuais pareceres, notas técnicas, manifestações e despachos produzidos pelas áreas competentes da AGETRANSP durante a instrução do processo, caso existentes;
-- a fundamentação legal para a alteração do grau de acesso do processo eletrônico, que deixou de tramitar publicamente e passou à condição de acesso restrito; e
-- a identificação da autoridade responsável pela decisão de restringir o acesso aos autos.
-
-O objetivo é verificar quais documentos efetivamente fundamentaram a conclusão da Agência e quais informações técnicas foram consideradas durante a instrução administrativa da manifestação.
-
-Até a publicação desta reportagem, a AGETRANSP ainda não havia respondido ao pedido de acesso aos autos.
+Até a publicação desta reportagem, a AGETRANSP ainda não havia alterado a restrição do processo, que ainda permanece inacessível. O acesso aos documentos permitirá verificar se a resposta encaminhada ao usuário refletiu integralmente as informações prestadas pela Permissionária durante a instrução do processo e quais fundamentos técnicos subsidiaram a conclusão da AGETRANSP.
 
 O <strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong> continuará acompanhando o caso e divulgará novas informações à medida que os documentos forem disponibilizados pelos órgãos competentes.
