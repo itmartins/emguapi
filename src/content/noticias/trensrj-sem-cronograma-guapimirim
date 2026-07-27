@@ -8,8 +8,7 @@ destaque: true
 tags: ["Ramal Guapimirim", "TrensRJ", "AGETRANSP", "Fiscalização", "Manutenção", "Transporte Ferroviário", "SETRAM"]
 ---
 
-Documentos obtidos **com exclusividade pelo emguapi.com** revelam que a própria Agência Reguladora de Serviços Públicos Concedidos de Transportes do Estado do Rio de Janeiro (AGETRANSP) considerou insuficiente a primeira resposta apresentada pela TrensRJ sobre as ações de manutenção do Ramal Guapimirim e determinou que a Permissionária apresentasse novos esclarecimentos.
-
+Documentos obtidos com exclusividade pelo <strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong> revelam que a própria Agência Reguladora de Serviços Públicos Concedidos de Transportes do Estado do Rio de Janeiro (AGETRANSP) considerou insuficiente a primeira resposta apresentada pela TrensRJ sobre as ações de manutenção do Ramal Guapimirim e determinou que a Permissionária apresentasse novos esclarecimentos.
 Mesmo após a complementação solicitada pela Agência, a resposta encaminhada ao usuário permaneceu sem apresentar cronogramas específicos, registros das intervenções executadas e outras informações detalhadas que haviam sido expressamente solicitadas durante a instrução da manifestação.
 
 A apuração teve início após um pedido formal de informações encaminhado à TrensRJ. Posteriormente, a Ouvidoria da AGETRANSP instaurou o Processo SEI nº SEI-100003/000907/2026 para acompanhar o caso.
@@ -75,17 +74,80 @@ Segundo a AGETRANSP:
 
 Na prática, a resposta limita-se a afirmar que a Permissionária executa ações permanentes de manutenção preventiva, corretiva, limpeza, conservação e inspeção, sem indicar datas, periodicidade, ordens de serviço, relatórios técnicos ou registros das intervenções realizadas.
 
-## O que foi solicitado e o que foi respondido
+Na prática, a resposta limita-se a afirmar que a Permissionária executa ações permanentes de manutenção preventiva, corretiva, limpeza, conservação e inspeção, sem indicar datas, periodicidade, ordens de serviço, relatórios técnicos ou registros das intervenções realizadas.
 
-| Informações solicitadas | Resposta apresentada |
-|-------------------------|----------------------|
-| Cronograma de manutenção do Ramal Guapimirim | Não informado |
-| Cronograma de manutenção das estações | Não informado |
-| Cronograma da limpeza das composições | Não informado |
-| Relação dos serviços executados desde maio de 2026 | Não apresentada |
-| Registros das intervenções realizadas | Não apresentados |
-| Planejamento específico para o ramal | Não informado |
-| Periodicidade das atividades de manutenção | Não detalhada |
+<div class="not-prose bg-navy-dark text-white p-6 md:p-8 rounded-2xl my-8 shadow-xl border border-white/10">
+
+<h3 class="text-white font-black uppercase text-lg mb-2 flex items-center gap-3">
+<span class="w-2 h-6 bg-red-base rounded-sm"></span>
+O que foi solicitado e o que foi respondido
+</h3>
+
+<p class="text-gray-400 text-sm mb-8">
+Confira o comparativo entre os questionamentos enviados à Permissionária e a documentação oficial retornada.
+</p>
+
+<ul class="space-y-5">
+
+<li class="flex gap-4 items-start">
+<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">RAMAL</span>
+<div>
+<h4 class="text-white font-bold text-lg">Cronograma de manutenção</h4>
+<p class="text-gray-300">Não informado</p>
+</div>
+</li>
+
+<li class="flex gap-4 items-start">
+<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">ESTAÇÕES</span>
+<div>
+<h4 class="text-white font-bold text-lg">Cronograma de manutenção</h4>
+<p class="text-gray-300">Não informado</p>
+</div>
+</li>
+
+<li class="flex gap-4 items-start">
+<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">TRENS</span>
+<div>
+<h4 class="text-white font-bold text-lg">Cronograma da limpeza das composições</h4>
+<p class="text-gray-300">Não informado</p>
+</div>
+</li>
+
+<li class="flex gap-4 items-start">
+<span class="bg-white/20 text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">HISTÓRICO</span>
+<div>
+<h4 class="text-white font-bold text-lg">Relação dos serviços executados desde maio de 2026</h4>
+<p class="text-gray-300">Não apresentada</p>
+</div>
+</li>
+
+<li class="flex gap-4 items-start">
+<span class="bg-white/20 text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">REGISTROS</span>
+<div>
+<h4 class="text-white font-bold text-lg">Comprovação das intervenções realizadas</h4>
+<p class="text-gray-300">Não apresentados</p>
+</div>
+</li>
+
+<li class="flex gap-4 items-start">
+<span class="bg-yellow-500 text-black font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">PLANEJAMENTO</span>
+<div>
+<h4 class="text-yellow-400 font-bold text-lg">Ações específicas para o ramal</h4>
+<p class="text-gray-300">Não informado</p>
+</div>
+</li>
+
+<li class="flex gap-4 items-start border-t border-white/10 pt-5">
+<span class="bg-white/20 text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">ROTINA</span>
+<div>
+<h4 class="text-white font-bold text-lg">Periodicidade das atividades de manutenção</h4>
+<p class="text-gray-300">Não detalhada</p>
+</div>
+</li>
+
+</ul>
+
+</div>
 
 ## Manutenção não se confunde com investimentos
 
@@ -116,10 +178,6 @@ Apesar de considerar encerrada a manifestação administrativa, a própria AGETR
 Segundo a resposta encaminhada ao usuário, as informações reunidas durante a instrução do processo passarão a integrar o conjunto de elementos utilizados pela Agência no monitoramento da execução contratual e da prestação dos serviços, podendo subsidiar futuras análises técnicas, fiscalizações e outras medidas regulatórias.
 
 A Ouvidoria também registrou que a conclusão da manifestação não impede nova avaliação caso surjam fatos supervenientes ou novos elementos técnicos.
-
-## Processo passou a tramitar com acesso restrito
-
-Após receber a resposta final da Ouvidoria, o **emguapi.com** protocolou novo pedido de acesso integral ao Processo SEI nº SEI-100003/000907/2026.
 
 O requerimento solicita:
 
