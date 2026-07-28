@@ -13,7 +13,7 @@ A Prefeitura de Guapimirim terá **60 dias** para comprovar ao Tribunal de Conta
 Segundo o Tribunal, parte dos recursos destinados ao **Centro de Diagnóstico por Imagem** e ao **Laboratório/Banco de Sangue da Cidade da Saúde** foi utilizada para custear despesas da construção do **Posto de Saúde de Parada Ideal**. Durante a fiscalização, a Prefeitura reconheceu a inconsistência e informou que faria a recomposição dos valores.
 
 <figure>
-  <img src="/public/fotos/cidade-da-saude-guapimirim.jpeg" alt="Obras da Cidade da Saúde, em Guapimirim">
+  <img src="/fotos/cidade-da-saude-guapimirim.jpeg" alt="Obras da Cidade da Saúde, em Guapimirim">
   <figcaption>A Cidade da Saúde reúne diferentes serviços especializados e é considerada uma das principais obras da rede municipal de saúde de Guapimirim. Foto: Prefeitura de Guapimirim/Divulgação.</figcaption>
 </figure>
 
