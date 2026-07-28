@@ -15,7 +15,7 @@ A informação é verdadeira, mas ela responde apenas parte da discussão.
 Documentos oficiais obtidos pelo **emguapi.com** mostram que investimentos estruturantes e manutenção cotidiana possuem naturezas distintas dentro do contrato e não podem ser tratados como se fossem a mesma obrigação.
 
 <figure>
-  <img src="/fotos/trem-guapimirim-na-estacao-mage-trensrj.jpg" alt="Composição da TrensRJ do Ramal Guapimirim na Estação Magé">
+  <img src="/public/fotos/trem-guapimirim-na-estacao-mage-trensrj.jpg" alt="Composição da TrensRJ do Ramal Guapimirim na Estação Magé">
   <figcaption>O Ramal Guapimirim não integra a lista de Investimentos Críticos prevista no contrato, mas continua sujeito às obrigações permanentes de manutenção da Permissionária.</figcaption>
 </figure>
 
