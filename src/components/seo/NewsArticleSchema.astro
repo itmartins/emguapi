@@ -1,0 +1,51 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  url: string;
+  imageUrl: string;
+  datePublished: string; // Formato ISO: "2026-03-15T08:00:00Z"
+  dateModified?: string;
+  authorName?: string;
+}
+
+const {
+  title,
+  description,
+  url,
+  imageUrl,
+  datePublished,
+  dateModified,
+  authorName = "Redação emguapi"
+} = Astro.props;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": url
+  },
+  "headline": title,
+  "description": description,
+  "image": [imageUrl],
+  "datePublished": datePublished,
+  "dateModified": dateModified || datePublished,
+  "author": {
+    "@type": "Organization",
+    "name": authorName,
+    "url": "https://emguapi.com"
+  },
+  "publisher": {
+    "@type": "NewsMediaOrganization",
+    "name": "emguapi.com",
+    "url": "https://emguapi.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://emguapi.com/logo.png"
+    }
+  }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />

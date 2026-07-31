@@ -1,0 +1,35 @@
+---
+interface Props {
+  name: string;
+  category: string;
+  description: string;
+  phone: string;
+  addressLocality?: string;
+}
+
+const {
+  name,
+  category,
+  description,
+  phone,
+  addressLocality = "Guapimirim"
+} = Astro.props;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": name,
+  "category": category,
+  "description": description,
+  "telephone": phone,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": addressLocality,
+    "addressRegion": "RJ",
+    "addressCountry": "BR"
+  },
+  "priceRange": "$"
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />

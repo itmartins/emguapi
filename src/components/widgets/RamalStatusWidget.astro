@@ -1,0 +1,40 @@
+---
+interface Props {
+  status?: 'normal' | 'delay' | 'stopped';
+  lastUpdated?: string;
+}
+
+const { status = 'normal', lastUpdated = 'Hoje, 07:30' } = Astro.props;
+
+const statusConfig = {
+  normal: {
+    label: 'Operação Normal',
+    bgColor: 'bg-green-100',
+    textColor: 'text-green-800',
+    dotColor: 'bg-green-500',
+  },
+  delay: {
+    label: 'Atrasos no Ramal',
+    bgColor: 'bg-amber-100',
+    textColor: 'text-amber-800',
+    dotColor: 'bg-amber-500',
+  },
+  stopped: {
+    label: 'Circulação Suspensa',
+    bgColor: 'bg-red-100',
+    textColor: 'text-red-800',
+    dotColor: 'bg-red-500',
+  },
+};
+
+const current = statusConfig[status];
+---
+
+<div class={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full ${current.bgColor} text-xs font-semibold ${current.textColor} transition-all shadow-sm`}>
+  <span class="relative flex h-2.5 w-2.5">
+    <span class={`animate-ping absolute inline-flex h-full w-full rounded-full ${current.dotColor} opacity-75`}></span>
+    <span class={`relative inline-flex rounded-full h-2.5 w-2.5 ${current.dotColor}`}></span>
+  </span>
+  <span>Ramal Guapimirim: <strong>{current.label}</strong></span>
+  <span class="text-[10px] opacity-70 border-l border-current pl-2">{lastUpdated}</span>
+</div>
