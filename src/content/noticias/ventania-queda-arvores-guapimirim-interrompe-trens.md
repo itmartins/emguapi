@@ -13,7 +13,7 @@ Fortes rajadas de vento associadas à passagem de uma frente fria provocaram div
 No **Paiol**, uma árvore de grande porte foi arrancada pela raiz e caiu sobre uma via de acesso, destruindo parte de um muro de contenção e bloqueando a passagem próxima a uma pequena ponte. Já no **Boulevard do Centro de Guapimirim**, moradores registraram a força das rajadas de vento, que balançavam árvores e levantavam poeira, evidenciando a intensidade do fenômeno.
 
 <video controls class="w-full rounded-xl my-6">
-  <source src="/public/videos/queda-arvore-paiol.mp4" type="video/mp4">
+  <source src="/videos/queda-arvore-paiol.mp4" type="video/mp4">
   Seu navegador não suporta a reprodução de vídeos.
 </video>
 
@@ -39,7 +39,7 @@ Outro vídeo registrado por moradores mostra a força da ventania no Boulevard d
 As imagens registram árvores balançando intensamente e pessoas procurando abrigo enquanto o vento avançava pela região central do município.
 
 <video controls class="w-full rounded-xl my-6">
-  <source src="/public/videos/ventania-boulevard-centro-guapimirim.mp4" type="video/mp4">
+  <source src="/videos/ventania-boulevard-centro-guapimirim.mp4" type="video/mp4">
   Seu navegador não suporta a reprodução de vídeos.
 </video>
 
@@ -50,7 +50,7 @@ As imagens registram árvores balançando intensamente e pessoas procurando abri
 Ainda no Centro, já na Avenida Dedo de Deus, outro registro mostra a força do vento e da poeira levantada, o que não só dificultou a passagem dos motoristas, ciclistas e pedestre, mas também comprometeu a visibilidade.
 
 <video controls class="w-full rounded-xl my-6">
-  <source src="/public/videos/ventania-avenida-dedo-de-deus.mp4" type="video/mp4">
+  <source src="/videos/ventania-avenida-dedo-de-deus.mp4" type="video/mp4">
   Seu navegador não suporta a reprodução de vídeos.
 </video>
 
