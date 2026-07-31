@@ -58,22 +58,7 @@ const pontosTuristicos = await getCollection('turismo');
         </div>
 
         {/* PUBLICIDADE HORIZONTAL */}
-        <div class="mt-16 pt-12 border-t border-gray-200 flex flex-col items-center">
-            <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-4">Publicidade</span>
-            
-            <div class="w-full h-48 md:h-32 bg-[#000066] dark:bg-black rounded-lg flex items-center justify-center group cursor-pointer border border-transparent hover:border-red-base/50 transition-all overflow-hidden relative shadow-sm">
-                
-                <img src="/banners/seu-anuncio.webp" 
-                     class="w-full h-full object-contain transition-opacity duration-300 opacity-90 group-hover:opacity-100" 
-                     alt="Anúncio Giga Mais"
-                     loading="lazy"
-                     decoding="async"
-                />
-                
-                <!-- Banner Dinâmico do Google Ads -->
+        <!-- Banner Dinâmico do Google Ads -->
                 <AdBannerContainer slotId="1504537360" format="horizontal" />
-            </div>
-        </div>
-        
     </main>
 </Layout>
