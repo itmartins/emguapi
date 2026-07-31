@@ -6,6 +6,15 @@ import Navbar from '../components/Navbar.astro';
 import DestaquePrincipal from '../components/DestaquePrincipal.astro';
 import NoticiaCard from '../components/NoticiaCard.astro';
 import VozComunidade from '../components/VozComunidade.astro';
+// AdBannerContainer may be missing in some environments; import dynamically with fallback
+let AdBannerContainer = null;
+try {
+    // use a dynamic template literal to avoid static type/module resolution errors
+    const mod = await import(`../components/${'AdBannerContainer.astro'}`);
+    AdBannerContainer = mod.default ?? null;
+} catch (e) {
+    // fallback: leave AdBannerContainer as null
+}
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -328,12 +337,12 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
             )}
         </section>
 
-        <div class="mb-4 pt-8 border-t border-gray-100 flex flex-col items-center">
+        <div class="mb-4 pt-8 border-t border-gray-100 flex flex-col items-center w-full">
             <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3">Publicidade</span>
-            <div class="w-full h-48 md:h-32 bg-[#000066] dark:bg-black rounded-sm flex items-center justify-center group cursor-pointer border border-transparent hover:border-gray-200 transition-all overflow-hidden relative">
-                <img src="/banners/seu-anuncio.webp" loading="lazy" decoding="async" class="w-full h-full object-contain transition-opacity duration-300 opacity-90 group-hover:opacity-100" alt="Anúncio Giga Mais" />
-                <a href="https://www.gigamaisfibra.com.br/" target="_blank" rel="noopener noreferrer sponsored" class="absolute inset-0 z-10"><span class="sr-only">Visitar site</span></a>
-            </div>
+            
+            <!-- Banner Dinâmico do Google Ads -->
+            <AdBannerContainer slotId="1504537360" format="horizontal" />
+            
         </div>
         
     </main>
