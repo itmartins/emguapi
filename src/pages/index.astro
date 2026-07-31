@@ -6,15 +6,9 @@ import Navbar from '../components/Navbar.astro';
 import DestaquePrincipal from '../components/DestaquePrincipal.astro';
 import NoticiaCard from '../components/NoticiaCard.astro';
 import VozComunidade from '../components/VozComunidade.astro';
-// AdBannerContainer may be missing in some environments; import dynamically with fallback
-let AdBannerContainer = null;
-try {
-    // use a dynamic template literal to avoid static type/module resolution errors
-    const mod = await import(`../components/${'AdBannerContainer.astro'}`);
-    AdBannerContainer = mod.default ?? null;
-} catch (e) {
-    // fallback: leave AdBannerContainer as null
-}
+
+// A IMPORTAÇÃO CORRETA E SIMPLES DO BANNER ESTÁ AQUI:
+import AdBannerContainer from '../components/ads/AdBannerContainer.astro';
 
 import fs from 'node:fs';
 import path from 'node:path';

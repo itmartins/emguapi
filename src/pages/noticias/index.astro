@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import NoticiaCard from '../../components/NoticiaCard.astro';
+import AdBannerContainer from '../../components/ads/AdBannerContainer.astro';
 
 // Busca e ordena as notícias por data (mais recente primeiro)
 const todasNoticias = (await getCollection('noticias')).sort(

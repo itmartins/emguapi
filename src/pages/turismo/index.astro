@@ -3,6 +3,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
+import AdBannerContainer from '../../components/ads/AdBannerContainer.astro';
 
 const pontosTuristicos = await getCollection('turismo');
 ---
@@ -69,14 +70,8 @@ const pontosTuristicos = await getCollection('turismo');
                      decoding="async"
                 />
                 
-                <a href="https://www.gigamaisfibra.com.br/" 
-                   target="_blank"
-                   rel="noopener noreferrer sponsored"
-                   aria-label="Publicidade: Giga Mais Fibra"
-                   data-ad="true"
-                   class="absolute inset-0 z-10">
-                   <span class="sr-only">Visitar site do anunciante</span>
-                </a>
+                <!-- Banner Dinâmico do Google Ads -->
+                <AdBannerContainer slotId="1504537360" format="horizontal" />
             </div>
         </div>
         
