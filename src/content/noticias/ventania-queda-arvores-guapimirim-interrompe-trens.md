@@ -50,7 +50,7 @@ As imagens registram árvores balançando intensamente e pessoas procurando abri
 Ainda no Centro, já na Avenida Dedo de Deus, outro registro mostra a força do vento e da poeira levantada, o que não só dificultou a passagem dos motoristas, ciclistas e pedestre, mas também comprometeu a visibilidade.
 
 <video controls class="w-full rounded-xl my-6">
-  <source src="/videos/ventania-avenida-dedo-de-deus.mp4" type="video/mp4">
+  <source src="/videos/ventania-avenida-dedo-de-deus.mov" type="video/mov">
   Seu navegador não suporta a reprodução de vídeos.
 </video>
 
