@@ -5,6 +5,10 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import NoticiaCard from '../../components/NoticiaCard.astro'; 
 
+// --- NOVOS COMPONENTES IMPORTADOS ---
+import NewsArticleSchema from '../../components/seo/NewsArticleSchema.astro';
+import AdBannerContainer from '../../components/ads/AdBannerContainer.astro';
+
 export async function getStaticPaths() {
   const noticiaEntries = await getCollection('noticias');
   return noticiaEntries.map(entry => ({
@@ -40,6 +44,7 @@ const dataFormatada = new Date(entry.data.data).toLocaleDateString('pt-BR', {
 
 const shareUrl = `https://emguapi.com/noticias/${entry.id.replace(/\.md$/, '')}`;
 const shareText = encodeURIComponent(entry.data.titulo);
+const datePublished = new Date(entry.data.data).toISOString();
 ---
 
 <Layout 
@@ -48,6 +53,15 @@ const shareText = encodeURIComponent(entry.data.titulo);
     image={entry.data.imagem}
     tags={entry.data.tags}
 >
+    <!-- Schema do Google News -->
+    <NewsArticleSchema
+        title={entry.data.titulo}
+        description={entry.data.resumo}
+        url={Astro.url.href}
+        imageUrl={entry.data.imagem || "/fotos/estacao-guapi.jpg"}
+        datePublished={datePublished}
+    />
+
     <Navbar />
     
     {/* CONTAINER PRINCIPAL: Mudado para rounded-lg e border-gray-200 */}
@@ -55,10 +69,13 @@ const shareText = encodeURIComponent(entry.data.titulo);
         
         {/* HEADER DA NOTÍCIA */}
         <header class="relative h-[400px] md:h-[500px]">
+            <!-- Imagem de Capa com carregamento prioritário (Melhora LCP no celular) -->
             <img 
                 src={entry.data.imagem || "/fotos/estacao-guapi.jpg"} 
                 class="w-full h-full object-cover" 
-                alt={entry.data.titulo} 
+                alt={entry.data.titulo}
+                loading="eager"
+                fetchpriority="high"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-[#000033]/95 via-[#000033]/20 to-transparent"></div>
             <div class="absolute bottom-10 left-8 right-8 md:left-12 md:right-12">
@@ -93,6 +110,11 @@ const shareText = encodeURIComponent(entry.data.titulo);
                         Facebook
                     </a>
                 </div>
+            </div>
+
+            <!-- Anúncio no topo da notícia -->
+            <div class="mb-8 flex justify-center">
+                <AdBannerContainer slotId="0987654321" format="rectangle" />
             </div>
 
             {/* CONTEÚDO DA MATÉRIA */}

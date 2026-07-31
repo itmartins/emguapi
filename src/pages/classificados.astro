@@ -3,6 +3,10 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro'; 
 
+// --- NOVOS COMPONENTES IMPORTADOS ---
+import FastClassificadoCTA from '../components/widgets/FastClassificadoCTA.astro';
+import LocalBusinessSchema from '../components/seo/LocalBusinessSchema.astro';
+
 // A magia acontece aqui: O Astro importa o JSON automaticamente como um Array!
 import comercios from '../data/comercios.json';
 
@@ -12,6 +16,9 @@ const categorias = ["Todos", "Alimentação", "Serviços", "Estética", "Imóvei
 
 <Layout title="Classificados e Guia Comercial - emguapi.com">
   <Navbar /> 
+
+  <!-- Chamada para novos comerciantes cadastram no WhatsApp -->
+  <FastClassificadoCTA />
 
   <main class="max-w-6xl mx-auto px-6 py-12 md:py-20">
     
@@ -42,6 +49,14 @@ const categorias = ["Todos", "Alimentação", "Serviços", "Estética", "Imóvei
           data-categoria={comercio.categoria}
           data-destaque={comercio.destaque.toString()}
         >
+          <!-- Schema do Google Local Business embutido em cada anúncio -->
+          <LocalBusinessSchema
+            name={comercio.nome}
+            category={comercio.categoria}
+            description={comercio.descricao}
+            phone={comercio.telefone}
+          />
+
           <div class="flex justify-between items-start mb-5 pb-4 border-b border-gray-100">
             <span class="bg-navy-base text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-sm shadow-sm">
               {comercio.categoria}

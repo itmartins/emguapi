@@ -7,7 +7,7 @@ import Analytics from '@vercel/analytics/astro'
 
 // 1. IMPORTAR OS COMPONENTES
 import Footer from '../components/Footer.astro'; 
-import CookieConsent from '../components/CookieConsent.astro'; // Adicionado aqui
+import CookieConsent from '../components/CookieConsent.astro'; 
 
 interface Props {
     title: string;
@@ -31,6 +31,7 @@ const imageURL = new URL(image, siteURL).href;
 <!doctype html>
 <html lang="pt-br">
     <head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2720240238972537" crossorigin="anonymous"></script>
         <meta property="fb:app_id" content="1506785261006656" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />

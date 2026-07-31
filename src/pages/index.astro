@@ -10,42 +10,47 @@ import VozComunidade from '../components/VozComunidade.astro';
 import fs from 'node:fs';
 import path from 'node:path';
 
-// --- LÓGICA DO TEMPO NA HOME (API Open-Meteo) ---
-let tempoHome = { temp: "--", icone: "☁️", condicao: "Carregando..." };
+// --- LÓGICA DO TEMPO NA HOME (API Open-Meteo Corrigida) ---
+let tempoHome = { temp: "--", icone: "☁️", condicao: "Indisponível" };
 try {
-    const urlTempo = "https://api.open-meteo.com/v1/forecast?latitude=-22.5364&longitude=-42.9844&current=temperature_2m,weather_code&timezone=America%2FSao_Paulo";
+    // Usando a rota mais estável da API (current_weather=true)
+    const urlTempo = "https://api.open-meteo.com/v1/forecast?latitude=-22.5364&longitude=-42.9844&current_weather=true&timezone=America%2FSao_Paulo";
     const respostaTempo = await fetch(urlTempo);
-    const dadosTempo = await respostaTempo.json();
     
-    const codigosClima: Record<number, { icone: string, condicao: string }> = {
-        0: { icone: "☀️", condicao: "Céu Limpo" },
-        1: { icone: "🌤️", condicao: "Quase Limpo" },
-        2: { icone: "⛅", condicao: "Parc. Nublado" },
-        3: { icone: "☁️", condicao: "Nublado" },
-        45: { icone: "🌫️", condicao: "Neblina" },
-        48: { icone: "🌫️", condicao: "Névoa" },
-        51: { icone: "🌧️", condicao: "Chuvisco" },
-        53: { icone: "🌧️", condicao: "Chuva Leve" },
-        55: { icone: "🌧️", condicao: "Chuva" },
-        61: { icone: "🌧️", condicao: "Chuva Leve" },
-        63: { icone: "🌧️", condicao: "Chuva Moderada" },
-        65: { icone: "⛈️", condicao: "Chuva Forte" },
-        71: { icone: "❄️", condicao: "Frio" },
-        80: { icone: "🌦️", condicao: "Pancadas" },
-        81: { icone: "⛈️", condicao: "Tempestade" },
-        82: { icone: "⛈️", condicao: "Tempestade" },
-        95: { icone: "🌩️", condicao: "Trovoada" },
-        96: { icone: "⛈️", condicao: "Granizo" },
-        99: { icone: "⛈️", condicao: "Granizo" }
-    };
-    
-    const climaAtual = codigosClima[dadosTempo.current.weather_code] || { icone: "☁️", condicao: "Variável" };
-    
-    tempoHome = {
-        temp: Math.round(dadosTempo.current.temperature_2m).toString(),
-        icone: climaAtual.icone,
-        condicao: climaAtual.condicao
-    };
+    if (respostaTempo.ok) {
+        const dadosTempo = await respostaTempo.json();
+        
+        const codigosClima: Record<number, { icone: string, condicao: string }> = {
+            0: { icone: "☀️", condicao: "Céu Limpo" },
+            1: { icone: "🌤️", condicao: "Quase Limpo" },
+            2: { icone: "⛅", condicao: "Parc. Nublado" },
+            3: { icone: "☁️", condicao: "Nublado" },
+            45: { icone: "🌫️", condicao: "Neblina" },
+            48: { icone: "🌫️", condicao: "Névoa" },
+            51: { icone: "🌧️", condicao: "Chuvisco" },
+            53: { icone: "🌧️", condicao: "Chuva Leve" },
+            55: { icone: "🌧️", condicao: "Chuva" },
+            61: { icone: "🌧️", condicao: "Chuva Leve" },
+            63: { icone: "🌧️", condicao: "Chuva Moderada" },
+            65: { icone: "⛈️", condicao: "Chuva Forte" },
+            71: { icone: "❄️", condicao: "Frio" },
+            80: { icone: "🌦️", condicao: "Pancadas" },
+            81: { icone: "⛈️", condicao: "Tempestade" },
+            82: { icone: "⛈️", condicao: "Tempestade" },
+            95: { icone: "🌩️", condicao: "Trovoada" },
+            96: { icone: "⛈️", condicao: "Granizo" },
+            99: { icone: "⛈️", condicao: "Granizo" }
+        };
+        
+        const weatherCode = dadosTempo.current_weather.weathercode;
+        const climaAtual = codigosClima[weatherCode] || { icone: "☁️", condicao: "Variável" };
+        
+        tempoHome = {
+            temp: Math.round(dadosTempo.current_weather.temperature).toString(),
+            icone: climaAtual.icone,
+            condicao: climaAtual.condicao
+        };
+    }
 } catch (e) {
     console.error("Erro ao carregar clima na home:", e);
 }
@@ -390,7 +395,7 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
         if (index !== currentIndex && index < dots.length) { updateDots(index); currentIndex = index; }
     });
 
-    // --- SISTEMA DE ATUALIZAÇÃO AO VIVO DO COMBOIO ---
+    // --- SISTEMA DE ATUALIZAÇÃO AO VIVO DO TREM ---
     function atualizarStatusTrem() {
         // O parâmetro '?v=' evita que o navegador memorize a versão antiga do ficheiro
         fetch('/api/trem.json?v=' + new Date().getTime())
