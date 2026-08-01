@@ -74,7 +74,7 @@ O mau tempo provocou ocorrências em Guapimirim e afetou a mobilidade em diferen
 <ul class="space-y-5">
 
 <li class="flex gap-4 items-start">
-<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">BAIXOS DO PAIOL</span>
+<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">PAIOL</span>
 <div>
 <h4 class="text-white font-bold text-lg">Queda de árvore</h4>
 <p class="text-gray-300">Uma árvore de grande porte caiu sobre a via, destruiu parte de um muro de contenção e bloqueou o acesso próximo à ponte.</p>
