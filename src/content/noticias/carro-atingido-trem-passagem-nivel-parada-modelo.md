@@ -3,7 +3,7 @@ titulo: "Carro é atingido por trem após invadir passagem de nível na Parada M
 resumo: "Acidente ocorreu na manhã desta quarta-feira (29) na passagem de nível da Parada Modelo. Ninguém ficou ferido, mas a circulação do Ramal Guapimirim precisou ser temporariamente interrompida."
 data: "2026-07-29T10:00:00"
 categoria: "Transportes"
-imagem: "/fotos/acidente-trem-parada-modelo-1.jpg"
+imagem: "/fotos/acidente-trem-parada-modelo-2.jpg"
 destaque: true
 tags: ["Guapimirim", "Parada Modelo", "TrensRJ", "Acidente", "Ramal Guapimirim", "Passagem de Nível", "Mobilidade"]
 ---
