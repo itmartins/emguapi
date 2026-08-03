@@ -3,7 +3,7 @@ titulo: "Coleta seletiva em Guapimirim: veja como separar o lixo corretamente e 
 resumo: "Separar corretamente resíduos recicláveis e orgânicos ajuda a preservar o meio ambiente e fortalece a reciclagem no município. Confira o calendário da coleta seletiva em Guapimirim."
 data: "2026-08-03T11:30:00"
 categoria: "Meio Ambiente"
-imagem: "/public/fotos/coleta-seletiva-guapimirim.jpg"
+imagem: "/fotos/coleta-seletiva-guapimirim.jpg"
 destaque: true
 tags: ["Coleta Seletiva", "Recicla Guapi", "Meio Ambiente", "Reciclagem", "Guapimirim", "Sustentabilidade"]
 ---
