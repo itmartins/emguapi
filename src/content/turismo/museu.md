@@ -18,4 +18,4 @@ O casarão do século XIX, maravilhosamente preservado no meio da Mata Atlântic
 
 ### O Roteiro Visite Guapi
 
-O portal **Guapimirim Online** recomenda combinar a visita ao museu com um piquenique nos relvados em redor e um mergulho no Poço Verde, que fica a poucos metros de distância. O museu conta com exposições permanentes, painéis interativos e artefactos que contam a história do parque e das comunidades locais, tornando-se num passeio educativo e inesquecível para todas as idades.
+O portal [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) recomenda combinar a visita ao museu com um piquenique nos relvados em redor e um mergulho no Poço Verde, que fica a poucos metros de distância. O museu conta com exposições permanentes, painéis interativos e artefactos que contam a história do parque e das comunidades locais, tornando-se num passeio educativo e inesquecível para todas as idades.

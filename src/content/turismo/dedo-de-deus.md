@@ -18,4 +18,4 @@ Para os turistas e moradores que buscam o roteiro clássico do **Visite Guapi**,
 * **Dentro da cidade:** A silhueta pode ser vista de vários bairros de Guapimirim e de dentro da sede do Parnaso.
 * **Nas rodovias:** O trajeto pela BR-116 (Rio-Teresópolis) oferece ângulos espetaculares durante a subida da serra.
 
-Se você está montando o seu roteiro no **Guapimirim Online**, a dica de ouro do [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) é: os melhores horários para observar e fotografar o Dedo de Deus sem a tradicional nebulosidade da serra costumam ser no início da manhã, especialmente durante as estações de outono e inverno, quando o céu fica incrivelmente azul e limpo.
+Se você está montando o seu roteiro, a dica de ouro do [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) é: os melhores horários para observar e fotografar o Dedo de Deus sem a tradicional nebulosidade da serra costumam ser no início da manhã, especialmente durante as estações de outono e inverno, quando o céu fica incrivelmente azul e limpo.

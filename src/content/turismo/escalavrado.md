@@ -16,4 +16,4 @@ O início da trilha faz-se às margens da Rodovia BR-116. A subida é incrivelme
 
 Ao atingir o cume, o aventureiro é recompensado com uma perspetiva privilegiada sobre o Dedo de Deus, o Garrafão e todo o vale que abraça a cidade de Guapimirim.
 
-> **Alerta de Segurança do Guapimirim Online:** A ascensão ao Escalavrado nunca deve ser feita em dias de chuva ou com previsão de mau tempo, pois a rocha húmida torna-se extremamente escorregadia e perigosa. O [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) recomenda vivamente a contratação de guias locais certificados para realizar este trajeto com total segurança.
+> **Alerta de Segurança do [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com):** A ascensão ao Escalavrado nunca deve ser feita em dias de chuva ou com previsão de mau tempo, pois a rocha húmida torna-se extremamente escorregadia e perigosa. O [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) recomenda vivamente a contratação de guias locais certificados para realizar este trajeto com total segurança.

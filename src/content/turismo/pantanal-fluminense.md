@@ -12,7 +12,7 @@ Considerado um verdadeiro santuário ecológico, este é o último grande mangue
 
 ## Uma experiência imersiva
 
-Para quem pesquisa o que fazer na região através do **Guapimirim Online**, o passeio de barco pelo Pantanal Fluminense é obrigatório. Conduzido por barqueiros e guias locais experientes, o trajeto pelos rios e canais sinuosos do manguezal permite:
+Para quem pesquisa o que fazer na região através do [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com), o passeio de barco pelo Pantanal Fluminense é obrigatório. Conduzido por barqueiros e guias locais experientes, o trajeto pelos rios e canais sinuosos do manguezal permite:
 
 * **Observação de Aves (Birdwatching):** O ecossistema é o lar e área de descanso para dezenas de espécies de aves raras e migratórias.
 * **Encontro com a Vida Marinha:** Com sorte e paciência, os turistas frequentemente são brindados com a aparição de caranguejos, peixes diversos e os amigáveis **botos-cinza**, que nadam livres pelas águas protegidas da APA.

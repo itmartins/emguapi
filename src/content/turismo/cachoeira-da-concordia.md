@@ -10,7 +10,7 @@ Escondida no interior do bairro que leva seu nome, a **Cachoeira da Concórdia**
 
 A cachoeira é famosa por suas águas cristalinas que ganham um tom **verde-esmeralda** impressionante quando o sol bate diretamente no poço principal. 
 
-> **Dica do Guapimirim Online:** O fenômeno da cor esmeralda geralmente acontece entre **10h e 11h da manhã**, quando a incidência de luz natural é perfeita. Planeje sua chegada para este horário e garanta as melhores fotos!
+> **Dica do [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com)** O fenômeno da cor esmeralda geralmente acontece entre **10h e 11h da manhã**, quando a incidência de luz natural é perfeita. Planeje sua chegada para este horário e garanta as melhores fotos!
 
 ## Como Chegar e Estrutura
 

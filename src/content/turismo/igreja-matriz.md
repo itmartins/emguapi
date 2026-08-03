@@ -14,4 +14,4 @@ Considerada um dos trunfos do turismo cultural do **Visite Guapi**, a capela ori
 
 Além da sua evidente importância para a comunidade católica, que celebra anualmente as tradicionais festas da padroeira mobilizando toda a região, a Igreja Matriz é um oásis de tranquilidade. A praça arborizada que a rodeia é perfeita para momentos de reflexão ou para uma caminhada serena num final de tarde.
 
-Para quem pesquisa no **Guapimirim Online** locais que combinem paz, história e beleza arquitetónica, a visita à Matriz é um regresso no tempo. O ambiente bucólico do Vale das Pedrinhas, aliado aos sinos que ainda ecoam pelo bairro, torna este ponto turístico numa visita fundamental para quem deseja conhecer a verdadeira essência acolhedora do município.
+Para quem pesquisa no [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) locais que combinem paz, história e beleza arquitetónica, a visita à Matriz é um regresso no tempo. O ambiente bucólico do Vale das Pedrinhas, aliado aos sinos que ainda ecoam pelo bairro, torna este ponto turístico numa visita fundamental para quem deseja conhecer a verdadeira essência acolhedora do município.

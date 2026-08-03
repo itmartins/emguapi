@@ -6,7 +6,7 @@ localizacao: "Jardim Anápolis, Guapimirim"
 dificuldade: "Lazer / Profissional"
 ---
 
-Se a sua busca no **Guapimirim Online** é por velocidade e adrenalina, o **Kartódromo Internacional de Guapimirim** é o seu destino definitivo. Diferente dos roteiros ecológicos tradicionais, este espaço oferece uma experiência intensa e esportiva de altíssimo nível.
+Se a sua busca no [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) é por velocidade e adrenalina, o **Kartódromo Internacional de Guapimirim** é o seu destino definitivo. Diferente dos roteiros ecológicos tradicionais, este espaço oferece uma experiência intensa e esportiva de altíssimo nível.
 
 Localizado estrategicamente no bairro Jardim Anápolis, o circuito é famoso no estado por sua pista técnica, veloz e desafiadora. Ele é homologado e estruturado para receber tanto os pilotos profissionais em competições oficiais de alto rendimento, quanto grupos de amigos e famílias em busca de diversão no final de semana.
 
