@@ -74,7 +74,7 @@ O mau tempo provocou ocorrências em Guapimirim e afetou a mobilidade em diferen
 <ul class="space-y-5">
 
 <li class="flex gap-4 items-start">
-<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">BAIXOS DO PAIOL</span>
+<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">PAIOL</span>
 <div>
 <h4 class="text-white font-bold text-lg">Queda de árvore</h4>
 <p class="text-gray-300">Uma árvore de grande porte caiu sobre a via, destruiu parte de um muro de contenção e bloqueou o acesso próximo à ponte.</p>
@@ -125,4 +125,8 @@ Em caso de queda de árvores, deslizamentos, rachaduras em imóveis ou outras si
 
 As equipes continuam atuando para remover árvores, desobstruir vias e restabelecer a normalidade dos serviços afetados.
 
+<<<<<<< HEAD
 O [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) acompanha os impactos provocados pela ventania em Guapimirim e atualizará esta reportagem caso novos boletins sejam divulgados pelas autoridades.
+=======
+O **emguapi.com** acompanha os impactos provocados pela ventania em Guapimirim e atualizará esta reportagem caso novos boletins sejam divulgados pelas autoridades.
+>>>>>>> 0e3f1ca5d2dacfc223f426512f2dc65b730f8bb3
