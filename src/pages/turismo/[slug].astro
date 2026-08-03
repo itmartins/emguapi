@@ -47,22 +47,73 @@ const { Content } = await entry.render();
 
         <div class="p-8 md:p-12 grid md:grid-cols-3 gap-12">
             
+            {/* SIDEBAR COM INFORMAÇÕES RÁPIDAS E DICAS */}
             <aside class="space-y-6 md:sticky md:top-8 h-fit">
+                
                 <div class="bg-gray-50 p-6 rounded-md border-l-4 border-red-base shadow-sm border border-gray-100">
                     <span class="text-[10px] font-black text-navy-soft uppercase block mb-1 tracking-widest">Nível de Dificuldade</span>
                     <p class="font-black text-navy-dark uppercase text-lg">{entry.data.dificuldade || "Acesso Livre"}</p>
                 </div>
                 
+                {/* LOCALIZAÇÃO COM MAPA PEQUENO EMBUTIDO */}
                 <div class="bg-gray-50 p-6 rounded-md border-l-4 border-navy-base shadow-sm border border-gray-100">
-                    <span class="text-[10px] font-black text-navy-soft uppercase block mb-1 tracking-widest">Localização</span>
-                    <p class="font-bold text-navy-dark text-sm leading-tight">{entry.data.localizacao}</p>
+                    <span class="text-[10px] font-black text-navy-soft uppercase block mb-2 tracking-widest">Localização</span>
+                    <p class="font-bold text-navy-dark text-sm leading-tight mb-4">{entry.data.localizacao}</p>
+                    
+                    <div class="w-full h-32 md:h-40 rounded-sm overflow-hidden mb-3 border border-gray-200">
+                        <iframe 
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0" 
+                            scrolling="no" 
+                            marginheight="0" 
+                            marginwidth="0" 
+                            src={`https://maps.google.com/maps?q=${encodeURIComponent(entry.data.localizacao + " Guapimirim")}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(entry.data.localizacao + " Guapimirim")}`} target="_blank" class="block w-full py-3 rounded-sm bg-navy-base text-white text-center font-black uppercase text-[10px] tracking-[0.2em] hover:bg-navy-dark transition-all shadow-sm active:scale-95">
+                        Abrir no App
+                    </a>
                 </div>
 
-                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(entry.data.localizacao + " Guapimirim")}`} target="_blank" class="block w-full py-4 rounded-sm bg-navy-base text-white text-center font-black uppercase text-[10px] tracking-[0.2em] hover:bg-navy-dark transition-all shadow-md active:scale-95">
-                    Ver no Mapa
-                </a>
+                {/* BLOCO: DICA DO GUAPI */}
+                <div class="bg-blue-50 p-6 rounded-md border-l-4 border-blue-500 shadow-sm border border-blue-100">
+                    <span class="text-[10px] font-black text-blue-900 uppercase block mb-2 tracking-widest flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Dica do Guapi
+                    </span>
+                    <p class="text-sm text-blue-800 leading-relaxed italic font-medium">
+                        {(entry.data as { dica?: string }).dica || "Chegue cedo, preferencialmente antes das 9h, para aproveitar o local com mais tranquilidade e garantir as melhores fotos."}
+                    </p>
+                </div>
+
+                {/* BLOCO: CHECKLIST */}
+                <div class="bg-gray-50 p-6 rounded-md border border-gray-100 shadow-sm">
+                    <span class="text-[10px] font-black text-navy-dark uppercase block mb-4 tracking-widest">O que levar na mochila</span>
+                    <ul class="text-xs text-gray-600 space-y-3 font-medium">
+                        <li class="flex items-center gap-3">
+                            <span class="text-lg">💧</span> Água e lanches leves
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-lg">👟</span> Tênis confortável/antiderrapante
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-lg">🦟</span> Repelente e protetor solar
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-lg">🗑️</span> Sacola para trazer seu lixo
+                        </li>
+                    </ul>
+                </div>
+
             </aside>
 
+            {/* CONTEÚDO PRINCIPAL (MARKDOWN) */}
             <div class="md:col-span-2">
                 <div class="
                     prose prose-lg max-w-none text-gray-700 leading-relaxed
