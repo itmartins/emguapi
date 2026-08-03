@@ -14,7 +14,7 @@ O grande destaque do local fica por conta do circuito de águas cristalinas, que
 
 ## O Roteiro Perfeito no Visite Guapi
 
-Para quem está buscando exatamente o que fazer na cidade através do **Guapimirim Online**, a sede do PARNASO é a parada obrigatória número um. 
+Para quem está buscando exatamente o que fazer na cidade através do [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com), a sede do PARNASO é a parada obrigatória número um. 
 
 * **Para paz absoluta:** O [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) recomenda a visitação durante os dias de semana, quando o parque fica quase exclusivo para você.
 * **Finais de semana:** Chegue cedo (logo na abertura dos portões) para garantir as melhores mesas na área de piquenique e aproveitar as águas do Poço Verde antes do pico de movimento.
