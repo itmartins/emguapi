@@ -103,9 +103,3 @@ Além dos danos ao veículo envolvido, ocorrências em passagens de nível costu
 O episódio também reforça a importância da conscientização de motoristas e pedestres sobre os riscos existentes nos cruzamentos ferroviários, especialmente em um ramal utilizado diariamente por moradores de Guapimirim, Magé e da Região Metropolitana do Rio de Janeiro.
 
 O [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) continuará acompanhando os desdobramentos relacionados ao Ramal Guapimirim e atualizará esta reportagem caso novas informações sejam divulgadas pela concessionária ou pelas autoridades.
-
-> **Leia também:** [Ventania derruba árvores em Guapimirim, afeta mobilidade e interrompe circulação de trens no estado](/noticias/ventania-queda-arvores-guapimirim-interrompe-trens)
-
-> **Leia também:** [Após cobrança da AGETRANSP, TrensRJ continua sem apresentar cronogramas detalhados de manutenção do Ramal Guapimirim](/noticias/agetransp-trensrj-manutencao)
-
-> **Leia também:** [Quem autorizou? Poda radical na Parada Modelo segue sem respostas oficiais](/noticias/quem-autorizou-poda-radical-parada-modelo)
