@@ -38,4 +38,4 @@ Para os moradores de Guapimirim, Magé e região, essas interrupções não são
 
 Com a suspensão dos trens aos sábados à tarde e domingos inteiros em março, trabalhadores, estudantes e famílias perdem sua principal e mais barata opção de transporte. A população é obrigada a recorrer aos ônibus intermunicipais, que além de representarem um custo significativamente maior no orçamento familiar, sofrem com o trânsito pesado nas rodovias da região.
 
-O **emguapi.com** continuará acompanhando a situação e cobrando para que essas "manutenções" resultem, de fato, em melhorias palpáveis para a população que depende do serviço diariamente.
+O [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) continuará acompanhando a situação e cobrando para que essas "manutenções" resultem, de fato, em melhorias palpáveis para a população que depende do serviço diariamente.

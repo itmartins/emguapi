@@ -32,4 +32,4 @@ Com a decisão liminar da Justiça, todo o cronograma da eleição do CMDM está
 
 A expectativa é que um novo processo eleitoral seja convocado do zero nas próximas semanas, dessa vez respeitando rigorosamente a lei, com ampla divulgação nos meios de comunicação locais e prazos justos para que todas as lideranças femininas da cidade possam se candidatar.
 
-O portal **emguapi.com** seguirá acompanhando os desdobramentos desta decisão e divulgará o novo calendário assim que o processo for retomado com transparência.
+O portal [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) seguirá acompanhando os desdobramentos desta decisão e divulgará o novo calendário assim que o processo for retomado com transparência.

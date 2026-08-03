@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import NoticiaCard from '../../components/NoticiaCard.astro';
+import AdBannerContainer from '../../components/ads/AdBannerContainer.astro';
 
 // Busca todas as notícias, ordena da mais recente para a mais antiga e pega as 3 primeiras
 const ultimasNoticias = (await getCollection('noticias'))
@@ -69,6 +70,15 @@ const ultimasNoticias = (await getCollection('noticias'))
             </div>
         ))}
       </div>
+    </div>
+
+    {/* PUBLICIDADE HORIZONTAL */}
+    <div class="mt-16 pt-12 border-t border-gray-100 flex flex-col items-center w-full">
+        <span class="text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
+        
+        <!-- Banner Dinâmico do Google Ads -->
+        <AdBannerContainer slotId="1504537360" format="horizontal" />
+        
     </div>
 
   </main>

@@ -2,6 +2,7 @@
 // src/pages/ao-vivo.astro
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import AdBannerContainer from '../components/ads/AdBannerContainer.astro';
 import { getCollection } from 'astro:content';
 
 const noticias = await getCollection('noticias');
@@ -107,6 +108,16 @@ const ultimasAtualizacoes = atualizacoes.slice(0, 15);
             )}
 
         </div>
+
+        {/* PUBLICIDADE HORIZONTAL */}
+        <div class="mt-8 pt-12 border-t border-gray-100 flex flex-col items-center w-full">
+            <span class="text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
+            
+            <!-- Banner Dinâmico do Google Ads -->
+            <AdBannerContainer slotId="1504537360" format="horizontal" />
+            
+        </div>
+
     </main>
 </Layout>
 

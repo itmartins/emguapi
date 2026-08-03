@@ -31,7 +31,7 @@ Os responsáveis pelos registos (os empregadores) já estão a receber notifica�
 
 ### O que o trabalhador deve fazer imediatamente?
 
-O **emguapi.com** recomenda que todos os trabalhadores de Guapimirim que dependem do BUI contactem o departamento de Recursos Humanos (RH) das suas empresas hoje mesmo, para confirmar se a sua declaração de rendimentos está regularizada. 
+O [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) recomenda que todos os trabalhadores de Guapimirim que dependem do BUI contactem o departamento de Recursos Humanos (RH) das suas empresas hoje mesmo, para confirmar se a sua declaração de rendimentos está regularizada. 
 
 Para resolver a pendência, os empregadores devem:
 1. Aceder ao sistema online do Bilhete Único Intermunicipal (com o login e senha habituais);

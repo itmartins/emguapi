@@ -26,7 +26,7 @@ O fechamento da RJ-122, com pneus e barricadas na manhã da quinta-feira (2), fo
 
 ### Radares Tapados: "Atenção na Região"
 
-Em um ato contínuo de manifestação e revolta contra o sistema, moradores cobriram os radares de velocidade da rodovia com sacos de lixo pretos. Nas redes sociais e em grupos do portal **emguapi.com**, mensagens circulam alertando os motoristas: *"Colocaram sacos pretos nos radares da RJ-122, atenção na região."* <img src="/fotos/radares-tapados.jpg" alt="Radares tapados com sacos pretos na RJ-122" class="w-full rounded-lg shadow-md my-6 object-cover border border-gray-200" />
+Em um ato contínuo de manifestação e revolta contra o sistema, moradores cobriram os radares de velocidade da rodovia com sacos de lixo pretos. Nas redes sociais e em grupos do portal [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com), mensagens circulam alertando os motoristas: *"Colocaram sacos pretos nos radares da RJ-122, atenção na região."* <img src="/fotos/radares-tapados.jpg" alt="Radares tapados com sacos pretos na RJ-122" class="w-full rounded-lg shadow-md my-6 object-cover border border-gray-200" />
 
 A mensagem que a comunidade tenta passar é dolorosa e muito clara: a simples instalação de equipamentos para cobrança de multas não substitui a necessidade urgente e vital de infraestrutura básica que proteja a vida dos pedestres.
 
@@ -45,4 +45,4 @@ Abaixo, você confere as imagens da reportagem mostrando a manifestação dos mo
     </iframe>
 </div>
 
-*(Nota da Redação: O portal **emguapi.com** expressa seus mais profundos sentimentos de pesar à família da vítima neste momento de dor, e reforça o compromisso de continuar cobrando as autoridades por providências definitivas na RJ-122).*
+*(Nota da Redação: O portal [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) expressa seus mais profundos sentimentos de pesar à família da vítima neste momento de dor, e reforça o compromisso de continuar cobrando as autoridades por providências definitivas na RJ-122).*

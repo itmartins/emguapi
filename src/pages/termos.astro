@@ -2,6 +2,7 @@
 // src/pages/termos.astro
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import AdBannerContainer from '../components/ads/AdBannerContainer.astro';
 ---
 
 <Layout title="Termos de Uso | emguapi.com">
@@ -34,7 +35,12 @@ import Navbar from '../components/Navbar.astro';
                     Termos em vigor a partir de fevereiro de 2026.
                 </p>
             </div>
-            
+        </div>
+
+        {/* PUBLICIDADE HORIZONTAL DO GOOGLE */}
+        <div class="mt-16 pt-12 border-t border-gray-100 flex flex-col items-center w-full">
+            <span class="text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
+            <AdBannerContainer slotId="1504537360" format="horizontal" />
         </div>
         
     </main>

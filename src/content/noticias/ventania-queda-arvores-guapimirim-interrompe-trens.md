@@ -125,4 +125,4 @@ Em caso de queda de árvores, deslizamentos, rachaduras em imóveis ou outras si
 
 As equipes continuam atuando para remover árvores, desobstruir vias e restabelecer a normalidade dos serviços afetados.
 
-O **emguapi.com** acompanha os impactos provocados pela ventania em Guapimirim e atualizará esta reportagem caso novos boletins sejam divulgados pelas autoridades.
+O [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) acompanha os impactos provocados pela ventania em Guapimirim e atualizará esta reportagem caso novos boletins sejam divulgados pelas autoridades.

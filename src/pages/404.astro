@@ -1,9 +1,15 @@
 ---
 // src/pages/404.astro
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import AdBannerContainer from '../components/ads/AdBannerContainer.astro'; 
 ---
 
 <Layout title="Página não encontrada - emguapi.com">
+  
+  {/* Menu de navegação inserido para o usuário não ficar preso */}
+  <Navbar />
+
   <main class="min-h-[70vh] flex flex-col items-center justify-center px-6 py-16 text-center">
     
     <div class="max-w-2xl mx-auto relative">
@@ -13,7 +19,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
       
       <div class="relative z-10">
-        {/* Ícone de alerta: de rounded-full para rounded-md */}
+        {/* Ícone de alerta */}
         <div class="w-16 h-16 bg-red-base text-white rounded-md flex items-center justify-center mx-auto mb-6 shadow-md">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
@@ -22,7 +28,7 @@ import Layout from '../layouts/Layout.astro';
           </svg>
         </div>
 
-        {/* Título: sem itálico */}
+        {/* Título */}
         <h1 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-navy-dark mb-4">
           Fim da <span class="text-red-base">Linha!</span>
         </h1>
@@ -31,8 +37,8 @@ import Layout from '../layouts/Layout.astro';
           Parece que você pegou o trem errado. A página que você está procurando não existe, mudou de endereço ou foi retirada do ar.
         </p>
 
-        {/* Botões: de rounded-full para rounded-md */}
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        {/* Botões */}
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
           <a href="/" class="w-full sm:w-auto bg-navy-base text-white px-8 py-4 rounded-md font-black uppercase tracking-widest text-xs hover:bg-navy-dark transition-colors shadow-sm">
             ← Voltar para a Capa
           </a>
@@ -41,6 +47,12 @@ import Layout from '../layouts/Layout.astro';
           </a>
         </div>
       </div>
+    </div>
+
+    {/* PUBLICIDADE HORIZONTAL (Opcional, mas recomendado para aproveitar o tráfego da página de erro) */}
+    <div class="mt-8 pt-8 border-t border-gray-100 flex flex-col items-center w-full max-w-4xl mx-auto z-10 relative">
+        <span class="text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
+        <AdBannerContainer slotId="1504537360" format="horizontal" />
     </div>
 
   </main>

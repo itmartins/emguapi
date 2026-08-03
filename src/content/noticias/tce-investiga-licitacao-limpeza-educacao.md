@@ -33,4 +33,4 @@ A decisão mantém o processo sob análise rigorosa e aumenta a vigilância sobr
 
 Caso as novas explicações — que devem ser entregues nas próximas duas semanas — não convençam o Tribunal, o processo licitatório poderá ser suspenso ou sofrer sanções mais severas, impactando diretamente o serviço de limpeza das escolas municipais.
 
-O portal **emguapi.com** continuará acompanhando o desenrolar deste processo e o cumprimento do prazo estabelecido pelo TCE.
+O portal [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) continuará acompanhando o desenrolar deste processo e o cumprimento do prazo estabelecido pelo TCE.

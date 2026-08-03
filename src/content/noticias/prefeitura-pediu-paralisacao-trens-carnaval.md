@@ -10,7 +10,7 @@ tags: ["Trens", "SuperVia", "Carnaval", "Prefeitura de Guapimirim", "DEMUTRAN", 
 
 Durante o feriado de Carnaval, milhares de trabalhadores que precisaram se deslocar para o Rio de Janeiro encontraram as estações do Ramal Guapimirim de portas fechadas. O que parecia ser mais uma falha operacional da SuperVia, na verdade, teve um mandante com endereço certo: a própria **Prefeitura de Guapimirim**.
 
-O [**em**guapi.**com**](/denuncia) teve acesso exclusivo ao documento **SPV-Carta nº 0646/2026-DM**, assinado no dia 12 de fevereiro de 2026 pela diretoria da SuperVia e endereçado ao Governo do Estado (SETRAM) e à AGETRANSP. 
+O [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](/denuncia) teve acesso exclusivo ao documento **SPV-Carta nº 0646/2026-DM**, assinado no dia 12 de fevereiro de 2026 pela diretoria da SuperVia e endereçado ao Governo do Estado (SETRAM) e à AGETRANSP. 
 
 O texto é claro e não deixa dúvidas: a paralisação temporária da operação ferroviária foi uma resposta direta ao **ofício n° 6/2026**, enviado pela Secretaria de Segurança e Trânsito do Município de Guapimirim (DEMUTRAN).
 
@@ -36,7 +36,7 @@ A concessionária acatou o pedido da Prefeitura e iniciou a suspensão das viage
 
 Ao solicitar o corte dos trens, a Prefeitura retirou da população a única alternativa de transporte com a **Tarifa Social de R$ 5,00**. Sem um "plano B" ou ônibus fretados pelo município para suprir a demanda, o cidadão guapimiriense foi empurrado obrigatoriamente para as vans e ônibus intermunicipais. 
 
-Como o [**em**guapi.**com**](/denuncia) vem denunciando, [os recentes e abusivos aumentos nas passagens](/noticias/aumento-passagem-vans-detro-guapimirim) transformaram uma simples ida ao trabalho num rombo no orçamento familiar. A segurança da folia foi bancada com o suor e o dinheiro de quem precisou de ir trabalhar no feriado.
+Como o [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](/denuncia) vem denunciando, [os recentes e abusivos aumentos nas passagens](/noticias/aumento-passagem-vans-detro-guapimirim) transformaram uma simples ida ao trabalho num rombo no orçamento familiar. A segurança da folia foi bancada com o suor e o dinheiro de quem precisou de ir trabalhar no feriado.
 
 ## Efeito dominó: Magé e Duque de Caxias afetados
 
@@ -48,4 +48,4 @@ A decisão local gerou um efeito dominó desastroso. Moradores de **Magé** (em 
 
 Em nenhum momento antes do feriado a Prefeitura de Guapimirim veio a público explicar aos trabalhadores que a interrupção da circulação do Ramal Guapimirim era um pedido oficial do município por questões do evento. A falta de transparência deixou a população perdida nas plataformas e com a carteira vazia nas rodoviárias.
 
-O [**em**guapi.**com**](/denuncia) reitera o seu compromisso com a verdade. O espaço está aberto para que a Secretaria de Segurança e Trânsito (DEMUTRAN) ou a Prefeitura de Guapimirim apresentem as suas justificativas e, principalmente, expliquem por que não ofereceram transporte alternativo aos trabalhadores durante a paralisação que eles mesmos solicitaram.
+O [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](/denuncia) reitera o seu compromisso com a verdade. O espaço está aberto para que a Secretaria de Segurança e Trânsito (DEMUTRAN) ou a Prefeitura de Guapimirim apresentem as suas justificativas e, principalmente, expliquem por que não ofereceram transporte alternativo aos trabalhadores durante a paralisação que eles mesmos solicitaram.

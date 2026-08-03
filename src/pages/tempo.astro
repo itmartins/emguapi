@@ -2,6 +2,7 @@
 // src/pages/tempo.astro
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import AdBannerContainer from '../components/ads/AdBannerContainer.astro';
 
 // Coordenadas de Guapimirim para a API gratuita Open-Meteo
 const url = "https://api.open-meteo.com/v1/forecast?latitude=-22.5364&longitude=-42.9844&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,precipitation_sum&timezone=America%2FSao_Paulo";
@@ -375,6 +376,12 @@ const ajustarPrevisaoFutura = (bairro: any, dia: any) => {
                     )
                 })}
             </div>
+        </div>
+
+        {/* PUBLICIDADE HORIZONTAL DO GOOGLE */}
+        <div class="mt-16 pt-12 border-t border-gray-100 flex flex-col items-center w-full">
+            <span class="text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
+            <AdBannerContainer slotId="1504537360" format="horizontal" />
         </div>
 
     </main>

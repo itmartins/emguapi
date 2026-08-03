@@ -58,4 +58,4 @@ Além disso, as atividades da Speed Meg com a prefeitura foram sumariamente susp
 
 Em nota à imprensa, a clínica Speed Meg negou qualquer superfaturamento em seus contratos públicos. A empresa alegou que ainda não recebeu notificação oficial da Justiça e que apresentará sua defesa nos autos do processo.
 
-Procurados pela reportagem da TV Globo e por outros veículos de imprensa, a prefeita Marina Rocha e os demais réus não retornaram os contatos até o fechamento desta matéria. O portal **emguapi.com** mantém o espaço aberto para o pronunciamento oficial da Prefeitura e das defesas dos acusados.
+Procurados pela reportagem da TV Globo e por outros veículos de imprensa, a prefeita Marina Rocha e os demais réus não retornaram os contatos até o fechamento desta matéria. O portal [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) mantém o espaço aberto para o pronunciamento oficial da Prefeitura e das defesas dos acusados.
