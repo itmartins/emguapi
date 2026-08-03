@@ -18,17 +18,17 @@ Segundo informações divulgadas pela concessionária, o motorista desrespeitou 
 
 <figure>
   <img src="/fotos/acidente-trem-parada-modelo-1.jpg" alt="Carro atingido por trem na passagem de nível da Parada Modelo, em Guapimirim" class="rounded-xl shadow-lg w-full h-full object-cover">
-  <figcaption>Veículo ficou atravessado sobre a linha férrea após a colisão com uma composição da TrensRJ na Parada Modelo. Foto: Reprodução/Redes Sociais.</figcaption>
+  <figcaption>Veículo ficou atravessado sobre a linha férrea após a colisão com locomotiva. Foto: Reprodução/Redes Sociais.</figcaption>
 </figure>
 
 <figure>
   <img src="/fotos/acidente-trem-parada-modelo-2.jpg" alt="Equipes atuam após acidente na passagem de nível da Parada Modelo" class="rounded-xl shadow-lg w-full h-full object-cover">
-  <figcaption>Após o acidente, equipes atuaram para retirar o veículo da linha férrea e restabelecer a circulação do Ramal Guapimirim. Foto: Reprodução/Redes Sociais.</figcaption>
+  <figcaption>Após o acidente, equipes atuaram para retirar o veículo da linha férrea. Foto: Reprodução/Redes Sociais.</figcaption>
 </figure>
 
 <figure>
   <img src="/fotos/acidente-trem-parada-modelo-3.jpg" alt="Outro ângulo do acidente entre carro e trem na Parada Modelo" class="rounded-xl shadow-lg w-full h-full object-cover">
-  <figcaption>O acidente ocorreu na manhã de quarta-feira (29) e não deixou vítimas, segundo informações da concessionária. Foto: Reprodução/Redes Sociais.</figcaption>
+  <figcaption>O acidente ocorreu na manhã de quarta-feira (29) e não deixou vítimas. Foto: Reprodução/Redes Sociais.</figcaption>
 </figure>
 
 </div>
