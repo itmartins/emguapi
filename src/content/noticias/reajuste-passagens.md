@@ -1,138 +1,77 @@
 ---
-titulo: "Passagens de ônibus ficam mais caras em Guapimirim e região; passageiros cobram melhorias no transporte"
-resumo: "Reajuste das tarifas intermunicipais já está em vigor. Enquanto os preços aumentam, usuários continuam relatando problemas como ônibus sem ar-condicionado, atrasos e falta de um terminal rodoviário em Guapimirim."
-data: "2026-02-20T05:15:00"
+titulo: "Passagem mais cara, ônibus sucateado: confira os novos valores das linhas em Guapimirim e região"
+resumo: "Tarifas intermunicipais sofreram reajuste. Linha Guapimirim x Castelo chega a R$ 32,10, enquanto população denuncia frota sem ar-condicionado e a eterna falta de uma rodoviária na cidade."
+data: 2026-02-16T05:15:00
 categoria: "Mobilidade"
 imagem: "/fotos/onibus-americo-fontenelle.jpeg"
 destaque: true
-tags: ["Transporte", "Ônibus", "Guapimirim", "Mobilidade", "Passagens", "Reginas", "DETRO-RJ"]
+tags: ["Transporte", "Passagem", "Ônibus", "Reginas", "Guapimirim", "Denúncia"]
 ---
 
-O reajuste das tarifas do transporte intermunicipal já está em vigor para passageiros de Guapimirim e de cidades da região. Com os novos valores, linhas importantes ficaram mais caras, como a ligação entre Guapimirim e o Castelo, no Centro do Rio de Janeiro, cuja tarifa passou para **R$ 32,10**.
-
-O aumento ocorre em um momento em que usuários continuam relatando problemas recorrentes no serviço, como veículos sem ar-condicionado, atrasos, superlotação e redução da oferta de horários.
+Os usuários do transporte público intermunicipal de Guapimirim e municípios vizinhos foram surpreendidos com a nova tabela de preços das passagens. O reajuste tarifário já está em vigor, mas a atualização nos letreiros não se refletiu na qualidade do serviço prestado à população.
 
 <figure>
-  <img src="/fotos/onibus-americo-fontenelle.jpeg" alt="Fila de passageiros aguardando embarque na linha Guapimirim x Castelo no Terminal Américo Fontenelle">
-  <figcaption>Passageiros aguardam embarque na linha Guapimirim x Castelo no Terminal Américo Fontenelle, no Centro do Rio. Foto: Cyro Neves/Super Rádio Tupi.</figcaption>
+  <img src="/fotos/onibus-americo-fontenelle.jpeg" alt="Fila de passageiros aguardando para embarcar no ônibus da linha 196C - Guapimirim no terminal Américo Fontenelle, na Gamboa.">
+  <figcaption>Passageiros enfrentam fila para embarcar na linha 196C no Terminal Américo Fontenelle, no Centro do Rio. (Foto: Cyro Neves / Super Rádio Tupi)</figcaption>
 </figure>
 
-## Reajuste pesa no orçamento dos passageiros
+## Aumento de tarifa, queda na qualidade
 
-Para milhares de moradores de Guapimirim, Magé e municípios vizinhos, o transporte intermunicipal é a principal ligação com o Rio de Janeiro e outros centros de trabalho, estudo e serviços.
-
-O reajuste representa um aumento nas despesas mensais justamente para quem depende diariamente dos ônibus para se deslocar.
-
-Ao mesmo tempo, passageiros ouvidos pelo [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) afirmam que os problemas enfrentados nas viagens permanecem os mesmos.
+Se o valor para ir ao Rio de Janeiro ou até mesmo dentro da própria Baixada subiu, o conforto parece ter ficado na garagem. Passageiros relatam diariamente ao [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](/denuncia) que o aumento não representa melhoria nos veículos. Pelo contrário: muitas linhas operam com frotas visivelmente sucateadas, como mostra o flagrante abaixo.
 
 <div class="flex justify-center my-8">
-<div class="w-full max-w-[640px] shadow-lg rounded-xl overflow-hidden border border-gray-200 bg-black aspect-video">
+   <div class="w-full max-w-[640px] shadow-lg rounded-xl overflow-hidden border border-gray-200 bg-black aspect-video">
+      <iframe
+          src="https://drive.google.com/file/d/1gPxqMybX9Mvz-KjbhjujTy2pByHtwZY7/preview"
+          width="100%"
+          height="100%"
+          style="border:none;"
+          allowfullscreen>
+      </iframe>
+   </div>
+</div> 
 
-<iframe
-src="https://drive.google.com/file/d/1gPxqMybX9Mvz-KjbhjujTy2pByHtwZY7/preview"
-width="100%"
-height="100%"
-style="border:none;"
-allowfullscreen>
-</iframe>
+A principal queixa envolve o calor extremo. É comum encontrar ônibus intermunicipais rodando com o ar-condicionado quebrado — ou veículos que sequer possuem o equipamento —, obrigando os passageiros a enfrentarem viagens de mais de uma hora em condições insalubres. Bancos molhados, infiltrações, baratas, sujeira e atrasos completam o pacote de frustrações de quem paga caro para se deslocar diariamente até o trabalho na capital.
 
-</div>
-</div>
+## O drama de uma cidade sem rodoviária
 
-Entre as reclamações mais frequentes estão:
+O aumento nas passagens reacende um debate crônico: a infraestrutura urbana. Guapimirim, que tem vocação turística e atrai milhares de visitantes anualmente, **ainda não possui um terminal rodoviário**. 
 
-- ônibus sem ar-condicionado ou com o equipamento inoperante;
-- atrasos constantes;
-- veículos antigos;
-- lotação em horários de pico;
-- redução de horários em algumas linhas.
+Sem uma rodoviária estruturada, os passageiros são obrigados a aguardar os ônibus em pontos de rua expostos ao sol, à chuva e à insegurança. A ausência de um terminal digno contrasta diretamente com as tarifas cobradas, como a linha para o Castelo (Rio de Janeiro), que agora ultrapassa a marca dos trinta reais.
 
-## Novas tarifas
+## Confira os novos valores atualizados
 
-<div class="not-prose bg-navy-dark text-white p-6 md:p-8 rounded-2xl my-8 shadow-xl border border-white/10">
+Abaixo, detalhamos os novos preços das principais linhas que atendem Guapimirim, Magé e Teresópolis, operadas por diferentes viações:
 
-<h3 class="text-white font-black uppercase text-lg mb-2 flex items-center gap-3">
-<span class="w-2 h-6 bg-red-base rounded-sm"></span>
-Principais tarifas atualizadas
-</h3>
+**Viação Reginas:**
+* **195C:** Guapimirim x Central – **R$ 20,25**
+* **2195C:** Guapimirim x Castelo – **R$ 32,10**
+* **576i:** Guapimirim x Duque de Caxias – **R$ 10,40**
+* **(Trecho):** Guapimirim x Imbariê – **R$ 6,70**
+* **800i:** Magé x Caneca Fina – **R$ 9,10**
+* **810i:** Magé x Vale das Pedrinhas – **R$ 6,70**
 
-<p class="text-gray-400 text-sm mb-8">
-Confira alguns dos valores cobrados nas linhas que atendem Guapimirim e municípios da região.
-</p>
+**Viação Teresópolis:**
+* **MS11:** Teresópolis x Guapimirim – **R$ 10,75**
+* Teresópolis x Magé – **R$ 18,80**
 
-<ul class="space-y-5">
+**Expresso Rio de Janeiro:**
+* **121Q:** Niterói x Magé (Via Itambi) – **R$ 15,95**
+* **511Q:** Niterói x Imbariê (Via Magé e Piabetá) – **R$ 15,10**
 
-<li class="flex gap-4 items-start">
-<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">R$ 20,25</span>
-<div>
-<h4 class="text-white font-bold text-lg">195C — Guapimirim x Central</h4>
-<p class="text-gray-300">Operação da Viação Reginas.</p>
-</div>
-</li>
-
-<li class="flex gap-4 items-start">
-<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">R$ 32,10</span>
-<div>
-<h4 class="text-white font-bold text-lg">2195C — Guapimirim x Castelo</h4>
-<p class="text-gray-300">Uma das principais ligações entre Guapimirim e o Centro do Rio.</p>
-</div>
-</li>
-
-<li class="flex gap-4 items-start">
-<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">R$ 10,40</span>
-<div>
-<h4 class="text-white font-bold text-lg">576i — Guapimirim x Duque de Caxias</h4>
-<p class="text-gray-300">Linha operada pela Viação Reginas.</p>
-</div>
-</li>
-
-<li class="flex gap-4 items-start">
-<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">R$ 10,75</span>
-<div>
-<h4 class="text-white font-bold text-lg">MS11 — Teresópolis x Guapimirim</h4>
-<p class="text-gray-300">Operação da Viação Teresópolis.</p>
-</div>
-</li>
-
-<li class="flex gap-4 items-start border-t border-white/10 pt-5">
-<span class="bg-yellow-500 text-black font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">R$ 15,95</span>
-<div>
-<h4 class="text-yellow-400 font-black text-xl">121Q — Niterói x Magé</h4>
-<p class="text-gray-300">Linha operada pela Expresso Rio de Janeiro.</p>
-</div>
-</li>
-
-</ul>
-
-</div>
-
-## Transporte continua alvo de reclamações
-
-Mesmo com o reajuste tarifário, passageiros afirmam que ainda enfrentam dificuldades durante as viagens.
-
-Entre os relatos recebidos pelo portal estão veículos com problemas de conservação, falhas no sistema de climatização, atrasos frequentes e redução da oferta de horários, principalmente nos períodos de menor movimento.
-
-## Guapimirim segue sem terminal rodoviário
-
-Outro problema apontado por moradores é a ausência de um terminal rodoviário no município.
-
-Apesar de receber diariamente milhares de passageiros e também turistas, Guapimirim ainda não dispõe de uma estrutura dedicada ao embarque e desembarque de linhas intermunicipais.
+## A falta de investimento
 
 <figure>
-  <img src="/fotos/ponto-onibus-sem-cobertura.jpg" alt="Passageiros aguardam ônibus em ponto sem cobertura em Guapimirim">
-  <figcaption>Sem um terminal rodoviário, passageiros aguardam ônibus em pontos sem proteção contra sol e chuva.</figcaption>
+  <img src="/fotos/ponto-onibus-sem-cobertura.jpg" alt="Passageiros aguardando ônibus em ponto sem cobertura na Quinta Mariana">
+  <figcaption>Aumento de preço, zero investimento: passageiros esperam os ônibus em locais improvisados.</figcaption>
 </figure>
 
-Sem essa infraestrutura, muitos usuários aguardam os ônibus em pontos improvisados, expostos ao sol, à chuva e sem banheiros ou áreas de espera adequadas.
+Se aumentam os preços e faltam investimentos, o problema fica ainda maior quando os passageiros são obrigados a esperar pelos ônibus por horas debaixo de sol e chuva. Desde a [redução da frota realizada durante a pandemia](/noticias/reducao-horarios-onibus), linhas importantes foram cortadas ou tiveram seus horários drasticamente reduzidos, piorando ainda mais a situação.
 
-## Mobilidade continua sendo um desafio
+## Ano eleitoral e o agrado aos empresários
 
-O aumento das tarifas reforça um debate recorrente sobre a qualidade do transporte coletivo oferecido aos moradores de Guapimirim.
+Para piorar o cenário do trabalhador, o reajuste das linhas diretas soma-se ao recente aumento da tarifa do **Bilhete Único Intermunicipal (BUI)** concedido pelo Governo do Estado. Na prática, quem precisa pegar mais de uma condução e contava com o subsídio para conseguir fechar as contas do mês, também já está pagando a conta dessa inflação do transporte.
 
-Além do reajuste das passagens, usuários também convivem com mudanças de horários, redução de linhas e limitações na integração do sistema de transporte.
+O fato de esses aumentos em cascata ocorrerem em pleno ano eleitoral (2026) aprofunda a indignação popular. Para o passageiro que sofre espremido no calor de um ônibus velho, a sensação amarga que fica é uma só: os reajustes tarifários parecem servir muito mais para garantir a margem de lucro e agradar aos empresários do setor de transportes do que para financiar qualquer melhoria real na mobilidade urbana da Baixada Fluminense.
 
-O [<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](emguapi.com) continuará acompanhando a evolução das tarifas, a qualidade do serviço prestado pelas empresas e eventuais medidas adotadas pelos órgãos responsáveis pela fiscalização do transporte intermunicipal.
-
-> **Leia também:** [Aumento de preço, zero investimento: passageiros aguardam ônibus em locais improvisados](/noticias/ponto-onibus-sem-cobertura)
-
-> **Leia também:** [Redução de horários dos ônibus continua afetando moradores de Guapimirim](/noticias/reducao-horarios-onibus)
+> **Leia também:** [Não é 'Segredo': Tinta nova sob banco quebrado e ferrugem expõe descaso em ponto de ônibus](/noticias/descaso-ponto-segredo)
