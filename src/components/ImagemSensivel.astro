@@ -1,0 +1,67 @@
+---
+// src/components/ImagemSensivel.astro
+interface Props {
+  src: string;
+  alt: string;
+  aviso?: string;
+}
+
+const { src, alt, aviso = "Conteúdo Sensível" } = Astro.props;
+---
+
+<div class="sensitive-container relative w-full rounded-lg overflow-hidden group cursor-pointer border border-gray-200 shadow-sm">
+  
+  <!-- Imagem (inicialmente borrada e levemente ampliada para esconder as bordas do desfoque) -->
+  <img 
+    src={src} 
+    alt={alt} 
+    class="sensitive-img w-full h-auto object-cover blur-xl scale-110 transition-all duration-700 ease-in-out"
+  />
+  
+  <!-- Overlay de Aviso com fundo escuro e desfoque extra -->
+  <div class="sensitive-overlay absolute inset-0 bg-black/70 backdrop-blur-sm flex flex-col items-center justify-center text-white transition-opacity duration-500">
+    
+    <!-- Ícone de Alerta -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-3 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+    </svg>
+    
+    <span class="font-black uppercase tracking-widest text-sm mb-1">{aviso}</span>
+    <span class="text-xs text-gray-300 font-medium bg-black/50 px-3 py-1 rounded-full mt-2 border border-gray-600">
+      Toque para revelar
+    </span>
+  </div>
+
+</div>
+
+<script>
+  // Script simples para gerenciar o clique e revelar a imagem
+  const setupSensitiveImages = () => {
+    const containers = document.querySelectorAll('.sensitive-container');
+    
+    containers.forEach(container => {
+      // Evita adicionar múltiplos eventos caso o script rode mais de uma vez
+      if (container.hasAttribute('data-initialized')) return;
+      container.setAttribute('data-initialized', 'true');
+
+      container.addEventListener('click', () => {
+        const img = container.querySelector('.sensitive-img');
+        const overlay = container.querySelector('.sensitive-overlay');
+        
+        if (img && overlay) {
+          // Remove o desfoque e o zoom da imagem
+          img.classList.remove('blur-xl', 'scale-110');
+          
+          // Esconde o overlay de aviso
+          overlay.classList.add('opacity-0', 'pointer-events-none');
+          
+          // Tira a "mãozinha" de clique do cursor já que a imagem já foi revelada
+          container.classList.remove('cursor-pointer');
+        }
+      });
+    });
+  };
+
+  // Executa o script quando a página carrega
+  document.addEventListener('DOMContentLoaded', setupSensitiveImages);
+</script>
