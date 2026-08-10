@@ -37,7 +37,7 @@ const noticiasRelacionadas = allNoticias
     .slice(0, 3);
 
 // Tratamento seguro do Autor
-const nomeAutor = entry.data.autor || "Redação emguapi";
+const nomeAutor = entry.data.autor || "Equipe emguapi";
 const autorSlug = nomeAutor.toLowerCase().trim().replace(/\s+/g, '-');
 
 const dataFormatada = new Date(entry.data.data).toLocaleDateString('pt-BR', {
