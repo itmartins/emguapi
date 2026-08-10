@@ -1,7 +1,6 @@
 ---
 // src/pages/noticias/[slug].astro
 import { getCollection, render } from 'astro:content';
-// 1. Importação do tipo oficial do Astro para TypeScript
 import type { CollectionEntry } from 'astro:content'; 
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
@@ -11,31 +10,30 @@ import AdBannerContainer from '../../components/ads/AdBannerContainer.astro';
 
 export async function getStaticPaths() {
   const noticiaEntries = await getCollection('noticias');
-  return noticiaEntries.map((entry: CollectionEntry<'noticias'>) => ({
+  return noticiaEntries.map((entry) => ({
     params: { slug: entry.id.replace(/\.md$/, '') }, 
     props: { entry },
   }));
 }
 
-// 2. Avisamos ao Astro exatamente o que é o "entry"
-interface Props {
+// Avisamos ao Astro exatamente o que é o "entry"
+type Props = {
   entry: CollectionEntry<'noticias'>;
-}
+};
 
 // Função para limpar o texto da URL das tags
 const formatarTagParaURL = (tag: string) => {
   return tag.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
 };
 
-const { entry } = Astro.props;
+const { entry } = Astro.props as Props;
 const { Content } = await render(entry);
 
 // --- LÓGICA DE NOTÍCIAS RELACIONADAS ---
 const allNoticias = await getCollection('noticias');
-// 3. Tipamos as variáveis n, a e b nos filtros e ordenações
 const noticiasRelacionadas = allNoticias
-    .filter((n: CollectionEntry<'noticias'>) => n.id !== entry.id) 
-    .sort((a: CollectionEntry<'noticias'>, b: CollectionEntry<'noticias'>) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime())
+    .filter((n) => n.id !== entry.id) 
+    .sort((a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime())
     .slice(0, 3);
 
 // Tratamento seguro do Autor
@@ -186,8 +184,7 @@ const datePublished = new Date(entry.data.data).toISOString();
                 </h3>
                 
                 <div class="grid md:grid-cols-3 gap-6">
-                    {/* 4. Tipamos o item 'noticia' dentro do map do HTML */}
-                    {noticiasRelacionadas.map((noticia: CollectionEntry<'noticias'>) => (
+                    {noticiasRelacionadas.map((noticia) => (
                         <div class="h-full"> 
                             <NoticiaCard 
                                 categoria={noticia.data.categoria}
@@ -205,16 +202,13 @@ const datePublished = new Date(entry.data.data).toISOString();
             {/* PUBLICIDADE*/}
             <div class="mt-16 pt-12 border-t border-gray-100 flex flex-col items-center w-full">
                 <span class="text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
-                
                 <AdBannerContainer slotId="1504537360" format="horizontal" />
-                
             </div>
 
             <footer class="mt-16 pt-8 border-t border-gray-100 flex justify-between items-center">
                 <a href="/noticias" class="text-navy-base font-black uppercase text-[16px] tracking-widest hover:text-red-base transition-colors flex items-center gap-2 group">
                     <span class="group-hover:-translate-x-1 transition-transform">←</span> Voltar para Notícias
                 </a>
-                <p class="text-gray-400 text-[9px] font-bold uppercase tracking-widest italic"></p>
             </footer>
         </article>
     </main>

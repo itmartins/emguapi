@@ -1,6 +1,7 @@
 ---
 // src/pages/index.astro
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content'; // Tipagem obrigatória do Astro adicionada
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import DestaquePrincipal from '../components/DestaquePrincipal.astro';
@@ -53,29 +54,25 @@ try {
     console.error("Erro ao carregar clima na home:", e);
 }
 
-// --- LÓGICA DE NOTÍCIAS (CORRIGIDA) ---
-// Adicionamos os [...] para criar uma cópia destravada do array antes de ordenar
+// --- LÓGICA DE NOTÍCIAS (CORRIGIDA E TIPADA) ---
 const todasNoticias = [...(await getCollection('noticias'))].sort(
-    (a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
+    (a: CollectionEntry<'noticias'>, b: CollectionEntry<'noticias'>) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
 );
 
-const noticiasCarrossel = todasNoticias.filter(noticia => noticia.data.destaque === true).slice(0, 3);
+const noticiasCarrossel = todasNoticias.filter((noticia: CollectionEntry<'noticias'>) => noticia.data.destaque === true).slice(0, 3);
 const destaquesFinais = noticiasCarrossel.length > 0 ? noticiasCarrossel : todasNoticias.slice(0, 3);
 
-const todasNoticiasRestantes = todasNoticias.filter(noticia => !destaquesFinais.some(d => d.id === noticia.id));
+const todasNoticiasRestantes = todasNoticias.filter((noticia: CollectionEntry<'noticias'>) => !destaquesFinais.some((d: CollectionEntry<'noticias'>) => d.id === noticia.id));
 const noticiasParaGrid = todasNoticiasRestantes.slice(0, 5);
 
-// --- LÓGICA DA VOZ DA COMUNIDADE (CORRIGIDA) ---
-// Adicionamos os [...] aqui também
+// --- LÓGICA DA VOZ DA COMUNIDADE (CORRIGIDA E TIPADA) ---
 const todasDenuncias = [...(await getCollection('denuncias'))].sort(
-    (a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
+    (a: CollectionEntry<'denuncias'>, b: CollectionEntry<'denuncias'>) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
 );
 const denunciasRecentes = todasDenuncias.slice(0, 4);
 const temMaisDenuncias = todasDenuncias.length > 4;
 
 // --- LEITURA INICIAL DO STATUS DO COMBOIO ---
-// Simplificado para evitar crash com o módulo 'fs' em ambientes de produção (Vercel).
-// O script no final da página assume o controle instantaneamente.
 const currentStatus = { bg: 'bg-gray-500', ping: 'bg-gray-400', text: 'text-gray-600', label: 'Verificando...' };
 const horaAtualizacaoTrem = "--:--";
 ---
