@@ -7,16 +7,11 @@ import DestaquePrincipal from '../components/DestaquePrincipal.astro';
 import NoticiaCard from '../components/NoticiaCard.astro';
 import VozComunidade from '../components/VozComunidade.astro';
 
-// A IMPORTAÇÃO CORRETA E SIMPLES DO BANNER ESTÁ AQUI:
 import AdBannerContainer from '../components/ads/AdBannerContainer.astro';
 
-import fs from 'node:fs';
-import path from 'node:path';
-
-// --- LÓGICA DO TEMPO NA HOME (API Open-Meteo Corrigida) ---
+// --- LÓGICA DO TEMPO NA HOME ---
 let tempoHome = { temp: "--", icone: "☁️", condicao: "Indisponível" };
 try {
-    // Usando a rota mais estável da API (current_weather=true)
     const urlTempo = "https://api.open-meteo.com/v1/forecast?latitude=-22.5364&longitude=-42.9844&current_weather=true&timezone=America%2FSao_Paulo";
     const respostaTempo = await fetch(urlTempo);
     
@@ -58,8 +53,9 @@ try {
     console.error("Erro ao carregar clima na home:", e);
 }
 
-// --- LÓGICA DE NOTÍCIAS ---
-const todasNoticias = (await getCollection('noticias')).sort(
+// --- LÓGICA DE NOTÍCIAS (CORRIGIDA) ---
+// Adicionamos os [...] para criar uma cópia destravada do array antes de ordenar
+const todasNoticias = [...(await getCollection('noticias'))].sort(
     (a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
 );
 
@@ -69,36 +65,19 @@ const destaquesFinais = noticiasCarrossel.length > 0 ? noticiasCarrossel : todas
 const todasNoticiasRestantes = todasNoticias.filter(noticia => !destaquesFinais.some(d => d.id === noticia.id));
 const noticiasParaGrid = todasNoticiasRestantes.slice(0, 5);
 
-// --- LÓGICA DA VOZ DA COMUNIDADE ---
-const todasDenuncias = (await getCollection('denuncias')).sort(
+// --- LÓGICA DA VOZ DA COMUNIDADE (CORRIGIDA) ---
+// Adicionamos os [...] aqui também
+const todasDenuncias = [...(await getCollection('denuncias'))].sort(
     (a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
 );
 const denunciasRecentes = todasDenuncias.slice(0, 4);
 const temMaisDenuncias = todasDenuncias.length > 4;
 
 // --- LEITURA INICIAL DO STATUS DO COMBOIO ---
-let statusData = { estado: 'indisponivel', ultimaAtualizacao: '--:--' };
-try {
-    const filePath = path.join(process.cwd(), 'public', 'api', 'trem.json');
-    if (fs.existsSync(filePath)) {
-        statusData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-    }
-} catch (e) {
-    console.error("Erro ao ler /api/trem.json na compilação:", e);
-}
-
-const statusConfig = {
-    'normal': { bg: 'bg-green-600', ping: 'bg-green-400', text: 'text-green-600', label: 'Operação Normal' },
-    'atrasado': { bg: 'bg-yellow-500', ping: 'bg-yellow-300', text: 'text-yellow-600', label: 'Com Atrasos' },
-    'suspenso': { bg: 'bg-red-base', ping: 'bg-red-300', text: 'text-red-base', label: 'Suspensa' },
-    'manutencao': { bg: 'bg-navy-base', ping: 'bg-blue-400', text: 'text-navy-base', label: 'Manutenção' },
-    'parcial': { bg: 'bg-orange-500', ping: 'bg-orange-300', text: 'text-orange-600', label: 'Operação Parcial' },
-    'indisponivel': { bg: 'bg-gray-500', ping: 'bg-gray-400', text: 'text-gray-600', label: 'Sem Informação' }
-};
-
-const statusKey = (statusData.estado || 'indisponivel').toLowerCase() as keyof typeof statusConfig;
-const currentStatus = statusConfig[statusKey] || statusConfig['indisponivel'];
-const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
+// Simplificado para evitar crash com o módulo 'fs' em ambientes de produção (Vercel).
+// O script no final da página assume o controle instantaneamente.
+const currentStatus = { bg: 'bg-gray-500', ping: 'bg-gray-400', text: 'text-gray-600', label: 'Verificando...' };
+const horaAtualizacaoTrem = "--:--";
 ---
 
 <Layout 
@@ -400,7 +379,6 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
 
     // --- SISTEMA DE ATUALIZAÇÃO AO VIVO DO TREM ---
     function atualizarStatusTrem() {
-        // O parâmetro '?v=' evita que o navegador memorize a versão antiga do ficheiro
         fetch('/api/trem.json?v=' + new Date().getTime())
             .then(response => response.json())
             .then(data => {
@@ -416,24 +394,20 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
                 const key = ((data.estado || 'indisponivel').toLowerCase()) as keyof typeof configVisual;
                 const config = configVisual[key] || configVisual['indisponivel'];
 
-                // Atualiza a Hora
                 const horaEl = document.getElementById('trem-hora');
                 if(horaEl) horaEl.innerText = 'Atualizado: ' + (data.ultimaAtualizacao || '--:--');
 
-                // Atualiza o Texto Principal
                 const textEl = document.getElementById('trem-status-text');
                 if (textEl) {
                     textEl.innerText = config.label;
                     textEl.className = `font-black text-xs uppercase ${config.text} whitespace-nowrap transition-colors duration-500`;
                 }
 
-                // Atualiza a Cor do Ícone Circular
                 const iconBg = document.getElementById('trem-icon-bg');
                 if (iconBg) {
                     iconBg.className = `h-6 w-6 rounded-full shadow-sm border border-white/50 shrink-0 transition-colors duration-500 ${config.bg}`;
                 }
 
-                // Atualiza as Luzes Intermitentes
                 const pingWrapper = document.getElementById('trem-ping-wrapper');
                 const pingAnim = document.getElementById('trem-ping-anim');
                 const pingDot = document.getElementById('trem-ping-dot');
@@ -449,7 +423,6 @@ const horaAtualizacaoTrem = statusData.ultimaAtualizacao || "Não informada";
             .catch(err => console.error("Erro ao verificar estado em tempo real:", err));
     }
 
-    // Chama a função imediatamente e depois a cada 60 segundos (60000ms)
     atualizarStatusTrem();
     setInterval(atualizarStatusTrem, 60000);
 </script>
