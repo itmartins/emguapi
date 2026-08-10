@@ -15,7 +15,7 @@ O exercício utilizará a tecnologia **Cell Broadcast**, sistema empregado para 
 De acordo com comunicado divulgado pela Prefeitura de Guapimirim, a tecnologia utilizada no treinamento alcança áreas próximas. Por esse motivo, moradores de Guapimirim e de outros municípios da região também poderão receber a mensagem, mesmo que não exista qualquer ocorrência real no município.
 
 <figure>
-  <img src="/fotos/defesa-civil-simulado-alerta-guapimirim.jpg" alt="Comunicado da Prefeitura de Guapimirim sobre simulado da Defesa Civil de Petrópolis">
+  <img src="/fotos/defesa-civil-simulado-alerta-guapimirim-petropolis.jpg" alt="Alerta simulado da Defesa Civil de Petrópolis">
   <figcaption>Prefeitura de Guapimirim informou que moradores poderão receber um alerta durante o simulado da Defesa Civil de Petrópolis nesta segunda-feira (10).</figcaption>
 </figure>
 
@@ -49,7 +49,7 @@ O recebimento da mensagem nesta segunda-feira será parte de um exercício preve
 </li>
 
 <li class="flex gap-4 items-start">
-<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">GUAPIMIRIM</span>
+<span class="bg-red-base text-white font-black text-xs uppercase tracking-widest px-3 py-2 rounded-md min-w-[90px] text-center">REGIÃO</span>
 <div>
 <h4 class="text-white font-bold text-lg">Moradores poderão receber a mensagem</h4>
 <p class="text-gray-300">A tecnologia utilizada no exercício alcança áreas próximas e poderá fazer com que celulares no município recebam o alerta.</p>
