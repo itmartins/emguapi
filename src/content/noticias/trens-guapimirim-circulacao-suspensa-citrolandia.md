@@ -116,6 +116,10 @@ A circulação permanecerá interrompida até que as equipes responsáveis concl
 
 O <strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong> continuará acompanhando a situação e atualizará esta reportagem quando a TrensRJ informar a conclusão do reparo e a retomada da circulação.
 
-## Atualização
+---
 
-Às 14h00 de hoje a circulação do Ramal Guapimirim foi normalizada.
+## Atualização: Circulação Normalizada
+
+A concessionária TrensRJ informou que os reparos na via foram concluídos e a circulação no Ramal Guapimirim foi **normalizada às 14h00** desta terça-feira (11). 
+
+Assim que a situação foi resolvida, a empresa disponibilizou uma partida extra para atender os passageiros que aguardavam o serviço. A próxima partida oficial saindo de Guapimirim está programada para ocorrer no horário regular, às **16h40**.
