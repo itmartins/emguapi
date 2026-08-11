@@ -1,7 +1,7 @@
 ---
 titulo: "Vandalismo: Bicicletas gratuitas de Guapimirim viram alvo de depredação e mau uso"
 resumo: "Projeto que deveria beneficiar a mobilidade dos bairros sofre com a ação de uma minoria. Imagens mostram correntes arrebentadas e unidades sendo recolhidas."
-data: "2026-04-11T18:30:00"
+data: 2026-04-11T18:30:00
 categoria: "Cidade Alerta"
 imagem: "/fotos/vandalismo-bikes-guapi.jpg"
 destaque: true

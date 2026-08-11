@@ -1,7 +1,7 @@
 ---
 titulo: "IPTU Guapimirim 2026: Como emitir a guia online e garantir o desconto da Prefeitura"
 resumo: "Esqueça as filas. Saiba como acessar o portal da Prefeitura de Guapimirim para imprimir seu carnê do IPTU e garantir descontos no pagamento."
-data: "2026-02-25T00:00:00"
+data: 2026-02-25T00:00:00
 categoria: "Serviços"
 imagem: "/fotos/portico-guapimirim.jpg" 
 tags: ["Guapimirim", "IPTU online Guapimirim", "Prefeitura de Guapimirim", "Impostos", "Economia", "IPTU Guapimirim 2026"]

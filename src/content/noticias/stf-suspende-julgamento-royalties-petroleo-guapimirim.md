@@ -1,7 +1,7 @@
 ---
 titulo: "A batalha dos Bilhões: STF suspende julgamento sobre royalties de petróleo que afeta Guapimirim"
 resumo: "Decisão do ministro Flávio Dino adia definição sobre nova lei de distribuição de recursos. Cidade luta na Justiça para ser reconhecida como afetada por exploração na Baía de Guanabara."
-data: "2026-05-08T13:30:00"
+data: 2026-05-08T13:30:00
 categoria: "Política"
 imagem: "/fotos/stf-royalties-petroleo.jpg"
 destaque: true

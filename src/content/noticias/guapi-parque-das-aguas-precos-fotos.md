@@ -1,7 +1,7 @@
 ---
 titulo: "Guapi Parque das Águas: Preços, regras e cardápio do clube mais buscado da região"
 resumo: "Planejando o final de semana? Descubra os valores de entrada, o que é permitido levar, o preço do almoço e a estrutura do parque aquático queridinho de Guapimirim."
-data: "2026-02-25T10:30:00"
+data: 2026-02-25T10:30:00
 categoria: "Turismo"
 autor: "Redação emguapi"
 imagem: "/fotos/parque-das-aguas.jpeg"

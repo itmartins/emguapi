@@ -1,7 +1,7 @@
 ---
 titulo: "MPRJ instaura inquérito para apurar contrato de R$ 3,9 milhões da Prefeitura de Guapimirim na área de TI"
 resumo: "Investigação conduzida pela 1ª Promotoria de Justiça de Tutela Coletiva de Magé busca verificar a regularidade do Contrato nº 24/2024, firmado entre a Prefeitura de Guapimirim e a empresa Única Serviços e Construções Ltda."
-data: "2026-07-01T20:30:00"
+data: 2026-07-01T20:30:00
 categoria: "Política"
 imagem: "/fotos/mp-investiga-guapimirim.jpg"
 destaque: true

@@ -1,7 +1,7 @@
 ---
 titulo: "De novo nas costas do trabalhador: Prefeitura pede paralisação dos trens e março terá novos cortes"
 resumo: "Ramal Guapimirim tem circulação suspensa neste fim de semana por obras da Prefeitura. Para piorar, a concessionária já emitiu alerta de interrupção total para outros dois finais de semana de março."
-data: "2026-03-01T16:30:00"
+data: 2026-03-01T16:30:00
 categoria: "Mobilidade"
 autor: "Equipe emguapi"
 imagem: "/fotos/obras-trilhos-guapi.jpg"

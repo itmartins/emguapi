@@ -1,7 +1,7 @@
 ---
 titulo: "Exclusivo: Prefeitura de Guapimirim foi a verdadeira responsável por paralisar os trens no Carnaval"
 resumo: "Documento oficial da SuperVia revela que a suspensão do Ramal Guapimirim partiu de um pedido da Secretaria de Trânsito da cidade. Trabalhadores de Guapi, Magé e Caxias pagaram a conta da folia."
-data: "2026-02-28T21:45:00"
+data: 2026-02-28T21:45:00
 categoria: "Mobilidade"
 imagem: "/fotos/circulacao-suspensa.jpeg"
 destaque: true

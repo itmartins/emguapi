@@ -1,7 +1,7 @@
 ---
 titulo: "\"Lixo desde antes do Carnaval\": Morador do Sítio Taba Marajuara cobra coleta da Prefeitura"
 resumo: "Em vídeo, morador mostra acúmulo de lixo na Rua J, relata abandono dos caminhões de coleta e manda recado direto para a prefeita: 'Não espere o dia da eleição'."
-data: "2026-03-03T15:30:00"
+data: 2026-03-03T15:30:00
 categoria: "Denúncia"
 autor: "Equipe emguapi"
 imagem: "/fotos/lixo-rua.png"

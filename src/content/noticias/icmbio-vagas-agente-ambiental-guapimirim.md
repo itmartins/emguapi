@@ -1,7 +1,7 @@
 ---
 titulo: "Oportunidade: ICMBio abre vagas para Agente Temporário Ambiental em Guapimirim"
 resumo: "Processo seletivo oferece oportunidades de trabalho na conservação das áreas naturais da nossa região. Confira os requisitos e como se inscrever."
-data: "2026-05-02T10:00:00"
+data: 2026-05-02T10:00:00
 categoria: "Empregos"
 imagem: "/fotos/icmbio-guapimirim.jpeg"
 destaque: true

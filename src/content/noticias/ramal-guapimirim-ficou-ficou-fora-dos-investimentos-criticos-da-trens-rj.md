@@ -1,7 +1,7 @@
 ---
 titulo: "Ramal Guapimirim ficou fora dos Investimentos Críticos. Mas o que isso realmente significa?"
 resumo: "Documentos oficiais mostram que a ausência do Ramal Guapimirim na lista de Investimentos Críticos não elimina as obrigações permanentes de manutenção, conservação e segurança assumidas pela TrensRJ."
-data: "2026-07-28T09:00:00"
+data: 2026-07-28T09:00:00
 categoria: "Transporte"
 imagem: "/fotos/estacao-guapimirim-trensrj-sem-logo-supervia.jpg"
 destaque: true

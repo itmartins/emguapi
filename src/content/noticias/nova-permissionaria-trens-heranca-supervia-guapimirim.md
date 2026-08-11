@@ -1,7 +1,7 @@
 ---
 titulo: "Anos de abandono: o legado da SuperVia que a TrensRJ terá de enfrentar em Magé Guapimirim"
 resumo: "Relatórios técnicos da transição ferroviária apontam frota com mais de 60 anos, trens vandalizados e infraestrutura precária deixada no Ramal Guapimirim."
-data: "2026-05-30T17:00:00"
+data: 2026-05-30T17:00:00
 categoria: "Transporte"
 imagem: "/fotos/supervia-guapimirim.jpeg"
 destaque: false

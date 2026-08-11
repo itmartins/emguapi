@@ -1,7 +1,7 @@
 ---
 titulo: "Cerco se fecha: Justiça bloqueia R$ 8,6 milhões da prefeita Marina Rocha e de investigados"
 resumo: "Decisão atende a pedido do Ministério Público para garantir devolução de dinheiro aos cofres públicos após denúncia de fraude em licitações da Saúde."
-data: "2026-04-16T08:00:00"
+data: 2026-04-16T08:00:00
 categoria: "Política"
 imagem: "/fotos/marina-rocha.jpg"
 destaque: true

@@ -1,7 +1,7 @@
 ---
 titulo: "Histórico recente do Instituto Access chama atenção de candidatos ao concurso da Educação de Guapimirim"
 resumo: "Banca responsável pelo concurso acumula registros de falhas operacionais em certames realizados nos últimos meses, incluindo suspensão de provas em Minas Gerais e problemas de alocação de candidatos no Rio Grande do Sul."
-data: "2026-07-16T18:10:00"
+data: 2026-07-16T18:10:00
 categoria: "Concursos"
 imagem: "/fotos/concurso-guapimirim.png"
 destaque: true

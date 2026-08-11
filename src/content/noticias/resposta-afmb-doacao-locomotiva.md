@@ -1,7 +1,7 @@
 ---
 titulo: "O Outro Lado: Associação esclarece que locomotiva 'doada' do Ramal Guapimirim era inoperante desde 2021"
 resumo: "Após denúncia sobre a retirada de máquina da frota, AFMB emite nota oficial afirmando que o equipamento não tinha conserto e será destinado à preservação histórica."
-data: "2026-05-09T09:00:00"
+data: 2026-05-09T09:00:00
 categoria: "Cidade Alerta"
 imagem: "/fotos/emguapi-capa.png"
 destaque: false

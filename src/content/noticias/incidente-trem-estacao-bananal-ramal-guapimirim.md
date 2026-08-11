@@ -1,7 +1,7 @@
 ---
 titulo: "Incidente próximo à Estação Bananal reacende debate sobre condições do Ramal Guapimirim"
 resumo: "Vídeos mostram trem patinando nos trilhos molhados durante a chuva. Caso ocorre logo após a AGETRANSP confirmar que o ramal não foi totalmente recuperado pela antiga gestão."
-data: "2026-06-11T20:30:00"
+data: 2026-06-11T20:30:00
 categoria: "Transporte"
 imagem: "/fotos/trem-patinando.png"
 destaque: true

@@ -1,7 +1,7 @@
 ---
 titulo: "Alerta: Mais de 18 mil podem perder o Bilhete Único Intermunicipal no Rio de Janeiro"
 resumo: "Governo detecta rendimentos incompatíveis e ameaça suspender o BUI. Com o brutal aumento das passagens dos ônibus e vans em Guapimirim, perder o benefício pode inviabilizar a ida para o trabalho."
-data: "2026-02-26T14:30:00"
+data: 2026-02-26T14:30:00
 categoria: "Mobilidade"
 imagem: "/fotos/bilhete-unico-guapi.jpg"
 destaque: true

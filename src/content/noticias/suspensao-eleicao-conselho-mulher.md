@@ -1,7 +1,7 @@
 ---
 titulo: "Justiça suspende eleição do Conselho da Mulher em Guapimirim após ação do MPRJ"
 resumo: "Processo eleitoral que definiria as novas representantes do conselho foi paralisado. Ministério Público apontou graves irregularidades na condução do pleito."
-data: "2026-04-14T23:45:00"
+data: 2026-04-14T23:45:00
 categoria: "Política"
 imagem: "/fotos/conselho-tutelar-guapimrim.jpg"
 destaque: false

@@ -1,7 +1,7 @@
 ---
 titulo: "Operação Torniquete: Facção usava estandes de tiro em Guapimirim para abastecer arsenal do tráfico"
 resumo: "Ação conjunta das Polícias Civil e Militar desarticula quadrilha do Comando Vermelho. Criminosos compravam armamento no interior e financiavam esquema com roubo de cargas. 13 foram presos."
-data: "2026-05-11T09:00:00"
+data: 2026-05-11T09:00:00
 categoria: "Polícia"
 imagem: "https://www.rj.gov.br/seguranca/sites/default/files/inline-images/2_2.JPG"
 destaque: true

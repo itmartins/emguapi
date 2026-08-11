@@ -1,7 +1,7 @@
 ---
 titulo: "Sem cronograma, sem registros e sem datas: TrensRJ não comprova manutenção do Ramal Guapimirim após cobranças"
 resumo: "Documentos obtidos com exclusividade pelo emguapi.com mostram que a própria AGETRANSP considerou insuficiente a primeira resposta da TrensRJ e solicitou complementação. Mesmo após nova manifestação da Permissionária, cronogramas, registros das intervenções e detalhamento das ações de manutenção do Ramal Guapimirim não foram apresentados."
-data: "2026-07-26T09:30:00"
+data: 2026-07-26T09:30:00
 categoria: "Transporte"
 imagem: "/fotos/ramal-guapimirim-locomotiva.jpg"
 destaque: true

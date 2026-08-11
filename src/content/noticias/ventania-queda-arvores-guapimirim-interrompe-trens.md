@@ -1,7 +1,7 @@
 ---
 titulo: "Ventania e queda de árvores interrompem circulação de trens em Guapimirim"
 resumo: "Rajadas de vento provocaram queda de árvores em diferentes pontos de Guapimirim, causaram transtornos no trânsito e afetaram a circulação ferroviária nesta quarta-feira (29)."
-data: "2026-07-29T18:00:00"
+data: 2026-07-29T18:00:00
 categoria: "Cidade"
 imagem: "/fotos/ventaria-guapimirim-avenida-dedo-de-deus.png"
 destaque: true

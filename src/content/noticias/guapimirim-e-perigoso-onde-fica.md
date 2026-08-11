@@ -1,7 +1,7 @@
 ---
 titulo: "Guapimirim é perigoso? Onde fica? Tudo o que você precisa saber sobre a nossa cidade"
 resumo: "Respondemos às dúvidas mais comuns da internet! Descubra a localização exata, se tem trem, quantos habitantes tem o município e o cenário de segurança local."
-data: "2026-02-25T14:15:00"
+data: 2026-02-25T14:15:00
 categoria: "Notícias"
 imagem: "/fotos/guapimirim-paraiso.jpg"
 destaque: false

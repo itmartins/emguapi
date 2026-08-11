@@ -1,7 +1,7 @@
 ---
 titulo: "Ex-prefeita de Magé, Núbia Cozzolino é condenada a mais de 80 anos de prisão por falsificação de documentos"
 resumo: "Sentença da Justiça de Magé condenou a ex-prefeita por falsificações e adulterações em documentos judiciais que beneficiariam a própria ré em processos de improbidade administrativa."
-data: "2026-08-06T18:00:00"
+data: 2026-08-06T18:00:00
 categoria: "Política"
 imagem: "/fotos/nubia-cozzolino.jpg"
 destaque: true

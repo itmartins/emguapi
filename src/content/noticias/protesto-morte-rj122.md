@@ -1,7 +1,7 @@
 ---
 titulo: "Tragédia na RJ-122: Moradores protestam após morte de criança e radares amanhecem cobertos"
 resumo: "Menina de 10 anos morreu atropelada ao voltar de uma cachoeira. Em forma de protesto pela falta de passarelas, comunidade cobriu radares de velocidade da rodovia com sacos pretos."
-data: "2026-04-11T18:00:00"
+data: 2026-04-11T18:00:00
 categoria: "Cidade Alerta"
 imagem: "/fotos/radares-tapados.jpg"
 destaque: true

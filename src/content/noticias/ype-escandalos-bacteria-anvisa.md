@@ -1,7 +1,7 @@
 ---
 titulo: "O lucro acima da saúde? O perigo nos produtos Ypê e o histórico de escândalos da marca"
 resumo: "Com liminar na Justiça para driblar a Anvisa após contaminação por bactéria e condenações por assédio eleitoral, o consumidor se pergunta: ainda dá para confiar na Ypê?"
-data: "2026-05-08T18:00:00"
+data: 2026-05-08T18:00:00
 categoria: "Defesa do Consumidor"
 imagem: "/fotos/ype-mercado.jpg"
 destaque: true

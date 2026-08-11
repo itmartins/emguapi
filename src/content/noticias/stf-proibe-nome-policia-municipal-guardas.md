@@ -1,7 +1,7 @@
 ---
 titulo: "STF bate o martelo: Guardas Municipais são proibidas de usar o título de 'Polícia Municipal'"
 resumo: "Supremo Tribunal Federal finaliza julgamento que reafirma os limites de atuação das Guardas e proíbe municípios de alterarem a nomenclatura das corporações."
-data: "2026-05-05T10:00:00"
+data: 2026-05-05T10:00:00
 categoria: "Cidadania e Direito"
 imagem: "/fotos/mprj-recomenda-limitar-atuacao-da-guarda-municipal-de-guapimirim.jpg"
 destaque: false

@@ -1,7 +1,7 @@
 ---
 titulo: "Na mira do TCE: Licitação de R$ 5,3 milhões para limpeza da Educação em Guapimirim sob suspeita"
 resumo: "Tribunal de Contas identifica possíveis irregularidades em contrato da prefeitura e exige esclarecimentos urgentes sobre critérios técnicos e custos."
-data: "2026-05-07T13:00:00"
+data: 2026-05-07T13:00:00
 categoria: "Política"
 imagem: "/fotos/tce-contas-guapimirim.jpg"
 destaque: true

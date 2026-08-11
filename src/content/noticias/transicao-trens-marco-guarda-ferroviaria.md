@@ -1,7 +1,7 @@
 ---
 titulo: "Fim da era SuperVia: Transição dos trens começa em março com promessa de 'Guarda Ferroviária' nas estações"
 resumo: "Nova Via Mobilidade assume a operação de forma gradual no próximo mês. Consórcio anunciou a criação de uma força de segurança própria, o que pode mudar a realidade das estações abertas em Guapimirim."
-data: "2026-02-26T20:00:00"
+data: 2026-02-26T20:00:00
 categoria: "Mobilidade"
 autor: "Redação emguapi"
 imagem: "/fotos/estacao-guapi.jpg"

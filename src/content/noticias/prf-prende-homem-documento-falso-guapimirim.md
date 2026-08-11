@@ -1,7 +1,7 @@
 ---
 titulo: "Cerco fechado: PRF prende motorista por uso de documento falso durante fiscalização em Guapimirim"
 resumo: "Agentes identificaram indícios de falsificação durante abordagem de rotina na rodovia. Veículo foi retido e o condutor encaminhado à delegacia."
-data: "2026-05-27T08:30:00"
+data: 2026-05-27T08:30:00
 categoria: "Polícia"
 imagem: "/fotos/prf-prende-homem-apos-uso-de-documento-falso-em-guapimirim.jpeg"
 destaque: false

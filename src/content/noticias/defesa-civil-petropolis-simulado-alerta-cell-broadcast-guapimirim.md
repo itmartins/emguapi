@@ -1,7 +1,7 @@
 ---
 titulo: "Moradores de Guapimirim poderão receber alerta de emergência durante simulado da Defesa Civil nesta segunda"
 resumo: "Exercício de preparação para chuvas fortes será realizado pela Defesa Civil de Petrópolis às 10h desta segunda-feira (10). Tecnologia Cell Broadcast poderá enviar a mensagem para moradores de Guapimirim, Magé e Duque de Caxias."
-data: "2026-08-10T08:00:00"
+data: 2026-08-10T08:00:00
 categoria: "Cidade"
 imagem: "/fotos/defesa-civil-simulado-alerta-guapimirim-petropolis.jpg"
 destaque: true

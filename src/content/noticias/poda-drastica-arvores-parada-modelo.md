@@ -1,7 +1,7 @@
 ---
 titulo: "Quem autorizou? Poda radical na Parada Modelo segue sem respostas oficiais"
 resumo: "Poda drástica em faixa de domínio da ferrovia provoca reações entre moradores de Guapimirim. Ausência de informações oficiais levanta dúvidas sobre critérios técnicos e compensação ambiental."
-data: "2026-07-14T16:40:00"
+data: 2026-07-14T16:40:00
 categoria: "Cidade"
 imagem: "/fotos/poda-arvores-parada-modelo.png"
 destaque: true

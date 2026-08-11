@@ -1,7 +1,7 @@
 ---
 titulo: "Passagens de ônibus ficam mais caras em Guapimirim e região; passageiros cobram melhorias no transporte"
 resumo: "Reajuste das tarifas intermunicipais já está em vigor. Enquanto os preços aumentam, usuários continuam relatando problemas como ônibus sem ar-condicionado, atrasos e falta de um terminal rodoviário em Guapimirim."
-data: "2026-02-20T05:15:00"
+data: 2026-02-20T05:15:00
 categoria: "Mobilidade"
 imagem: "/fotos/onibus-americo-fontenelle.jpeg"
 destaque: true

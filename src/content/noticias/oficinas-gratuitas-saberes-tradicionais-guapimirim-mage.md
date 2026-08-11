@@ -1,7 +1,7 @@
 ---
 titulo: "Cultura e Geração de Renda: Guapimirim e Magé recebem oficinas gratuitas de saberes tradicionais"
 resumo: "Projeto estadual oferece atividades de artesanato, desenho e economia criativa sem necessidade de inscrição prévia. Confira a programação local."
-data: "2026-05-12T16:00:00"
+data: 2026-05-12T16:00:00
 categoria: "Cultura"
 imagem: "https://diariodorio.com/wp-content/uploads/2026/05/image-1-696x464.jpeg"
 destaque: false

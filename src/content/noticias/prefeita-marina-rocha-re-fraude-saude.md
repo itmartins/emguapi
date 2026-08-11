@@ -1,7 +1,7 @@
 ---
 titulo: "Bomba na Política: Prefeita de Guapimirim e mais quatro viram réus por fraude milionária na Saúde"
 resumo: "Justiça bloqueia R$ 8,6 milhões de investigados. Ministério Público denuncia esquema com empresa de fachada que monopolizava exames na cidade há anos."
-data: "2026-04-14T20:30:00"
+data: 2026-04-14T20:30:00
 categoria: "Política"
 imagem: "/fotos/saude-guapimirim.jpg"
 destaque: true

@@ -1,7 +1,7 @@
 ---
 titulo: "Eleitora arrependida faz forte desabafo contra a prefeita Marina Rocha: 'Decepção é a palavra-chave'"
 resumo: "Em vídeo publicado nas redes sociais, moradora cobra promessas de campanha e expõe o cenário de abandono absoluto nos bairros do Vale das Pedrinhas e Cordovil."
-data: "2026-02-28T23:10:00"
+data: 2026-02-28T23:10:00
 categoria: "Voz da Comunidade"
 imagem: "/fotos/vale-das-pedrinhas-abandono.jpg"
 destaque: false

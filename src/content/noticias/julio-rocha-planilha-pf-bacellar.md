@@ -1,7 +1,7 @@
 ---
 titulo: "Planilha da PF liga Júlio Rocha a esquema de loteamento de cargos na ALERJ"
 resumo: "Documentos apreendidos na investigação contra Rodrigo Bacellar revelam suposta troca de favores. Deputado e Presidente do Conselho de Ética teria pedido o controle do Detran e da Faetec em Guapimirim."
-data: "2026-02-28T22:30:00"
+data: 2026-02-28T22:30:00
 categoria: "Política"
 imagem: "/fotos/alerj-esquema-pf.jpg"
 legenda_imagem: "Relatório da PF detalha suposto loteamento de cargos na ALERJ. Foto: Reprodução/TV Band"
