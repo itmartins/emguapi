@@ -4,7 +4,7 @@ resumo: "A circulação dos trens entre Saracuruna e Guapimirim foi suspensa nes
 data: 2026-08-11T14:55:00
 categoria: "Transporte"
 imagem: "/fotos/quebra-trilho-citrolandia-guapimirim.jpg"
-autor: "Redação emguapi"
+autor: "Equipe emguapi"
 destaque: true
 tags: ["Guapimirim", "Magé", "Trens", "Transporte", "TrensRJ", "Citrolândia"]
 ---
