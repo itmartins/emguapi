@@ -5,23 +5,23 @@ import Navbar from '../components/Navbar.astro';
 import AdBannerContainer from '../components/ads/AdBannerContainer.astro'; 
 ---
 
-<Layout title="Página não encontrada - emguapi.com">
+<Layout title="Página não encontrada - emguapi.com" description="A página que você tentou acessar não existe ou foi movida.">
   
   {/* Menu de navegação inserido para o usuário não ficar preso */}
   <Navbar />
 
-  <main class="min-h-[70vh] flex flex-col items-center justify-center px-6 py-16 text-center">
+  <main class="min-h-[70vh] flex flex-col items-center justify-center px-6 py-16 text-center bg-white dark:bg-[#0a192f] transition-colors duration-300 relative overflow-hidden">
     
-    <div class="max-w-2xl mx-auto relative">
-      {/* 404 gigante no fundo (cor suavizada) */}
-      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12rem] md:text-[16rem] font-black text-gray-50 z-0 select-none">
+    <div class="max-w-2xl mx-auto relative w-full">
+      {/* 404 gigante no fundo (cor suavizada adaptada para Dark Mode) */}
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12rem] md:text-[16rem] font-black text-gray-50 dark:text-white/5 z-0 select-none transition-colors">
         404
       </div>
       
       <div class="relative z-10">
-        {/* Ícone de alerta */}
-        <div class="w-16 h-16 bg-red-base text-white rounded-md flex items-center justify-center mx-auto mb-6 shadow-md">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        {/* Ícone de alerta animado sutilmente */}
+        <div class="w-16 h-16 bg-red-base text-white rounded-md flex items-center justify-center mx-auto mb-6 shadow-lg animate-pulse-slow">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
             <line x1="12" y1="9" x2="12" y2="13"></line>
             <line x1="12" y1="17" x2="12.01" y2="17"></line>
@@ -29,31 +29,51 @@ import AdBannerContainer from '../components/ads/AdBannerContainer.astro';
         </div>
 
         {/* Título */}
-        <h1 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-navy-dark mb-4">
+        <h1 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-navy-dark dark:text-white mb-4 transition-colors">
           Fim da <span class="text-red-base">Linha!</span>
         </h1>
         
-        <p class="text-gray-600 mb-8 leading-relaxed text-lg font-medium">
+        <p class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed text-lg font-medium max-w-lg mx-auto transition-colors">
           Parece que você pegou o trem errado. A página que você está procurando não existe, mudou de endereço ou foi retirada do ar.
         </p>
 
-        {/* Botões */}
+        {/* Botões com ícones e transições Premium */}
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <a href="/" class="w-full sm:w-auto bg-navy-base text-white px-8 py-4 rounded-md font-black uppercase tracking-widest text-xs hover:bg-navy-dark transition-colors shadow-sm">
-            ← Voltar para a Capa
+          <a href="/" class="group w-full sm:w-auto bg-navy-base text-white px-8 py-4 rounded-md font-black uppercase tracking-widest text-xs hover:bg-navy-dark dark:hover:bg-red-base transition-colors shadow-sm flex items-center justify-center gap-2">
+            <span class="group-hover:-translate-x-1 transition-transform">←</span> Voltar para a Capa
           </a>
-          <a href="/horarios" class="w-full sm:w-auto bg-white text-navy-base border border-navy-base px-8 py-4 rounded-md font-black uppercase tracking-widest text-xs hover:bg-navy-base hover:text-white transition-colors shadow-sm">
+          <a href="/horarios" class="w-full sm:w-auto bg-transparent border-2 border-navy-base dark:border-white/20 text-navy-base dark:text-white px-8 py-4 rounded-md font-black uppercase tracking-widest text-xs hover:bg-navy-base hover:text-white dark:hover:bg-white dark:hover:text-navy-dark transition-colors shadow-sm flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
             Ver Horários do Trem
           </a>
         </div>
       </div>
     </div>
 
-    {/* PUBLICIDADE HORIZONTAL (Opcional, mas recomendado para aproveitar o tráfego da página de erro) */}
-    <div class="mt-8 pt-8 border-t border-gray-100 flex flex-col items-center w-full max-w-4xl mx-auto z-10 relative">
-        <span class="text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
+    {/* PUBLICIDADE HORIZONTAL */}
+    <div class="mt-8 pt-8 border-t border-gray-100 dark:border-white/10 flex flex-col items-center w-full max-w-4xl mx-auto z-10 relative transition-colors">
+        <span class="text-[9px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
         <AdBannerContainer slotId="1504537360" format="horizontal" />
     </div>
 
   </main>
 </Layout>
+
+<style>
+  /* Animação sutil para o alerta parecer um sinal que pisca devagar */
+  .animate-pulse-slow {
+    animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: .8;
+      transform: scale(1.02);
+    }
+  }
+</style>

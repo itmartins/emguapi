@@ -1,28 +1,33 @@
 ---
 // src/pages/tags/[tag].astro
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content'; // 1. Tipagem adicionada
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import NoticiaCard from '../../components/NoticiaCard.astro';
 
-// 1. Função obrigatória do Astro para gerar páginas dinâmicas
+// 2. Tipamos o que essa página vai receber por padrão
+interface Props {
+  tagOriginal: string;
+  noticias: CollectionEntry<'noticias'>[];
+}
+
 export async function getStaticPaths() {
   const todasNoticias = await getCollection('noticias');
   
-  // 2. Extrai todas as tags únicas de todas as matérias
-  const tagsUnicas = [...new Set(todasNoticias.map((noticia) => noticia.data.tags || []).flat())];
+  // Extrai todas as tags únicas de forma segura
+  const tagsUnicas = [...new Set(todasNoticias.map((noticia: CollectionEntry<'noticias'>) => noticia.data.tags || []).flat())];
 
-  // 3. Função para limpar o texto da URL (Ex: "Serra dos Órgãos" vira "serra-dos-orgaos")
+  // Função para limpar o texto da URL (Ex: "Serra dos Órgãos" vira "serra-dos-orgaos")
   const formatarTagParaURL = (tag: string) => {
     return tag.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
   };
 
-  // 4. Cria o caminho e passa as notícias filtradas para cada tag
+  // Cria o caminho e passa as notícias filtradas para cada tag
   return tagsUnicas.map((tag) => {
-    const noticiasFiltradas = todasNoticias
-      .filter((noticia) => noticia.data.tags?.includes(tag))
-      // CORREÇÃO 1: Voltando para a sua lógica de ordenação de Datas que sempre funcionou!
-      .sort((a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime());
+    const noticiasFiltradas = [...todasNoticias] // Cópia segura do array
+      .filter((noticia: CollectionEntry<'noticias'>) => noticia.data.tags?.includes(tag))
+      .sort((a: CollectionEntry<'noticias'>, b: CollectionEntry<'noticias'>) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime());
 
     return {
       params: { tag: formatarTagParaURL(tag) },
@@ -31,47 +36,50 @@ export async function getStaticPaths() {
   });
 }
 
-// 5. Recebe as propriedades para montar a tela
+// Recebe as propriedades para montar a tela
 const { tag } = Astro.params;
-const { tagOriginal, noticias } = Astro.props;
+const { tagOriginal, noticias } = Astro.props as Props;
 ---
 
 <Layout 
-    title={`Notícias sobre ${tagOriginal} em Guapimirim | emguapi.com`} 
-    description={`Acompanhe todas as últimas notícias, reportagens e atualizações sobre ${tagOriginal} na Baixada Fluminense.`}
+    title={`Notícias sobre #${tagOriginal} | emguapi.com`} 
+    description={`Acompanhe todas as últimas notícias, reportagens e atualizações sobre ${tagOriginal} em Guapimirim e na Baixada Fluminense.`}
 >
     <Navbar />
 
-    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 bg-white dark:bg-[#0b1120] min-h-screen border-x border-gray-100 dark:border-white/5">
+    {/* ALINHADO COM O DESIGN SYSTEM: Fundo, sombras e transições suaves */}
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 md:py-12 bg-white dark:bg-[#112240] shadow-sm md:my-8 rounded-sm min-h-screen border border-gray-100 dark:border-white/5 transition-colors duration-300">
         
-        <div class="mb-10 border-b-2 border-black dark:border-white pb-6 mt-4">
-            <p class="text-red-600 font-bold uppercase tracking-widest text-xs mb-2">Explorando o Tópico</p>
-            <h1 class="text-4xl md:text-5xl font-black text-black dark:text-white uppercase tracking-tighter">
+        <header class="mb-10 border-b-2 border-navy-base dark:border-white/20 pb-6 mt-4 transition-colors">
+            <p class="text-red-base font-black uppercase tracking-widest text-xs mb-2">Explorando o Tópico</p>
+            <h1 class="text-4xl md:text-5xl font-black text-navy-dark dark:text-white uppercase tracking-tighter transition-colors">
                 #{tagOriginal}
             </h1>
-            <p class="text-gray-500 dark:text-gray-400 mt-3 font-medium">
+            <p class="text-gray-500 dark:text-gray-400 mt-3 font-medium transition-colors">
                 {noticias.length} {noticias.length === 1 ? 'resultado encontrado' : 'resultados encontrados'}
             </p>
-        </div>
+        </header>
 
-        <div class="grid md:grid-cols-2 gap-x-8 gap-y-10 mb-12">
-            {noticias.map(noticia => (
-                <NoticiaCard 
-                    categoria={noticia.data.categoria}
-                    titulo={noticia.data.titulo}
-                    resumo={noticia.data.resumo}
-                    data={noticia.data.data}
-                    link={`/noticias/${noticia.id.replace(/\.md$/, '')}`}
-                    imagem={noticia.data.imagem || "/fotos/emguapi-capa.png"}
-                />
+        <section class="grid md:grid-cols-2 gap-x-8 gap-y-10 mb-12">
+            {noticias.map((noticia: CollectionEntry<'noticias'>) => (
+                <div class="h-full transform hover:-translate-y-1 transition-transform duration-300">
+                    <NoticiaCard 
+                        categoria={noticia.data.categoria}
+                        titulo={noticia.data.titulo}
+                        resumo={noticia.data.resumo || ""}
+                        data={noticia.data.data}
+                        link={`/noticias/${noticia.id.replace(/\.md$/, '')}`}
+                        imagem={noticia.data.imagem || "/fotos/emguapi-capa.png"}
+                    />
+                </div>
             ))}
-        </div>
+        </section>
 
-        <div class="text-center border-t border-gray-200 dark:border-white/10 pt-8">
-            <a href="/" class="inline-block border-2 border-black dark:border-white text-black dark:text-white font-bold uppercase text-xs tracking-widest px-8 py-3 rounded-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
-                ← Voltar para a Capa
+        <footer class="text-center border-t border-gray-100 dark:border-white/10 pt-8 transition-colors">
+            <a href="/" class="group inline-flex items-center gap-2 border-2 border-navy-base dark:border-white/20 text-navy-base dark:text-white font-black uppercase text-xs tracking-widest px-8 py-3 rounded-sm hover:bg-navy-base hover:text-white dark:hover:bg-white dark:hover:text-navy-dark transition-all shadow-sm">
+                <span class="group-hover:-translate-x-1 transition-transform">←</span> Voltar para a Capa
             </a>
-        </div>
+        </footer>
 
     </main>
 </Layout>

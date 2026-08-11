@@ -3,36 +3,50 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro'; 
 
-// --- NOVOS COMPONENTES IMPORTADOS ---
 import FastClassificadoCTA from '../components/widgets/FastClassificadoCTA.astro';
 import LocalBusinessSchema from '../components/seo/LocalBusinessSchema.astro';
 import AdBannerContainer from '../components/ads/AdBannerContainer.astro';
 
-// A magia acontece aqui: O Astro importa o JSON automaticamente como um Array!
-import comercios from '../data/comercios.json';
+import comerciosJson from '../data/comercios.json';
+
+// 1. Tipamos rigorosamente o que o JSON deve conter
+interface Comercio {
+  nome: string;
+  categoria: string;
+  descricao: string;
+  telefone: string;
+  bairro: string;
+  destaque: boolean;
+}
+
+// Transformamos o JSON genérico em uma lista oficial e segura
+const comercios = comerciosJson as Comercio[];
 
 // Categorias disponíveis para o filtro
 const categorias = ["Todos", "Alimentação", "Serviços", "Estética", "Imóveis", "Vagas"];
 ---
 
-<Layout title="Classificados e Guia Comercial - emguapi.com">
+<Layout 
+    title="Classificados e Guia Comercial - emguapi.com"
+    description="Encontre os melhores serviços, produtos e oportunidades em Guapimirim. Apoie o comércio local no diretório comercial do portal."
+>
   <Navbar /> 
 
   <!-- Chamada para novos comerciantes cadastram no WhatsApp -->
   <FastClassificadoCTA />
 
-  <main class="max-w-6xl mx-auto px-6 py-12 md:py-20">
+  <main class="max-w-6xl mx-auto px-6 py-12 md:py-20 transition-colors duration-300">
     
-    <div class="text-center mb-12 border-b border-gray-200 pb-10">
-      <h1 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-navy-dark mb-4">
+    <header class="text-center mb-12 border-b border-gray-200 dark:border-white/10 pb-10 transition-colors">
+      <h1 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-navy-dark dark:text-white mb-4 transition-colors">
         Classificados e <span class="text-red-base">Guia Local</span>
       </h1>
-      <p class="text-gray-600 text-lg max-w-2xl mx-auto font-medium">
+      <p class="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto font-medium transition-colors">
         Apoie o comércio de Guapimirim! Encontre os melhores serviços, produtos e oportunidades da nossa cidade.
       </p>
-    </div>
+    </header>
 
-    <div class="flex flex-wrap justify-center gap-3 mb-12">
+    <div class="flex flex-wrap justify-center gap-3 mb-12" role="group" aria-label="Filtro de categorias">
       {categorias.map((cat) => (
         <button 
           class="btn-filtro px-6 py-2.5 rounded-md text-xs font-black uppercase tracking-widest border transition-all duration-300"
@@ -45,8 +59,8 @@ const categorias = ["Todos", "Alimentação", "Serviços", "Estética", "Imóvei
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="grid-comercios">
       {comercios.map((comercio) => (
-        <div 
-          class="card-comercio bg-white rounded-lg p-6 border border-gray-200 transition-all hover:shadow-lg flex flex-col"
+        <article 
+          class="card-comercio bg-white dark:bg-[#1a2b4c] rounded-lg p-6 border border-gray-200 dark:border-white/10 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl flex flex-col"
           data-categoria={comercio.categoria}
           data-destaque={comercio.destaque.toString()}
         >
@@ -58,7 +72,7 @@ const categorias = ["Todos", "Alimentação", "Serviços", "Estética", "Imóvei
             phone={comercio.telefone}
           />
 
-          <div class="flex justify-between items-start mb-5 pb-4 border-b border-gray-100">
+          <div class="flex justify-between items-start mb-5 pb-4 border-b border-gray-100 dark:border-white/10 transition-colors">
             <span class="bg-navy-base text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-sm shadow-sm">
               {comercio.categoria}
             </span>
@@ -70,42 +84,43 @@ const categorias = ["Todos", "Alimentação", "Serviços", "Estética", "Imóvei
             )}
           </div>
 
-          <h3 class="text-xl font-black text-navy-dark leading-tight mb-2 uppercase tracking-tight">
+          <h3 class="text-xl font-black text-navy-dark dark:text-white leading-tight mb-2 uppercase tracking-tight transition-colors">
             {comercio.nome}
           </h3>
           
-          <p class="text-[10px] text-gray-500 mb-4 flex items-center gap-1 font-bold uppercase tracking-widest">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 text-red-base"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+          <p class="text-[10px] text-gray-500 dark:text-gray-400 mb-4 flex items-center gap-1 font-bold uppercase tracking-widest transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3 h-3 text-red-base"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
             {comercio.bairro}
           </p>
 
-          <p class="text-gray-600 text-sm mb-8 leading-relaxed font-medium">
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-8 leading-relaxed font-medium transition-colors">
             {comercio.descricao}
           </p>
 
           <a 
-            href={`https://wa.me/55${comercio.telefone}?text=Olá! Vi o anúncio no portal emguapi.com e gostaria de mais informações.`}
+            href={`https://wa.me/55${comercio.telefone.replace(/\D/g, '')}?text=Olá! Vi o anúncio no portal emguapi.com e gostaria de mais informações.`}
             target="_blank"
-            class="block w-full text-center bg-green-600 hover:bg-green-700 text-white font-black uppercase tracking-widest text-xs py-3.5 rounded-md transition-colors mt-auto shadow-sm"
+            rel="noopener noreferrer"
+            class="block w-full text-center bg-[#25D366] hover:bg-[#20b858] text-white font-black uppercase tracking-widest text-xs py-3.5 rounded-md transition-colors mt-auto shadow-sm"
           >
             Chamar no WhatsApp
           </a>
-        </div>
+        </article>
       ))}
     </div>
 
-    <div id="msg-vazio" class="hidden text-center py-16 bg-gray-50 rounded-lg border border-gray-200 mt-6">
-      <p class="text-gray-500 text-lg font-bold">Nenhum anúncio encontrado nesta categoria.</p>
+    <div id="msg-vazio" class="hidden text-center py-16 bg-gray-50 dark:bg-white/5 rounded-lg border border-gray-200 dark:border-white/10 mt-6 transition-colors">
+      <p class="text-gray-500 dark:text-gray-400 text-lg font-bold">Nenhum anúncio encontrado nesta categoria.</p>
     </div>
 
     {/* PUBLICIDADE HORIZONTAL DO GOOGLE */}
-    <div class="mt-16 pt-12 border-t border-gray-100 flex flex-col items-center w-full">
-        <span class="text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
+    <div class="mt-16 pt-12 border-t border-gray-100 dark:border-white/10 flex flex-col items-center w-full transition-colors">
+        <span class="text-[9px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
         <AdBannerContainer slotId="1504537360" format="horizontal" />
     </div>
 
-    {/* BANNER INFERIOR */}
-    <div class="mt-16 bg-navy-dark rounded-lg p-8 md:p-12 text-center text-white relative overflow-hidden border-t-8 border-red-base shadow-xl">
+    {/* BANNER INFERIOR DE CADASTRO */}
+    <section class="mt-16 bg-navy-dark dark:bg-[#0a192f] rounded-lg p-8 md:p-12 text-center text-white relative overflow-hidden border-t-8 border-red-base shadow-xl transition-colors">
       <div class="relative z-10">
         <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-4">
           Anuncie de Graça!
@@ -116,35 +131,36 @@ const categorias = ["Todos", "Alimentação", "Serviços", "Estética", "Imóvei
         
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
           
-          <a href="https://wa.me/5521969400053?text=Olá! Quero cadastrar meu negócio no Guia Comercial do emguapi.com" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white font-black uppercase tracking-widest text-xs px-8 py-4 rounded-md transition-all shadow-md active:scale-95">
+          <a href="https://wa.me/5521969400053?text=Olá! Quero cadastrar meu negócio no Guia Comercial do emguapi.com" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white font-black uppercase tracking-widest text-xs px-8 py-4 rounded-md transition-all shadow-md transform hover:-translate-y-1">
             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
             WhatsApp
           </a>
           
-          <a href="mailto:anuncie@emguapi.com" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-red-base hover:bg-red-light text-white font-black uppercase tracking-widest text-xs px-8 py-4 rounded-md transition-all shadow-md active:scale-95">
+          <a href="mailto:anuncie@emguapi.com" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-red-base hover:bg-red-700 text-white font-black uppercase tracking-widest text-xs px-8 py-4 rounded-md transition-all shadow-md transform hover:-translate-y-1">
             <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
             E-mail
           </a>
           
         </div>
-
       </div>
-    </div>
+    </section>
 
   </main>
 </Layout>
 
 <style>
+  /* Filtros Adaptados para Dark Mode */
   .btn-filtro {
-    @apply border-gray-200 text-gray-500 hover:border-navy-base hover:text-navy-base bg-white;
+    @apply border-gray-200 text-gray-500 hover:border-navy-base hover:text-navy-base bg-white dark:bg-[#1a2b4c] dark:border-white/10 dark:text-gray-400 dark:hover:border-red-400 dark:hover:text-red-400;
   }
   
   .btn-filtro.ativo {
-    @apply bg-navy-base border-navy-base text-white shadow-sm;
+    @apply bg-navy-base border-navy-base text-white dark:bg-red-base dark:border-red-base shadow-sm;
   }
 
+  /* Bordas de destaque no escuro */
   .card-comercio[data-destaque="true"] {
-    @apply border-red-base border-2 shadow-md relative;
+    @apply border-red-base border-2 shadow-md relative dark:border-red-500;
   }
 </style>
 

@@ -10,7 +10,7 @@ import AdBannerContainer from '../../components/ads/AdBannerContainer.astro';
 
 export async function getStaticPaths() {
   const noticiaEntries = await getCollection('noticias');
-  return noticiaEntries.map((entry) => ({
+  return noticiaEntries.map((entry: CollectionEntry<'noticias'>) => ({
     params: { slug: entry.id.replace(/\.md$/, '') }, 
     props: { entry },
   }));
@@ -30,10 +30,11 @@ const { entry } = Astro.props as Props;
 const { Content } = await render(entry);
 
 // --- LÓGICA DE NOTÍCIAS RELACIONADAS ---
+// 1. Clonamos a coleção e Tipamos as variáveis para evitar bugs
 const allNoticias = await getCollection('noticias');
-const noticiasRelacionadas = allNoticias
-    .filter((n) => n.id !== entry.id) 
-    .sort((a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime())
+const noticiasRelacionadas = [...allNoticias]
+    .filter((n: CollectionEntry<'noticias'>) => n.id !== entry.id) 
+    .sort((a: CollectionEntry<'noticias'>, b: CollectionEntry<'noticias'>) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime())
     .slice(0, 3);
 
 // Tratamento seguro do Autor
@@ -68,7 +69,8 @@ const datePublished = new Date(entry.data.data).toISOString();
 
     <Navbar />
     
-    <main class="max-w-4xl mx-auto my-12 bg-white shadow-xl rounded-lg overflow-hidden border border-gray-200">
+    {/* CONTAINER PRINCIPAL ADAPTADO PARA DARK MODE */}
+    <main class="max-w-4xl mx-auto my-12 bg-white dark:bg-[#112240] shadow-xl rounded-lg overflow-hidden border border-gray-200 dark:border-white/10 transition-colors duration-300">
         
         {/* HEADER DA NOTÍCIA */}
         <header class="relative h-[400px] md:h-[500px]">
@@ -92,20 +94,20 @@ const datePublished = new Date(entry.data.data).toISOString();
 
         <article class="p-8 md:p-16">
             {/* META INFO E SHARE */}
-            <div class="flex flex-wrap items-center justify-between gap-6 mb-10 pb-6 border-b border-gray-100">
-                <div class="text-gray-500 text-[10px] font-bold uppercase tracking-widest">
-                    {dataFormatada} <span class="mx-2 text-gray-300">|</span> Por 
-                    <a href={`/autor/${autorSlug}`} class="text-red-base hover:text-navy-base transition-colors">
+            <div class="flex flex-wrap items-center justify-between gap-6 mb-10 pb-6 border-b border-gray-100 dark:border-white/10 transition-colors">
+                <div class="text-gray-500 dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest transition-colors">
+                    {dataFormatada} <span class="mx-2 text-gray-300 dark:text-gray-600">|</span> Por 
+                    <a href={`/autor/${autorSlug}`} class="text-red-base hover:text-navy-base dark:hover:text-red-400 transition-colors">
                         {nomeAutor}
                     </a>
                 </div>
 
                 <div class="flex gap-2">
-                    <a href={`https://wa.me/?text=${shareText}%20${shareUrl}`} target="_blank" class="bg-[#25D366] text-white px-4 py-2 rounded-md hover:opacity-90 transition-all text-[9px] font-black uppercase shadow-sm flex items-center gap-2">
+                    <a href={`https://wa.me/?text=${shareText}%20${shareUrl}`} target="_blank" class="bg-[#25D366] hover:bg-[#20b858] text-white px-4 py-2 rounded-md transition-all text-[9px] font-black uppercase shadow-sm flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg>
                         WhatsApp
                     </a>
-                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`} target="_blank" class="bg-[#1877F2] text-white px-4 py-2 rounded-md hover:opacity-90 transition-all text-[9px] font-black uppercase shadow-sm">
+                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`} target="_blank" class="bg-[#1877F2] hover:bg-[#1464cc] text-white px-4 py-2 rounded-md transition-all text-[9px] font-black uppercase shadow-sm">
                         Facebook
                     </a>
                 </div>
@@ -115,12 +117,12 @@ const datePublished = new Date(entry.data.data).toISOString();
                 <AdBannerContainer slotId="0987654321" format="rectangle" />
             </div>
 
-            {/* CONTEÚDO DA MATÉRIA */}
+            {/* CONTEÚDO DA MATÉRIA COM SUPORTE AO DARK:PROSE-INVERT */}
             <div class="
-                prose prose-lg max-w-none text-gray-700 leading-relaxed
-                prose-headings:font-black prose-headings:text-navy-dark prose-headings:uppercase prose-headings:tracking-tight
-                prose-a:text-red-base hover:prose-a:text-navy-base
-                prose-strong:text-navy-dark prose-strong:font-black
+                prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed transition-colors
+                prose-headings:font-black prose-headings:text-navy-dark dark:prose-headings:text-white prose-headings:uppercase prose-headings:tracking-tight
+                prose-a:text-red-base hover:prose-a:text-navy-base dark:hover:prose-a:text-red-400
+                prose-strong:text-navy-dark dark:prose-strong:text-white prose-strong:font-black
                 prose-img:rounded-lg prose-img:shadow-md prose-img:w-full
                 
                 [&_iframe]:w-full [&_iframe]:aspect-video [&_iframe]:rounded-lg [&_iframe]:shadow-md [&_iframe]:mb-8
@@ -129,7 +131,7 @@ const datePublished = new Date(entry.data.data).toISOString();
                 [&_figure]:block
                 [&_figcaption]:text-center  
                 [&_figcaption]:text-xs      
-                [&_figcaption]:text-gray-500 
+                [&_figcaption]:text-gray-500 dark:[&_figcaption]:text-gray-400
                 [&_figcaption]:mt-3         
                 [&_figcaption]:font-bold
                 [&_figcaption]:tracking-widest
@@ -146,28 +148,28 @@ const datePublished = new Date(entry.data.data).toISOString();
 
                 prose-blockquote:not-italic
                 prose-blockquote:font-bold
-                prose-blockquote:text-navy-base
-                prose-blockquote:bg-gray-50
+                prose-blockquote:text-navy-base dark:prose-blockquote:text-white
+                prose-blockquote:bg-gray-50 dark:prose-blockquote:bg-white/5
                 prose-blockquote:border-l-8
                 prose-blockquote:border-red-base
                 prose-blockquote:py-6
                 prose-blockquote:px-8
                 prose-blockquote:rounded-r-md
                 prose-blockquote:shadow-sm
-                prose-blockquote:border-y prose-blockquote:border-r prose-blockquote:border-gray-100
+                prose-blockquote:border-y prose-blockquote:border-r prose-blockquote:border-gray-100 dark:prose-blockquote:border-white/10
             ">
                 <Content />
             </div>
 
             {/* TAGS */}
             {entry.data.tags && entry.data.tags.length > 0 && (
-                <div class="mt-12 mb-12 pt-8 border-t border-gray-100">
+                <div class="mt-12 mb-12 pt-8 border-t border-gray-100 dark:border-white/10 transition-colors">
                     <h4 class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-4">Tópicos Relacionados:</h4>
                     <div class="flex flex-wrap gap-2">
                         {entry.data.tags.map((tag: string) => (
                             <a 
                                 href={`/tags/${formatarTagParaURL(tag)}`}
-                                class="bg-gray-50 hover:bg-red-base hover:text-white text-gray-500 text-[9px] font-black uppercase px-3 py-1.5 rounded-sm border border-gray-200 transition-colors"
+                                class="bg-gray-50 dark:bg-white/5 hover:bg-red-base dark:hover:bg-red-base hover:text-white text-gray-500 dark:text-gray-300 text-[9px] font-black uppercase px-3 py-1.5 rounded-sm border border-gray-200 dark:border-white/10 transition-colors"
                             >
                                 #{tag}
                             </a>
@@ -177,15 +179,15 @@ const datePublished = new Date(entry.data.data).toISOString();
             )}
             
             {/* RELACIONADAS */}
-            <div class="mt-20 pt-12 border-t-2 border-gray-100">
-                <h3 class="text-xl font-black uppercase tracking-tighter text-navy-dark mb-8 flex items-center gap-3">
+            <div class="mt-20 pt-12 border-t-2 border-gray-100 dark:border-white/10 transition-colors">
+                <h3 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white mb-8 flex items-center gap-3 transition-colors">
                     <span class="w-2 h-6 bg-red-base inline-block rounded-sm"></span>
                     Você pode gostar
                 </h3>
                 
                 <div class="grid md:grid-cols-3 gap-6">
-                    {noticiasRelacionadas.map((noticia) => (
-                        <div class="h-full"> 
+                    {noticiasRelacionadas.map((noticia: CollectionEntry<'noticias'>) => (
+                        <div class="h-full transform hover:-translate-y-1 transition-transform duration-300"> 
                             <NoticiaCard 
                                 categoria={noticia.data.categoria}
                                 titulo={noticia.data.titulo}
@@ -200,13 +202,13 @@ const datePublished = new Date(entry.data.data).toISOString();
             </div>
 
             {/* PUBLICIDADE*/}
-            <div class="mt-16 pt-12 border-t border-gray-100 flex flex-col items-center w-full">
+            <div class="mt-16 pt-12 border-t border-gray-100 dark:border-white/10 flex flex-col items-center w-full transition-colors">
                 <span class="text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
                 <AdBannerContainer slotId="1504537360" format="horizontal" />
             </div>
 
-            <footer class="mt-16 pt-8 border-t border-gray-100 flex justify-between items-center">
-                <a href="/noticias" class="text-navy-base font-black uppercase text-[16px] tracking-widest hover:text-red-base transition-colors flex items-center gap-2 group">
+            <footer class="mt-16 pt-8 border-t border-gray-100 dark:border-white/10 flex justify-between items-center transition-colors">
+                <a href="/noticias" class="text-navy-base dark:text-white font-black uppercase text-[16px] tracking-widest hover:text-red-base dark:hover:text-red-base transition-colors flex items-center gap-2 group">
                     <span class="group-hover:-translate-x-1 transition-transform">←</span> Voltar para Notícias
                 </a>
             </footer>

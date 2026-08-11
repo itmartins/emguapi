@@ -1,6 +1,7 @@
 ---
 // src/pages/denuncia.astro
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content'; // 1. Importando a tipagem oficial
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import VozComunidade from '../components/VozComunidade.astro';
@@ -13,24 +14,29 @@ const denuncias = await getCollection('denuncias');
 
 // Filtra APENAS as notícias que têm a categoria "Voz da Comunidade"
 const noticiasVozDaComunidade = noticias.filter(
-    item => (item.data as any).categoria === 'Voz da Comunidade'
+    (item: CollectionEntry<'noticias'>) => item.data.categoria === 'Voz da Comunidade'
 );
 
-// Unifica as duas listas em um único array, usando "as any" para o TypeScript não dar erro
-const todasAsDenuncias = [
-    ...noticiasVozDaComunidade.map(item => ({
-        tipo: 'noticia',
+// 2. Criamos um "Molde" perfeito para o TypeScript parar de reclamar (substitui o as any)
+type ItemUnificado = 
+  | { tipo: 'noticia'; id: string; slug: string; dataPostagem: number; dados: CollectionEntry<'noticias'>['data'] }
+  | { tipo: 'denuncia_crua'; id: string; slug: string; dataPostagem: number; dados: CollectionEntry<'denuncias'>['data'] };
+
+// 3. Unifica as duas listas de forma 100% segura
+const todasAsDenuncias: ItemUnificado[] = [
+    ...noticiasVozDaComunidade.map((item: CollectionEntry<'noticias'>) => ({
+        tipo: 'noticia' as const,
         id: item.id,
-        slug: item.slug,
-        dataPostagem: new Date((item.data as any).data).getTime(),
-        dados: item.data as any // CORREÇÃO AQUI: "as any" acalma o TypeScript
+        slug: item.id.replace(/\.md$/, ''), // Correção do Slug no Astro 7
+        dataPostagem: new Date(item.data.data).getTime(),
+        dados: item.data 
     })),
-    ...denuncias.map(item => ({
-        tipo: 'denuncia_crua',
+    ...denuncias.map((item: CollectionEntry<'denuncias'>) => ({
+        tipo: 'denuncia_crua' as const,
         id: item.id,
-        slug: item.slug,
-        dataPostagem: new Date((item.data as any).data).getTime(),
-        dados: item.data as any // CORREÇÃO AQUI: "as any" acalma o TypeScript
+        slug: item.id.replace(/\.md$/, ''), // Correção do Slug no Astro 7
+        dataPostagem: new Date(item.data.data).getTime(),
+        dados: item.data 
     }))
 ].sort((a, b) => b.dataPostagem - a.dataPostagem);
 
@@ -40,57 +46,62 @@ const bairros = [ "Área Rural de Guapimirim", "Bananal", "Barreira", "Cadetes F
 const problemas = [ "Falta de Água", "Coleta de Lixo", "Iluminação Pública", "Problemas no Trem (Diesel)", "Segurança", "Buracos/Pavimentação" ];
 ---
 
-<Layout title="Voz da Comunidade - Denúncias | emguapi.com">
+<Layout 
+    title="Voz da Comunidade - Denúncias | emguapi.com"
+    description="Envie sua denúncia ou relato diretamente para a nossa redação. O canal de utilidade pública e fiscalização de Guapimirim."
+>
     <Navbar />
 
-    <main class="max-w-4xl mx-auto p-6 my-12">
+    <main class="max-w-4xl mx-auto p-6 my-12 transition-colors duration-300">
         
-        <section class="bg-white shadow-lg rounded-lg overflow-hidden border-t-8 border-red-base p-8 md:p-12 mb-20 border border-gray-200">
-            <header class="mb-10 text-center border-b border-gray-100 pb-8">
-                <h1 class="text-4xl font-black text-navy-dark uppercase tracking-tighter">
+        {/* CONTAINER DO FORMULÁRIO COM SUPORTE A DARK MODE */}
+        <section class="bg-white dark:bg-[#1a2b4c] shadow-lg rounded-lg overflow-hidden border-t-8 border-red-base p-8 md:p-12 mb-20 border border-gray-200 dark:border-white/10 transition-colors duration-300">
+            <header class="mb-10 text-center border-b border-gray-100 dark:border-white/10 pb-8 transition-colors">
+                <h1 class="text-4xl font-black text-navy-dark dark:text-white uppercase tracking-tighter transition-colors">
                     Voz da <span class="text-red-base">Comunidade</span>
                 </h1>
-                <p class="text-navy-soft mt-2 font-medium">O canal de utilidade pública de Guapimirim</p>
+                <p class="text-navy-soft dark:text-gray-400 mt-2 font-medium transition-colors">O canal de utilidade pública de Guapimirim</p>
             </header>
 
             <form id="denuncia-form" class="space-y-6">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-[10px] font-black uppercase text-navy-soft mb-2 tracking-widest">Localidade</label>
-                        <select id="bairro-form" required class="w-full bg-ice text-navy-dark p-4 rounded-sm font-bold border border-gray-200 focus:border-red-base outline-none transition-all cursor-pointer">
+                        <label class="block text-[10px] font-black uppercase text-navy-soft dark:text-gray-400 mb-2 tracking-widest transition-colors">Localidade</label>
+                        <select id="bairro-form" required class="w-full bg-ice dark:bg-[#0a192f] text-navy-dark dark:text-white p-4 rounded-sm font-bold border border-gray-200 dark:border-white/10 focus:border-red-base dark:focus:border-red-400 outline-none transition-all cursor-pointer">
                             <option value="">Selecione o Bairro</option>
                             {bairros.map(b => <option value={b}>{b}</option>)}
                         </select>
                     </div>
                     <div>
-                        <label class="block text-[10px] font-black uppercase text-navy-soft mb-2 tracking-widest">Assunto</label>
-                        <select id="assunto-form" required class="w-full bg-ice text-navy-dark p-4 rounded-sm font-bold border border-gray-200 focus:border-red-base outline-none transition-all cursor-pointer">
+                        <label class="block text-[10px] font-black uppercase text-navy-soft dark:text-gray-400 mb-2 tracking-widest transition-colors">Assunto</label>
+                        <select id="assunto-form" required class="w-full bg-ice dark:bg-[#0a192f] text-navy-dark dark:text-white p-4 rounded-sm font-bold border border-gray-200 dark:border-white/10 focus:border-red-base dark:focus:border-red-400 outline-none transition-all cursor-pointer">
                             <option value="">Tipo de Ocorrência</option>
                             {problemas.map(p => <option value={p}>{p}</option>)}
                         </select>
                     </div>
                 </div>
                 <div>
-                    <label class="block text-[10px] font-black uppercase text-navy-soft mb-2 tracking-widest">Relato do Morador</label>
-                    <textarea id="relato-form" rows="5" required placeholder="Descreva o problema com detalhes..." class="w-full bg-ice text-navy-dark p-4 rounded-sm font-medium border border-gray-200 focus:border-red-base outline-none resize-none transition-all"></textarea>
+                    <label class="block text-[10px] font-black uppercase text-navy-soft dark:text-gray-400 mb-2 tracking-widest transition-colors">Relato do Morador</label>
+                    <textarea id="relato-form" rows="5" required placeholder="Descreva o problema com detalhes..." class="w-full bg-ice dark:bg-[#0a192f] text-navy-dark dark:text-white p-4 rounded-sm font-medium border border-gray-200 dark:border-white/10 focus:border-red-base dark:focus:border-red-400 outline-none resize-none transition-all"></textarea>
                 </div>
                 <div>
-                    <label class="block text-[10px] font-black uppercase text-navy-soft mb-2 tracking-widest">Seu Nome (Opcional)</label>
-                    <input type="text" id="nome-form" placeholder="Ex: Dona Maria ou Morador do Centro" class="w-full bg-ice text-navy-dark p-4 rounded-sm font-bold border border-gray-200 focus:border-red-base outline-none transition-all" />
+                    <label class="block text-[10px] font-black uppercase text-navy-soft dark:text-gray-400 mb-2 tracking-widest transition-colors">Seu Nome (Opcional)</label>
+                    <input type="text" id="nome-form" placeholder="Ex: Dona Maria ou Morador do Centro" class="w-full bg-ice dark:bg-[#0a192f] text-navy-dark dark:text-white p-4 rounded-sm font-bold border border-gray-200 dark:border-white/10 focus:border-red-base dark:focus:border-red-400 outline-none transition-all" />
                 </div>
                 
-                <button type="submit" class="w-full bg-navy-dark hover:bg-red-base text-white p-5 rounded-md font-black uppercase tracking-widest shadow-md transition-all active:scale-95 flex items-center justify-center gap-3">
+                <button type="submit" class="w-full bg-navy-dark dark:bg-red-base hover:bg-red-base dark:hover:bg-red-700 text-white p-5 rounded-md font-black uppercase tracking-widest shadow-md transition-all transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg>
                     Enviar para a Redação no WhatsApp
                 </button>
             </form>
             
-            <div class="mt-8 p-4 bg-gray-50 rounded-sm border-l-4 border-navy-soft text-center">
-                <p class="text-[10px] text-navy-soft uppercase font-bold tracking-wider">As denúncias são recebidas pela nossa equipe e podem ser transformadas em pautas jornalísticas.</p>
+            <div class="mt-8 p-4 bg-gray-50 dark:bg-white/5 rounded-sm border-l-4 border-navy-soft dark:border-gray-500 text-center transition-colors">
+                <p class="text-[10px] text-navy-soft dark:text-gray-400 uppercase font-bold tracking-wider transition-colors">As denúncias são recebidas pela nossa equipe e podem ser transformadas em pautas jornalísticas.</p>
             </div>
         </section>
 
         <section>
-            <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark mb-10 flex items-center gap-3 border-b border-gray-100 pb-4">
+            <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white mb-10 flex items-center gap-3 border-b border-gray-100 dark:border-white/10 pb-4 transition-colors">
                 <span class="w-2 h-6 bg-red-base inline-block rounded-sm"></span>
                 Relatos e Pautas Recentes
             </h2>
@@ -100,14 +111,16 @@ const problemas = [ "Falta de Água", "Coleta de Lixo", "Iluminação Pública",
                     todasAsDenuncias.map((item, index) => (
                         <div class="denuncia-item transition-all duration-500" data-hidden={index >= 4 ? "true" : "false"}>
                             {item.tipo === 'noticia' ? (
-                                <NoticiaCard 
-                                    categoria={item.dados.categoria}
-                                    titulo={item.dados.titulo}
-                                    resumo={item.dados.resumo}
-                                    data={item.dados.data}
-                                    link={`/noticias/${item.slug}`}
-                                    imagem={item.dados.imagem || "/fotos/estacao-guapi.jpg"}
-                                />
+                                <div class="h-full transform hover:-translate-y-1 transition-transform duration-300">
+                                    <NoticiaCard 
+                                        categoria={item.dados.categoria}
+                                        titulo={item.dados.titulo}
+                                        resumo={item.dados.resumo}
+                                        data={item.dados.data}
+                                        link={`/noticias/${item.slug}`}
+                                        imagem={item.dados.imagem || "/fotos/estacao-guapi.jpg"}
+                                    />
+                                </div>
                             ) : (
                                 <VozComunidade 
                                     bairro={item.dados.bairro}
@@ -118,24 +131,24 @@ const problemas = [ "Falta de Água", "Coleta de Lixo", "Iluminação Pública",
                         </div>
                     ))
                 ) : (
-                    <div class="col-span-2 bg-white p-12 rounded-lg text-center border border-gray-100 shadow-sm">
-                        <p class="text-navy-soft text-sm mb-4">Ainda não há relatos publicados.</p>
+                    <div class="col-span-2 bg-white dark:bg-[#1a2b4c] p-12 rounded-lg text-center border border-gray-100 dark:border-white/10 shadow-sm transition-colors">
+                        <p class="text-navy-soft dark:text-gray-400 text-sm mb-4">Ainda não há relatos publicados.</p>
                     </div>
                 )}
             </div>
 
             {todasAsDenuncias.length > 4 && (
-                <div class="text-center pt-6 border-t border-gray-100">
+                <div class="text-center pt-6 border-t border-gray-100 dark:border-white/10 transition-colors">
                     <button 
                         id="btn-carregar-mais"
-                        class="group flex items-center gap-2 mx-auto text-xs font-black uppercase tracking-widest text-navy-base bg-white border border-navy-base/20 hover:border-navy-base/50 transition-all px-8 py-4 rounded-md shadow-sm"
+                        class="group flex items-center gap-2 mx-auto text-xs font-black uppercase tracking-widest text-navy-base dark:text-white bg-white dark:bg-[#1a2b4c] border border-navy-base/20 dark:border-white/20 hover:border-navy-base/50 dark:hover:border-white/50 transition-all px-8 py-4 rounded-md shadow-sm"
                     >
                         Carregar mais relatos
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 group-hover:translate-y-1 transition-transform">
                           <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                         </svg>
                     </button>
-                    <p id="msg-fim-lista" class="hidden text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mt-6">
+                    <p id="msg-fim-lista" class="hidden text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mt-6 transition-colors">
                         Todos os relatos foram exibidos.
                     </p>
                 </div>
@@ -143,8 +156,8 @@ const problemas = [ "Falta de Água", "Coleta de Lixo", "Iluminação Pública",
         </section>
 
         {/* PUBLICIDADE HORIZONTAL DO GOOGLE */}
-        <div class="mt-16 pt-12 border-t border-gray-100 flex flex-col items-center w-full">
-            <span class="text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
+        <div class="mt-16 pt-12 border-t border-gray-100 dark:border-white/10 flex flex-col items-center w-full transition-colors">
+            <span class="text-[9px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
             <AdBannerContainer slotId="1504537360" format="horizontal" />
         </div>
 

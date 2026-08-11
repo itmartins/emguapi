@@ -1,56 +1,66 @@
 ---
+// src/pages/noticias/index.astro
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content'; // 1. Tipagem obrigatória do Astro 7
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import NoticiaCard from '../../components/NoticiaCard.astro';
 import AdBannerContainer from '../../components/ads/AdBannerContainer.astro';
 
-// Busca e ordena as notícias por data (mais recente primeiro)
-const todasNoticias = (await getCollection('noticias')).sort(
-  (a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
+// 2. Proteção contra o erro 500 do Astro (cópia destravada do array) e Tipagem
+const todasNoticias = [...(await getCollection('noticias'))].sort(
+  (a: CollectionEntry<'noticias'>, b: CollectionEntry<'noticias'>) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
 );
 ---
 
-<Layout title="Últimas Notícias | emguapi.com">
+<Layout 
+    title="Últimas Notícias | emguapi.com"
+    description="Acompanhe as últimas notícias, reportagens e atualizações em tempo real de Guapimirim e região no portal emguapi.com."
+>
     <Navbar />
 
-    <main class="max-w-6xl mx-auto p-6 my-12">
-        {/* HEADER: Removido o italic e trocado border-ice por border-gray-200 */}
-        <header class="mb-16 border-b border-gray-200 pb-10">
+    <main class="max-w-6xl mx-auto p-6 my-12 transition-colors duration-300">
+        
+        {/* HEADER: Adaptado para Dark Mode */}
+        <header class="mb-16 border-b border-gray-200 dark:border-white/10 pb-10 transition-colors">
             <span class="text-red-base font-black uppercase tracking-[0.2em] text-[10px]">Fique por dentro</span>
-            <h1 class="text-4xl md:text-6xl font-black text-navy-dark uppercase tracking-tighter mt-2 leading-none">
+            <h1 class="text-4xl md:text-6xl font-black text-navy-dark dark:text-white uppercase tracking-tighter mt-2 leading-none transition-colors">
                 Últimas <span class="text-red-base">Notícias</span>
             </h1>
         </header>
 
-        {/* GRID: O NoticiaCard já foi atualizado anteriormente para rounded-lg e tag azul */}
+        {/* GRID: Efeito hover premium e Tipagem no Map */}
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-            {todasNoticias.map(noticia => (
-                <NoticiaCard 
-                    categoria={noticia.data.categoria}
-                    titulo={noticia.data.titulo}
-                    resumo={noticia.data.resumo}
-                    data={noticia.data.data}
-                    
-                    link={`/noticias/${noticia.id.replace(/\.md$/, '')}`}
-                    imagem={noticia.data.imagem || "/fotos/emguapi-capa.png"}
-                />
+            {todasNoticias.map((noticia: CollectionEntry<'noticias'>) => (
+                <div class="h-full transform hover:-translate-y-1 transition-transform duration-300">
+                    <NoticiaCard 
+                        categoria={noticia.data.categoria}
+                        titulo={noticia.data.titulo}
+                        resumo={noticia.data.resumo}
+                        data={noticia.data.data}
+                        link={`/noticias/${noticia.id.replace(/\.md$/, '')}`}
+                        imagem={noticia.data.imagem || "/fotos/emguapi-capa.png"}
+                    />
+                </div>
             ))}
         </div>
 
         {/* PUBLICIDADE HORIZONTAL */}
-        <div class="mt-16 pt-12 border-t border-gray-100 flex flex-col items-center w-full">
-            <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-4">Publicidade</span>
-            
-            <!-- Banner Dinâmico do Google Ads -->
+        <div class="mt-16 pt-12 border-t border-gray-100 dark:border-white/10 flex flex-col items-center w-full transition-colors">
+            <span class="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-4">Espaço Publicitário</span>
             <AdBannerContainer slotId="1504537360" format="horizontal" />
-            
         </div>
 
-        {/* FOOTER DA PÁGINA: Mensagem de fim de arquivo */}
-        {todasNoticias.length > 0 && (
+        {/* FOOTER DA PÁGINA */}
+        {todasNoticias.length > 0 ? (
             <div class="mt-12 pt-10 text-center">
-                <p class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">Você chegou ao fim do acervo</p>
+                <p class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 dark:text-gray-500 transition-colors">
+                    Você chegou ao fim do acervo
+                </p>
+            </div>
+        ) : (
+            <div class="text-center py-20">
+                <p class="text-gray-500 dark:text-gray-400 font-medium">Nenhuma notícia encontrada.</p>
             </div>
         )}
     </main>

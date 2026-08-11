@@ -1,38 +1,52 @@
 ---
 // src/pages/ao-vivo.astro
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content'; // 1. Tipagem oficial
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import AdBannerContainer from '../components/ads/AdBannerContainer.astro';
-import { getCollection } from 'astro:content';
 
+// 2. Busca as coleções
 const noticias = await getCollection('noticias');
 const denuncias = await getCollection('denuncias');
 
-// Filtramos as notícias para pegar APENAS as que são da categoria "Voz da Comunidade"
+// Filtra as notícias para pegar APENAS as da "Voz da Comunidade"
 const noticiasVozDaComunidade = noticias.filter(
-    item => (item.data as any).categoria === 'Voz da Comunidade'
+    (item: CollectionEntry<'noticias'>) => item.data.categoria === 'Voz da Comunidade'
 );
 
-const atualizacoes = [
-    ...noticiasVozDaComunidade.map(item => ({ 
+// 3. Tipagem estruturada para a Linha do Tempo
+type TimelineItem = {
+    id: string;
+    slug: string;
+    titulo: string;
+    data: Date;
+    tipo: 'noticia' | 'denuncia';
+    categoria: string;
+};
+
+// 4. Fusão segura das coleções
+const atualizacoes: TimelineItem[] = [
+    ...noticiasVozDaComunidade.map((item: CollectionEntry<'noticias'>) => ({ 
         id: item.id, 
-        slug: item.slug, 
-        titulo: (item.data as any).titulo, 
-        data: new Date((item.data as any).data), 
-        tipo: 'noticia',
+        slug: item.id.replace(/\.md$/, ''), // Correção do Astro 7
+        titulo: item.data.titulo, 
+        data: new Date(item.data.data), 
+        tipo: 'noticia' as const,
         categoria: 'Voz da Comunidade'
     })),
-    ...denuncias.map(item => ({ 
+    ...denuncias.map((item: CollectionEntry<'denuncias'>) => ({ 
         id: item.id, 
-        slug: item.slug, 
-        titulo: (item.data as any).titulo || `Denúncia no bairro: ${(item.data as any).bairro}`, 
-        data: new Date((item.data as any).data), 
-        tipo: 'denuncia',
+        slug: item.id.replace(/\.md$/, ''), // Correção do Astro 7
+        // Como 'denuncias' não tem título no schema, usamos o bairro como base de forma segura
+        titulo: `Denúncia no bairro: ${item.data.bairro}`, 
+        data: new Date(item.data.data), 
+        tipo: 'denuncia' as const,
         categoria: 'Voz da Comunidade'
     }))
 ];
 
-// ORDENAÇÃO RIGOROSA: Garante que o mais recente (maior data) fique sempre no início [0]
+// ORDENAÇÃO RIGOROSA: O mais recente fica no topo
 atualizacoes.sort((a, b) => b.data.getTime() - a.data.getTime());
 
 const ultimasAtualizacoes = atualizacoes.slice(0, 15);
@@ -40,12 +54,12 @@ const ultimasAtualizacoes = atualizacoes.slice(0, 15);
 
 <Layout 
     title="Voz da Comunidade Ao Vivo | emguapi.com"
-    description="Acompanhe em tempo real os relatos, denúncias e as vozes dos moradores de Guapimirim."
+    description="Acompanhe em tempo real os relatos, denúncias e as vozes dos moradores de Guapimirim e região."
 >
     <Navbar />
 
-    <main class="max-w-4xl mx-auto p-6 my-8">
-        <header class="mb-12 border-b border-gray-200 pb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+    <main class="max-w-4xl mx-auto p-6 my-8 transition-colors duration-300">
+        <header class="mb-12 border-b border-gray-200 dark:border-white/10 pb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-colors">
             <div>
                 <div class="flex items-center gap-3 mb-2">
                     <span class="relative flex h-4 w-4">
@@ -54,31 +68,32 @@ const ultimasAtualizacoes = atualizacoes.slice(0, 15);
                     </span>
                     <span class="text-red-base font-black uppercase tracking-[0.2em] text-xs">Tempo Real</span>
                 </div>
-                <h1 class="text-4xl md:text-5xl font-black text-navy-dark uppercase tracking-tighter">
+                <h1 class="text-4xl md:text-5xl font-black text-navy-dark dark:text-white uppercase tracking-tighter transition-colors">
                     Voz da <span class="text-red-base">Comunidade</span>
                 </h1>
-                <p class="text-gray-500 mt-2 font-medium">O espaço do morador. Acompanhe as últimas denúncias e relatos da cidade.</p>
+                <p class="text-gray-500 dark:text-gray-400 mt-2 font-medium transition-colors">O espaço do morador. Acompanhe as últimas denúncias e relatos da cidade.</p>
             </div>
             
-            <div class="bg-gray-50 border border-gray-200 rounded-md px-4 py-3 flex items-center gap-3 shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+            <div class="bg-gray-50 dark:bg-[#1a2b4c] border border-gray-200 dark:border-white/10 rounded-md px-4 py-3 flex items-center gap-3 shadow-sm transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                 <div>
-                    <span class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">Data de Hoje</span>
-                    <span id="data-hoje" class="block text-sm font-black text-navy-dark">Carregando...</span>
+                    <span class="block text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest transition-colors">Data de Hoje</span>
+                    <span id="data-hoje" class="block text-sm font-black text-navy-dark dark:text-white transition-colors">Carregando...</span>
                 </div>
             </div>
         </header>
 
-        <div class="relative border-l-2 border-gray-100 ml-3 md:ml-6 space-y-12 pb-12">
+        <div class="relative border-l-2 border-gray-100 dark:border-white/10 ml-3 md:ml-6 space-y-12 pb-12 transition-colors">
             
             {ultimasAtualizacoes.length > 0 ? (
                 ultimasAtualizacoes.map((item) => (
-                    <div class="relative pl-8 md:pl-12 item-linha-do-tempo" data-date={item.data.toISOString()}>
-                        <div class="absolute -left-[9px] top-1 h-4 w-4 rounded-full border-4 border-white shadow-sm flex items-center justify-center bg-orange-500"></div>
+                    <div class="relative pl-8 md:pl-12 item-linha-do-tempo group" data-date={item.data.toISOString()}>
+                        {/* Ponto na Linha do Tempo adaptado para Dark Mode */}
+                        <div class="absolute -left-[9px] top-1 h-4 w-4 rounded-full border-4 border-white dark:border-[#0a192f] shadow-sm flex items-center justify-center bg-orange-500 transition-colors"></div>
 
-                        <div class="group">
+                        <div>
                             <div class="flex items-center gap-3 mb-2">
-                                <span class="bg-gray-100 text-gray-600 text-[10px] font-black px-2 py-1 rounded-sm uppercase tracking-widest hora-postagem">
+                                <span class="bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 text-[10px] font-black px-2 py-1 rounded-sm uppercase tracking-widest hora-postagem transition-colors">
                                     {item.data.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
                                 </span>
                                 <span class="text-[10px] font-black uppercase tracking-widest text-orange-500">
@@ -90,11 +105,11 @@ const ultimasAtualizacoes = atualizacoes.slice(0, 15);
                                 </span>
                             </div>
 
-                            <a href={`/${item.tipo === 'noticia' ? 'noticias' : 'denuncia'}/${item.slug}`} class="block">
-                                <h2 class="text-xl md:text-2xl font-black text-navy-dark uppercase tracking-tight leading-tight group-hover:text-red-base transition-colors">
+                            <a href={`/${item.tipo === 'noticia' ? 'noticias' : 'denuncia'}/${item.slug}`} class="block mt-1">
+                                <h2 class="text-xl md:text-2xl font-black text-navy-dark dark:text-white uppercase tracking-tight leading-tight group-hover:text-red-base dark:group-hover:text-red-400 transition-colors">
                                     {item.titulo}
                                 </h2>
-                                <p class="text-sm font-bold text-gray-400 mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                <p class="text-sm font-bold text-gray-400 dark:text-gray-500 mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                                     Ler relato completo <span class="text-red-base">➔</span>
                                 </p>
                             </a>
@@ -102,7 +117,7 @@ const ultimasAtualizacoes = atualizacoes.slice(0, 15);
                     </div>
                 ))
             ) : (
-                <div class="pl-8 md:pl-12 text-gray-500 font-medium">
+                <div class="pl-8 md:pl-12 text-gray-500 dark:text-gray-400 font-medium transition-colors">
                     Nenhuma denúncia registrada recentemente.
                 </div>
             )}
@@ -110,12 +125,9 @@ const ultimasAtualizacoes = atualizacoes.slice(0, 15);
         </div>
 
         {/* PUBLICIDADE HORIZONTAL */}
-        <div class="mt-8 pt-12 border-t border-gray-100 flex flex-col items-center w-full">
-            <span class="text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
-            
-            <!-- Banner Dinâmico do Google Ads -->
+        <div class="mt-8 pt-12 border-t border-gray-100 dark:border-white/10 flex flex-col items-center w-full transition-colors">
+            <span class="text-[9px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-[0.3em] mb-4 transition-colors">Espaço Publicitário</span>
             <AdBannerContainer slotId="1504537360" format="horizontal" />
-            
         </div>
 
     </main>
@@ -140,6 +152,7 @@ const ultimasAtualizacoes = atualizacoes.slice(0, 15);
             const etiquetaHoje = item.querySelector('.etiqueta-hoje');
             const horaEl = item.querySelector('.hora-postagem');
             
+            // Verifica se a data de postagem é o mesmo dia, mês e ano de hoje
             if (dataPostagem.getDate() === hoje.getDate() && 
                 dataPostagem.getMonth() === hoje.getMonth() && 
                 dataPostagem.getFullYear() === hoje.getFullYear()) {

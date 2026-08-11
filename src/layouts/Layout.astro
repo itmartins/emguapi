@@ -5,7 +5,7 @@ import '../styles/global.css';
 // Análise de acessos ao site (Vercel Analytics)
 import Analytics from '@vercel/analytics/astro'
 
-// 1. IMPORTAR OS COMPONENTES
+// IMPORTAR OS COMPONENTES
 import Footer from '../components/Footer.astro'; 
 import CookieConsent from '../components/CookieConsent.astro'; 
 
@@ -18,67 +18,80 @@ interface Props {
 
 const { 
     title, 
-    description = "Notícias, serviços e informações sobre Guapimirim.", 
+    description = "Notícias, serviços e informações sobre Guapimirim e região.", 
     image = "/fotos/emguapi-capa.png",
     tags = []
 } = Astro.props;
 
-// 2. Ajuste do Link para funcionar no Zap usando o domínio automático
-const siteURL = "https://www.emguapi.com"; 
+// Ajuste dinâmico e seguro do Link (Astro.site pega o domínio oficial configurado, ou usa o padrão)
+const siteURL = Astro.site ? Astro.site.toString() : "https://www.emguapi.com"; 
+const canonicalURL = new URL(Astro.url.pathname, siteURL).href;
 const imageURL = new URL(image, siteURL).href;
 ---
 
 <!doctype html>
 <html lang="pt-br">
     <head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2720240238972537" crossorigin="anonymous"></script>
-        <meta property="fb:app_id" content="1506785261006656" />
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
+        <meta name="theme-color" content="#112240" /> {/* Cor do topo do navegador no celular */}
         
+        {/* SEO Básico & Canonical URL */}
         <title>{title}</title>
         <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalURL} />
 
+        {/* Fontes do Google otimizadas */}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+        {/* Open Graph / Facebook / WhatsApp */}
+        <meta property="fb:app_id" content="1506785261006656" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={imageURL} />
-        <meta property="og:url" content={Astro.url} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:site_name" content="emguapi.com" />
 
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={imageURL} />
 
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT7DRC4XE3"></script>
-        <script is:inline>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-
-        // 1. Define o consentimento padrão como 'denied' (negado)
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied',
-            'analytics_storage': 'denied'
-        });
-
-        gtag('js', new Date());
-        gtag('config', 'G-FT7DRC4XE3');
-        </script>
-
+        {/* Tags da Reportagem */}
         {tags && tags.map(tag => (
             <meta property="article:tag" content={tag} />
         ))}
-        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+
+        {/* Google AdSense */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2720240238972537" crossorigin="anonymous"></script>
+
+        {/* Google Analytics (GTAG) com Consentimento */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT7DRC4XE3"></script>
+        <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+
+            // Define o consentimento padrão como 'denied' (negado)
+            gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'analytics_storage': 'denied'
+            });
+
+            gtag('js', new Date());
+            gtag('config', 'G-FT7DRC4XE3');
+        </script>
     </head>
     
-    <body class="bg-gray-50 font-sans text-navy-base flex flex-col min-h-screen">
+    {/* Adicionado o dark:bg e dark:text para suportar o Modo Escuro no corpo todo */}
+    <body class="bg-gray-50 dark:bg-[#0a192f] text-navy-base dark:text-gray-100 font-sans flex flex-col min-h-screen transition-colors duration-300">
         
         <div class="flex-grow">
             <slot />
@@ -90,9 +103,12 @@ const imageURL = new URL(image, siteURL).href;
         
         <Analytics />
         
+        {/* SDK do Facebook */}
         <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0" nonce="12345"></script>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0"></script>
     </body>
+
+    {/* PROTEÇÃO DE CONTEÚDO (ANTI-CÓPIA) */}
     <script>
         // Bloqueia o botão direito do mouse (menu de contexto)
         document.addEventListener('contextmenu', function(e) {
@@ -105,12 +121,12 @@ const imageURL = new URL(image, siteURL).href;
             if (e.key === 'F12') {
                 e.preventDefault();
             }
-            // Bloqueia Ctrl+C, Ctrl+A (selecionar tudo), Ctrl+U (ver código-fonte), Ctrl+S (salvar), Ctrl+P (imprimir)
-            if (e.ctrlKey && (e.key.toLowerCase() === 'c' || e.key.toLowerCase() === 'a' || e.key.toLowerCase() === 'u' || e.key.toLowerCase() === 's' || e.key.toLowerCase() === 'p')) {
+            // Bloqueia Ctrl+C, Ctrl+A, Ctrl+U, Ctrl+S, Ctrl+P
+            if (e.ctrlKey && ['c', 'a', 'u', 's', 'p'].includes(e.key.toLowerCase())) {
                 e.preventDefault();
             }
-            // Bloqueia Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+Shift+J (Ferramentas de Desenvolvedor)
-            if (e.ctrlKey && e.shiftKey && (e.key.toLowerCase() === 'i' || e.key.toLowerCase() === 'c' || e.key.toLowerCase() === 'j')) {
+            // Bloqueia Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+Shift+J
+            if (e.ctrlKey && e.shiftKey && ['i', 'c', 'j'].includes(e.key.toLowerCase())) {
                 e.preventDefault();
             }
         });
@@ -123,20 +139,26 @@ const imageURL = new URL(image, siteURL).href;
     /* ----------------------------------------- */
     
     .prose blockquote {
-        border: none !important; /* Remove QUALQUER borda lateral que o Tailwind tente colocar */
-        border-top: 1px solid #d1d5db !important; /* Linha cinza em cima */
-        border-bottom: 1px solid #d1d5db !important; /* Linha cinza embaixo */
-        padding: 2.5rem 1rem !important; /* Respiro interno */
-        margin: 3rem 0 !important; /* Distância do resto do texto */
+        border: none !important; 
+        border-top: 1px solid #d1d5db !important; 
+        border-bottom: 1px solid #d1d5db !important; 
+        padding: 2.5rem 1rem !important; 
+        margin: 3rem 0 !important; 
         position: relative;
         font-style: normal !important;
-        color: #112240 !important; /* Cor navy-dark */
-        font-size: 1.125rem !important; /* Tamanho da fonte */
-        font-weight: 700 !important; /* Negrito */
+        color: #112240 !important; 
+        font-size: 1.125rem !important; 
+        font-weight: 700 !important; 
         line-height: 1.625 !important;
         text-align: center !important;
-        background: transparent !important; /* Garante que não tenha fundo cinza */
+        background: transparent !important; 
         quotes: none !important;
+    }
+
+    /* Ajuste de cor da citação no modo escuro */
+    html.dark .prose blockquote {
+        color: #f3f4f6 !important; /* Texto claro no modo escuro */
+        border-color: #374151 !important; /* Borda mais escura */
     }
 
     /* Remove as aspas automáticas feias do Tailwind */
@@ -152,10 +174,10 @@ const imageURL = new URL(image, siteURL).href;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        width: 4rem !important; /* Largura da barra vermelha */
+        width: 4rem !important; 
         height: 4px !important;
-        background-color: #dc2626 !important; /* Cor red-base */
-        top: -2.5px; /* Centraliza exatamente em cima da borda de 1px */
+        background-color: #dc2626 !important; 
+        top: -2.5px; 
     }
 
     /* Desenha a barrinha vermelha (baixo) */
@@ -167,7 +189,7 @@ const imageURL = new URL(image, siteURL).href;
         width: 4rem !important;
         height: 4px !important;
         background-color: #dc2626 !important;
-        bottom: -2.5px; /* Centraliza exatamente em cima da borda de 1px */
+        bottom: -2.5px; 
     }
 
     /* Remove margens extras do parágrafo de dentro */
