@@ -1,16 +1,13 @@
-// src/content.config.ts
 import { defineCollection } from 'astro:content';
-import { glob } from 'astro/loaders';
 
 export const collections = {
   noticias: defineCollection({
-    // Mudamos para **/*.md para contornar o bug do Windows
-    loader: glob({ pattern: "**/*.md", base: "./src/content/noticias" })
+    type: 'content'
   }),
   turismo: defineCollection({
-    loader: glob({ pattern: "**/*.md", base: "./src/content/turismo" })
+    type: 'content'
   }),
   denuncias: defineCollection({
-    loader: glob({ pattern: "**/*.md", base: "./src/content/denuncias" })
+    type: 'content'
   })
 };
