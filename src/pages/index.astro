@@ -54,22 +54,29 @@ try {
     console.error("Erro ao carregar clima na home:", e);
 }
 
-// --- LÓGICA DE NOTÍCIAS (BLINDADA CONTRA BUGS DE DATA E DESTAQUE) ---
+// --- LÓGICA DE NOTÍCIAS (BLINDADA MÁXIMA E RADAR) ---
 const todasAsNoticiasBrutas = await getCollection('noticias');
 
-const todasNoticias = [...todasAsNoticiasBrutas].sort((a: CollectionEntry<'noticias'>, b: CollectionEntry<'noticias'>) => {
-    // Conversão segura: Se a data estiver quebrada, vira 0 (evita o bug do NaN)
-    const dataA = a.data.data ? new Date(a.data.data).getTime() : 0;
-    const dataB = b.data.data ? new Date(b.data.data).getTime() : 0;
+// ISSO VAI APARECER NO TERMINAL DO SEU VS CODE:
+console.log(`✅ O Astro encontrou ${todasAsNoticiasBrutas.length} notícias na pasta!`);
+
+const todasNoticias = [...todasAsNoticiasBrutas].sort((a: any, b: any) => {
+    // Agora o site procura a data em qualquer idioma (data, date ou pubDate)
+    const rawDateA = a.data.data || a.data.date || a.data.pubDate;
+    const rawDateB = b.data.data || b.data.date || b.data.pubDate;
+
+    const timeA = rawDateA ? new Date(rawDateA).getTime() : 0;
+    const timeB = rawDateB ? new Date(rawDateB).getTime() : 0;
     
-    const finalA = isNaN(dataA) ? 0 : dataA;
-    const finalB = isNaN(dataB) ? 0 : dataB;
-    
-    return finalB - finalA;
+    return (isNaN(timeB) ? 0 : timeB) - (isNaN(timeA) ? 0 : timeA);
 });
 
+if (todasNoticias.length > 0) {
+    console.log(`🥇 A notícia no topo do site é: ${todasNoticias[0].data.titulo}`);
+}
+
 // Aceita Destaque escrito como 'true' (booleano), "true" (texto) ou "sim"
-const noticiasCarrossel = todasNoticias.filter((noticia: CollectionEntry<'noticias'>) => {
+const noticiasCarrossel = todasNoticias.filter((noticia: any) => {
     const destaque = noticia.data.destaque;
     return destaque === true || String(destaque).toLowerCase() === 'true' || String(destaque).toLowerCase() === 'sim';
 }).slice(0, 3);
@@ -77,9 +84,8 @@ const noticiasCarrossel = todasNoticias.filter((noticia: CollectionEntry<'notici
 const destaquesFinais = noticiasCarrossel.length > 0 ? noticiasCarrossel : todasNoticias.slice(0, 3);
 
 // Remove do grid as que já foram pro Carrossel
-const todasNoticiasRestantes = todasNoticias.filter((noticia: CollectionEntry<'noticias'>) => !destaquesFinais.some((d: CollectionEntry<'noticias'>) => d.id === noticia.id));
+const todasNoticiasRestantes = todasNoticias.filter((noticia: any) => !destaquesFinais.some((d: any) => d.id === noticia.id));
 const noticiasParaGrid = todasNoticiasRestantes.slice(0, 5);
-
 // --- LÓGICA DA VOZ DA COMUNIDADE (BLINDADA) ---
 const todasAsDenunciasBrutas = await getCollection('denuncias');
 
