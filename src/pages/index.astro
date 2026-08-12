@@ -1,7 +1,7 @@
 ---
 // src/pages/index.astro
 import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content'; // Tipagem obrigatória do Astro adicionada
+import type { CollectionEntry } from 'astro:content'; 
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import DestaquePrincipal from '../components/DestaquePrincipal.astro';
@@ -54,21 +54,43 @@ try {
     console.error("Erro ao carregar clima na home:", e);
 }
 
-// --- LÓGICA DE NOTÍCIAS (CORRIGIDA E TIPADA) ---
-const todasNoticias = [...(await getCollection('noticias'))].sort(
-    (a: CollectionEntry<'noticias'>, b: CollectionEntry<'noticias'>) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
-);
+// --- LÓGICA DE NOTÍCIAS (BLINDADA CONTRA BUGS DE DATA E DESTAQUE) ---
+const todasAsNoticiasBrutas = await getCollection('noticias');
 
-const noticiasCarrossel = todasNoticias.filter((noticia: CollectionEntry<'noticias'>) => noticia.data.destaque === true).slice(0, 3);
+const todasNoticias = [...todasAsNoticiasBrutas].sort((a: CollectionEntry<'noticias'>, b: CollectionEntry<'noticias'>) => {
+    // Conversão segura: Se a data estiver quebrada, vira 0 (evita o bug do NaN)
+    const dataA = a.data.data ? new Date(a.data.data).getTime() : 0;
+    const dataB = b.data.data ? new Date(b.data.data).getTime() : 0;
+    
+    const finalA = isNaN(dataA) ? 0 : dataA;
+    const finalB = isNaN(dataB) ? 0 : dataB;
+    
+    return finalB - finalA;
+});
+
+// Aceita Destaque escrito como 'true' (booleano), "true" (texto) ou "sim"
+const noticiasCarrossel = todasNoticias.filter((noticia: CollectionEntry<'noticias'>) => {
+    const destaque = noticia.data.destaque;
+    return destaque === true || String(destaque).toLowerCase() === 'true' || String(destaque).toLowerCase() === 'sim';
+}).slice(0, 3);
+
 const destaquesFinais = noticiasCarrossel.length > 0 ? noticiasCarrossel : todasNoticias.slice(0, 3);
 
+// Remove do grid as que já foram pro Carrossel
 const todasNoticiasRestantes = todasNoticias.filter((noticia: CollectionEntry<'noticias'>) => !destaquesFinais.some((d: CollectionEntry<'noticias'>) => d.id === noticia.id));
 const noticiasParaGrid = todasNoticiasRestantes.slice(0, 5);
 
-// --- LÓGICA DA VOZ DA COMUNIDADE (CORRIGIDA E TIPADA) ---
-const todasDenuncias = [...(await getCollection('denuncias'))].sort(
-    (a: CollectionEntry<'denuncias'>, b: CollectionEntry<'denuncias'>) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
-);
+// --- LÓGICA DA VOZ DA COMUNIDADE (BLINDADA) ---
+const todasAsDenunciasBrutas = await getCollection('denuncias');
+
+const todasDenuncias = [...todasAsDenunciasBrutas].sort((a: CollectionEntry<'denuncias'>, b: CollectionEntry<'denuncias'>) => {
+    const dataA = a.data.data ? new Date(a.data.data).getTime() : 0;
+    const dataB = b.data.data ? new Date(b.data.data).getTime() : 0;
+    const finalA = isNaN(dataA) ? 0 : dataA;
+    const finalB = isNaN(dataB) ? 0 : dataB;
+    return finalB - finalA;
+});
+
 const denunciasRecentes = todasDenuncias.slice(0, 4);
 const temMaisDenuncias = todasDenuncias.length > 4;
 
@@ -86,19 +108,19 @@ const horaAtualizacaoTrem = "--:--";
 
     <main class="max-w-5xl mx-auto p-6 bg-white dark:bg-[#112240] dark:border-white/5 min-h-screen shadow-sm my-8 rounded-sm overflow-hidden border border-gray-100 transition-colors duration-300">
 
-        <section class="mb-8 border-b border-gray-100 pb-8 group relative">
+        <section class="mb-8 border-b border-gray-100 dark:border-white/10 pb-8 group relative transition-colors">
             {destaquesFinais.length > 0 ? (
                 <div class="relative" id="carousel-parent">
                     <button id="btn-prev-slide" class="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-black/50 hover:bg-red-base text-white rounded-full items-center justify-center backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 shadow-xl border border-white/20" aria-label="Notícia anterior">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                     </button>
 
-                    <div id="carousel-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-sm gap-0 border border-gray-100 dark:border-white/10">
+                    <div id="carousel-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-sm gap-0 border border-gray-100 dark:border-white/10 transition-colors">
                         {destaquesFinais.map((noticia, index) => (
-                            <div class="min-w-full snap-center" data-index={index}>
+                            <div class="min-w-full snap-center shrink-0" data-index={index}>
                                 <DestaquePrincipal 
                                     titulo={noticia.data.titulo}
-                                    resumo={noticia.data.resumo}
+                                    resumo={noticia.data.resumo || ""}
                                     categoria={noticia.data.categoria}
                                     imagem={noticia.data.imagem || "/fotos/emguapi-capa.png"} 
                                     link={`/noticias/${noticia.id.replace(/\.md$/, '')}`}
@@ -126,7 +148,7 @@ const horaAtualizacaoTrem = "--:--";
         <section class="mb-12">
             <div class="flex flex-col md:flex-row items-stretch gap-4">
                 
-                <a href="/ao-vivo" class="group flex items-center justify-center md:justify-start gap-3 bg-red-base/10 hover:bg-red-base/20 border border-red-base/20 px-6 py-4 md:py-0 rounded-sm transition-all shadow-sm hover:shadow-md shrink-0">
+                <a href="/ao-vivo" class="group flex items-center justify-center md:justify-start gap-3 bg-red-base/10 dark:bg-red-base/20 hover:bg-red-base/20 dark:hover:bg-red-base/30 border border-red-base/20 dark:border-red-base/30 px-6 py-4 md:py-0 rounded-sm transition-all shadow-sm hover:shadow-md shrink-0">
                     <span class="relative flex h-3 w-3 shrink-0">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-red-base"></span>
@@ -136,7 +158,7 @@ const horaAtualizacaoTrem = "--:--";
                     </span>
                 </a>
 
-                <a href="/tempo" class="group flex items-center justify-between bg-blue-50/50 hover:bg-blue-50 dark:bg-white/5 border border-blue-100 dark:border-white/10 px-5 py-3 md:py-0 rounded-sm transition-all shadow-sm hover:shadow-md shrink-0 gap-6">
+                <a href="/tempo" class="group flex items-center justify-between bg-blue-50/50 hover:bg-blue-50 dark:bg-[#1a2b4c] border border-blue-100 dark:border-blue-900 px-5 py-3 md:py-0 rounded-sm transition-all shadow-sm hover:shadow-md shrink-0 gap-6">
                     <div>
                         <h3 class="text-[10px] font-bold uppercase tracking-widest text-blue-500 mb-0.5">Guapimirim</h3>
                         <div class="flex items-center gap-2">
@@ -145,24 +167,24 @@ const horaAtualizacaoTrem = "--:--";
                         </div>
                     </div>
                     <div class="text-right flex flex-col justify-center">
-                        <span class="text-[10px] font-black uppercase text-gray-500">{tempoHome.condicao}</span>
+                        <span class="text-[10px] font-black uppercase text-gray-500 dark:text-gray-400">{tempoHome.condicao}</span>
                         <span class="text-[9px] text-blue-400 font-bold uppercase tracking-widest mt-1 group-hover:text-red-base transition-colors">Ver detalhes →</span>
                     </div>
                 </a>
 
                 {/* Box do Trem com IDs para Atualização ao Vivo */}
                 <a href="/horarios" class="group flex-1">
-                    <div class="h-full bg-ice dark:bg-white/5 border-l-4 border-navy-base dark:border-white/20 border border-gray-100 rounded-sm p-5 flex flex-col sm:flex-row sm:items-center justify-between transition-all gap-4">
+                    <div class="h-full bg-ice dark:bg-[#1a2b4c] border-l-4 border-navy-base dark:border-red-base border border-gray-100 dark:border-white/10 rounded-sm p-5 flex flex-col sm:flex-row sm:items-center justify-between transition-all gap-4">
                         <div class="flex items-center gap-4">
                             <div id="trem-icon-bg" class={`h-6 w-6 rounded-full shadow-sm border border-white/50 shrink-0 transition-colors duration-500 ${currentStatus.bg}`}></div>
                             <div>
                                 <h3 class="text-xs font-bold uppercase tracking-widest text-navy-soft dark:text-gray-400 mb-1">Mobilidade</h3>
                                 <p class="text-lg font-black text-navy-dark dark:text-white leading-none">Ramal Guapimirim</p>
-                                <p id="trem-hora" class="text-[10px] text-gray-500 mt-1 uppercase tracking-wider font-medium">Atualizado: {horaAtualizacaoTrem}</p>
+                                <p id="trem-hora" class="text-[10px] text-gray-500 dark:text-gray-400 mt-1 uppercase tracking-wider font-medium">Atualizado: {horaAtualizacaoTrem}</p>
                             </div>
                         </div>
 
-                        <div class="flex items-center justify-center gap-3 bg-white dark:bg-black/20 px-4 py-2 rounded-sm border border-gray-200 dark:border-white/10 group-hover:border-navy-base/30 transition-colors">
+                        <div class="flex items-center justify-center gap-3 bg-white dark:bg-[#0a192f] px-4 py-2 rounded-sm border border-gray-200 dark:border-white/10 group-hover:border-navy-base/30 dark:group-hover:border-red-base/50 transition-colors">
                             <span id="trem-ping-wrapper" class={`relative flex h-3 w-3 shrink-0 ${currentStatus.label === 'Sem Informação' ? 'hidden' : ''}`}>
                                 <span id="trem-ping-anim" class={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentStatus.ping}`}></span>
                                 <span id="trem-ping-dot" class={`relative inline-flex rounded-full h-3 w-3 ${currentStatus.bg}`}></span>
@@ -178,51 +200,55 @@ const horaAtualizacaoTrem = "--:--";
         </section>
 
         <section class="mb-12">
-            <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white mb-8 flex items-center gap-3 border-b border-gray-100 pb-4">
+            <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white mb-8 flex items-center gap-3 border-b border-gray-100 dark:border-white/10 pb-4 transition-colors">
                 <span class="w-2 h-6 bg-red-base inline-block rounded-sm"></span>
                 Cidade Alerta
             </h2>
             
             <div class="grid md:grid-cols-2 gap-10 mb-12">
                 {noticiasParaGrid.slice(0, 2).map(noticia => (
-                    <NoticiaCard 
-                        categoria={noticia.data.categoria}
-                        titulo={noticia.data.titulo}
-                        resumo={noticia.data.resumo}
-                        data={noticia.data.data}
-                        link={`/noticias/${noticia.id.replace(/\.md$/, '')}`}
-                        imagem={noticia.data.imagem || "/fotos/estacao-guapi.jpg"}
-                    />
+                    <div class="h-full transform hover:-translate-y-1 transition-transform duration-300">
+                        <NoticiaCard 
+                            categoria={noticia.data.categoria}
+                            titulo={noticia.data.titulo}
+                            resumo={noticia.data.resumo || ""}
+                            data={noticia.data.data}
+                            link={`/noticias/${noticia.id.replace(/\.md$/, '')}`}
+                            imagem={noticia.data.imagem || "/fotos/emguapi-capa.png"}
+                        />
+                    </div>
                 ))}
 
-                <a href="https://99.onelink.me/Mayr" target="_blank" rel="noopener noreferrer sponsored" class="group block bg-gray-50 dark:bg-white/5 rounded-sm overflow-hidden border border-gray-200 hover:border-navy-base/50 dark:border-white/10 flex flex-col h-full relative transition-all">
+                <a href="https://99.onelink.me/Mayr" target="_blank" rel="noopener noreferrer sponsored" class="group block bg-gray-50 dark:bg-[#1a2b4c] rounded-sm overflow-hidden border border-gray-200 dark:border-white/10 hover:border-navy-base/50 dark:hover:border-white/30 flex flex-col h-full relative transition-all">
                     <div class="absolute top-4 right-4 z-10">
-                        <span class="bg-white/95 text-navy-dark text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-widest border border-gray-200 shadow-sm">Patrocinado</span>
+                        <span class="bg-white/95 dark:bg-[#0a192f]/95 text-navy-dark dark:text-white text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-widest border border-gray-200 dark:border-white/10 shadow-sm transition-colors">Patrocinado</span>
                     </div>
-                    <div class="relative w-full h-56 overflow-hidden bg-white border-b border-gray-100 dark:border-white/5">
+                    <div class="relative w-full h-56 overflow-hidden bg-white dark:bg-[#0a192f] border-b border-gray-100 dark:border-white/5 transition-colors">
                         <img src="/banners/99motopubliguapimirim.png" alt="Guapimirim agora pede 99 com novas categorias." loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-95 group-hover:opacity-100" />
                     </div>
                     <div class="p-6 flex flex-col flex-grow justify-center text-center">
-                        <h3 class="text-xl font-black text-navy-dark dark:text-white leading-tight mb-2 group-hover:text-red-base uppercase">As novas categorias da 99 chegaram</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">As novas categorias da 99 já estão disponíveis para Guapimirim. Baixe o app e escolha entre as duas novas categorias: 99Pop ou 99Motos.</p>
-                        <span class="mt-4 inline-flex items-center justify-center gap-2 text-red-base text-xs font-black uppercase tracking-widest">Baixe agora e peça já!<span class="group-hover:translate-x-1 transition-transform">→</span></span>
+                        <h3 class="text-xl font-black text-navy-dark dark:text-white leading-tight mb-2 group-hover:text-red-base dark:group-hover:text-red-400 uppercase transition-colors">As novas categorias da 99 chegaram</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed transition-colors">As novas categorias da 99 já estão disponíveis para Guapimirim. Baixe o app e escolha entre as duas novas categorias: 99Pop ou 99Motos.</p>
+                        <span class="mt-4 inline-flex items-center justify-center gap-2 text-red-base dark:text-red-400 text-xs font-black uppercase tracking-widest transition-colors">Baixe agora e peça já!<span class="group-hover:translate-x-1 transition-transform">→</span></span>
                     </div>
                 </a>
 
                 {noticiasParaGrid.slice(2, 5).map(noticia => (
-                    <NoticiaCard 
-                        categoria={noticia.data.categoria}
-                        titulo={noticia.data.titulo}
-                        resumo={noticia.data.resumo}
-                        data={noticia.data.data}
-                        link={`/noticias/${noticia.id.replace(/\.md$/, '')}`}
-                        imagem={noticia.data.imagem || "/fotos/estacao-guapi.jpg"}
-                    />
+                    <div class="h-full transform hover:-translate-y-1 transition-transform duration-300">
+                        <NoticiaCard 
+                            categoria={noticia.data.categoria}
+                            titulo={noticia.data.titulo}
+                            resumo={noticia.data.resumo || ""}
+                            data={noticia.data.data}
+                            link={`/noticias/${noticia.id.replace(/\.md$/, '')}`}
+                            imagem={noticia.data.imagem || "/fotos/emguapi-capa.png"}
+                        />
+                    </div>
                 ))}
             </div>
 
-            <div class="text-center pt-6 border-t border-gray-100">
-                <a href="/noticias" class="group inline-flex items-center gap-2 mx-auto text-xs font-black uppercase tracking-widest text-navy-base dark:text-white hover:text-red-base transition-colors px-8 py-3 rounded-sm border border-gray-200 dark:border-white/20 hover:border-navy-base/50 bg-white dark:bg-white/5">
+            <div class="text-center pt-6 border-t border-gray-100 dark:border-white/10 transition-colors">
+                <a href="/noticias" class="group inline-flex items-center gap-2 mx-auto text-xs font-black uppercase tracking-widest text-navy-base dark:text-white hover:text-red-base dark:hover:text-red-400 transition-colors px-8 py-3 rounded-sm border border-gray-200 dark:border-white/20 hover:border-navy-base/50 bg-white dark:bg-white/5">
                     Acessar Todas as Notícias
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 group-hover:translate-x-1 transition-transform">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
@@ -232,7 +258,7 @@ const horaAtualizacaoTrem = "--:--";
         </section>
 
         <section class="mb-12">
-            <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white mb-6 flex items-center gap-3 border-b border-gray-100 pb-4">
+            <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white mb-6 flex items-center gap-3 border-b border-gray-100 dark:border-white/10 pb-4 transition-colors">
                 <span class="w-2 h-6 bg-yellow-400 inline-block rounded-sm"></span>
                 Imóvel em Destaque
             </h2>
@@ -246,14 +272,14 @@ const horaAtualizacaoTrem = "--:--";
                             </div>
                         </div>
                         <div class="md:w-3/5 p-6 md:p-8 flex flex-col justify-center">
-                            <p class="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase tracking-widest mb-2">Oportunidade de Investimento</p>
-                            <h3 class="text-2xl md:text-3xl font-black text-navy-dark dark:text-white mb-3 leading-tight group-hover:text-blue-600 transition-colors">
+                            <p class="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase tracking-widest mb-2 transition-colors">Oportunidade de Investimento</p>
+                            <h3 class="text-2xl md:text-3xl font-black text-navy-dark dark:text-white mb-3 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                                 À Venda: A Tradicional Fazenda dos Pastéis de Belém
                             </h3>
-                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-6 line-clamp-3">
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-6 line-clamp-3 transition-colors">
                                 Localizada na subida de Teresópolis, propriedade exuberante com lagos, riacho e 7 suítes. O local perfeito para Pousada, SPA de luxo ou moradia em meio à natureza.
                             </p>
-                            <div class="inline-flex items-center text-blue-600 dark:text-blue-400 font-black text-xs uppercase tracking-widest">
+                            <div class="inline-flex items-center text-blue-600 dark:text-blue-400 font-black text-xs uppercase tracking-widest transition-colors">
                                 Ver fotos e detalhes
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -266,16 +292,16 @@ const horaAtualizacaoTrem = "--:--";
         </section>
         
         <section class="mb-12">
-            <a href="/classificados" class="group block bg-navy-dark rounded-sm p-8 flex flex-col md:flex-row items-center justify-between border border-navy-base relative overflow-hidden">
+            <a href="/classificados" class="group block bg-navy-dark dark:bg-[#0a192f] rounded-sm p-8 flex flex-col md:flex-row items-center justify-between border border-navy-base dark:border-white/10 relative overflow-hidden transition-colors">
                 <div class="relative z-10 text-center md:text-left mb-6 md:mb-0">
                     <h2 class="text-2xl font-black uppercase tracking-tight text-white mb-2 flex items-center gap-3 justify-center md:justify-start">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-red-base"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" /></svg>
                         Classificados e Serviços
                     </h2>
-                    <p class="text-gray-300 text-sm max-w-md mx-auto md:mx-0">Descubra os melhores serviços e apoie o comércio local.</p>
+                    <p class="text-gray-300 dark:text-gray-400 text-sm max-w-md mx-auto md:mx-0 transition-colors">Descubra os melhores serviços e apoie o comércio local.</p>
                 </div>
                 <div class="relative z-10 shrink-0">
-                    <span class="bg-navy-base text-white font-black uppercase tracking-widest text-xs px-6 py-3 rounded-sm border border-white/10 group-hover:border-white/30 transition-colors inline-block shadow-sm">
+                    <span class="bg-navy-base dark:bg-red-base text-white font-black uppercase tracking-widest text-xs px-6 py-3 rounded-sm border border-white/10 group-hover:border-white/30 transition-colors inline-block shadow-sm">
                         Acessar Classificados →
                     </span>
                 </div>
@@ -283,10 +309,10 @@ const horaAtualizacaoTrem = "--:--";
         </section>
 
         <section class="mb-12">
-            <div class="flex flex-wrap justify-between items-end mb-8 gap-4 border-b border-gray-100 pb-4">
+            <div class="flex flex-wrap justify-between items-end mb-8 gap-4 border-b border-gray-100 dark:border-white/10 pb-4 transition-colors">
                 <div>
-                    <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white flex items-center gap-3">
-                        <span class="w-2 h-6 bg-navy-base dark:bg-white inline-block rounded-sm"></span> Voz da Comunidade
+                    <h2 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white flex items-center gap-3 transition-colors">
+                        <span class="w-2 h-6 bg-navy-base dark:bg-white inline-block rounded-sm transition-colors"></span> Voz da Comunidade
                     </h2>
                 </div>
                 <a href="/denuncia" class="border border-red-base text-red-base text-[10px] font-black px-4 py-2 rounded-sm uppercase hover:bg-red-base hover:text-white transition-all">Enviar Relato</a>
@@ -294,25 +320,24 @@ const horaAtualizacaoTrem = "--:--";
             <div class="grid md:grid-cols-2 gap-6 mb-8">
                 {denunciasRecentes.length > 0 ? (
                     denunciasRecentes.map(relato => (
-                        <VozComunidade bairro={relato.data.bairro} relato={relato.data.resumo_relato} autor={relato.data.autor} />
+                        <div class="h-full transform hover:-translate-y-1 transition-transform duration-300">
+                            <VozComunidade bairro={relato.data.bairro} relato={relato.data.resumo_relato} autor={relato.data.autor} />
+                        </div>
                     ))
                 ) : (
-                    <div class="col-span-2 bg-gray-50 dark:bg-white/5 p-8 rounded-sm border border-gray-100 text-center text-gray-500"><p>Nenhum relato em destaque nesta semana.</p></div>
+                    <div class="col-span-2 bg-gray-50 dark:bg-white/5 p-8 rounded-sm border border-gray-100 dark:border-white/10 text-center text-gray-500 dark:text-gray-400 transition-colors"><p>Nenhum relato em destaque nesta semana.</p></div>
                 )}
             </div>
             {temMaisDenuncias && (
                 <div class="text-center">
-                    <a href="/denuncia" class="text-navy-base dark:text-white font-black uppercase text-xs hover:text-red-base transition-colors">Ler relatos anteriores →</a>
+                    <a href="/denuncia" class="text-navy-base dark:text-white font-black uppercase text-xs hover:text-red-base dark:hover:text-red-400 transition-colors">Ler relatos anteriores →</a>
                 </div>
             )}
         </section>
 
-        <div class="mb-4 pt-8 border-t border-gray-100 flex flex-col items-center w-full">
-            <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3">Publicidade</span>
-            
-            <!-- Banner Dinâmico do Google Ads -->
+        <div class="mb-4 pt-8 border-t border-gray-100 dark:border-white/10 flex flex-col items-center w-full transition-colors">
+            <span class="text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 transition-colors">Publicidade</span>
             <AdBannerContainer slotId="1504537360" format="horizontal" />
-            
         </div>
         
     </main>
