@@ -3,7 +3,7 @@ titulo: "Trens para Guapimirim são suspensos após quebra de trilho em Citrolâ
 resumo: "A circulação dos trens entre Saracuruna e Guapimirim foi suspensa nesta terça-feira (11) após a quebra de um trilho nas proximidades da estação Citrolândia, interrompendo o atendimento à região."
 data: 2026-08-11T14:55:00
 categoria: "Transporte"
-imagem: "/fotos/quebra-trilho-citrolandia-guapimirim.jpg"
+imagem: "/fotos/quebra-trilho-citrolandia-guapimirim.jpeg"
 autor: "Equipe emguapi"
 destaque: true
 tags: ["Guapimirim", "Magé", "Trens", "Transporte", "TrensRJ", "Citrolândia"]
@@ -13,59 +13,39 @@ A circulação dos trens entre Saracuruna e Guapimirim foi suspensa nesta terça
 
 A TrensRJ confirmou a ocorrência na via e informou que equipes foram mobilizadas para realizar os trabalhos necessários e restabelecer a operação.
 
-A falha foi registrada em um ponto da via próximo a uma tala de junção, componente utilizado para unir segmentos de trilho. Imagens obtidas pelo <strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong> mostram a ruptura do trilho e o deslocamento de partes do material da via.
+A falha foi registrada em um ponto da via próximo a uma tala de junção, componente utilizado para unir segmentos de trilho. Imagens obtidas pelo **[<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](https://emguapi.com)** mostram a ruptura do trilho e o deslocamento de partes do material da via.
 
 <!-- CARROSSEL DE IMAGENS -->
-<div class="not-prose relative w-full my-12 bg-gray-100 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden group shadow-md">
-    <div id="carousel-trilho" class="flex overflow-x-auto snap-x snap-mandatory hide-scroll-bar transition-transform duration-500" style="scrollbar-width: none; -ms-overflow-style: none;">
-        
-        <!-- Imagem 1 -->
-        <figure class="snap-center shrink-0 w-full flex flex-col items-center relative">
-            <img src="/fotos/quebra-trilho-citrolandia-guapimirim.jpg" alt="Trilho quebrado nas proximidades da estação Citrolândia, em Magé" class="w-full h-[300px] md:h-[450px] object-cover" />
-            <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
-                <figcaption class="text-[10px] md:text-xs text-white text-center font-bold uppercase tracking-widest">
-                    Trilho apresenta ruptura nas proximidades da estação Citrolândia, em Magé. (Foto: Divulgação/Meta)
-                </figcaption>
-            </div>
-        </figure>
-
-        <!-- Imagem 2 -->
-        <figure class="snap-center shrink-0 w-full flex flex-col items-center relative">
-            <img src="/fotos/quebra-trilho-citrolandia-2.webp" alt="Detalhe do trilho quebrado na via ferroviária em Citrolândia" class="w-full h-[300px] md:h-[450px] object-cover" loading="lazy" />
-            <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
-                <figcaption class="text-[10px] md:text-xs text-white text-center font-bold uppercase tracking-widest">
-                    Detalhe da ruptura no trilho registrada na região de Citrolândia, em Magé. (Foto: Divulgação/Meta)
-                </figcaption>
-            </div>
-        </figure>
-
-        <!-- Imagem 3 -->
-        <figure class="snap-center shrink-0 w-full flex flex-col items-center relative">
-            <img src="/fotos/desembarque-passageiros-via.webp" alt="Desembarque de passageiros na via." class="w-full h-[300px] md:h-[450px] object-cover" loading="lazy" />
-            <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
-                <figcaption class="text-[10px] md:text-xs text-white text-center font-bold uppercase tracking-widest">
-                    O desembarque dos passageiros precisou ser feito na via. (Foto: Divulgação/Meta)
-                </figcaption>
-            </div>
-        </figure>
-
-    </div>
-    
-    <!-- Indicador de Deslize -->
-    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-[10px] uppercase font-black tracking-widest px-3 py-1.5 rounded-full shadow-sm flex items-center gap-2 pointer-events-none">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 animate-bounce-horizontal"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
-        Deslize para ver mais
-    </div>
+<div class="not-prose relative w-full my-12 bg-gray-100 dark:bg-[#0a192f] rounded-2xl border border-gray-200 dark:border-white/10 overflow-hidden group shadow-xl">
+<div id="carousel-trilho" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth transition-transform duration-500 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+<!-- Imagem 1 -->
+<figure class="snap-center shrink-0 w-full relative flex flex-col">
+<div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full shadow-sm z-10">📸 1 / 3</div>
+<img src="/fotos/quebra-trilho-citrolandia-guapimirim.jpeg" alt="Trilho quebrado nas proximidades da estação Citrolândia, em Magé" class="w-full h-[350px] md:h-[500px] object-cover object-center" />
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+<figcaption class="absolute bottom-0 left-0 w-full p-6 pb-8 text-[11px] md:text-sm text-gray-100 text-center font-bold uppercase tracking-widest leading-relaxed drop-shadow-md">Trilho apresenta ruptura nas proximidades da estação Citrolândia, em Magé. (Foto: Divulgação/Meta)</figcaption>
+</figure>
+<!-- Imagem 2 -->
+<figure class="snap-center shrink-0 w-full relative flex flex-col">
+<div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full shadow-sm z-10">📸 2 / 3</div>
+<img src="/fotos/quebra-trilho-citrolandia-2.webp" alt="Detalhe do trilho quebrado na via ferroviária em Citrolândia" class="w-full h-[350px] md:h-[500px] object-cover object-center" loading="lazy" />
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+<figcaption class="absolute bottom-0 left-0 w-full p-6 pb-8 text-[11px] md:text-sm text-gray-100 text-center font-bold uppercase tracking-widest leading-relaxed drop-shadow-md">Detalhe da ruptura no trilho registrada na região de Citrolândia, em Magé. (Foto: Divulgação/Meta)</figcaption>
+</figure>
+<!-- Imagem 3 -->
+<figure class="snap-center shrink-0 w-full relative flex flex-col">
+<div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full shadow-sm z-10">📸 3 / 3</div>
+<img src="/fotos/desembarque-passageiros-via.webp" alt="Desembarque de passageiros na via." class="w-full h-[350px] md:h-[500px] object-cover object-center" loading="lazy" />
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+<figcaption class="absolute bottom-0 left-0 w-full p-6 pb-8 text-[11px] md:text-sm text-gray-100 text-center font-bold uppercase tracking-widest leading-relaxed drop-shadow-md">O desembarque dos passageiros precisou ser feito na via. (Foto: Divulgação/Meta)</figcaption>
+</figure>
 </div>
-<style>
-    /* Esconde a barra de rolagem nativa para um visual de carrossel limpo */
-    .hide-scroll-bar::-webkit-scrollbar { display: none; }
-    @keyframes bounce-horizontal {
-        0%, 100% { transform: translateX(0); }
-        50% { transform: translateX(25%); }
-    }
-    .animate-bounce-horizontal { animation: bounce-horizontal 1.5s infinite; }
-</style>
+<!-- Indicador de Deslize -->
+<div class="absolute top-4 right-4 bg-navy-base/90 backdrop-blur-md text-white text-[10px] uppercase font-black tracking-widest px-4 py-2 rounded-full shadow-lg flex items-center gap-2 pointer-events-none border border-white/20">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 animate-pulse"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
+Deslize
+</div>
+</div>
 <!-- FIM DO CARROSSEL -->
 
 ## Quebra ocorreu na região de uma junta ferroviária
@@ -114,7 +94,7 @@ A TrensRJ ainda não havia divulgado, até a publicação desta reportagem, um l
 
 A circulação permanecerá interrompida até que as equipes responsáveis concluam os trabalhos e liberem a via para operação segura.
 
-O <strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong> continuará acompanhando a situação e atualizará esta reportagem quando a TrensRJ informar a conclusão do reparo e a retomada da circulação.
+O **[<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](https://emguapi.com)** continuará acompanhando a situação e atualizará esta reportagem quando a TrensRJ informar a conclusão do reparo e a retomada da circulação.
 
 ---
 
