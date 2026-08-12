@@ -1,20 +1,22 @@
 ---
 // src/pages/turismo/[slug].astro
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import AdBannerContainer from '../../components/ads/AdBannerContainer.astro'; 
 
 export async function getStaticPaths() {
-  const entries = await getCollection('turismo');
-  return entries.map(entry => ({
-    params: { slug: entry.slug || entry.id.replace(/\.md$/, '') }, 
-    props: { entry },
-  }));
+    const entries = await getCollection('turismo');
+    return entries.map(entry => ({
+        params: { slug: entry.id.replace(/\.md$/, '') }, 
+        props: { entry },
+    }));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+
+// Correção exata para o Astro 5
+const { Content } = await render(entry);
 ---
 
 <Layout 
