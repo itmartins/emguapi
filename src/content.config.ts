@@ -1,13 +1,14 @@
 import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 export const collections = {
   noticias: defineCollection({
-    type: 'content'
+    loader: glob({ pattern: "**/*.md", base: "./src/content/noticias" }),
   }),
   turismo: defineCollection({
-    type: 'content'
+    loader: glob({ pattern: "**/*.md", base: "./src/content/turismo" }),
   }),
   denuncias: defineCollection({
-    type: 'content'
-  })
+    loader: glob({ pattern: "**/*.md", base: "./src/content/denuncias" }),
+  }),
 };
