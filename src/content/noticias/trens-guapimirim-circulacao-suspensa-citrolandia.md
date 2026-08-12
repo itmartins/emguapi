@@ -15,38 +15,52 @@ A TrensRJ confirmou a ocorrência na via e informou que equipes foram mobilizada
 
 A falha foi registrada em um ponto da via próximo a uma tala de junção, componente utilizado para unir segmentos de trilho. Imagens obtidas pelo **[<strong>em</strong>guapi<strong style="color: #dc2626;">.com</strong>](https://emguapi.com)** mostram a ruptura do trilho e o deslocamento de partes do material da via.
 
-<!-- CARROSSEL DE IMAGENS -->
-<div class="not-prose relative w-full my-12 bg-gray-100 dark:bg-[#0a192f] rounded-2xl border border-gray-200 dark:border-white/10 overflow-hidden group shadow-xl">
-<div id="carousel-trilho" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth transition-transform duration-500 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
-<!-- Imagem 1 -->
-<figure class="snap-center shrink-0 w-full relative flex flex-col">
-<div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full shadow-sm z-10">📸 1 / 3</div>
-<img src="/fotos/quebra-trilho-citrolandia-guapimirim.jpeg" alt="Trilho quebrado nas proximidades da estação Citrolândia, em Magé" class="w-full h-[350px] md:h-[500px] object-cover object-center" />
-<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
-<figcaption class="absolute bottom-0 left-0 w-full p-6 pb-8 text-[11px] md:text-sm text-gray-100 text-center font-bold uppercase tracking-widest leading-relaxed drop-shadow-md">Trilho apresenta ruptura nas proximidades da estação Citrolândia, em Magé. (Foto: Divulgação/Meta)</figcaption>
+<div class="not-prose relative w-full my-12 bg-black rounded-2xl overflow-hidden group shadow-xl border border-gray-200 dark:border-white/10">
+<div id="carousel-trilho" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth transition-all duration-500 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+<figure class="snap-center shrink-0 w-full relative flex flex-col bg-black">
+<div class="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-white text-[10px] font-bold tracking-widest px-3 py-1.5 rounded-sm border border-white/10 shadow-sm z-30 uppercase">FOTO 1 / 3</div>
+<img src="/fotos/quebra-trilho-citrolandia-guapimirim.jpeg" alt="Trilho quebrado nas proximidades da estação Citrolândia, em Magé" class="w-full h-[400px] md:h-[550px] object-contain object-center" />
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none z-10"></div>
+<figcaption class="absolute bottom-0 left-0 w-full p-6 md:p-10 text-[12px] md:text-sm text-gray-100 text-center font-medium leading-relaxed drop-shadow-md z-20">Trilho apresenta ruptura nas proximidades da estação Citrolândia, em Magé. (Foto: Divulgação/Meta)</figcaption>
 </figure>
-<!-- Imagem 2 -->
-<figure class="snap-center shrink-0 w-full relative flex flex-col">
-<div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full shadow-sm z-10">📸 2 / 3</div>
-<img src="/fotos/quebra-trilho-citrolandia-2.webp" alt="Detalhe do trilho quebrado na via ferroviária em Citrolândia" class="w-full h-[350px] md:h-[500px] object-cover object-center" loading="lazy" />
-<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
-<figcaption class="absolute bottom-0 left-0 w-full p-6 pb-8 text-[11px] md:text-sm text-gray-100 text-center font-bold uppercase tracking-widest leading-relaxed drop-shadow-md">Detalhe da ruptura no trilho registrada na região de Citrolândia, em Magé. (Foto: Divulgação/Meta)</figcaption>
+<figure class="snap-center shrink-0 w-full relative flex flex-col bg-black">
+<div class="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-white text-[10px] font-bold tracking-widest px-3 py-1.5 rounded-sm border border-white/10 shadow-sm z-30 uppercase">FOTO 2 / 3</div>
+<img src="/fotos/quebra-trilho-citrolandia-2.webp" alt="Detalhe do trilho quebrado na via ferroviária em Citrolândia" class="w-full h-[400px] md:h-[550px] object-contain object-center" loading="lazy" />
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none z-10"></div>
+<figcaption class="absolute bottom-0 left-0 w-full p-6 md:p-10 text-[12px] md:text-sm text-gray-100 text-center font-medium leading-relaxed drop-shadow-md z-20">Detalhe da ruptura no trilho registrada na região de Citrolândia, em Magé. (Foto: Divulgação/Meta)</figcaption>
 </figure>
-<!-- Imagem 3 -->
-<figure class="snap-center shrink-0 w-full relative flex flex-col">
-<div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full shadow-sm z-10">📸 3 / 3</div>
-<img src="/fotos/desembarque-passageiros-via.webp" alt="Desembarque de passageiros na via." class="w-full h-[350px] md:h-[500px] object-cover object-center" loading="lazy" />
-<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
-<figcaption class="absolute bottom-0 left-0 w-full p-6 pb-8 text-[11px] md:text-sm text-gray-100 text-center font-bold uppercase tracking-widest leading-relaxed drop-shadow-md">O desembarque dos passageiros precisou ser feito na via. (Foto: Divulgação/Meta)</figcaption>
+<figure class="snap-center shrink-0 w-full relative flex flex-col bg-black">
+<div class="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-white text-[10px] font-bold tracking-widest px-3 py-1.5 rounded-sm border border-white/10 shadow-sm z-30 uppercase">FOTO 3 / 3</div>
+<img src="/fotos/desembarque-passageiros-via.webp" alt="Desembarque de passageiros na via." class="w-full h-[400px] md:h-[550px] object-contain object-center" loading="lazy" />
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none z-10"></div>
+<figcaption class="absolute bottom-0 left-0 w-full p-6 md:p-10 text-[12px] md:text-sm text-gray-100 text-center font-medium leading-relaxed drop-shadow-md z-20">O desembarque dos passageiros precisou ser feito na via. (Foto: Divulgação/Meta)</figcaption>
 </figure>
 </div>
-<!-- Indicador de Deslize -->
-<div class="absolute top-4 right-4 bg-navy-base/90 backdrop-blur-md text-white text-[10px] uppercase font-black tracking-widest px-4 py-2 rounded-full shadow-lg flex items-center gap-2 pointer-events-none border border-white/20">
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 animate-pulse"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
-Deslize
+
+<button id="btn-prev-trilho" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-red-600 text-white p-3 rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 hidden md:block z-40 shadow-lg cursor-pointer border border-white/10 hover:scale-110">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+</button>
+
+<button id="btn-next-trilho" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-red-600 text-white p-3 rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 hidden md:block z-40 shadow-lg cursor-pointer border border-white/10 hover:scale-110">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+</button>
+
+<div class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-white text-[9px] uppercase font-bold tracking-widest px-3 py-1.5 rounded-sm border border-white/10 shadow-lg flex md:hidden items-center gap-2 pointer-events-none z-40">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3 h-3 animate-pulse"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
+DESLIZE
 </div>
 </div>
-<!-- FIM DO CARROSSEL -->
+
+<script>
+document.getElementById('btn-prev-trilho')?.addEventListener('click', function() {
+    var c = document.getElementById('carousel-trilho');
+    if(c) c.scrollBy({left: -c.clientWidth, behavior: 'smooth'});
+});
+document.getElementById('btn-next-trilho')?.addEventListener('click', function() {
+    var c = document.getElementById('carousel-trilho');
+    if(c) c.scrollBy({left: c.clientWidth, behavior: 'smooth'});
+});
+</script>
 
 ## Quebra ocorreu na região de uma junta ferroviária
 
