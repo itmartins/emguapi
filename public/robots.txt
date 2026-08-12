@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Bloqueia a indexação de páginas de erro
+Disallow: /404
+
+# Aponta o caminho para o Google achar todas as suas notícias
+Sitemap: https://www.emguapi.com/sitemap-index.xml
