@@ -23,7 +23,7 @@ const {
     tags = []
 } = Astro.props;
 
-// Ajuste dinâmico e seguro do Link (Astro.site pega o domínio oficial configurado, ou usa o padrão)
+// Ajuste dinâmico e seguro do Link
 const siteURL = Astro.site ? Astro.site.toString() : "https://www.emguapi.com"; 
 const canonicalURL = new URL(Astro.url.pathname, siteURL).href;
 const imageURL = new URL(image, siteURL).href;
@@ -36,7 +36,7 @@ const imageURL = new URL(image, siteURL).href;
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-        <meta name="theme-color" content="#112240" /> {/* Cor do topo do navegador no celular */}
+        <meta name="theme-color" content="#112240" />
         
         {/* SEO Básico & Canonical URL */}
         <title>{title}</title>
@@ -68,9 +68,6 @@ const imageURL = new URL(image, siteURL).href;
             <meta property="article:tag" content={tag} />
         ))}
 
-        {/* Google AdSense */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2720240238972537" crossorigin="anonymous"></script>
-
         {/* Google Analytics (GTAG) com Consentimento */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT7DRC4XE3"></script>
         <script is:inline>
@@ -90,7 +87,6 @@ const imageURL = new URL(image, siteURL).href;
         </script>
     </head>
     
-    {/* Adicionado o dark:bg e dark:text para suportar o Modo Escuro no corpo todo */}
     <body class="bg-gray-50 dark:bg-[#0a192f] text-navy-base dark:text-gray-100 font-sans flex flex-col min-h-screen transition-colors duration-300">
         
         <div class="flex-grow">
@@ -106,31 +102,50 @@ const imageURL = new URL(image, siteURL).href;
         {/* SDK do Facebook */}
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0"></script>
+
+        {/* OTIMIZAÇÃO: Google AdSense Lazy Load (Só carrega quando rolar a tela) */}
+        <script type="text/javascript">
+          let adsLoaded = false;
+          function loadGoogleAds() {
+            if (!adsLoaded) {
+              adsLoaded = true;
+              const adScript = document.createElement('script');
+              adScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2720240238972537";
+              adScript.async = true;
+              adScript.crossOrigin = "anonymous";
+              document.head.appendChild(adScript);
+              
+              // Limpa os event listeners para não rodar duas vezes
+              window.removeEventListener('scroll', loadGoogleAds);
+              window.removeEventListener('mousemove', loadGoogleAds);
+              window.removeEventListener('touchstart', loadGoogleAds);
+            }
+          }
+
+          // Escuta a primeira interação do usuário (Descer a tela, mover o mouse ou tocar no celular)
+          window.addEventListener('scroll', loadGoogleAds, { passive: true });
+          window.addEventListener('mousemove', loadGoogleAds, { passive: true });
+          window.addEventListener('touchstart', loadGoogleAds, { passive: true });
+
+          // Se o usuário não fizer nada, o anúncio carrega de forma invisível após 3 segundos
+          setTimeout(loadGoogleAds, 3000);
+        </script>
+
+        {/* PROTEÇÃO DE CONTEÚDO (ANTI-CÓPIA) */}
+        <script is:inline>
+            // Bloqueia o botão direito do mouse (menu de contexto)
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            });
+
+            // Bloqueia atalhos de teclado usados para cópia e inspeção de código
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'F12') { e.preventDefault(); }
+                if (e.ctrlKey && ['c', 'a', 'u', 's', 'p'].includes(e.key.toLowerCase())) { e.preventDefault(); }
+                if (e.ctrlKey && e.shiftKey && ['i', 'c', 'j'].includes(e.key.toLowerCase())) { e.preventDefault(); }
+            });
+        </script>
     </body>
-
-    {/* PROTEÇÃO DE CONTEÚDO (ANTI-CÓPIA) */}
-    <script>
-        // Bloqueia o botão direito do mouse (menu de contexto)
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
-        // Bloqueia atalhos de teclado usados para cópia e inspeção de código
-        document.addEventListener('keydown', function(e) {
-            // Bloqueia o F12 (Inspecionar)
-            if (e.key === 'F12') {
-                e.preventDefault();
-            }
-            // Bloqueia Ctrl+C, Ctrl+A, Ctrl+U, Ctrl+S, Ctrl+P
-            if (e.ctrlKey && ['c', 'a', 'u', 's', 'p'].includes(e.key.toLowerCase())) {
-                e.preventDefault();
-            }
-            // Bloqueia Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+Shift+J
-            if (e.ctrlKey && e.shiftKey && ['i', 'c', 'j'].includes(e.key.toLowerCase())) {
-                e.preventDefault();
-            }
-        });
-    </script>
 </html>
 
 <style is:global>
@@ -155,20 +170,17 @@ const imageURL = new URL(image, siteURL).href;
         quotes: none !important;
     }
 
-    /* Ajuste de cor da citação no modo escuro */
     html.dark .prose blockquote {
-        color: #f3f4f6 !important; /* Texto claro no modo escuro */
-        border-color: #374151 !important; /* Borda mais escura */
+        color: #f3f4f6 !important; 
+        border-color: #374151 !important; 
     }
 
-    /* Remove as aspas automáticas feias do Tailwind */
     .prose blockquote p::before,
     .prose blockquote p::after {
         content: none !important;
         display: none !important;
     }
 
-    /* Desenha a barrinha vermelha (cima) */
     .prose blockquote::before {
         content: "" !important;
         position: absolute;
@@ -180,7 +192,6 @@ const imageURL = new URL(image, siteURL).href;
         top: -2.5px; 
     }
 
-    /* Desenha a barrinha vermelha (baixo) */
     .prose blockquote::after {
         content: "" !important;
         position: absolute;
@@ -192,7 +203,6 @@ const imageURL = new URL(image, siteURL).href;
         bottom: -2.5px; 
     }
 
-    /* Remove margens extras do parágrafo de dentro */
     .prose blockquote p {
         margin: 0 !important;
     }
@@ -201,7 +211,6 @@ const imageURL = new URL(image, siteURL).href;
     /* BLOQUEIO DE SELEÇÃO E CÓPIA               */
     /* ----------------------------------------- */
     
-    /* Bloqueia a seleção de texto (ficar azul) em todo o site */
     body {
         -webkit-user-select: none !important;
         -moz-user-select: none !important;
@@ -209,7 +218,6 @@ const imageURL = new URL(image, siteURL).href;
         user-select: none !important;
     }
 
-    /* Impede o leitor de "arrastar" as imagens para a área de trabalho */
     img {
         -webkit-user-drag: none !important;
         -khtml-user-drag: none !important;
