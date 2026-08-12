@@ -16,32 +16,35 @@ export async function getStaticPaths() {
   }));
 }
 
-// Avisamos ao Astro exatamente o que é o "entry"
 type Props = {
   entry: CollectionEntry<'noticias'>;
 };
 
-// Função para limpar o texto da URL das tags
 const formatarTagParaURL = (tag: string) => {
   return tag.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
 };
 
 const { entry } = Astro.props as Props;
+
+// Correção para o render do Astro 5 com glob loaders
 const { Content } = await render(entry);
 
-// --- LÓGICA DE NOTÍCIAS RELACIONADAS ---
-// 1. Clonamos a coleção e Tipamos as variáveis para evitar bugs
+// --- LÓGICA DE NOTÍCIAS RELACIONADAS (Blindada contra campos de data diferentes) ---
 const allNoticias = await getCollection('noticias');
 const noticiasRelacionadas = [...allNoticias]
     .filter((n: CollectionEntry<'noticias'>) => n.id !== entry.id) 
-    .sort((a: CollectionEntry<'noticias'>, b: CollectionEntry<'noticias'>) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime())
+    .sort((a: any, b: any) => {
+        const dateA = new Date(a.data.data || a.data.date || a.data.pubDate || 0).getTime();
+        const dateB = new Date(b.data.data || b.data.date || b.data.pubDate || 0).getTime();
+        return dateB - dateA;
+    })
     .slice(0, 3);
 
-// Tratamento seguro do Autor
 const nomeAutor = entry.data.autor || "Equipe emguapi";
 const autorSlug = nomeAutor.toLowerCase().trim().replace(/\s+/g, '-');
 
-const dataFormatada = new Date(entry.data.data).toLocaleDateString('pt-BR', {
+const rawDate = entry.data.data || entry.data.date || entry.data.pubDate || Date.now();
+const dataFormatada = new Date(rawDate).toLocaleDateString('pt-BR', {
   day: '2-digit',
   month: 'long',
   year: 'numeric'
@@ -49,7 +52,7 @@ const dataFormatada = new Date(entry.data.data).toLocaleDateString('pt-BR', {
 
 const shareUrl = `https://emguapi.com/noticias/${entry.id.replace(/\.md$/, '')}`;
 const shareText = encodeURIComponent(entry.data.titulo);
-const datePublished = new Date(entry.data.data).toISOString();
+const datePublished = new Date(rawDate).toISOString();
 ---
 
 <Layout 
@@ -58,7 +61,6 @@ const datePublished = new Date(entry.data.data).toISOString();
     image={entry.data.imagem}
     tags={entry.data.tags}
 >
-    <!-- Schema do Google News -->
     <NewsArticleSchema
         title={entry.data.titulo}
         description={entry.data.resumo}
@@ -69,10 +71,8 @@ const datePublished = new Date(entry.data.data).toISOString();
 
     <Navbar />
     
-    {/* CONTAINER PRINCIPAL ADAPTADO PARA DARK MODE */}
     <main class="max-w-4xl mx-auto my-12 bg-white dark:bg-[#112240] shadow-xl rounded-lg overflow-hidden border border-gray-200 dark:border-white/10 transition-colors duration-300">
         
-        {/* HEADER DA NOTÍCIA */}
         <header class="relative h-[400px] md:h-[500px]">
             <img 
                 src={entry.data.imagem || "/fotos/estacao-guapi.jpg"} 
@@ -93,7 +93,6 @@ const datePublished = new Date(entry.data.data).toISOString();
         </header>
 
         <article class="p-8 md:p-16">
-            {/* META INFO E SHARE */}
             <div class="flex flex-wrap items-center justify-between gap-6 mb-10 pb-6 border-b border-gray-100 dark:border-white/10 transition-colors">
                 <div class="text-gray-500 dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest transition-colors">
                     {dataFormatada} <span class="mx-2 text-gray-300 dark:text-gray-600">|</span> Por 
@@ -104,7 +103,6 @@ const datePublished = new Date(entry.data.data).toISOString();
 
                 <div class="flex gap-2">
                     <a href={`https://wa.me/?text=${shareText}%20${shareUrl}`} target="_blank" class="bg-[#25D366] hover:bg-[#20b858] text-white px-4 py-2 rounded-md transition-all text-[9px] font-black uppercase shadow-sm flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg>
                         WhatsApp
                     </a>
                     <a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`} target="_blank" class="bg-[#1877F2] hover:bg-[#1464cc] text-white px-4 py-2 rounded-md transition-all text-[9px] font-black uppercase shadow-sm">
@@ -117,7 +115,6 @@ const datePublished = new Date(entry.data.data).toISOString();
                 <AdBannerContainer slotId="0987654321" format="rectangle" />
             </div>
 
-            {/* CONTEÚDO DA MATÉRIA COM SUPORTE AO DARK:PROSE-INVERT */}
             <div class="
                 prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed transition-colors
                 prose-headings:font-black prose-headings:text-navy-dark dark:prose-headings:text-white prose-headings:uppercase prose-headings:tracking-tight
@@ -127,12 +124,12 @@ const datePublished = new Date(entry.data.data).toISOString();
                 
                 [&_iframe]:w-full [&_iframe]:aspect-video [&_iframe]:rounded-lg [&_iframe]:shadow-md [&_iframe]:mb-8
                 
-                [&_figure]:my-8             
+                [&_figure]:my-8            
                 [&_figure]:block
                 [&_figcaption]:text-center  
                 [&_figcaption]:text-xs      
                 [&_figcaption]:text-gray-500 dark:[&_figcaption]:text-gray-400
-                [&_figcaption]:mt-3         
+                [&_figcaption]:mt-3        
                 [&_figcaption]:font-bold
                 [&_figcaption]:tracking-widest
                 [&_figcaption]:uppercase
@@ -161,7 +158,6 @@ const datePublished = new Date(entry.data.data).toISOString();
                 <Content />
             </div>
 
-            {/* TAGS */}
             {entry.data.tags && entry.data.tags.length > 0 && (
                 <div class="mt-12 mb-12 pt-8 border-t border-gray-100 dark:border-white/10 transition-colors">
                     <h4 class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-4">Tópicos Relacionados:</h4>
@@ -178,7 +174,6 @@ const datePublished = new Date(entry.data.data).toISOString();
                 </div>
             )}
             
-            {/* RELACIONADAS */}
             <div class="mt-20 pt-12 border-t-2 border-gray-100 dark:border-white/10 transition-colors">
                 <h3 class="text-xl font-black uppercase tracking-tighter text-navy-dark dark:text-white mb-8 flex items-center gap-3 transition-colors">
                     <span class="w-2 h-6 bg-red-base inline-block rounded-sm"></span>
@@ -192,7 +187,7 @@ const datePublished = new Date(entry.data.data).toISOString();
                                 categoria={noticia.data.categoria}
                                 titulo={noticia.data.titulo}
                                 resumo=""
-                                data={noticia.data.data}
+                                data={noticia.data.data || noticia.data.date}
                                 link={`/noticias/${noticia.id.replace(/\.md$/, '')}`}
                                 imagem={noticia.data.imagem || "/fotos/emguapi-capa.png"}
                             />
@@ -201,7 +196,6 @@ const datePublished = new Date(entry.data.data).toISOString();
                 </div>
             </div>
 
-            {/* PUBLICIDADE*/}
             <div class="mt-16 pt-12 border-t border-gray-100 dark:border-white/10 flex flex-col items-center w-full transition-colors">
                 <span class="text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Espaço Publicitário</span>
                 <AdBannerContainer slotId="1504537360" format="horizontal" />
