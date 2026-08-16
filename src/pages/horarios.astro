@@ -1,8 +1,21 @@
 ---
 // src/pages/horarios.astro
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import AdBannerContainer from '../components/ads/AdBannerContainer.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+let statusData = { estado: 'indisponivel', ultimaAtualizacao: '--:--' };
+try {
+    const filePath = path.join(process.cwd(), 'public', 'api', 'trem.json');
+    if (fs.existsSync(filePath)) {
+        statusData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    }
+} catch (e) {
+    console.error("Erro ao ler /api/trem.json:", e);
+} 
 
 // --- DADOS DOS COMUNICADOS FIXOS ---
 const comunicadosFixos = [
@@ -20,6 +33,26 @@ const comunicadosFixos = [
     } 
 ];
 
+// --- LÓGICA DE AVISOS DE NOTÍCIAS (Dinâmico) ---
+const todasNoticias = (await getCollection('noticias')).sort(
+  (a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
+);
+
+const avisosRecentes = todasNoticias.filter(noticia => 
+    ['Manutenção', 'Serviço', 'Alerta', 'Segurança'].includes(noticia.data.categoria)
+).slice(0, 2);
+
+// --- LÓGICA DE STATUS ---
+const statusConfig = {
+    'normal': { border: 'border-green-500', text: 'text-green-400', desc: 'Operação Normal', luzCor: 'bg-green-500', luzPing: 'bg-green-400' },
+    'atrasado': { border: 'border-yellow-500', text: 'text-yellow-400', desc: 'Com Atrasos', luzCor: 'bg-yellow-500', luzPing: 'bg-yellow-400' },
+    'suspenso': { border: 'border-red-500', text: 'text-red-400', desc: 'Operação Suspensa', luzCor: 'bg-red-500', luzPing: 'bg-red-400' },
+    'manutencao': { border: 'border-blue-500', text: 'text-blue-400', desc: 'Manutenção', luzCor: 'bg-blue-500', luzPing: 'bg-blue-400' }
+};
+
+const currentStatusState = (statusData.estado || 'indisponivel').toLowerCase() as keyof typeof statusConfig;
+const currentConfig = statusConfig[currentStatusState] || statusConfig['normal'];
+
 // --- DADOS DAS ESTAÇÕES ---
 const estacoesData = [
     { nome: "Guapimirim" }, { nome: "Parada Bananal" }, { nome: "Parada Modelo" }, 
@@ -36,19 +69,10 @@ const estacoesData = [
     <main class="max-w-5xl mx-auto p-6 my-8">
         <section class="bg-navy-dark text-white p-8 md:p-10 rounded-lg shadow-xl mb-12 border-b-8 border-red-base">
             
-            <header class="mb-8 text-center md:text-left">
+            <header class="mb-10 text-center md:text-left">
                 <h2 class="text-3xl font-black uppercase tracking-tighter">Planeje sua Viagem</h2>
                 <p class="text-red-light text-xs font-bold uppercase tracking-widest mt-1">Horários reais do Ramal Guapimirim</p>
             </header>
-
-            {/* BANNER DINÂMICO DE STATUS (Inicia escondido) */}
-            <div id="horarios-status-banner" class="hidden mb-8 p-4 rounded-md border flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 text-center md:text-left transition-all">
-                <span id="horarios-status-icone" class="flex h-3 w-3 relative">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-white"></span>
-                  <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
-                </span>
-                <p id="horarios-status-texto" class="text-sm font-black uppercase tracking-widest"></p>
-            </div>
             
             <form id="planning-form" class="space-y-8">
                 <div class="grid md:grid-cols-2 gap-8">
@@ -234,56 +258,6 @@ const estacoesData = [
 
     </main>
 
-    {/* SCRIPT QUE LÊ O TREM.JSON E MOSTRA O BANNER DE ALERTA */}
-    <script is:inline>
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('/api/trem.json?v=' + new Date().getTime())
-                .then(response => response.json())
-                .then(data => {
-                    const estado = (data.estado || 'indisponivel').toLowerCase();
-                    const banner = document.getElementById('horarios-status-banner');
-                    const textEl = document.getElementById('horarios-status-texto');
-                    
-                    if (estado === 'normal') {
-                        // Se estiver normal, o banner continua invisível (não atrapalha o design)
-                        banner.classList.add('hidden');
-                    } else {
-                        // Se houver algum problema, exibe o aviso com a cor certa
-                        banner.classList.remove('hidden');
-                        
-                        let bg = 'bg-gray-800/50', border = 'border-gray-500', textCor = 'text-gray-200', msg = 'Sem Informação no momento.';
-                        
-                        if (estado === 'manutencao') { 
-                            bg = 'bg-blue-900/30'; border = 'border-blue-500/50'; textCor = 'text-blue-300'; 
-                            msg = 'Atenção: A circulação está atualmente em Manutenção Programada.'; 
-                        }
-                        if (estado === 'atrasado') { 
-                            bg = 'bg-yellow-900/30'; border = 'border-yellow-500/50'; textCor = 'text-yellow-300'; 
-                            msg = 'Atenção: A circulação opera com Atrasos neste momento.'; 
-                        }
-                        if (estado === 'suspenso') { 
-                            bg = 'bg-red-900/30'; border = 'border-red-500/50'; textCor = 'text-red-300'; 
-                            msg = 'Atenção: A circulação está Suspensa temporariamente.'; 
-                        }
-                        if (estado === 'parcial') { 
-                            bg = 'bg-orange-900/30'; border = 'border-orange-500/50'; textCor = 'text-orange-300'; 
-                            msg = 'Atenção: A circulação opera de forma Parcial (apenas até Magé).'; 
-                        }
-
-                        banner.className = `mb-8 p-4 rounded-md border flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 text-center md:text-left transition-all ${bg} ${border}`;
-                        textEl.className = `text-xs md:text-sm font-black uppercase tracking-widest ${textCor}`;
-                        textEl.innerText = msg;
-                        
-                        // Atualiza as cores da luz que pisca no banner
-                        const iconeSpan = document.getElementById('horarios-status-icone').children;
-                        iconeSpan[0].className = `animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${textCor.replace('text-', 'bg-')}`;
-                        iconeSpan[1].className = `relative inline-flex rounded-full h-3 w-3 ${textCor.replace('text-', 'bg-')}`;
-                    }
-                })
-                .catch(err => console.error("Erro ao carregar o alerta de trem na pesquisa:", err));
-        });
-    </script>
-
     <script define:vars={{ estacoesData }}>
         // --- DADOS REAIS E ABSOLUTOS (OFFSETS EM MINUTOS ENTRE ESTAÇÕES) ---
         const timeOffsets = {
@@ -390,6 +364,7 @@ const estacoesData = [
             let foundTrip = null;
             let isNextDay = false;
 
+            // Busca a primeira viagem disponível
             for (let tripObj of baseTrips) {
                 let departureAtOrigin;
                 let arrivalAtDest;
@@ -411,6 +386,7 @@ const estacoesData = [
                 }
             }
 
+            // Se não achar viagem hoje, pega a primeira do dia seguinte
             if (!foundTrip && baseTrips.length > 0) {
                 let tripObj = baseTrips[0];
                 let departureAtOrigin;
