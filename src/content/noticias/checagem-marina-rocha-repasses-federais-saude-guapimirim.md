@@ -3,7 +3,7 @@ titulo: "Dados públicos contradizem fala de Marina Rocha sobre repasses federai
 resumo: "Consulta ao Portal da Transparência aponta R$ 34,4 milhões transferidos ao Fundo Municipal de Saúde em 2026 até outubro. Já as afirmações sobre o INCA não puderam ser confirmadas, e a crítica ao horário de votação omite circunstâncias relevantes."
 data: 2026-10-26T13:30:00
 categoria: "Política"
-imagem: "/fotos/hospital_jose_rabello_de_mello_guapimirim.jpg"
+imagem: "/fotos/hospital_jose_rabello_de_mello_guapimirim.jpeg"
 autor: "Equipe emguapi"
 destaque: true
 tags: ["Marina Rocha", "Guapimirim", "saúde pública", "transparência", "eleições 2026", "SUS"]
