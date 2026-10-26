@@ -63,11 +63,11 @@ As rubricas têm finalidades diferentes. Por isso, o total transferido ao Fundo 
 
 ## Desvio de finalidade e devolução de R$ 1,4 milhão ao TCU
 
-Enquanto a prefeita cobra maiores transferências da União, auditorias mostram que o município aplicou de forma irregular repasses que já havia recebido[cite: 1]. 
+Enquanto a prefeita cobra maiores transferências da União, auditorias mostram que o município aplicou de forma irregular repasses que já havia recebido. 
 
-Em julho de 2026, o Tribunal de Contas da União (TCU) determinou que a Prefeitura de Guapimirim devolvesse cerca de **R$ 1,4 milhão** aos cofres públicos[cite: 1]. O dinheiro era fruto de uma "Emenda PIX" federal destinada exclusivamente à construção da Cidade da Saúde (Centro de Diagnóstico por Imagem, Laboratório e Banco de Sangue)[cite: 1].
+Em julho de 2026, o Tribunal de Contas da União (TCU) determinou que a Prefeitura de Guapimirim devolvesse cerca de **R$ 1,4 milhão** aos cofres públicos. O dinheiro era fruto de uma "Emenda PIX" federal destinada exclusivamente à construção da Cidade da Saúde (Centro de Diagnóstico por Imagem, Laboratório e Banco de Sangue).
 
-A auditoria identificou que a gestão de Marina Rocha realizou transferências via TED para a empresa Apec Soluções e Serviços, pagando por obras em um posto de saúde no bairro Parada Ideal, configurando "desvio de finalidade" e descumprimento legal[cite: 1]. A Prefeitura reconheceu a irregularidade e se comprometeu a devolver o dinheiro à conta específica do plano original[cite: 1]. 
+A auditoria identificou que a gestão de Marina Rocha realizou transferências via TED para a empresa Apec Soluções e Serviços, pagando por obras em um posto de saúde no bairro Parada Ideal, configurando "desvio de finalidade" e descumprimento legal. A Prefeitura reconheceu a irregularidade e se comprometeu a devolver o dinheiro à conta específica do plano original. 
 
 ## Relato sobre o INCA não foi confirmado de forma independente
 
